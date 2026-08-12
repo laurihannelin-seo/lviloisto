@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "LVI-Loisto Oy | LVI-urakointia vaativiin kohteisiin";
+const description =
+  "LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin, saneerauksiin, arvoasuntoihin ja kiinteistöihin.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="hero page-shell">
+    <div class="hero__content">
+      <p class="hero__eyebrow">LVI-Loisto Oy</p>
+      <h1>LVI-urakointia vaativiin kohteisiin</h1>
+      <p class="hero__intro">
+        LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin,
+        saneerauksiin, arvoasuntoihin ja kiinteistöihin.
+      </p>
+      <div class="hero__actions" aria-label="Ensisijaiset toiminnot">
+        <a class="button" href="mailto:info@lviloisto.fi">Pyydä tarjous</a>
+        <a class="button button--secondary" href="#palvelut">Tutustu palveluihin</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
