@@ -63,6 +63,35 @@ const qualitySection = {
     },
   ],
 };
+
+const aboutSection = {
+  label: "TIETOA MEISTÄ",
+  title: "Teknistä osaamista vaativiin ympäristöihin",
+  body: [
+    "LVI-Loisto on vaativiin kohteisiin keskittyvä LVI-kumppani. Toteutamme uudisrakennusten, saneerausten, arvoasuntojen ja kiinteistöjen LVI-ratkaisuja huolellisella työnjäljellä ja kohteen erityispiirteet huomioiden.",
+    "Työmme ytimessä on tekninen varmuus, siisti toteutus ja sujuva yhteistyö asiakkaan, suunnittelijoiden ja muiden urakoitsijoiden kanssa. Lopputuloksen pitää toimia, kestää ja sopia kohteen tasoon.",
+  ],
+  image: "/images/home/about-imgl1779.jpg",
+  imageAlt: "Vaalea viimeistelty kylpyhuone puisella katolla ja marmoripinnoilla",
+  cta: "Keskustele kohteestasi",
+  highlights: [
+    {
+      number: "01",
+      title: "Vaativat saneerauskohteet",
+      text: "Arvoasunnot, villat ja suuret yksityiskiinteistöt.",
+    },
+    {
+      number: "02",
+      title: "Kiinteistöjen LVI-ratkaisut",
+      text: "Taloyhtiöt, lämmönjakokeskukset ja kaukolämpökeskukset.",
+    },
+    {
+      number: "03",
+      title: "Lämmitysjärjestelmät",
+      text: "Maalämpö, VILP ja järjestelmien uudistukset.",
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -181,6 +210,39 @@ const qualitySection = {
 
         <a class="text-link" href="mailto:info@lviloisto.fi">{qualitySection.cta}</a>
       </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="tietoa-meista">
+    <div class="about-section__inner">
+      <div class="about-section__copy">
+        <p class="section-label">{aboutSection.label}</p>
+        <h2>{aboutSection.title}</h2>
+
+        <div class="about-section__body">
+          {aboutSection.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+
+        <div class="about-highlights" aria-label="LVI-Loiston osaamisen painopisteet">
+          {
+            aboutSection.highlights.map((highlight) => (
+              <article class="about-highlight">
+                <span class="about-highlight__number">{highlight.number}</span>
+                <div>
+                  <h3>{highlight.title}</h3>
+                  <p>{highlight.text}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+        <a class="text-link" href="mailto:info@lviloisto.fi">{aboutSection.cta}</a>
+      </div>
+
+      <figure class="about-section__media">
+        <img src={aboutSection.image} alt={aboutSection.imageAlt} loading="lazy" />
+      </figure>
     </div>
   </section>
 </BaseLayout>
