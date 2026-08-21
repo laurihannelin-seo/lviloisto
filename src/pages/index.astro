@@ -10,7 +10,7 @@ const solutionsSection = {
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
   cta: "Keskustele kohteestasi",
-  ctaHref: "mailto:info@lviloisto.fi",
+  ctaHref: "#yhteystiedot",
   image: "/images/home/solutions-intro-image00007.jpeg",
   imageAlt: "Vaativa LVI-kohde viimeistellyssä sisätilassa",
   items: [
@@ -138,7 +138,6 @@ const aboutSection = {
 };
 
 const processSection = {
-  label: "MENETELMÄ",
   title: "Tarkkuutta suunnittelusta luovutukseen",
   intro:
     "Vaativassa LVI-projektissa onnistuminen syntyy ennen asennusta. Kohteen rakenteet, arkkitehtuuri, aikataulu ja muut urakoitsijat sovitetaan yhteen ennen toteutusta.",
@@ -181,7 +180,6 @@ const processSection = {
 };
 
 const faqSection = {
-  label: "UKK",
   title: "Usein kysyttyä",
   intro: "Tässä muutama yleinen kysymys LVI-Loiston palveluista.",
   items: [
@@ -341,7 +339,7 @@ const contactSection = {
           }
         </div>
 
-        <a class="text-link" href="mailto:info@lviloisto.fi">{aboutSection.cta}</a>
+        <a class="text-link" href="#yhteystiedot">{aboutSection.cta}</a>
 
         <div class="about-trust" aria-label="Luottamustunnukset">
           {
@@ -385,7 +383,6 @@ const contactSection = {
   <section class="process-section" id="menetelma" data-process-section>
     <div class="process-section__inner page-shell">
       <div class="process-section__header">
-        <p class="section-label">{processSection.label}</p>
         <h2>{processSection.title}</h2>
         <p>{processSection.intro}</p>
       </div>
@@ -477,7 +474,6 @@ const contactSection = {
   <section class="faq-section" aria-labelledby="faq-heading">
     <div class="faq-section__inner page-shell">
       <div class="faq-section__header">
-        <p class="section-label">{faqSection.label}</p>
         <h2 id="faq-heading">{faqSection.title}</h2>
         <p>{faqSection.intro}</p>
       </div>

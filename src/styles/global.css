@@ -922,10 +922,6 @@ select {
   text-align: center;
 }
 
-.faq-section__header .section-label {
-  justify-content: center;
-}
-
 .faq-section h2 {
   margin: 0;
   font-size: clamp(2.35rem, 4vw, 4.2rem);
@@ -1463,10 +1459,6 @@ select {
 
   .faq-section__header {
     text-align: left;
-  }
-
-  .faq-section__header .section-label {
-    justify-content: flex-start;
   }
 
   .faq-section h2 {
