@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LVI-Loisto favicon">
-  <rect width="64" height="64" rx="12" fill="#111111"/>
-  <path d="M18 44V18h6v20h14v6H18Z" fill="#f6f2ea"/>
-  <path d="M41 20h5v24h-5z" fill="#c8a96a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LVI-Loisto Oy">
+  <rect width="64" height="64" rx="14" fill="#242C5A"/>
+  <path d="M19 49 30.2 9h10.2L29.2 49H19Z" fill="#C49A3C"/>
+  <path d="M28.4 19 33 9h16.8L44.7 19H28.4Z" fill="#E7D16B"/>
+  <path d="M22.6 49 27.7 39H45L39.9 49H22.6Z" fill="#F3E379"/>
+  <path d="M36.5 55 47.8 15h-10L26.5 55h10Z" fill="#F7F4EE" opacity="0.94"/>
 </svg>
