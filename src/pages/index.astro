@@ -40,6 +40,29 @@ const solutionsSection = {
     },
   ],
 };
+
+const qualitySection = {
+  title: "Huolellinen toteutus näkyy vaativissa kohteissa",
+  intro:
+    "Arvoasunnoissa, saneerauskohteissa ja suurissa kiinteistöissä LVI-työn onnistuminen ei tarkoita vain teknistä toimivuutta. Toteutuksen pitää sopia kohteen aikatauluun, rakenteisiin, viimeistelyyn ja muuhun rakentamiseen.",
+  image: "/images/home/quality-imgl1757.jpg",
+  imageAlt: "Viimeistelty märkätilan allas ja kultaiset hanakalusteet",
+  cta: "Keskustele kohteestasi",
+  points: [
+    {
+      title: "Viimeistelty työnjälki",
+      text: "LVI-ratkaisut toteutetaan niin, että lopputulos toimii teknisesti ja istuu kohteen viimeisteltyyn kokonaisuuteen.",
+    },
+    {
+      title: "Yhteistyö suunnittelijoiden ja urakoitsijoiden kanssa",
+      text: "Työt sovitetaan yhteen muun rakentamisen, aikataulun ja kohteen vaatimusten kanssa.",
+    },
+    {
+      title: "Ratkaisut kohteen mukaan",
+      text: "Jokainen kohde huomioidaan erikseen, oli kyseessä arvoasunto, taloyhtiö, huvila tai suurempi kiinteistö.",
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -82,6 +105,32 @@ const solutionsSection = {
           </article>
         ))
       }
+    </div>
+  </section>
+
+  <section class="quality-section" id="toteutus">
+    <div class="quality-section__inner page-shell">
+      <figure class="quality-section__media">
+        <img src={qualitySection.image} alt={qualitySection.imageAlt} loading="lazy" />
+      </figure>
+
+      <div class="quality-section__copy">
+        <h2>{qualitySection.title}</h2>
+        <p class="quality-section__intro">{qualitySection.intro}</p>
+
+        <div class="quality-list" aria-label="LVI-Loiston laatupilarit">
+          {
+            qualitySection.points.map((point) => (
+              <article class="quality-list__item">
+                <h3>{point.title}</h3>
+                <p>{point.text}</p>
+              </article>
+            ))
+          }
+        </div>
+
+        <a class="text-link" href="mailto:info@lviloisto.fi">{qualitySection.cta}</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
