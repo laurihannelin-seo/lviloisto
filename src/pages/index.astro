@@ -4,6 +4,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const title = "LVI-Loisto Oy | LVI-urakointia vaativiin kohteisiin";
 const description =
   "LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin, saneerauksiin, arvoasuntoihin ja kiinteistöihin.";
+
+const solutionsSection = {
+  eyebrow: "Palvelut ja kohteet",
+  title: "LVI-ratkaisut vaativiin kohteisiin",
+  intro:
+    "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
+  pillars: [
+    {
+      number: "01",
+      title: "Arvoasunnot ja saneerauskohteet",
+      text: "Huolellista LVI-työtä valmiisiin ja vaativiin asuinympäristöihin.",
+    },
+    {
+      number: "02",
+      title: "Uudisrakennukset ja villat",
+      text: "LVI-urakointia omakotitaloihin, huviloihin ja suuriin yksityiskohteisiin.",
+    },
+    {
+      number: "03",
+      title: "Taloyhtiöt ja kiinteistöt",
+      text: "Lämmönjakokeskukset, kaukolämpökeskukset ja kiinteistöjen LVI-ratkaisut.",
+    },
+    {
+      number: "04",
+      title: "Lämmitysratkaisut",
+      text: "Maalämpö, VILP ja lämmitysjärjestelmien uudistukset.",
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -11,17 +40,24 @@ const description =
     <div class="home-hero__placeholder" aria-hidden="true"></div>
   </section>
 
-  <section class="intro-section page-shell">
-    <div class="intro-section__content">
-      <p class="hero__eyebrow">LVI-Loisto Oy</p>
-      <h1>LVI-urakointia vaativiin kohteisiin</h1>
-      <p class="hero__intro">
-        LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin,
-        saneerauksiin, arvoasuntoihin ja kiinteistöihin.
-      </p>
-      <div class="hero__actions" aria-label="Ensisijaiset toiminnot">
-        <a class="button" href="mailto:info@lviloisto.fi">Pyydä tarjous</a>
-        <a class="button button--secondary" href="#palvelut">Tutustu palveluihin</a>
+  <section class="solutions-section" id="lvi-tyot">
+    <div class="page-shell">
+      <div class="solutions-section__header">
+        <p class="section-eyebrow">{solutionsSection.eyebrow}</p>
+        <h1>{solutionsSection.title}</h1>
+        <p>{solutionsSection.intro}</p>
+      </div>
+
+      <div class="solution-grid" aria-label="LVI-Loiston palvelupilarit">
+        {
+          solutionsSection.pillars.map((pillar) => (
+            <article class="solution-card">
+              <span class="solution-card__number">{pillar.number}</span>
+              <h2>{pillar.title}</h2>
+              <p>{pillar.text}</p>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
