@@ -252,7 +252,7 @@ select {
 .portfolio-section {
   background: #11162f;
   color: var(--color-surface);
-  padding-block: clamp(4.75rem, 7vw, 7.5rem);
+  padding-block: clamp(2.4rem, 3.6vw, 4.2rem);
 }
 
 .portfolio-section__inner.page-shell {
@@ -261,7 +261,7 @@ select {
 
 .portfolio-section__inner {
   display: grid;
-  gap: clamp(2.75rem, 5vw, 4.75rem);
+  gap: clamp(1.35rem, 2.4vw, 2.35rem);
 }
 
 .portfolio-section__header {
@@ -271,14 +271,14 @@ select {
   row-gap: 1.75rem;
   align-items: start;
   border-top: 1px solid rgba(231, 209, 107, 0.24);
-  padding-top: clamp(1.5rem, 2.5vw, 2.2rem);
+  padding-top: clamp(1rem, 1.7vw, 1.5rem);
 }
 
 .portfolio-section h2 {
   max-width: 58rem;
   margin: 0;
   color: #ffffff;
-  font-size: clamp(3.7rem, 7vw, 7rem);
+  font-size: clamp(2.8rem, 4.6vw, 4.85rem);
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1.02;
@@ -292,18 +292,18 @@ select {
 .portfolio-section__intro p {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(1.02rem, 1.25vw, 1.16rem);
+  font-size: clamp(0.96rem, 1vw, 1.05rem);
   font-weight: 520;
-  line-height: 1.62;
+  line-height: 1.5;
 }
 
 .portfolio-section__cta {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  margin-top: clamp(1.5rem, 2.8vw, 2.25rem);
+  margin-top: clamp(1rem, 1.8vw, 1.35rem);
   color: #ffffff;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-decoration: none;
@@ -312,8 +312,8 @@ select {
 
 .portfolio-section__cta span {
   display: inline-grid;
-  width: 2.85rem;
-  height: 2.85rem;
+  width: 2.45rem;
+  height: 2.45rem;
   place-items: center;
   background: var(--color-accent);
   color: #11162f;
@@ -356,7 +356,7 @@ select {
 .portfolio-card__media {
   margin: 0;
   overflow: hidden;
-  aspect-ratio: 1.18 / 1;
+  aspect-ratio: 1.42 / 1;
   background: #1a2042;
 }
 
@@ -377,14 +377,14 @@ select {
 
 .portfolio-card__content {
   display: grid;
-  gap: 0.95rem;
-  padding-top: clamp(1.05rem, 1.8vw, 1.45rem);
+  gap: 0.65rem;
+  padding-top: clamp(0.8rem, 1.2vw, 1rem);
 }
 
 .portfolio-card__location {
   margin: 0;
   color: rgba(231, 209, 107, 0.86);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1;
@@ -394,7 +394,7 @@ select {
 .portfolio-card h3 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(1.25rem, 1.6vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.35vw, 1.45rem);
   font-weight: 700;
   letter-spacing: 0;
   line-height: 1.08;
@@ -405,8 +405,8 @@ select {
   margin: 0;
   max-width: 28rem;
   color: rgba(255, 255, 255, 0.68);
-  font-size: 0.94rem;
-  line-height: 1.55;
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 .portfolio-card__link {
@@ -414,9 +414,9 @@ select {
   align-items: center;
   gap: 0.85rem;
   justify-self: start;
-  margin-top: 0.45rem;
+  margin-top: 0.25rem;
   color: #ffffff;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -425,8 +425,8 @@ select {
 
 .portfolio-card__link span:last-child {
   display: inline-grid;
-  width: 2.45rem;
-  height: 2.45rem;
+  width: 2.2rem;
+  height: 2.2rem;
   place-items: center;
   background: var(--color-accent);
   color: #11162f;
@@ -798,11 +798,11 @@ select {
   }
 
   .portfolio-section {
-    padding-block: 4.75rem 5.25rem;
+    padding-block: 3.75rem 4.25rem;
   }
 
   .portfolio-section__inner {
-    gap: 2.75rem;
+    gap: 2rem;
   }
 
   .portfolio-section__header {
@@ -811,7 +811,7 @@ select {
   }
 
   .portfolio-section h2 {
-    font-size: clamp(2.25rem, 10vw, 3.45rem);
+    font-size: clamp(2.1rem, 9vw, 3rem);
     line-height: 1.02;
   }
 
@@ -821,11 +821,11 @@ select {
 
   .portfolio-grid {
     grid-template-columns: 1fr;
-    gap: 2.75rem;
+    gap: 2rem;
   }
 
   .portfolio-card {
-    padding-top: 1.1rem;
+    padding-top: 0.75rem;
   }
 
   .portfolio-card__media {
@@ -837,7 +837,7 @@ select {
   }
 
   .portfolio-card p {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
   }
 
   .portfolio-card__link {
@@ -951,7 +951,7 @@ select {
   }
 
   .portfolio-section h2 {
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-size: clamp(2.7rem, 5.8vw, 4.35rem);
   }
 
   .portfolio-section__intro {
@@ -960,11 +960,11 @@ select {
 
   .portfolio-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2.5rem 1.2rem;
+    gap: 2rem 1.2rem;
   }
 
   .portfolio-card__media {
-    aspect-ratio: 1.18 / 1;
+    aspect-ratio: 1.35 / 1;
   }
 
   .portfolio-card h3 {
