@@ -168,9 +168,10 @@ select {
 }
 
 .solution-feature__media {
-  display: grid;
+  display: block;
   min-height: clamp(19rem, 34vw, 29rem);
-  place-items: center;
+  margin: 0;
+  overflow: hidden;
   border: 1px solid rgba(22, 22, 22, 0.1);
   background:
     linear-gradient(90deg, rgba(22, 22, 22, 0.04) 1px, transparent 1px),
@@ -179,12 +180,11 @@ select {
   background-size: 33.333% 100%, 100% 50%, auto;
 }
 
-.solution-feature__media span {
-  color: rgba(22, 22, 22, 0.34);
-  font-size: 0.78rem;
-  font-weight: 650;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.solution-feature__media img {
+  display: block;
+  width: 100%;
+  height: clamp(19rem, 34vw, 29rem);
+  object-fit: cover;
 }
 
 .solution-feature__copy {

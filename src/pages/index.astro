@@ -14,25 +14,29 @@ const solutionsSection = {
       number: "01",
       title: "Arvoasunnot ja saneerauskohteet",
       text: "Huolellista LVI-työtä valmiisiin ja vaativiin asuinympäristöihin.",
-      imageLabel: "Kuvapaikka arvoasuntojen ja saneerauskohteiden kohdekuvalle",
+      image: "/images/home/arvoasunnot-saneeraus.jpeg",
+      imageAlt: "Viimeistelty kylpyhuone saneerauskohteessa",
     },
     {
       number: "02",
       title: "Uudisrakennukset ja villat",
       text: "LVI-urakointia omakotitaloihin, huviloihin ja suuriin yksityiskohteisiin.",
-      imageLabel: "Kuvapaikka uudisrakennusten ja villojen kohdekuvalle",
+      image: "/images/home/uudisrakennukset-villat.jpeg",
+      imageAlt: "Laadukas kodinhoito- ja märkätila yksityiskohteessa",
     },
     {
       number: "03",
       title: "Taloyhtiöt ja kiinteistöt",
       text: "Lämmönjakokeskukset, kaukolämpökeskukset ja kiinteistöjen LVI-ratkaisut.",
-      imageLabel: "Kuvapaikka taloyhtiöiden ja kiinteistöjen kohdekuvalle",
+      image: "/images/home/taloyhtiot-kiinteistot.jpg",
+      imageAlt: "Tumma premium-tason sauna- ja märkätila",
     },
     {
       number: "04",
       title: "Lämmitysratkaisut",
       text: "Maalämpö, VILP ja lämmitysjärjestelmien uudistukset.",
-      imageLabel: "Kuvapaikka lämmitysratkaisujen kohdekuvalle",
+      image: "/images/home/lammitysratkaisut.jpeg",
+      imageAlt: "Tekninen lämmitysratkaisun ohjauslaite kodin tilassa",
     },
   ],
 };
@@ -55,9 +59,9 @@ const solutionsSection = {
       {
         solutionsSection.items.map((item) => (
           <article class="solution-feature page-shell">
-            <div class="solution-feature__media" aria-label={item.imageLabel}>
-              <span>Kuvapaikka</span>
-            </div>
+            <figure class="solution-feature__media">
+              <img src={item.image} alt={item.imageAlt} loading="lazy" />
+            </figure>
             <div class="solution-feature__copy">
               <span class="solution-feature__number">{item.number}</span>
               <h2>{item.title}</h2>
