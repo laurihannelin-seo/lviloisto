@@ -66,29 +66,44 @@ const qualitySection = {
 
 const aboutSection = {
   label: "TIETOA MEISTÄ",
-  title: "Teknistä osaamista vaativiin ympäristöihin",
+  title: "LVI-kumppani vaativiin koteihin ja kiinteistöihin",
   body: [
-    "LVI-Loisto on vaativiin kohteisiin keskittyvä LVI-kumppani. Toteutamme uudisrakennusten, saneerausten, arvoasuntojen ja kiinteistöjen LVI-ratkaisuja huolellisella työnjäljellä ja kohteen erityispiirteet huomioiden.",
-    "Työmme ytimessä on tekninen varmuus, siisti toteutus ja sujuva yhteistyö asiakkaan, suunnittelijoiden ja muiden urakoitsijoiden kanssa. Lopputuloksen pitää toimia, kestää ja sopia kohteen tasoon.",
+    "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa tekninen toimivuus, huolellinen työnjälki ja sujuva yhteistyö ratkaisevat lopputuloksen.",
+    "Työskentelemme yksityisasiakkaiden, taloyhtiöiden, rakennusliikkeiden ja suunnittelijoiden kanssa kohteissa, joissa LVI-ratkaisujen pitää sopia sekä teknisiin vaatimuksiin että kohteen viimeisteltyyn kokonaisuuteen.",
   ],
-  image: "/images/home/about-imgl1779.jpg",
-  imageAlt: "Vaalea viimeistelty kylpyhuone puisella katolla ja marmoripinnoilla",
+  images: [
+    {
+      src: "/images/home/about-imgl1779.jpg",
+      alt: "Vaalea viimeistelty kylpyhuone puisella katolla ja marmoripinnoilla",
+    },
+    {
+      src: "/images/home/arvoasunnot-saneeraus.jpeg",
+      alt: "Viimeistelty kylpyhuone arvoasunnon saneerauskohteessa",
+    },
+    {
+      src: "/images/home/uudisrakennukset-villat.jpeg",
+      alt: "Laadukas kodinhoito- ja märkätila yksityiskohteessa",
+    },
+    {
+      src: "/images/home/quality-imgl1757.jpg",
+      alt: "Kultaiset hanakalusteet viimeistellyssä märkätilassa",
+    },
+  ],
+  caption:
+    "Arvoasuntojen ja vaativien kohteiden LVI-ratkaisuissa korostuvat tekninen varmuus, siisti toteutus ja yksityiskohtien hallinta.",
   cta: "Keskustele kohteestasi",
   highlights: [
     {
-      number: "01",
-      title: "Vaativat saneerauskohteet",
-      text: "Arvoasunnot, villat ja suuret yksityiskiinteistöt.",
+      title: "Suunnitelmallinen toteutus",
+      text: "Työ sovitetaan kohteen aikatauluun, rakenteisiin ja muiden urakoitsijoiden etenemiseen.",
     },
     {
-      number: "02",
-      title: "Kiinteistöjen LVI-ratkaisut",
-      text: "Taloyhtiöt, lämmönjakokeskukset ja kaukolämpökeskukset.",
+      title: "Siisti ja viimeistelty työnjälki",
+      text: "Erityisesti valmiissa asuinympäristöissä toteutuksen pitää olla huolellinen alusta loppuun.",
     },
     {
-      number: "03",
-      title: "Lämmitysjärjestelmät",
-      text: "Maalämpö, VILP ja järjestelmien uudistukset.",
+      title: "Teknisesti kestävä lopputulos",
+      text: "Ratkaisut valitaan niin, että ne toimivat käytössä, eivät vain näytä hyvältä luovutushetkellä.",
     },
   ],
 };
@@ -227,11 +242,8 @@ const aboutSection = {
           {
             aboutSection.highlights.map((highlight) => (
               <article class="about-highlight">
-                <span class="about-highlight__number">{highlight.number}</span>
-                <div>
-                  <h3>{highlight.title}</h3>
-                  <p>{highlight.text}</p>
-                </div>
+                <h3>{highlight.title}</h3>
+                <p>{highlight.text}</p>
               </article>
             ))
           }
@@ -240,9 +252,74 @@ const aboutSection = {
         <a class="text-link" href="mailto:info@lviloisto.fi">{aboutSection.cta}</a>
       </div>
 
-      <figure class="about-section__media">
-        <img src={aboutSection.image} alt={aboutSection.imageAlt} loading="lazy" />
+      <figure class="about-carousel" data-about-carousel>
+        <div class="about-carousel__viewport">
+          {
+            aboutSection.images.map((image, index) => (
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                class={`about-carousel__image${index === 0 ? " is-active" : ""}`}
+                data-carousel-image
+                aria-hidden={index === 0 ? "false" : "true"}
+              />
+            ))
+          }
+
+          <div class="about-carousel__controls" aria-label="Kuvagallerian hallinta">
+            <button type="button" class="about-carousel__button" data-carousel-prev aria-label="Näytä edellinen kuva">
+              <span aria-hidden="true">←</span>
+            </button>
+            <span class="about-carousel__counter" data-carousel-counter>1 / {aboutSection.images.length}</span>
+            <button type="button" class="about-carousel__button" data-carousel-next aria-label="Näytä seuraava kuva">
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+        <figcaption class="about-carousel__caption">{aboutSection.caption}</figcaption>
       </figure>
     </div>
   </section>
+
+  <script>
+    const initAboutCarousels = () => {
+      const carousels = Array.from(document.querySelectorAll("[data-about-carousel]"));
+
+      carousels.forEach((carousel) => {
+        const images = Array.from(carousel.querySelectorAll("[data-carousel-image]"));
+        const previousButton = carousel.querySelector("[data-carousel-prev]");
+        const nextButton = carousel.querySelector("[data-carousel-next]");
+        const counter = carousel.querySelector("[data-carousel-counter]");
+
+        if (!images.length || !previousButton || !nextButton || !counter) {
+          return;
+        }
+
+        let activeIndex = 0;
+
+        const showImage = (nextIndex) => {
+          activeIndex = (nextIndex + images.length) % images.length;
+
+          images.forEach((image, index) => {
+            const isActive = index === activeIndex;
+            image.classList.toggle("is-active", isActive);
+            image.setAttribute("aria-hidden", isActive ? "false" : "true");
+          });
+
+          counter.textContent = `${activeIndex + 1} / ${images.length}`;
+        };
+
+        previousButton.addEventListener("click", () => showImage(activeIndex - 1));
+        nextButton.addEventListener("click", () => showImage(activeIndex + 1));
+        showImage(0);
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initAboutCarousels, { once: true });
+    } else {
+      initAboutCarousels();
+    }
+  </script>
 </BaseLayout>

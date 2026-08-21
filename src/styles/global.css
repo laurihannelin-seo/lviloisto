@@ -342,7 +342,7 @@ select {
 .about-section {
   overflow: hidden;
   background: var(--color-surface);
-  padding-block: clamp(3.25rem, 4vw, 5.25rem);
+  padding-block: clamp(2.75rem, 3vw, 4.5rem);
 }
 
 .about-section__inner {
@@ -411,11 +411,11 @@ select {
 
 .about-section__body {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.65rem;
   margin-top: clamp(1rem, 1.7vw, 1.45rem);
   color: var(--color-muted);
-  font-size: clamp(0.96rem, 1vw, 1.02rem);
-  line-height: 1.55;
+  font-size: clamp(0.95rem, 0.95vw, 1rem);
+  line-height: 1.5;
 }
 
 .about-section__body p {
@@ -429,18 +429,8 @@ select {
 }
 
 .about-highlight {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 1.25rem;
-  padding-block: clamp(0.75rem, 1.2vw, 0.92rem);
+  padding-block: clamp(0.62rem, 1vw, 0.82rem);
   border-bottom: 1px solid rgba(22, 22, 22, 0.12);
-}
-
-.about-highlight__number {
-  color: var(--color-muted);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
 }
 
 .about-highlight h3 {
@@ -452,27 +442,91 @@ select {
 }
 
 .about-highlight p {
-  margin: 0.32rem 0 0;
+  margin: 0.28rem 0 0;
   color: var(--color-muted);
-  font-size: 0.94rem;
-  line-height: 1.45;
+  font-size: 0.92rem;
+  line-height: 1.42;
 }
 
-.about-section__media {
+.about-carousel {
   grid-column: 3 / -1;
-  height: clamp(28rem, 60vh, 36rem);
   margin: 0;
+}
+
+.about-carousel__viewport {
+  position: relative;
+  height: clamp(26rem, 58vh, 34rem);
   overflow: hidden;
   border-left: 1px solid rgba(22, 22, 22, 0.1);
   background: #e8e4dc;
 }
 
-.about-section__media img {
+.about-carousel__image {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity 550ms ease;
+}
+
+.about-carousel__image.is-active {
+  opacity: 1;
+}
+
+.about-carousel__controls {
+  position: absolute;
+  right: clamp(1rem, 2vw, 1.5rem);
+  bottom: clamp(1rem, 2vw, 1.5rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text);
+}
+
+.about-carousel__button {
+  display: inline-grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border: 1px solid rgba(22, 22, 22, 0.16);
+  border-radius: 999px;
+  background: rgba(247, 244, 238, 0.88);
+  color: var(--color-text);
+  cursor: pointer;
+  line-height: 1;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.about-carousel__button:hover,
+.about-carousel__button:focus-visible {
+  border-color: rgba(22, 22, 22, 0.34);
+  background: var(--color-surface);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.about-carousel__counter {
+  min-width: 3.2rem;
+  color: rgba(22, 22, 22, 0.72);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.about-carousel__caption {
+  max-width: 32rem;
+  margin-top: clamp(1rem, 1.8vw, 1.35rem);
+  color: var(--color-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .site-footer {
@@ -665,7 +719,7 @@ select {
   }
 
   .about-section__copy,
-  .about-section__media {
+  .about-carousel {
     grid-column: 1;
   }
 
@@ -695,15 +749,29 @@ select {
   }
 
   .about-highlight {
-    grid-template-columns: 2.25rem minmax(0, 1fr);
-    gap: 1rem;
     padding-block: 1.05rem;
   }
 
-  .about-section__media {
+  .about-carousel__viewport {
     height: auto;
     aspect-ratio: 4 / 3;
     border: 1px solid rgba(22, 22, 22, 0.1);
+  }
+
+  .about-carousel__controls {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    gap: 0.55rem;
+  }
+
+  .about-carousel__button {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .about-carousel__caption {
+    max-width: none;
+    font-size: 0.9rem;
   }
 }
 
@@ -711,6 +779,11 @@ select {
   .scroll-reveal-ready .solution-feature__media[data-scroll-image] {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .about-carousel__image,
+  .about-carousel__button {
     transition: none;
   }
 }
@@ -765,7 +838,7 @@ select {
     font-size: clamp(2.15rem, 4vw, 2.85rem);
   }
 
-  .about-section__media {
+  .about-carousel__viewport {
     height: clamp(29rem, 56vh, 34rem);
   }
 }
