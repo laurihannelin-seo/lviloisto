@@ -118,6 +118,49 @@ const aboutSection = {
     },
   ],
 };
+
+const processSection = {
+  label: "MENETELMÄ",
+  title: "Tarkkuutta suunnittelusta luovutukseen",
+  intro:
+    "Vaativassa LVI-projektissa onnistuminen syntyy ennen asennusta. Kohteen rakenteet, arkkitehtuuri, aikataulu ja muut urakoitsijat sovitetaan yhteen ennen toteutusta.",
+  cta: "Aloita kohteen kartoitus",
+  ctaHref: "mailto:info@lviloisto.fi",
+  steps: [
+    {
+      number: "01",
+      title: "Kartoitus",
+      text: "Käymme läpi kohteen lähtötilanteen, tavoitteet, aikataulun ja tekniset tarpeet.",
+      image: "/images/home/quality-imgl1757.jpg",
+      imageAlt: "Kultaiset hanakalusteet ja viimeistelty kivipinta vaativassa märkätilassa",
+      caption: "Lähtötilanteen, tavoitteiden ja teknisten tarpeiden ymmärtäminen.",
+    },
+    {
+      number: "02",
+      title: "Suunnittelu ja yhteensovitus",
+      text: "Sovitamme LVI-ratkaisut kohteen rakenteisiin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
+      image: "/images/home/uudisrakennukset-villat.jpeg",
+      imageAlt: "Viimeistelty kodinhoito- ja märkätila yksityiskohteessa",
+      caption: "LVI-ratkaisut sovitetaan kohteen rakenteisiin, suunnitelmiin ja aikatauluun.",
+    },
+    {
+      number: "03",
+      title: "Toteutus",
+      text: "Työt tehdään sovitun aikataulun mukaan huolellisesti, siististi ja kohteen vaatimukset huomioiden.",
+      image: "/images/home/taloyhtiot-kiinteistot.jpg",
+      imageAlt: "Tumma premium-tason märkätila kultaisilla suihkukalusteilla",
+      caption: "Huolellinen toteutus työmaalla kohteen vaatimukset huomioiden.",
+    },
+    {
+      number: "04",
+      title: "Viimeistely ja luovutus",
+      text: "Lopputulos tarkistetaan, viimeistellään ja luovutetaan niin, että järjestelmät toimivat käytännössä.",
+      image: "/images/home/arvoasunnot-saneeraus.jpeg",
+      imageAlt: "Vaalea viimeistelty kylpyhuone arvoasunnon saneerauskohteessa",
+      caption: "Lopputulos tarkistetaan, viimeistellään ja luovutetaan käyttöön.",
+    },
+  ],
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -267,6 +310,60 @@ const aboutSection = {
     </div>
   </section>
 
+  <section class="process-section" id="menetelma" data-process-section>
+    <div class="process-section__inner page-shell">
+      <div class="process-section__header">
+        <p class="section-label">{processSection.label}</p>
+        <h2>{processSection.title}</h2>
+        <p>{processSection.intro}</p>
+      </div>
+
+      <figure class="process-visual" aria-live="polite">
+        <div class="process-visual__viewport">
+          {
+            processSection.steps.map((step, index) => (
+              <img
+                src={step.image}
+                alt={step.imageAlt}
+                loading="lazy"
+                class={`process-visual__image${index === 0 ? " is-active" : ""}`}
+                data-process-image
+                aria-hidden={index === 0 ? "false" : "true"}
+              />
+            ))
+          }
+        </div>
+        <figcaption class="process-visual__caption" data-process-caption>
+          {processSection.steps[0].caption}
+        </figcaption>
+      </figure>
+
+      <div class="process-section__steps">
+        <div class="process-step-list" aria-label="Vaativan LVI-projektin eteneminen">
+          {
+            processSection.steps.map((step, index) => (
+              <button
+                type="button"
+                class={`process-step${index === 0 ? " is-active" : ""}`}
+                data-process-step
+                data-caption={step.caption}
+                aria-pressed={index === 0 ? "true" : "false"}
+              >
+                <span class="process-step__number">{step.number}</span>
+                <span class="process-step__content">
+                  <span class="process-step__title">{step.title}</span>
+                  <span class="process-step__text">{step.text}</span>
+                </span>
+              </button>
+            ))
+          }
+        </div>
+
+        <a class="process-section__cta text-link" href={processSection.ctaHref}>{processSection.cta}</a>
+      </div>
+    </div>
+  </section>
+
   <section class="portfolio-section" id="kohteet">
     <div class="portfolio-section__inner page-shell">
       <div class="portfolio-section__header">
@@ -343,6 +440,52 @@ const aboutSection = {
       document.addEventListener("DOMContentLoaded", initAboutCarousels, { once: true });
     } else {
       initAboutCarousels();
+    }
+  </script>
+
+  <script>
+    const initProcessSections = () => {
+      const sections = Array.from(document.querySelectorAll("[data-process-section]"));
+
+      sections.forEach((section) => {
+        const steps = Array.from(section.querySelectorAll("[data-process-step]"));
+        const images = Array.from(section.querySelectorAll("[data-process-image]"));
+        const caption = section.querySelector("[data-process-caption]");
+
+        if (!steps.length || !images.length || !caption) {
+          return;
+        }
+
+        const setActiveStep = (activeIndex) => {
+          steps.forEach((step, index) => {
+            const isActive = index === activeIndex;
+            step.classList.toggle("is-active", isActive);
+            step.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+
+          images.forEach((image, index) => {
+            const isActive = index === activeIndex;
+            image.classList.toggle("is-active", isActive);
+            image.setAttribute("aria-hidden", isActive ? "false" : "true");
+          });
+
+          caption.textContent = steps[activeIndex].dataset.caption || "";
+        };
+
+        steps.forEach((step, index) => {
+          step.addEventListener("mouseenter", () => setActiveStep(index));
+          step.addEventListener("focus", () => setActiveStep(index));
+          step.addEventListener("click", () => setActiveStep(index));
+        });
+
+        setActiveStep(0);
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initProcessSections, { once: true });
+    } else {
+      initProcessSections();
     }
   </script>
 </BaseLayout>
