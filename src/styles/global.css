@@ -470,18 +470,15 @@ select {
 
 .about-section__inner {
   display: grid;
-  grid-template-columns:
-    minmax(var(--space-page), 1fr)
-    minmax(0, 34rem)
-    minmax(0, 39rem)
-    minmax(var(--space-page), 1fr);
-  column-gap: clamp(3rem, 6vw, 6rem);
+  width: min(100% - (var(--space-page) * 2), 92rem);
+  grid-template-columns: minmax(24rem, 0.9fr) minmax(0, 1fr);
+  column-gap: clamp(3rem, 5.8vw, 6rem);
   align-items: center;
+  margin-inline: auto;
 }
 
 .about-section__copy {
   position: relative;
-  grid-column: 2;
   max-width: 34rem;
   padding-block: 0;
 }
@@ -572,7 +569,6 @@ select {
 }
 
 .about-carousel {
-  grid-column: 3 / -1;
   margin: 0;
 }
 
@@ -1205,12 +1201,8 @@ select {
   }
 
   .about-section__inner {
-    grid-template-columns:
-      minmax(var(--space-page), 1fr)
-      minmax(0, 26rem)
-      minmax(0, 32rem)
-      minmax(var(--space-page), 1fr);
-    column-gap: clamp(2.25rem, 5vw, 3.5rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    column-gap: clamp(2rem, 4vw, 3.5rem);
   }
 
   .about-section h2 {
