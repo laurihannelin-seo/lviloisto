@@ -51,13 +51,7 @@ const portfolioSection = {
     {
       title: "Arvoasunnon kylpyhuonesaneeraus",
       location: "Helsinki",
-      tags: ["ARVOASUNTO", "SANEERAUS", "VIIMEISTELY"],
       text: "LVI-toteutus valmiiseen asuinympäristöön, jossa materiaalit, näkyvät pinnat ja viimeistelty työnjälki määrittävät kokonaisuuden onnistumisen.",
-      metadata: [
-        ["Kohde", "arvoasunto"],
-        ["Työn luonne", "saneeraus"],
-        ["Painopiste", "viimeistelty toteutus"],
-      ],
       href: "/kohteet/arvoasunnon-kylpyhuonesaneeraus-helsinki/",
       image: "/images/home/arvoasunnot-saneeraus.jpeg",
       imageAlt: "Viimeistelty vaalea kylpyhuone saneerauskohteessa",
@@ -65,13 +59,7 @@ const portfolioSection = {
     {
       title: "Villan LVI-kokonaisuus",
       location: "Espoo",
-      tags: ["VILLA", "UUDISRAKENTAMINEN", "LVI-KOKONAISUUS"],
       text: "LVI-urakointi suureen yksityiskohteeseen, jossa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan yhtenä kokonaisuutena.",
-      metadata: [
-        ["Kohde", "villa / suuri omakotitalo"],
-        ["Työn luonne", "uudisrakentaminen"],
-        ["Painopiste", "kokonaisuuden hallinta"],
-      ],
       href: "/kohteet/villan-lvi-kokonaisuus-espoo/",
       image: "/images/home/uudisrakennukset-villat.jpeg",
       imageAlt: "Laadukas kodinhoito- ja märkätila suuressa yksityiskohteessa",
@@ -79,13 +67,7 @@ const portfolioSection = {
     {
       title: "Taloyhtiön lämmönjakokeskus",
       location: "Vantaa",
-      tags: ["TALOYHTIÖ", "LÄMMÖNJAKOKESKUS", "KAUKOLÄMPÖ"],
       text: "Lämmönjakokeskuksen ja kaukolämpökeskuksen uusiminen kiinteistölle, jossa toimintavarmuus, aikataulu ja huollettavuus ovat keskeisiä.",
-      metadata: [
-        ["Kohde", "taloyhtiö / kiinteistö"],
-        ["Työn luonne", "tekninen saneeraus"],
-        ["Painopiste", "käyttövarmuus"],
-      ],
       href: "/kohteet/taloyhtion-lammonjakokeskus-vantaa/",
       image: "/images/home/taloyhtiot-kiinteistot.jpg",
       imageAlt: "Tumma premium-tason märkätila kiinteistökohteessa",
@@ -308,22 +290,8 @@ const aboutSection = {
 
               <div class="portfolio-card__content">
                 <p class="portfolio-card__location">{item.location}</p>
-                <div class="portfolio-card__tags" aria-label={`${item.title} tagit`}>
-                  {item.tags.map((tag) => <span>{tag}</span>)}
-                </div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-
-                <dl class="portfolio-card__meta">
-                  {
-                    item.metadata.map(([label, value]) => (
-                      <div>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))
-                  }
-                </dl>
 
                 <span class="portfolio-card__link">
                   <span>Tutustu kohteeseen</span>
