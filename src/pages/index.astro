@@ -9,6 +9,8 @@ const solutionsSection = {
   titleLines: ["LVI-ratkaisut", "vaativiin kohteisiin"],
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
+  image: "/images/home/solutions-intro-image00007.jpeg",
+  imageAlt: "Vaativa LVI-kohde viimeistellyssä sisätilassa",
   items: [
     {
       number: "01",
@@ -176,7 +178,11 @@ const processSection = {
 
   <section class="solutions-section" id="lvi-tyot">
     <div class="solutions-section__header page-shell">
-      <div>
+      <figure class="solutions-section__header-media" data-scroll-image data-reveal-direction="left">
+        <img src={solutionsSection.image} alt={solutionsSection.imageAlt} loading="lazy" />
+      </figure>
+
+      <div class="solutions-section__header-copy">
         <h1>
           {
             solutionsSection.titleLines.map((line) => (
@@ -184,8 +190,8 @@ const processSection = {
             ))
           }
         </h1>
+        <p class="solutions-section__intro">{solutionsSection.intro}</p>
       </div>
-      <p class="solutions-section__intro">{solutionsSection.intro}</p>
     </div>
 
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
