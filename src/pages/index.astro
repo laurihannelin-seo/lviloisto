@@ -185,8 +185,11 @@ const processSection = {
       <div class="solutions-section__header-copy">
         <h1>
           {
-            solutionsSection.titleLines.map((line) => (
-              <span class="solutions-section__title-line">{line}</span>
+            solutionsSection.titleLines.map((line, index) => (
+              <>
+                <span class="solutions-section__title-line">{line}</span>
+                {index < solutionsSection.titleLines.length - 1 ? " " : ""}
+              </>
             ))
           }
         </h1>

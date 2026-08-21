@@ -960,14 +960,6 @@ select {
     line-height: 1.05;
   }
 
-  .solutions-section__title-line {
-    display: inline;
-  }
-
-  .solutions-section__title-line + .solutions-section__title-line::before {
-    content: " ";
-  }
-
   .solutions-section__intro {
     max-width: 34rem;
     font-size: 1rem;
