@@ -123,14 +123,18 @@ select {
 }
 
 .solutions-section {
-  background: var(--color-surface);
-  padding-block: clamp(6rem, 10vw, 9.5rem);
+  background: #f3eee6;
+  padding-block: clamp(4rem, 6.5vw, 6.75rem) clamp(6.25rem, 9vw, 8.5rem);
+}
+
+.solutions-section__header.page-shell {
+  width: min(100% - (var(--space-page) * 2), 92rem);
 }
 
 .solutions-section__header {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(21rem, 0.78fr);
-  column-gap: clamp(3.5rem, 8vw, 7.5rem);
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  column-gap: clamp(3.75rem, 8vw, 8rem);
   row-gap: 2.25rem;
   align-items: center;
 }
@@ -171,35 +175,39 @@ select {
 }
 
 .solutions-section__header-copy {
-  max-width: 35rem;
+  max-width: 37rem;
 }
 
 .solutions-section h1 {
   margin: 0;
-  max-width: 34rem;
-  font-size: clamp(2.55rem, 4.25vw, 4.45rem);
+  max-width: 37rem;
+  font-size: clamp(1.85rem, 3vw, 3.25rem);
   font-weight: 500;
   letter-spacing: 0;
   line-height: 1.03;
-  text-wrap: balance;
 }
 
 .solutions-section__title-line {
   display: block;
+  white-space: nowrap;
 }
 
 .solutions-section__intro {
-  max-width: 34rem;
+  max-width: 33rem;
   margin: clamp(1.4rem, 2.5vw, 2rem) 0 0;
   color: var(--color-muted);
   font-size: clamp(1.02rem, 1.5vw, 1.22rem);
   line-height: 1.65;
 }
 
+.solutions-section__cta {
+  margin-top: clamp(1.25rem, 2vw, 1.75rem);
+}
+
 .solution-feature-list {
   display: grid;
   gap: clamp(5.5rem, 10vw, 8.5rem);
-  margin-top: clamp(5rem, 8.5vw, 7.5rem);
+  margin-top: clamp(6rem, 9vw, 8.75rem);
 }
 
 .solution-feature {
@@ -951,7 +959,7 @@ select {
   }
 
   .solutions-section {
-    padding-block: 4.75rem 5.25rem;
+    padding-block: 3.75rem 5.25rem;
   }
 
   .solutions-section__header {
@@ -970,8 +978,8 @@ select {
   }
 
   .solutions-section h1 {
-    max-width: 25rem;
-    font-size: clamp(2.15rem, 10vw, 3.45rem);
+    max-width: none;
+    font-size: clamp(1.55rem, 6.2vw, 2rem);
     line-height: 1.05;
   }
 
@@ -983,7 +991,7 @@ select {
 
   .solution-feature-list {
     gap: 4.75rem;
-    margin-top: 4.25rem;
+    margin-top: 5rem;
   }
 
   .solution-feature,
@@ -1210,7 +1218,7 @@ select {
 @media (min-width: 761px) and (max-width: 1080px) {
   .solutions-section__header {
     grid-template-columns: 1fr;
-    max-width: 48rem;
+    max-width: 56rem;
   }
 
   .solutions-section__header-media {

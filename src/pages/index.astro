@@ -6,9 +6,12 @@ const description =
   "LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin, saneerauksiin, arvoasuntoihin ja kiinteistöihin.";
 
 const solutionsSection = {
-  titleLines: ["LVI-ratkaisut", "vaativiin kohteisiin"],
+  label: "VAATIVAT KOHTEET",
+  titleLines: ["LVI-urakointia kohteisiin,", "joissa viimeistely ratkaisee"],
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
+  cta: "Keskustele kohteestasi",
+  ctaHref: "mailto:info@lviloisto.fi",
   image: "/images/home/solutions-intro-image00007.jpeg",
   imageAlt: "Vaativa LVI-kohde viimeistellyssä sisätilassa",
   items: [
@@ -183,6 +186,7 @@ const processSection = {
       </figure>
 
       <div class="solutions-section__header-copy">
+        <p class="section-label">{solutionsSection.label}</p>
         <h1>
           {
             solutionsSection.titleLines.map((line, index) => (
@@ -194,6 +198,7 @@ const processSection = {
           }
         </h1>
         <p class="solutions-section__intro">{solutionsSection.intro}</p>
+        <a class="solutions-section__cta text-link" href={solutionsSection.ctaHref}>{solutionsSection.cta}</a>
       </div>
     </div>
 
