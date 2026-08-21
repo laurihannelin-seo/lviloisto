@@ -209,39 +209,6 @@ const aboutSection = {
     }
   </script>
 
-  <section class="portfolio-section" id="kohteet">
-    <div class="portfolio-section__inner page-shell">
-      <div class="portfolio-section__header">
-        <h2>{portfolioSection.title}</h2>
-        <div class="portfolio-section__intro">
-          <p>{portfolioSection.intro}</p>
-          <a class="text-link" href="mailto:info@lviloisto.fi">{portfolioSection.cta}</a>
-        </div>
-      </div>
-
-      <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
-        {
-          portfolioSection.items.map((item) => (
-            <article class="portfolio-card">
-              <figure class="portfolio-card__media">
-                <img src={item.image} alt={item.imageAlt} loading="lazy" />
-              </figure>
-
-              <div class="portfolio-card__content">
-                <div class="portfolio-card__tags" aria-label={`${item.title} tagit`}>
-                  {item.tags.map((tag) => <span>{tag}</span>)}
-                </div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-                <a class="portfolio-card__link" href="#lvi-tyot">Tutustu</a>
-              </div>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <section class="about-section" id="tietoa-meista">
     <div class="about-section__inner">
       <div class="about-section__copy">
@@ -293,6 +260,45 @@ const aboutSection = {
         </div>
         <figcaption class="about-carousel__caption">{aboutSection.caption}</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="portfolio-section" id="kohteet">
+    <div class="portfolio-section__inner page-shell">
+      <div class="portfolio-section__header">
+        <h2>{portfolioSection.title}</h2>
+        <div class="portfolio-section__intro">
+          <p>{portfolioSection.intro}</p>
+          <a class="portfolio-section__cta" href="mailto:info@lviloisto.fi">
+            <span aria-hidden="true">↗</span>
+            {portfolioSection.cta}
+          </a>
+        </div>
+      </div>
+
+      <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
+        {
+          portfolioSection.items.map((item) => (
+            <article class="portfolio-card">
+              <figure class="portfolio-card__media">
+                <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              </figure>
+
+              <div class="portfolio-card__content">
+                <div class="portfolio-card__tags" aria-label={`${item.title} tagit`}>
+                  {item.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <a class="portfolio-card__link" href="#lvi-tyot" aria-label={`Tutustu aiheeseen ${item.title}`}>
+                  <span aria-hidden="true">↗</span>
+                  <span>Tutustu</span>
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
     </div>
   </section>
 
