@@ -92,9 +92,13 @@ const qualitySection = {
 
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
-        solutionsSection.items.map((item) => (
+        solutionsSection.items.map((item, index) => (
           <article class="solution-feature page-shell">
-            <figure class="solution-feature__media">
+            <figure
+              class="solution-feature__media"
+              data-scroll-image
+              data-reveal-direction={index % 2 === 0 ? "left" : "right"}
+            >
               <img src={item.image} alt={item.imageAlt} loading="lazy" />
             </figure>
             <div class="solution-feature__copy">
@@ -107,6 +111,52 @@ const qualitySection = {
       }
     </div>
   </section>
+
+  <script>
+    const revealImages = () => {
+      const images = Array.from(document.querySelectorAll("[data-scroll-image]"));
+
+      if (!images.length) {
+        return;
+      }
+
+      document.documentElement.classList.add("scroll-reveal-ready");
+
+      const reveal = (element) => {
+        element.classList.add("is-visible");
+      };
+
+      if (!("IntersectionObserver" in window)) {
+        images.forEach(reveal);
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            reveal(entry.target);
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          rootMargin: "0px 0px -12% 0px",
+          threshold: 0.18,
+        },
+      );
+
+      images.forEach((image) => observer.observe(image));
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealImages, { once: true });
+    } else {
+      revealImages();
+    }
+  </script>
 
   <section class="quality-section" id="toteutus">
     <div class="quality-section__inner page-shell">
