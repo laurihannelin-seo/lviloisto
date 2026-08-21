@@ -6,30 +6,33 @@ const description =
   "LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin, saneerauksiin, arvoasuntoihin ja kiinteistöihin.";
 
 const solutionsSection = {
-  eyebrow: "Palvelut ja kohteet",
   title: "LVI-ratkaisut vaativiin kohteisiin",
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
-  pillars: [
+  items: [
     {
       number: "01",
       title: "Arvoasunnot ja saneerauskohteet",
       text: "Huolellista LVI-työtä valmiisiin ja vaativiin asuinympäristöihin.",
+      imageLabel: "Kuvapaikka arvoasuntojen ja saneerauskohteiden kohdekuvalle",
     },
     {
       number: "02",
       title: "Uudisrakennukset ja villat",
       text: "LVI-urakointia omakotitaloihin, huviloihin ja suuriin yksityiskohteisiin.",
+      imageLabel: "Kuvapaikka uudisrakennusten ja villojen kohdekuvalle",
     },
     {
       number: "03",
       title: "Taloyhtiöt ja kiinteistöt",
       text: "Lämmönjakokeskukset, kaukolämpökeskukset ja kiinteistöjen LVI-ratkaisut.",
+      imageLabel: "Kuvapaikka taloyhtiöiden ja kiinteistöjen kohdekuvalle",
     },
     {
       number: "04",
       title: "Lämmitysratkaisut",
       text: "Maalämpö, VILP ja lämmitysjärjestelmien uudistukset.",
+      imageLabel: "Kuvapaikka lämmitysratkaisujen kohdekuvalle",
     },
   ],
 };
@@ -41,24 +44,28 @@ const solutionsSection = {
   </section>
 
   <section class="solutions-section" id="lvi-tyot">
-    <div class="page-shell">
-      <div class="solutions-section__header">
-        <p class="section-eyebrow">{solutionsSection.eyebrow}</p>
+    <div class="solutions-section__header page-shell">
+      <div>
         <h1>{solutionsSection.title}</h1>
-        <p>{solutionsSection.intro}</p>
       </div>
+      <p>{solutionsSection.intro}</p>
+    </div>
 
-      <div class="solution-grid" aria-label="LVI-Loiston palvelupilarit">
-        {
-          solutionsSection.pillars.map((pillar) => (
-            <article class="solution-card">
-              <span class="solution-card__number">{pillar.number}</span>
-              <h2>{pillar.title}</h2>
-              <p>{pillar.text}</p>
-            </article>
-          ))
-        }
-      </div>
+    <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
+      {
+        solutionsSection.items.map((item) => (
+          <article class="solution-feature page-shell">
+            <div class="solution-feature__media" aria-label={item.imageLabel}>
+              <span>Kuvapaikka</span>
+            </div>
+            <div class="solution-feature__copy">
+              <span class="solution-feature__number">{item.number}</span>
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
