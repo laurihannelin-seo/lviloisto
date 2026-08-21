@@ -179,6 +179,44 @@ const processSection = {
     },
   ],
 };
+
+const faqSection = {
+  label: "UKK",
+  title: "Usein kysyttyä",
+  intro: "Tässä muutama yleinen kysymys LVI-Loiston palveluista.",
+  items: [
+    {
+      question: "Millä alueella LVI-Loisto toimii?",
+      answer:
+        "LVI-Loisto palvelee ensisijaisesti pääkaupunkiseudulla sekä valituissa kohteissa Tampereella ja Turussa.",
+    },
+    {
+      question: "Millaisiin kohteisiin LVI-Loisto sopii?",
+      answer:
+        "Palvelu sopii erityisesti arvoasuntoihin, villoihin, suuriin omakotitaloihin, taloyhtiöihin ja vaativiin kiinteistökohteisiin.",
+    },
+    {
+      question: "Teettekö sekä saneerauksia että uudiskohteita?",
+      answer:
+        "Kyllä. Toteutamme sekä saneerauksia että uudisrakennusten LVI-kokonaisuuksia kohteen tarpeen mukaan.",
+    },
+    {
+      question: "Voiko tarjouspyynnön lähettää jo suunnitteluvaiheessa?",
+      answer:
+        "Kyllä. Mukaan voi laittaa myös alustavat tiedot kohteesta, niin kokonaisuutta voidaan arvioida jo varhaisessa vaiheessa.",
+    },
+  ],
+};
+
+const contactSection = {
+  label: "YHTEYDENOTTO",
+  title: "Pyydä tarjous",
+  intro:
+    "Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Palaamme asiaan ja arvioimme, miten projekti kannattaa viedä eteenpäin.",
+  image: "/images/home/quality-imgl1757.jpg",
+  imageAlt: "Viimeistelty märkätila ja kultaiset hanakalusteet vaativassa LVI-kohteessa",
+  submitLabel: "Lähetä tarjouspyyntö",
+};
 ---
 
 <BaseLayout title={title} description={description}>
@@ -432,6 +470,88 @@ const processSection = {
             </a>
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="faq-section__inner page-shell">
+      <div class="faq-section__header">
+        <p class="section-label">{faqSection.label}</p>
+        <h2 id="faq-heading">{faqSection.title}</h2>
+        <p>{faqSection.intro}</p>
+      </div>
+
+      <div class="faq-list">
+        {
+          faqSection.items.map((item) => (
+            <details class="faq-item">
+              <summary>
+                <span>{item.question}</span>
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="yhteystiedot" aria-labelledby="contact-heading">
+    <div class="contact-section__inner">
+      <figure class="contact-section__media">
+        <img src={contactSection.image} alt={contactSection.imageAlt} loading="lazy" />
+      </figure>
+
+      <div class="contact-panel">
+        <p class="section-label">{contactSection.label}</p>
+        <h2 id="contact-heading">{contactSection.title}</h2>
+        <p class="contact-panel__intro">{contactSection.intro}</p>
+
+        <form class="contact-form" action="mailto:info@lviloisto.fi" method="post" enctype="text/plain">
+          <div class="form-field">
+            <label for="contact-name">Nimi</label>
+            <input id="contact-name" name="Nimi" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="contact-form__row">
+            <div class="form-field">
+              <label for="contact-email">Sähköposti</label>
+              <input id="contact-email" name="Sähköposti" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-phone">Puhelin</label>
+              <input id="contact-phone" name="Puhelin" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="contact-form__row">
+            <div class="form-field">
+              <label for="contact-location">Kohteen sijainti</label>
+              <input id="contact-location" name="Kohteen sijainti" type="text" autocomplete="address-level2" />
+            </div>
+
+            <div class="form-field">
+              <label for="contact-service">Palvelun tyyppi</label>
+              <select id="contact-service" name="Palvelun tyyppi">
+                <option value="">Valitse palvelu</option>
+                <option>Arvoasunnon saneeraus</option>
+                <option>Uudisrakennuksen LVI-kokonaisuus</option>
+                <option>Taloyhtiö tai kiinteistö</option>
+                <option>Lämmitysratkaisu</option>
+                <option>Muu LVI-urakointi</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="contact-message">Viesti</label>
+            <textarea id="contact-message" name="Viesti" rows="5" required></textarea>
+          </div>
+
+          <button class="contact-form__button" type="submit">{contactSection.submitLabel}</button>
+        </form>
       </div>
     </div>
   </section>
