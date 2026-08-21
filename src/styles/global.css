@@ -249,80 +249,139 @@ select {
   line-height: 1.65;
 }
 
-.quality-section {
-  background: var(--color-page);
-  padding-block: clamp(4rem, 5vw, 5.75rem);
+.portfolio-section {
+  background: #12110f;
+  color: var(--color-surface);
+  padding-block: clamp(4.75rem, 8vw, 8rem);
 }
 
-.quality-section__inner {
+.portfolio-section__inner {
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(0, 1.02fr);
-  column-gap: clamp(3rem, 5vw, 5rem);
-  row-gap: clamp(2.5rem, 5vw, 4rem);
-  align-items: start;
-  border-top: 1px solid rgba(22, 22, 22, 0.1);
-  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  gap: clamp(3rem, 6vw, 5.25rem);
 }
 
-.quality-section__media {
+.portfolio-section__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.58fr);
+  column-gap: clamp(3rem, 7vw, 7rem);
+  row-gap: 1.75rem;
+  align-items: end;
+}
+
+.portfolio-section h2 {
+  max-width: 54rem;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3rem, 5.4vw, 5.25rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.portfolio-section__intro {
+  max-width: 28rem;
+}
+
+.portfolio-section__intro p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.62;
+}
+
+.portfolio-section .text-link {
+  color: #ffffff;
+}
+
+.portfolio-section .text-link:hover {
+  color: #e7d16b;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.portfolio-card {
+  display: grid;
+  align-content: start;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: clamp(1rem, 1.8vw, 1.3rem);
+}
+
+.portfolio-card__media {
   margin: 0;
   overflow: hidden;
-  height: clamp(32rem, 62vh, 40rem);
-  border: 1px solid rgba(22, 22, 22, 0.1);
-  background: #e8e4dc;
+  aspect-ratio: 4 / 5;
+  background: #24211d;
 }
 
-.quality-section__media img {
+.portfolio-card__media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.quality-section__copy {
-  max-width: 39rem;
-  padding-top: clamp(0.35rem, 1.5vw, 1.25rem);
+.portfolio-card:hover .portfolio-card__media img {
+  transform: scale(1.035);
 }
 
-.quality-section h2 {
+.portfolio-card__content {
+  display: grid;
+  gap: 0.9rem;
+  padding-top: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+.portfolio-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.portfolio-card__tags span {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  padding: 0.32rem 0.55rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.portfolio-card h3 {
   margin: 0;
-  font-size: clamp(2.2rem, 2.85vw, 3.1rem);
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 1.06;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
-.quality-section__intro {
-  margin: clamp(1rem, 1.7vw, 1.45rem) 0 0;
-  color: var(--color-muted);
-  font-size: clamp(0.98rem, 1.1vw, 1.06rem);
-  line-height: 1.56;
-}
-
-.quality-list {
-  margin-top: clamp(1.15rem, 2vw, 1.7rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.12);
-}
-
-.quality-list__item {
-  padding-block: clamp(0.82rem, 1.4vw, 1rem);
-  border-bottom: 1px solid rgba(22, 22, 22, 0.12);
-}
-
-.quality-list__item h3 {
+.portfolio-card p {
   margin: 0;
-  font-size: clamp(1rem, 1.2vw, 1.12rem);
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.96rem;
+  line-height: 1.58;
 }
 
-.quality-list__item p {
-  margin: 0.42rem 0 0;
-  color: var(--color-muted);
-  font-size: 0.94rem;
-  line-height: 1.52;
+.portfolio-card__link {
+  justify-self: start;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.18rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.portfolio-card__link:hover {
+  color: #e7d16b;
 }
 
 .text-link {
@@ -674,37 +733,47 @@ select {
     margin-top: 1rem;
   }
 
-  .quality-section {
+  .portfolio-section {
     padding-block: 4.75rem 5.25rem;
   }
 
-  .quality-section__inner {
-    grid-template-columns: 1fr;
-    padding-top: 1.65rem;
+  .portfolio-section__inner {
+    gap: 2.75rem;
   }
 
-  .quality-section__media {
-    height: auto;
+  .portfolio-section__header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .portfolio-section h2 {
+    font-size: clamp(2.25rem, 10vw, 3.45rem);
+    line-height: 1.02;
+  }
+
+  .portfolio-section__intro {
+    max-width: 34rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .portfolio-card {
+    padding-top: 1.1rem;
+  }
+
+  .portfolio-card__media {
     aspect-ratio: 4 / 3;
   }
 
-  .quality-section__copy {
-    max-width: none;
-    padding-top: 0;
+  .portfolio-card__content {
+    gap: 0.85rem;
   }
 
-  .quality-section h2 {
-    font-size: clamp(2rem, 9vw, 3.25rem);
-    line-height: 1.06;
-  }
-
-  .quality-section__intro {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .quality-list__item {
-    padding-block: 1.2rem;
+  .portfolio-card p {
+    font-size: 0.95rem;
   }
 
   .about-section {
@@ -808,21 +877,38 @@ select {
     max-width: 40rem;
   }
 
-  .quality-section__inner {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    column-gap: clamp(2.25rem, 5vw, 3.5rem);
+  .portfolio-section__header {
+    grid-template-columns: 1fr;
+    max-width: 46rem;
   }
 
-  .quality-section__media {
-    height: clamp(29rem, 56vh, 34rem);
+  .portfolio-section h2 {
+    font-size: clamp(3rem, 7vw, 4.6rem);
   }
 
-  .quality-section__copy {
-    padding-top: 0.25rem;
+  .portfolio-section__intro {
+    max-width: 38rem;
   }
 
-  .quality-section h2 {
-    font-size: clamp(2.15rem, 4vw, 2.85rem);
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .portfolio-card__media {
+    aspect-ratio: 4 / 5.35;
+  }
+
+  .portfolio-card__tags span {
+    font-size: 0.6rem;
+  }
+
+  .portfolio-card h3 {
+    font-size: clamp(1.18rem, 2.4vw, 1.45rem);
+  }
+
+  .portfolio-card p {
+    font-size: 0.88rem;
   }
 
   .about-section__inner {

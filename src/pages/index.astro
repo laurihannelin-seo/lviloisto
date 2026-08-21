@@ -41,25 +41,32 @@ const solutionsSection = {
   ],
 };
 
-const qualitySection = {
-  title: "Huolellinen toteutus näkyy vaativissa kohteissa",
+const portfolioSection = {
+  title: "Kohteita, joissa yksityiskohdilla on merkitystä",
   intro:
-    "Arvoasunnoissa, saneerauskohteissa ja suurissa kiinteistöissä LVI-työn onnistuminen ei tarkoita vain teknistä toimivuutta. Toteutuksen pitää sopia kohteen aikatauluun, rakenteisiin, viimeistelyyn ja muuhun rakentamiseen.",
-  image: "/images/home/quality-imgl1757.jpg",
-  imageAlt: "Viimeistelty märkätilan allas ja kultaiset hanakalusteet",
+    "LVI-Loiston työ sopii kohteisiin, joissa teknisen toteutuksen pitää tukea arkkitehtuuria, asumismukavuutta ja kiinteistön pitkäaikaista toimivuutta.",
   cta: "Keskustele kohteestasi",
-  points: [
+  items: [
     {
-      title: "Viimeistelty työnjälki",
-      text: "LVI-ratkaisut toteutetaan niin, että lopputulos toimii teknisesti ja istuu kohteen viimeisteltyyn kokonaisuuteen.",
+      title: "Arvoasunnot ja saneerauskohteet",
+      tags: ["SANEERAUS", "ARVOASUNNOT", "VIIMEISTELY"],
+      text: "Huolellista LVI-työtä kohteisiin, joissa näkyvät pinnat, materiaalit ja asumisen laatu korostuvat.",
+      image: "/images/home/arvoasunnot-saneeraus.jpeg",
+      imageAlt: "Viimeistelty vaalea kylpyhuone saneerauskohteessa",
     },
     {
-      title: "Yhteistyö suunnittelijoiden ja urakoitsijoiden kanssa",
-      text: "Työt sovitetaan yhteen muun rakentamisen, aikataulun ja kohteen vaatimusten kanssa.",
+      title: "Villat ja suuret omakotitalot",
+      tags: ["UUDISRAKENTAMINEN", "VILLAT", "YKSITYISKOHTEET"],
+      text: "LVI-urakointia suuriin koteihin, huviloihin ja loma-asuntoihin, joissa kokonaisuuden pitää toimia pitkälle tulevaisuuteen.",
+      image: "/images/home/uudisrakennukset-villat.jpeg",
+      imageAlt: "Laadukas kodinhoito- ja märkätila suuressa yksityiskohteessa",
     },
     {
-      title: "Ratkaisut kohteen mukaan",
-      text: "Jokainen kohde huomioidaan erikseen, oli kyseessä arvoasunto, taloyhtiö, huvila tai suurempi kiinteistö.",
+      title: "Taloyhtiöt ja kiinteistöt",
+      tags: ["TALOYHTIÖT", "LÄMMITYS", "KIINTEISTÖT"],
+      text: "Lämmönjakokeskukset, kaukolämpökeskukset ja tekniset LVI-ratkaisut kiinteistöjen tarpeisiin.",
+      image: "/images/home/taloyhtiot-kiinteistot.jpg",
+      imageAlt: "Tumma premium-tason märkätila kiinteistökohteessa",
     },
   ],
 };
@@ -202,28 +209,35 @@ const aboutSection = {
     }
   </script>
 
-  <section class="quality-section" id="toteutus">
-    <div class="quality-section__inner page-shell">
-      <figure class="quality-section__media">
-        <img src={qualitySection.image} alt={qualitySection.imageAlt} loading="lazy" />
-      </figure>
-
-      <div class="quality-section__copy">
-        <h2>{qualitySection.title}</h2>
-        <p class="quality-section__intro">{qualitySection.intro}</p>
-
-        <div class="quality-list" aria-label="LVI-Loiston laatupilarit">
-          {
-            qualitySection.points.map((point) => (
-              <article class="quality-list__item">
-                <h3>{point.title}</h3>
-                <p>{point.text}</p>
-              </article>
-            ))
-          }
+  <section class="portfolio-section" id="kohteet">
+    <div class="portfolio-section__inner page-shell">
+      <div class="portfolio-section__header">
+        <h2>{portfolioSection.title}</h2>
+        <div class="portfolio-section__intro">
+          <p>{portfolioSection.intro}</p>
+          <a class="text-link" href="mailto:info@lviloisto.fi">{portfolioSection.cta}</a>
         </div>
+      </div>
 
-        <a class="text-link" href="mailto:info@lviloisto.fi">{qualitySection.cta}</a>
+      <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
+        {
+          portfolioSection.items.map((item) => (
+            <article class="portfolio-card">
+              <figure class="portfolio-card__media">
+                <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              </figure>
+
+              <div class="portfolio-card__content">
+                <div class="portfolio-card__tags" aria-label={`${item.title} tagit`}>
+                  {item.tags.map((tag) => <span>{tag}</span>)}
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                <a class="portfolio-card__link" href="#lvi-tyot">Tutustu</a>
+              </div>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
