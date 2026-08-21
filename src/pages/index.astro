@@ -42,29 +42,51 @@ const solutionsSection = {
 };
 
 const portfolioSection = {
-  title: "Kohteita, joissa yksityiskohdilla on merkitystä",
+  title: "Valittuja kohteita",
   intro:
-    "LVI-Loiston työ sopii kohteisiin, joissa teknisen toteutuksen pitää tukea arkkitehtuuria, asumismukavuutta ja kiinteistön pitkäaikaista toimivuutta.",
-  cta: "Keskustele kohteestasi",
+    "Kohteita, joissa LVI-toteutuksen pitää tukea arkkitehtuuria, asumismukavuutta ja kiinteistön pitkäaikaista toimivuutta.",
+  cta: "Katso kaikki kohteet",
+  ctaHref: "/kohteet/",
   items: [
     {
-      title: "Arvoasunnot ja saneerauskohteet",
-      tags: ["SANEERAUS", "ARVOASUNNOT", "VIIMEISTELY"],
-      text: "Huolellista LVI-työtä kohteisiin, joissa näkyvät pinnat, materiaalit ja asumisen laatu korostuvat.",
+      title: "Arvoasunnon kylpyhuonesaneeraus",
+      location: "Helsinki",
+      tags: ["ARVOASUNTO", "SANEERAUS", "VIIMEISTELY"],
+      text: "LVI-toteutus valmiiseen asuinympäristöön, jossa materiaalit, näkyvät pinnat ja viimeistelty työnjälki määrittävät kokonaisuuden onnistumisen.",
+      metadata: [
+        ["Kohde", "arvoasunto"],
+        ["Työn luonne", "saneeraus"],
+        ["Painopiste", "viimeistelty toteutus"],
+      ],
+      href: "/kohteet/arvoasunnon-kylpyhuonesaneeraus-helsinki/",
       image: "/images/home/arvoasunnot-saneeraus.jpeg",
       imageAlt: "Viimeistelty vaalea kylpyhuone saneerauskohteessa",
     },
     {
-      title: "Villat ja suuret omakotitalot",
-      tags: ["UUDISRAKENTAMINEN", "VILLAT", "YKSITYISKOHTEET"],
-      text: "LVI-urakointia suuriin koteihin, huviloihin ja loma-asuntoihin, joissa kokonaisuuden pitää toimia pitkälle tulevaisuuteen.",
+      title: "Villan LVI-kokonaisuus",
+      location: "Espoo",
+      tags: ["VILLA", "UUDISRAKENTAMINEN", "LVI-KOKONAISUUS"],
+      text: "LVI-urakointi suureen yksityiskohteeseen, jossa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan yhtenä kokonaisuutena.",
+      metadata: [
+        ["Kohde", "villa / suuri omakotitalo"],
+        ["Työn luonne", "uudisrakentaminen"],
+        ["Painopiste", "kokonaisuuden hallinta"],
+      ],
+      href: "/kohteet/villan-lvi-kokonaisuus-espoo/",
       image: "/images/home/uudisrakennukset-villat.jpeg",
       imageAlt: "Laadukas kodinhoito- ja märkätila suuressa yksityiskohteessa",
     },
     {
-      title: "Taloyhtiöt ja kiinteistöt",
-      tags: ["TALOYHTIÖT", "LÄMMITYS", "KIINTEISTÖT"],
-      text: "Lämmönjakokeskukset, kaukolämpökeskukset ja tekniset LVI-ratkaisut kiinteistöjen tarpeisiin.",
+      title: "Taloyhtiön lämmönjakokeskus",
+      location: "Vantaa",
+      tags: ["TALOYHTIÖ", "LÄMMÖNJAKOKESKUS", "KAUKOLÄMPÖ"],
+      text: "Lämmönjakokeskuksen ja kaukolämpökeskuksen uusiminen kiinteistölle, jossa toimintavarmuus, aikataulu ja huollettavuus ovat keskeisiä.",
+      metadata: [
+        ["Kohde", "taloyhtiö / kiinteistö"],
+        ["Työn luonne", "tekninen saneeraus"],
+        ["Painopiste", "käyttövarmuus"],
+      ],
+      href: "/kohteet/taloyhtion-lammonjakokeskus-vantaa/",
       image: "/images/home/taloyhtiot-kiinteistot.jpg",
       imageAlt: "Tumma premium-tason märkätila kiinteistökohteessa",
     },
@@ -269,7 +291,7 @@ const aboutSection = {
         <h2>{portfolioSection.title}</h2>
         <div class="portfolio-section__intro">
           <p>{portfolioSection.intro}</p>
-          <a class="portfolio-section__cta" href="mailto:info@lviloisto.fi">
+          <a class="portfolio-section__cta" href={portfolioSection.ctaHref}>
             <span aria-hidden="true">↗</span>
             {portfolioSection.cta}
           </a>
@@ -279,23 +301,36 @@ const aboutSection = {
       <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
         {
           portfolioSection.items.map((item) => (
-            <article class="portfolio-card">
+            <a class="portfolio-card" href={item.href} aria-label={`Tutustu kohteeseen ${item.title}`}>
               <figure class="portfolio-card__media">
                 <img src={item.image} alt={item.imageAlt} loading="lazy" />
               </figure>
 
               <div class="portfolio-card__content">
+                <p class="portfolio-card__location">{item.location}</p>
                 <div class="portfolio-card__tags" aria-label={`${item.title} tagit`}>
                   {item.tags.map((tag) => <span>{tag}</span>)}
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-                <a class="portfolio-card__link" href="#lvi-tyot" aria-label={`Tutustu aiheeseen ${item.title}`}>
+
+                <dl class="portfolio-card__meta">
+                  {
+                    item.metadata.map(([label, value]) => (
+                      <div>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))
+                  }
+                </dl>
+
+                <span class="portfolio-card__link">
+                  <span>Tutustu kohteeseen</span>
                   <span aria-hidden="true">↗</span>
-                  <span>Tutustu</span>
-                </a>
+                </span>
               </div>
-            </article>
+            </a>
           ))
         }
       </div>
