@@ -19,6 +19,7 @@ html {
   color: var(--color-text);
   background: var(--color-page);
   font-family: var(--font-sans);
+  overflow-x: clip;
 }
 
 body {
@@ -27,6 +28,7 @@ body {
   background: var(--color-page);
   color: var(--color-text);
   line-height: 1.5;
+  overflow-x: clip;
   scroll-padding-top: 5rem;
 }
 
@@ -86,10 +88,13 @@ select {
 
 .site-nav a {
   text-decoration: none;
+  transition: color 180ms ease;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav a:focus-visible {
   color: var(--color-accent-dark);
+  outline: none;
 }
 
 @supports (backdrop-filter: blur(16px)) {
@@ -347,6 +352,7 @@ select {
   letter-spacing: 0.14em;
   text-decoration: none;
   text-transform: uppercase;
+  transition: color 180ms ease;
 }
 
 .portfolio-section__cta span {
@@ -460,6 +466,7 @@ select {
   letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
+  transition: color 180ms ease;
 }
 
 .portfolio-card__link span:last-child {
@@ -482,6 +489,11 @@ select {
   transform: translate(2px, -2px);
 }
 
+.portfolio-card:hover .portfolio-card__link,
+.portfolio-card:focus-visible .portfolio-card__link {
+  color: #e7d16b;
+}
+
 .portfolio-card:focus-visible {
   outline: 1px solid rgba(231, 209, 107, 0.75);
   outline-offset: 0.5rem;
@@ -495,10 +507,13 @@ select {
   color: var(--color-text);
   font-weight: 650;
   text-decoration: none;
+  transition: color 180ms ease;
 }
 
-.text-link:hover {
+.text-link:hover,
+.text-link:focus-visible {
   color: var(--color-accent-dark);
+  outline: none;
 }
 
 .about-section {
@@ -885,12 +900,13 @@ select {
   .site-header {
     position: fixed;
     top: 0.75rem;
-    left: 50%;
-    width: min(calc(100% - 1.5rem), 33rem);
+    right: 0.75rem;
+    left: 0.75rem;
+    max-width: 33rem;
+    margin-inline: auto;
     border: 1px solid rgba(22, 22, 22, 0.1);
     border-radius: 999px;
     box-shadow: 0 1rem 2.5rem rgba(22, 22, 22, 0.13);
-    transform: translateX(-50%);
   }
 
   .site-header__inner {
@@ -926,8 +942,7 @@ select {
 
   .site-nav a:hover,
   .site-nav a:focus-visible {
-    background: var(--color-text);
-    color: var(--color-surface);
+    color: var(--color-accent-dark);
     outline: none;
   }
 
