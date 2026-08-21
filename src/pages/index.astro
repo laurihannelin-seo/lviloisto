@@ -6,7 +6,7 @@ const description =
   "LVI-Loisto toteuttaa laadukkaita LVI-ratkaisuja uudisrakennuksiin, saneerauksiin, arvoasuntoihin ja kiinteistöihin.";
 
 const solutionsSection = {
-  title: "LVI-ratkaisut vaativiin kohteisiin",
+  titleLines: ["LVI-ratkaisut", "vaativiin kohteisiin"],
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
   items: [
@@ -56,9 +56,15 @@ const solutionsSection = {
   <section class="solutions-section" id="lvi-tyot">
     <div class="solutions-section__header page-shell">
       <div>
-        <h1>{solutionsSection.title}</h1>
+        <h1>
+          {
+            solutionsSection.titleLines.map((line) => (
+              <span class="solutions-section__title-line">{line}</span>
+            ))
+          }
+        </h1>
       </div>
-      <p>{solutionsSection.intro}</p>
+      <p class="solutions-section__intro">{solutionsSection.intro}</p>
     </div>
 
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
