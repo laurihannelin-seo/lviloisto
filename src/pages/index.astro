@@ -471,28 +471,6 @@ const contactSection = {
     </div>
   </section>
 
-  <section class="faq-section" aria-labelledby="faq-heading">
-    <div class="faq-section__inner page-shell">
-      <div class="faq-section__header">
-        <h2 id="faq-heading">{faqSection.title}</h2>
-        <p>{faqSection.intro}</p>
-      </div>
-
-      <div class="faq-list">
-        {
-          faqSection.items.map((item) => (
-            <details class="faq-item">
-              <summary>
-                <span>{item.question}</span>
-              </summary>
-              <p>{item.answer}</p>
-            </details>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <section class="contact-section" id="yhteystiedot" aria-labelledby="contact-heading">
     <div class="contact-section__inner">
       <figure class="contact-section__media">
@@ -548,6 +526,28 @@ const contactSection = {
 
           <button class="contact-form__button" type="submit">{contactSection.submitLabel}</button>
         </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <div class="faq-section__inner page-shell">
+      <div class="faq-section__header">
+        <h2 id="faq-heading">{faqSection.title}</h2>
+        <p>{faqSection.intro}</p>
+      </div>
+
+      <div class="faq-list">
+        {
+          faqSection.items.map((item) => (
+            <details class="faq-item">
+              <summary>
+                <span>{item.question}</span>
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))
+        }
       </div>
     </div>
   </section>
