@@ -218,7 +218,7 @@ const contactSection = {
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="home-hero" aria-label="Etusivun pääkuva">
+  <section class="home-hero" aria-labelledby="home-heading">
     <figure class="home-hero__media">
       <img
         src="/images/home/hero-imgl1743.jpg"
@@ -226,30 +226,24 @@ const contactSection = {
         fetchpriority="high"
       />
     </figure>
+
+    <div class="home-hero__content page-shell">
+      <h1 id="home-heading">
+        {
+          solutionsSection.titleLines.map((line, index) => (
+            <>
+              <span class="home-hero__title-line">{line}</span>
+              {index < solutionsSection.titleLines.length - 1 ? " " : ""}
+            </>
+          ))
+        }
+      </h1>
+      <p class="home-hero__intro">{solutionsSection.intro}</p>
+      <a class="home-hero__cta" href={solutionsSection.ctaHref}>{solutionsSection.cta}</a>
+    </div>
   </section>
 
   <section class="solutions-section" id="lvi-tyot">
-    <div class="solutions-section__header page-shell">
-      <figure class="solutions-section__header-media" data-scroll-image data-reveal-direction="left">
-        <img src={solutionsSection.image} alt={solutionsSection.imageAlt} loading="lazy" />
-      </figure>
-
-      <div class="solutions-section__header-copy">
-        <h1>
-          {
-            solutionsSection.titleLines.map((line, index) => (
-              <>
-                <span class="solutions-section__title-line">{line}</span>
-                {index < solutionsSection.titleLines.length - 1 ? " " : ""}
-              </>
-            ))
-          }
-        </h1>
-        <p class="solutions-section__intro">{solutionsSection.intro}</p>
-        <a class="solutions-section__cta text-link" href={solutionsSection.ctaHref}>{solutionsSection.cta}</a>
-      </div>
-    </div>
-
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
         solutionsSection.items.map((item, index) => (
