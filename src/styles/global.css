@@ -1209,8 +1209,8 @@ select {
   }
 
   .home-hero__content {
-    justify-content: flex-end;
-    padding-block: 6.75rem 2.45rem;
+    justify-content: center;
+    padding-block: 7rem 3rem;
   }
 
   .home-hero__content.page-shell {
