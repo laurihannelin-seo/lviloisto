@@ -1,0 +1,196 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Tietoa meistä | LVI-Loisto Oy";
+const description =
+  "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja vaativiin kohteisiin, kuten arvoasuntoihin, taloyhtiöihin, villoihin ja kiinteistöihin.";
+
+const pageHero = {
+  title: "LVI-kumppani vaativiin koteihin ja kiinteistöihin",
+  intro:
+    "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa tekninen toimivuus, huolellinen työnjälki ja sujuva yhteistyö ratkaisevat lopputuloksen.",
+  image: "/images/home/about-imgl1779.jpg",
+  imageAlt: "Viimeistelty kylpyhuone vaativassa asuinkohteessa",
+};
+
+const positioning = {
+  title: "Tekninen toteutus osana viimeisteltyä kokonaisuutta",
+  body: [
+    "Vaativissa kohteissa LVI-työ ei ole irrallinen työvaihe. Sen pitää sopia rakenteisiin, arkkitehtuuriin, materiaaleihin, aikatauluun ja lopulliseen käyttökokemukseen.",
+    "LVI-Loisto työskentelee yksityisasiakkaiden, taloyhtiöiden, rakennusliikkeiden ja suunnittelijoiden kanssa kohteissa, joissa kokonaisuuden hallinta on yhtä tärkeää kuin tekninen asennus.",
+  ],
+  image: "/images/home/quality-imgl1757.jpg",
+  imageAlt: "Kultaiset hanakalusteet ja kivipinnat viimeistellyssä märkätilassa",
+};
+
+const audiences = [
+  {
+    title: "Arvoasunnot ja saneerauskohteet",
+    text: "Huolellista LVI-työtä valmiisiin asuinympäristöihin, joissa näkyvät pinnat ja materiaalit vaativat viimeisteltyä toteutusta.",
+  },
+  {
+    title: "Villat ja suuret omakotitalot",
+    text: "LVI-kokonaisuuksia kohteisiin, joissa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan pitkäaikaiseen käyttöön.",
+  },
+  {
+    title: "Taloyhtiöt ja kiinteistöt",
+    text: "Lämmönjakokeskuksia, kaukolämpökeskuksia ja teknisiä LVI-ratkaisuja kohteisiin, joissa toimintavarmuus ja huollettavuus ovat keskeisiä.",
+  },
+  {
+    title: "Uudisrakennukset ja vaativat projektit",
+    text: "LVI-urakointia kohteisiin, joissa yhteistyö suunnittelijoiden ja muiden urakoitsijoiden kanssa vaikuttaa suoraan lopputulokseen.",
+  },
+];
+
+const method = {
+  title: "Miten työskentelemme",
+  intro:
+    "Hyvä LVI-toteutus alkaa ennen työmaata. Ensin ymmärretään kohteen tavoitteet, tekniset reunaehdot ja aikataulu. Sen jälkeen työ sovitetaan muuhun rakentamiseen niin, että lopputulos toimii käytännössä ja kestää aikaa.",
+  rows: [
+    {
+      title: "Kohteen ymmärtäminen",
+      text: "Käymme läpi lähtötilanteen, tavoitteet, suunnitelmat ja tekniset tarpeet.",
+    },
+    {
+      title: "Yhteensovitus",
+      text: "Sovitamme LVI-työt rakenteisiin, materiaaleihin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
+    },
+    {
+      title: "Huolellinen toteutus",
+      text: "Työ tehdään hallitusti, siististi ja kohteen vaatimukset huomioiden.",
+    },
+    {
+      title: "Luovutus ja toimivuus",
+      text: "Lopputulos tarkistetaan ja viimeistellään niin, että järjestelmät toimivat käytännössä.",
+    },
+  ],
+};
+
+const companyDetails = [
+  {
+    title: "Yritys",
+    items: ["LVI-Loisto Oy", "Santaradantie 7, 01370 Vantaa", "Y-tunnus 3254898-6"],
+  },
+  {
+    title: "Puhelin",
+    items: [
+      { text: "046 921 4415", href: "tel:+358469214415" },
+      { text: "050 479 6544", href: "tel:+358504796544" },
+    ],
+  },
+  {
+    title: "Sähköposti",
+    items: [
+      { text: "matias.ryynanen@lviloisto.fi", href: "mailto:matias.ryynanen@lviloisto.fi" },
+      { text: "miro.sorjonen@lviloisto.fi", href: "mailto:miro.sorjonen@lviloisto.fi" },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="about-page-hero">
+    <div class="about-page-hero__inner page-shell">
+      <div class="about-page-hero__content">
+        <h1>{pageHero.title}</h1>
+        <p>{pageHero.intro}</p>
+      </div>
+
+      <figure class="about-page-hero__media">
+        <img src={pageHero.image} alt={pageHero.imageAlt} fetchpriority="high" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="about-positioning">
+    <div class="about-positioning__inner page-shell">
+      <div class="about-positioning__content">
+        <h2>{positioning.title}</h2>
+        <div class="about-positioning__body">
+          {positioning.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      <figure class="about-positioning__media">
+        <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="about-audiences">
+    <div class="about-audiences__inner page-shell">
+      <h2>Kohteet, joissa osaamisemme korostuu</h2>
+
+      <div class="about-audience-grid">
+        {
+          audiences.map((item) => (
+            <article class="about-audience-item">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="about-method">
+    <div class="about-method__inner page-shell">
+      <div class="about-method__intro">
+        <h2>{method.title}</h2>
+        <p>{method.intro}</p>
+      </div>
+
+      <div class="about-method__rows">
+        {
+          method.rows.map((row) => (
+            <article class="about-method-row">
+              <h3>{row.title}</h3>
+              <p>{row.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="about-service-area">
+    <div class="about-service-area__inner page-shell">
+      <div class="about-service-area__content">
+        <h2>Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa</h2>
+        <p>
+          LVI-Loiston toimipiste sijaitsee Vantaalla. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä
+          valituissa vaativissa kohteissa Tampereella ja Turussa.
+        </p>
+      </div>
+
+      <div class="about-company-grid" aria-label="LVI-Loiston yritystiedot">
+        {
+          companyDetails.map((group) => (
+            <section class="about-company-detail">
+              <h3>{group.title}</h3>
+              <div class="about-company-detail__items">
+                {
+                  group.items.map((item) => (
+                    typeof item === "string" ? <p>{item}</p> : <a href={item.href}>{item.text}</a>
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="about-final-cta">
+    <div class="about-final-cta__inner page-shell">
+      <h2>Keskustele kohteestasi</h2>
+      <p>
+        Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset.
+        Arvioimme, miten projekti kannattaa viedä eteenpäin.
+      </p>
+      <a href="/yhteystiedot/">Ota yhteyttä</a>
+    </div>
+  </section>
+</BaseLayout>
