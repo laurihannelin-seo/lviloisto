@@ -989,20 +989,20 @@ select {
 }
 
 .contact-section {
-  --contact-panel-y: clamp(2.35rem, 4vw, 4rem);
+  --contact-panel-y: clamp(1.75rem, 2.6vw, 2.75rem);
   background: var(--color-surface);
 }
 
 .contact-section__inner {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(28rem, 0.92fr);
-  min-height: clamp(32rem, 62vh, 40rem);
+  min-height: 0;
 }
 
 .contact-section__media {
-  align-self: center;
-  height: calc(100% - (var(--contact-panel-y) * 2));
-  min-height: clamp(25rem, 50vh, 33rem);
+  align-self: stretch;
+  height: auto;
+  min-height: 0;
   margin: 0;
   overflow: hidden;
   background: #ded7ca;
@@ -1043,8 +1043,8 @@ select {
 
 .contact-form {
   display: grid;
-  gap: clamp(0.85rem, 1.35vw, 1.15rem);
-  margin-top: clamp(1.65rem, 2.6vw, 2.35rem);
+  gap: clamp(0.72rem, 1.05vw, 0.95rem);
+  margin-top: clamp(1.35rem, 2vw, 1.9rem);
 }
 
 .contact-form__row {
@@ -1087,7 +1087,7 @@ select {
 }
 
 .form-field textarea {
-  min-height: 7rem;
+  min-height: 5.75rem;
   resize: vertical;
 }
 
@@ -1103,7 +1103,7 @@ select {
 
 .contact-form__button {
   justify-self: start;
-  margin-top: clamp(0.65rem, 1vw, 1rem);
+  margin-top: clamp(0.45rem, 0.8vw, 0.75rem);
   border: 1px solid var(--color-text);
   background: var(--color-text);
   color: var(--color-surface);
