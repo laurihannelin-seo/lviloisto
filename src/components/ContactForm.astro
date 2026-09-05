@@ -1,0 +1,52 @@
+---
+interface Props {
+  submitLabel?: string;
+}
+
+const { submitLabel = "Lähetä tarjouspyyntö" } = Astro.props;
+---
+
+<form class="contact-form" action="mailto:info@lviloisto.fi" method="post" enctype="text/plain">
+  <div class="form-field">
+    <label for="contact-name">Nimi</label>
+    <input id="contact-name" name="Nimi" type="text" autocomplete="name" required />
+  </div>
+
+  <div class="contact-form__row">
+    <div class="form-field">
+      <label for="contact-email">Sähköposti</label>
+      <input id="contact-email" name="Sähköposti" type="email" autocomplete="email" required />
+    </div>
+
+    <div class="form-field">
+      <label for="contact-phone">Puhelin</label>
+      <input id="contact-phone" name="Puhelin" type="tel" autocomplete="tel" />
+    </div>
+  </div>
+
+  <div class="contact-form__row">
+    <div class="form-field">
+      <label for="contact-location">Kohteen sijainti</label>
+      <input id="contact-location" name="Kohteen sijainti" type="text" autocomplete="address-level2" />
+    </div>
+
+    <div class="form-field">
+      <label for="contact-service">Palvelun tyyppi</label>
+      <select id="contact-service" name="Palvelun tyyppi">
+        <option value="">Valitse palvelu</option>
+        <option>Arvoasunnon saneeraus</option>
+        <option>Uudisrakennuksen LVI-kokonaisuus</option>
+        <option>Taloyhtiö tai kiinteistö</option>
+        <option>Lämmitysratkaisu</option>
+        <option>Muu LVI-urakointi</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="contact-message">Viesti</label>
+    <textarea id="contact-message" name="Viesti" rows="5" required></textarea>
+  </div>
+
+  <button class="contact-form__button" type="submit">{submitLabel}</button>
+</form>
