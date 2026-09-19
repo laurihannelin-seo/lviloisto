@@ -43,6 +43,14 @@ const solutionsSection = {
   ],
 };
 
+const sectionNavigation = [
+  { label: "LVI-ratkaisut", href: "#lvi-tyot" },
+  { label: "Tietoa meistä", href: "#tietoa-meista" },
+  { label: "Menetelmä", href: "#menetelma" },
+  { label: "Kohteet", href: "#kohteet" },
+  { label: "Yhteydenotto", href: "#yhteystiedot" },
+];
+
 const portfolioSection = {
   title: "Valittuja kohteita",
   intro:
@@ -244,6 +252,13 @@ const contactSection = {
   <section class="solutions-section" id="lvi-tyot" aria-labelledby="solutions-heading">
     <div class="solutions-section__intro page-shell">
       <h2 id="solutions-heading">{solutionsSection.sectionTitle}</h2>
+      <nav class="section-anchor-nav" aria-label="Etusivun osiot">
+        {
+          sectionNavigation.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))
+        }
+      </nav>
     </div>
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
