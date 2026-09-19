@@ -6,7 +6,7 @@
   --color-border: #ded7ca;
   --color-accent: #a9813f;
   --color-accent-dark: #6f5427;
-  --font-sans: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Figtree Variable", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --max-content: 1120px;
   --space-page: clamp(1.25rem, 4vw, 4rem);
 }
