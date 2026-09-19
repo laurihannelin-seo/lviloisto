@@ -1,0 +1,25 @@
+---
+interface Props {
+  id?: string;
+  title: string;
+  text: string;
+  ctaLabel: string;
+  ctaHref: string;
+  image: string;
+  imageAlt: string;
+}
+
+const { id, title, text, ctaLabel, ctaHref, image, imageAlt } = Astro.props;
+const headingId = id ? `${id}-heading` : "split-cta-heading";
+---
+
+<section class="service-final-cta" id={id} aria-labelledby={headingId}>
+  <figure class="service-final-cta__media">
+    <img src={image} alt={imageAlt} loading="lazy" />
+  </figure>
+  <div class="service-final-cta__content">
+    <h2 id={headingId}>{title}</h2>
+    <p>{text}</p>
+    <a href={ctaHref}>{ctaLabel}<span aria-hidden="true">→</span></a>
+  </div>
+</section>

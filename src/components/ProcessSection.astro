@@ -1,0 +1,116 @@
+---
+interface ProcessStep {
+  number: string;
+  title: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+  caption: string;
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  intro: string;
+  steps: ProcessStep[];
+  cta?: { label: string; href: string };
+}
+
+const { id, title, intro, steps, cta } = Astro.props;
+---
+
+<section class="process-section" id={id} data-process-section>
+  <div class="process-section__inner page-shell">
+    <div class="process-section__header">
+      <h2>{title}</h2>
+      <p>{intro}</p>
+    </div>
+
+    <figure class="process-visual" aria-live="polite">
+      <div class="process-visual__viewport">
+        {
+          steps.map((step, index) => (
+            <img
+              src={step.image}
+              alt={step.imageAlt}
+              loading="lazy"
+              class={`process-visual__image${index === 0 ? " is-active" : ""}`}
+              data-process-image
+              aria-hidden={index === 0 ? "false" : "true"}
+            />
+          ))
+        }
+      </div>
+      <figcaption class="process-visual__caption" data-process-caption>{steps[0]?.caption}</figcaption>
+    </figure>
+
+    <div class="process-section__steps">
+      <div class="process-step-list" aria-label="LVI-urakan eteneminen">
+        {
+          steps.map((step, index) => (
+            <button
+              type="button"
+              class={`process-step${index === 0 ? " is-active" : ""}`}
+              data-process-step
+              data-caption={step.caption}
+              aria-pressed={index === 0 ? "true" : "false"}
+            >
+              <span class="process-step__number">{step.number}</span>
+              <span class="process-step__content">
+                <span class="process-step__title">{step.title}</span>
+                <span class="process-step__text">{step.text}</span>
+              </span>
+            </button>
+          ))
+        }
+      </div>
+
+      {cta && <a class="process-section__cta text-link" href={cta.href}>{cta.label}</a>}
+    </div>
+  </div>
+</section>
+
+<script>
+  const initProcessSections = () => {
+    document.querySelectorAll<HTMLElement>("[data-process-section]").forEach((section) => {
+      if (section.dataset.processReady === "true") return;
+
+      const steps = Array.from(section.querySelectorAll<HTMLButtonElement>("[data-process-step]"));
+      const images = Array.from(section.querySelectorAll<HTMLImageElement>("[data-process-image]"));
+      const caption = section.querySelector<HTMLElement>("[data-process-caption]");
+
+      if (!steps.length || !images.length || !caption) return;
+
+      const setActiveStep = (activeIndex: number) => {
+        steps.forEach((step, index) => {
+          const isActive = index === activeIndex;
+          step.classList.toggle("is-active", isActive);
+          step.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        images.forEach((image, index) => {
+          const isActive = index === activeIndex;
+          image.classList.toggle("is-active", isActive);
+          image.setAttribute("aria-hidden", isActive ? "false" : "true");
+        });
+
+        caption.textContent = steps[activeIndex]?.dataset.caption || "";
+      };
+
+      steps.forEach((step, index) => {
+        step.addEventListener("mouseenter", () => setActiveStep(index));
+        step.addEventListener("focus", () => setActiveStep(index));
+        step.addEventListener("click", () => setActiveStep(index));
+      });
+
+      section.dataset.processReady = "true";
+      setActiveStep(0);
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initProcessSections, { once: true });
+  } else {
+    initProcessSections();
+  }
+</script>

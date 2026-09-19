@@ -1,0 +1,63 @@
+---
+interface PortfolioItem {
+  title: string;
+  location: string;
+  type: string;
+  text: string;
+  image: string;
+  imageAlt: string;
+  href?: string;
+  futureHref?: string;
+}
+
+interface Props {
+  id?: string;
+  title: string;
+  intro: string;
+  items: PortfolioItem[];
+}
+
+const { id, title, intro, items } = Astro.props;
+---
+
+<section class="portfolio-section" id={id}>
+  <div class="portfolio-section__inner page-shell">
+    <div class="portfolio-section__header">
+      <h2>{title}</h2>
+      <div class="portfolio-section__intro">
+        <p>{intro}</p>
+      </div>
+    </div>
+
+    <div class="portfolio-grid" aria-label="Valitut LVI-urakointikohteet">
+      {
+        items.map((item) => {
+          const CardTag = item.href ? "a" : "article";
+          return (
+            <CardTag
+              class={`portfolio-card${item.href ? "" : " portfolio-card--static"}`}
+              href={item.href}
+              data-future-href={item.futureHref}
+              aria-label={item.href ? `Tutustu kohteeseen ${item.title}` : undefined}
+            >
+              <figure class="portfolio-card__media">
+                <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              </figure>
+              <div class="portfolio-card__content">
+                <p class="portfolio-card__location">{item.location} · {item.type}</p>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+                {item.href && (
+                  <span class="portfolio-card__link">
+                    <span>Tutustu kohteeseen</span>
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                )}
+              </div>
+            </CardTag>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

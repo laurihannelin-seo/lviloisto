@@ -1,0 +1,304 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import FaqSection from "../components/FaqSection.astro";
+import PortfolioSection from "../components/PortfolioSection.astro";
+import ProcessSection from "../components/ProcessSection.astro";
+import SplitCta from "../components/SplitCta.astro";
+
+const title = "LVI-urakointi vaativiin kohteisiin | LVI-Loisto";
+const description =
+  "LVI-Loisto toteuttaa LVI-urakointia uudis- ja saneerauskohteisiin pääkaupunkiseudulla.";
+
+const serviceItems = [
+  "Käyttövesi",
+  "Viemäröinti",
+  "Lämmitys",
+  "Jäähdytys",
+  "Tekniset tilat",
+  "Lämmönjakokeskukset",
+  "Kaukolämpökeskukset",
+  "Maalämpö / VILP",
+];
+
+const projectTypes = [
+  {
+    title: "Arvoasunnot ja saneerauskohteet",
+    text: "Tarkempi sisältö ja referenssit täydennetään myöhemmin.",
+    image: "/images/home/taloyhtiot-kiinteistot.jpg",
+    imageAlt: "Tumma viimeistelty märkätila saneerauskohteessa",
+  },
+  {
+    title: "Villat ja suuret omakotitalot",
+    text: "Lyhyt kuvaus kohteiden LVI-kokonaisuuksista.",
+    image: "/images/home/uudisrakennukset-villat.jpeg",
+    imageAlt: "Viimeistelty kodinhoito- ja märkätila suuressa yksityiskohteessa",
+  },
+  {
+    title: "Taloyhtiöt ja kiinteistöt",
+    text: "Lyhyt kuvaus kiinteistöjen teknisistä ratkaisuista.",
+    image: "/images/home/arvoasunnot-saneeraus.jpeg",
+    imageAlt: "Vaalea viimeistelty kylpyhuone kiinteistökohteessa",
+  },
+  {
+    title: "Uudisrakennukset",
+    text: "Lyhyt kuvaus uudiskohteiden urakointimallista.",
+    image: "/images/home/about-imgl1779.jpg",
+    imageAlt: "Moderni viimeistelty sisätila uudisrakennuksessa",
+  },
+  {
+    title: "Rakennusliikkeet ja ammattilaiset",
+    text: "Lyhyt kuvaus yhteistyöstä suunnittelun ja työmaan kanssa.",
+    image: "/images/home/quality-imgl1757.jpg",
+    imageAlt: "Kultaiset hanakalusteet viimeistellyssä märkätilassa",
+  },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Kohteen kartoitus",
+    text: "Lähtötiedot, tavoitteet ja rajaukset kootaan yhteen.",
+    image: "/images/home/quality-imgl1757.jpg",
+    imageAlt: "Viimeistellyn märkätilan kultaiset hanakalusteet",
+    caption: "Kohteen lähtötilanne ja tavoitteet muodostavat toteutuksen perustan.",
+  },
+  {
+    number: "02",
+    title: "Suunnitelmien ja toteutuksen yhteensovitus",
+    text: "Ratkaisut sovitetaan rakenteisiin ja työmaan aikatauluun.",
+    image: "/images/home/uudisrakennukset-villat.jpeg",
+    imageAlt: "Teknisesti viimeistelty kodinhoito- ja märkätila",
+    caption: "Suunnitelmat, rakenteet ja työvaiheet sovitetaan yhteen.",
+  },
+  {
+    number: "03",
+    title: "Toteutus",
+    text: "Urakka toteutetaan sovitun laajuuden ja aikataulun mukaan.",
+    image: "/images/home/taloyhtiot-kiinteistot.jpg",
+    imageAlt: "Tumma premium-tason märkätila",
+    caption: "Toteutus etenee hallitusti ja kohteen vaatimukset huomioiden.",
+  },
+  {
+    number: "04",
+    title: "Tarkistus ja luovutus",
+    text: "Valmis kokonaisuus tarkistetaan ennen luovutusta.",
+    image: "/images/home/arvoasunnot-saneeraus.jpeg",
+    imageAlt: "Vaalea valmis kylpyhuone",
+    caption: "Valmis järjestelmä tarkistetaan ja luovutetaan käyttöön.",
+  },
+];
+
+const trustItems = [
+  "Suunnitelmallinen projektinhallinta",
+  "Huolellinen ja siisti toteutus",
+  "Yhteistyö suunnittelijoiden ja urakoitsijoiden kanssa",
+  "Kohteeseen sovitetut tekniset ratkaisut",
+  "Dokumentoitu tarkistus ja luovutus",
+];
+
+const portfolioItems = [
+  {
+    title: "Arvoasunnon LVI-saneeraus",
+    location: "Helsinki",
+    type: "Saneeraus",
+    text: "Lyhyt kohdekuvaus täydennetään referenssin valmistuessa.",
+    image: "/images/home/taloyhtiot-kiinteistot.jpg",
+    imageAlt: "Tumma märkätila arvoasunnon saneerauskohteessa",
+    futureHref: "/kohteet/arvoasunnon-lvi-saneeraus-helsinki/",
+  },
+  {
+    title: "Villan LVI-kokonaisuus",
+    location: "Espoo",
+    type: "Uudisrakentaminen",
+    text: "Lyhyt kohdekuvaus täydennetään referenssin valmistuessa.",
+    image: "/images/home/uudisrakennukset-villat.jpeg",
+    imageAlt: "Laadukas kodinhoito- ja märkätila villakohteessa",
+    futureHref: "/kohteet/villan-lvi-kokonaisuus-espoo/",
+  },
+  {
+    title: "Kiinteistön tekninen saneeraus",
+    location: "Vantaa",
+    type: "Kiinteistö",
+    text: "Lyhyt kohdekuvaus täydennetään referenssin valmistuessa.",
+    image: "/images/home/arvoasunnot-saneeraus.jpeg",
+    imageAlt: "Viimeistelty vaalea tila kiinteistökohteessa",
+    futureHref: "/kohteet/kiinteiston-tekninen-saneeraus-vantaa/",
+  },
+];
+
+const cityPages = [
+  { title: "LVI-urakointi Helsinki", href: "/lvi-urakointi/helsinki/" },
+  { title: "LVI-urakointi Espoo", href: "/lvi-urakointi/espoo/" },
+  { title: "LVI-urakointi Vantaa", href: "/lvi-urakointi/vantaa/" },
+];
+
+const faqItems = [
+  { question: "Mitä LVI-urakointi sisältää?", answer: "Vastaus täydennetään myöhemmin." },
+  { question: "Millaisiin kohteisiin palvelu sopii?", answer: "Vastaus täydennetään myöhemmin." },
+  { question: "Teettekö uudis- ja saneerauskohteita?", answer: "Vastaus täydennetään myöhemmin." },
+  { question: "Milloin LVI-urakoitsija kannattaa ottaa mukaan?", answer: "Vastaus täydennetään myöhemmin." },
+  { question: "Millä alueella LVI-Loisto toimii?", answer: "Vastaus täydennetään myöhemmin." },
+  { question: "Miten tarjouspyyntö valmistellaan?", answer: "Vastaus täydennetään myöhemmin." },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="service-page-hero" aria-labelledby="service-page-heading">
+    <img
+      class="service-page-hero__image"
+      src="/images/home/hero-imgl1743.jpg"
+      alt="Tumma viimeistelty märkätila vaativassa LVI-kohteessa"
+      loading="eager"
+    />
+    <div class="service-page-hero__shade" aria-hidden="true"></div>
+    <div class="service-page-hero__inner page-shell">
+      <Breadcrumbs
+        variant="dark"
+        items={[{ label: "Etusivu", href: "/" }, { label: "LVI-urakointi" }]}
+      />
+      <div class="service-page-hero__copy">
+        <h1 id="service-page-heading">LVI-urakointi vaativiin kohteisiin</h1>
+        <p>Huolellisesti suunniteltuja LVI-kokonaisuuksia uudis- ja saneerauskohteisiin.</p>
+        <div class="service-page-hero__actions">
+          <a class="service-page-hero__primary" href="/yhteystiedot/">Keskustele kohteestasi</a>
+          <a class="service-page-hero__secondary" href="#valitut-kohteet">Katso toteutettuja kohteita</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-editorial-split" id="uudis-ja-saneerauskohteet">
+    <figure class="service-editorial-split__media">
+      <img
+        src="/images/home/about-imgl1779.jpg"
+        alt="Viimeistelty sisätila LVI-urakointikohteessa"
+        loading="lazy"
+      />
+    </figure>
+    <div class="service-editorial-split__content">
+      <h2>LVI-urakointi uudis- ja saneerauskohteisiin</h2>
+      <p>Lyhyt johdanto kohteen tavoitteisiin sovitetusta LVI-urakoinnista.</p>
+      <a class="text-link" href="#urakan-sisalto">Tutustu urakan sisältöön</a>
+    </div>
+  </section>
+
+  <section class="service-scope-section" id="urakan-sisalto" aria-labelledby="scope-heading">
+    <div class="service-scope-section__inner page-shell">
+      <div class="service-scope-section__header">
+        <h2 id="scope-heading">Mitä LVI-urakointi sisältää?</h2>
+        <p>Kokonaisuus määritellään aina kohteen suunnitelmien ja tarpeiden mukaan.</p>
+      </div>
+      <ul class="service-scope-list">
+        {serviceItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="service-project-types" id="kohdetyypit" aria-labelledby="project-types-heading">
+    <div class="service-project-types__inner page-shell">
+      <div class="service-project-types__header">
+        <h2 id="project-types-heading">Kohteet, joissa osaamisemme korostuu</h2>
+        <p>Kohdetyyppien tarkemmat sisällöt ja referenssit lisätään myöhemmin.</p>
+      </div>
+      <div class="service-project-types__grid">
+        {
+          projectTypes.map((item) => (
+            <article class="service-project-type">
+              <figure><img src={item.image} alt={item.imageAlt} loading="lazy" /></figure>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="service-comparison" id="uudisrakentaminen-ja-saneeraus" aria-labelledby="comparison-heading">
+    <div class="service-comparison__inner page-shell">
+      <h2 id="comparison-heading">Uudisrakentaminen ja saneeraus vaativat eri lähestymistavan</h2>
+      <div class="service-comparison__grid">
+        <article>
+          <h3>Uudisrakentaminen</h3>
+          <ul>
+            <li>Suunnitelmien yhteensovitus</li>
+            <li>Työvaiheiden rytmitys</li>
+            <li>Teknisen kokonaisuuden hallinta</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Saneeraus</h3>
+          <ul>
+            <li>Lähtötilanteen huolellinen kartoitus</li>
+            <li>Rakenteiden ja pintojen huomiointi</li>
+            <li>Hallittu toteutus käytössä olevassa kohteessa</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <ProcessSection
+    id="urakan-eteneminen"
+    title="Näin LVI-urakka etenee"
+    intro="Selkeä etenemismalli pitää suunnittelun, toteutuksen ja luovutuksen hallinnassa."
+    steps={processSteps}
+    cta={{ label: "Keskustele kohteestasi", href: "/yhteystiedot/" }}
+  />
+
+  <section class="service-trust-section" id="miksi-lvi-loisto" aria-labelledby="trust-heading">
+    <div class="service-trust-section__inner page-shell">
+      <div class="service-trust-section__header">
+        <h2 id="trust-heading">Miksi LVI-Loisto LVI-urakoitsijaksi?</h2>
+        <p>Nostojen tarkemmat perustelut täydennetään sisällöntuotannon yhteydessä.</p>
+      </div>
+      <div class="service-trust-list">
+        {trustItems.map((item) => <p>{item}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <PortfolioSection
+    id="valitut-kohteet"
+    title="Valittuja LVI-urakointikohteita"
+    intro="Kolme kohdepaikkaa tuleville referensseille. Kortit aktivoidaan, kun kohdesivut julkaistaan."
+    items={portfolioItems}
+  />
+
+  <section class="service-city-section" id="toimialueet" aria-labelledby="city-heading">
+    <div class="service-city-section__inner page-shell">
+      <div class="service-city-section__header">
+        <h2 id="city-heading">LVI-urakointi pääkaupunkiseudulla</h2>
+        <p>Kaupunkikohtaiset palvelusivut lisätään tähän rakenteeseen myöhemmin.</p>
+      </div>
+      <div class="service-city-links" aria-label="Tulevat kaupunkikohtaiset LVI-urakointisivut">
+        {
+          cityPages.map((city) => (
+            <span class="service-city-link" data-future-href={city.href}>
+              <span>{city.title}</span>
+              <span aria-hidden="true">→</span>
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <FaqSection
+    id="lvi-urakointi-ukk"
+    title="Usein kysyttyä LVI-urakoinnista"
+    intro="Kysymykset ja vastaukset täydennetään osio kerrallaan."
+    items={faqItems}
+  />
+
+  <SplitCta
+    id="keskustele-urakasta"
+    title="Keskustele LVI-urakastasi"
+    text="Kerro lyhyesti kohteesta ja projektin vaiheesta. Täydennämme yhteydenoton sisältöä myöhemmin."
+    ctaLabel="Pyydä tarjous"
+    ctaHref="/yhteystiedot/"
+    image="/images/home/contact-shower-cropped.jpg"
+    imageAlt="Kultainen sadesuihku viimeistellyssä tummassa märkätilassa"
+  />
+</BaseLayout>
