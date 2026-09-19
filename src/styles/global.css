@@ -2207,8 +2207,14 @@ h3 {
 
 .service-trust-section__copy p {
   max-width: 32rem;
-  margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
+  margin: 0;
   color: var(--color-muted);
+}
+
+.service-trust-section__body {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 .service-trust-list {
@@ -2218,15 +2224,21 @@ h3 {
   border-top: 1px solid rgba(22, 22, 22, 0.14);
 }
 
-.service-trust-list p {
-  margin: 0;
+.service-trust-list article {
   border-bottom: 1px solid rgba(22, 22, 22, 0.14);
-  padding: clamp(1.2rem, 2vw, 1.55rem) 0;
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  padding: clamp(1.25rem, 2vw, 1.75rem) 0;
 }
 
-.service-trust-list p:nth-child(odd) {
-  margin-right: 0;
+.service-trust-list h3 {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+}
+
+.service-trust-list p {
+  max-width: 39rem;
+  margin: 0.65rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.94rem;
 }
 
 .portfolio-card--static {
@@ -3333,10 +3345,6 @@ h3 {
   .service-trust-list {
     grid-template-columns: 1fr;
     margin-top: 2.75rem;
-  }
-
-  .service-trust-list p:nth-child(odd) {
-    margin-right: 0;
   }
 
   .service-city-links {

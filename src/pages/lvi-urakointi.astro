@@ -68,31 +68,42 @@ const processSteps = [
   {
     number: "01",
     title: "Kohteen kartoitus",
-    text: "Lähtötiedot, tavoitteet ja rajaukset kootaan yhteen.",
+    text: "Projektin alussa käydään läpi kohteen lähtötilanne, suunnitelmat, aikataulu ja urakan laajuus. Saneerauskohteissa huomioidaan myös olemassa olevat järjestelmät ja rakenteet, jotka vaikuttavat toteutukseen.",
   },
   {
     number: "02",
     title: "Suunnitelmien ja toteutuksen yhteensovitus",
-    text: "Ratkaisut sovitetaan rakenteisiin ja työmaan aikatauluun.",
+    text: "LVI-ratkaisut sovitetaan kohteen rakenteisiin, teknisiin suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin. Tavoitteena on tunnistaa mahdolliset yhteensovitus- ja toteutuskysymykset ennen kuin ne aiheuttavat viivästyksiä työmaalla.",
   },
   {
     number: "03",
     title: "Toteutus",
-    text: "Urakka toteutetaan sovitun laajuuden ja aikataulun mukaan.",
+    text: "LVI-työt toteutetaan sovitun suunnitelman ja aikataulun mukaisesti. Työvaiheiden eteneminen sovitetaan muun rakentamisen kanssa, jotta kokonaisuus etenee mahdollisimman sujuvasti.",
   },
   {
     number: "04",
     title: "Tarkistus ja luovutus",
-    text: "Valmis kokonaisuus tarkistetaan ennen luovutusta.",
+    text: "Valmiit järjestelmät tarkistetaan ennen luovutusta ja tarvittavat säädöt sekä mittaukset tehdään osana kokonaisuuden viimeistelyä. Kohde luovutetaan tilaajalle valmiina käyttöön.",
   },
 ];
 
 const trustItems = [
-  "Suunnitelmallinen projektinhallinta",
-  "Huolellinen ja siisti toteutus",
-  "Yhteistyö suunnittelijoiden ja urakoitsijoiden kanssa",
-  "Kohteeseen sovitetut tekniset ratkaisut",
-  "Dokumentoitu tarkistus ja luovutus",
+  {
+    title: "Suunnitelmallinen toteutus",
+    text: "Urakan sisältö, työvaiheet ja aikataulu käydään läpi ennen toteutusta, jotta projekti etenee mahdollisimman hallitusti.",
+  },
+  {
+    title: "Yhteistyö muiden ammattilaisten kanssa",
+    text: "LVI-työt sovitetaan yhteen arkkitehtien, suunnittelijoiden, rakennusliikkeiden ja muiden urakoitsijoiden työn kanssa.",
+  },
+  {
+    title: "Kokemus erilaisista kohteista",
+    text: "Toteutamme LVI-töitä uudisrakennuksiin, saneerauskohteisiin, koteihin, taloyhtiöihin ja muihin kiinteistöihin.",
+  },
+  {
+    title: "Huolellinen viimeistely",
+    text: "Erityisesti valmiissa ja arvokkaissa ympäristöissä teknisten ratkaisujen lisäksi korostuvat siisti työnjälki ja ympäröivien rakenteiden huomioiminen.",
+  },
 ];
 
 const portfolioItems = [
@@ -248,7 +259,7 @@ const faqItems = [
     <div class="service-process-section__inner page-shell">
       <div class="service-section-heading">
         <h2 id="service-process-heading">Näin LVI-urakka etenee</h2>
-        <p>Selkeä etenemismalli pitää suunnittelun, toteutuksen ja luovutuksen hallinnassa.</p>
+        <p>LVI-urakan onnistuminen perustuu selkeään suunnitteluun, oikeaan vaiheistukseen ja siihen, että työ sovitetaan yhteen muun rakentamisen kanssa. LVI-Loisto vie projektin eteenpäin hallitusti lähtötilanteesta valmiiseen kokonaisuuteen.</p>
       </div>
       <ol class="service-process-list">
         {processSteps.map((step) => (
@@ -266,10 +277,18 @@ const faqItems = [
     <div class="service-trust-section__inner page-shell">
       <div class="service-trust-section__copy">
         <h2 id="trust-heading">LVI-Loisto LVI-urakoitsijana</h2>
-        <p>Nostojen tarkemmat perustelut täydennetään sisällöntuotannon yhteydessä.</p>
+        <div class="service-trust-section__body">
+          <p>LVI-urakoitsijan tehtävä ei ole pelkästään asentaa suunnitelmiin merkittyjä järjestelmiä. Vaativassa rakennus- tai saneeraushankkeessa olennaista on ymmärtää kokonaisuutta, sovittaa LVI-työt muihin työvaiheisiin ja varmistaa, että tekninen toteutus toimii myös käytännössä.</p>
+          <p>LVI-Loisto toteuttaa urakoita niin yksityisille tilaajille, taloyhtiöille kuin rakennusalan ammattilaisille. Erityisesti vaativissa kohteissa kiinnitämme huomiota työn teknisen toimivuuden lisäksi toteutuksen siisteyteen, yksityiskohtiin ja siihen, miten LVI-ratkaisut istuvat osaksi valmista rakennusta.</p>
+        </div>
       </div>
       <div class="service-trust-list">
-        {trustItems.map((item) => <p>{item}</p>)}
+        {trustItems.map((item) => (
+          <article>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
