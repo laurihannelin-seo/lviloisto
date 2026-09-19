@@ -28,8 +28,9 @@ body {
   margin: 0;
   background: var(--color-page);
   color: var(--color-text);
-  letter-spacing: 0.005em;
-  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
   overflow-x: clip;
   scroll-padding-top: 5rem;
 }
@@ -92,7 +93,8 @@ h3 {
   gap: clamp(1.6rem, 4vw, 3.5rem);
   color: var(--color-text);
   font-size: 0.92rem;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .site-nav a {
@@ -164,9 +166,6 @@ h3 {
   max-width: 44rem;
   color: #ffffff;
   font-size: clamp(2.85rem, 4vw, 4.65rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
   text-wrap: balance;
 }
 
@@ -189,7 +188,8 @@ h3 {
   border-bottom: 1px solid currentColor;
   padding-bottom: 0.22rem;
   color: #ffffff;
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: color 180ms ease;
 }
@@ -288,9 +288,6 @@ h3 {
 .solution-feature h2 {
   margin: 0;
   font-size: clamp(1.85rem, 3.2vw, 3rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
 }
 
 .solution-feature p {
@@ -332,9 +329,6 @@ h3 {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2.8rem, 4.6vw, 4.85rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
   text-wrap: balance;
 }
 
@@ -357,8 +351,8 @@ h3 {
   margin-top: clamp(1rem, 1.8vw, 1.35rem);
   color: #ffffff;
   font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 180ms ease;
@@ -449,9 +443,6 @@ h3 {
   margin: 0;
   color: #ffffff;
   font-size: clamp(1.15rem, 1.35vw, 1.45rem);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.08;
   text-wrap: balance;
 }
 
@@ -472,8 +463,8 @@ h3 {
   margin-top: 0.25rem;
   color: #ffffff;
   font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   text-transform: uppercase;
   transition: color 180ms ease;
@@ -515,7 +506,8 @@ h3 {
   border-bottom: 1px solid currentColor;
   padding-bottom: 0.2rem;
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   text-decoration: none;
   transition: color 180ms ease;
 }
@@ -587,9 +579,6 @@ h3 {
 .about-section h2 {
   margin: 0;
   font-size: clamp(2.2rem, 2.85vw, 3.1rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.04;
   text-wrap: balance;
 }
 
@@ -621,8 +610,6 @@ h3 {
 .about-highlight h3 {
   margin: 0;
   font-size: clamp(1rem, 1.15vw, 1.1rem);
-  font-weight: 500;
-  letter-spacing: 0;
   line-height: 1.25;
 }
 
@@ -760,9 +747,6 @@ h3 {
 .process-section__header h2 {
   margin: 0;
   font-size: clamp(2.35rem, 3.6vw, 3.9rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
   text-wrap: balance;
 }
 
@@ -826,7 +810,7 @@ h3 {
 
 .process-step__title {
   font-size: clamp(1.08rem, 1.35vw, 1.32rem);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.18;
   transition: color 180ms ease;
@@ -923,9 +907,6 @@ h3 {
 .faq-section h2 {
   margin: 0;
   font-size: clamp(2.35rem, 4vw, 4.2rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
 }
 
 .faq-section__header > p:not(.section-label) {
@@ -954,7 +935,7 @@ h3 {
   color: var(--color-text);
   cursor: pointer;
   font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.3;
   list-style: none;
 }
@@ -1035,13 +1016,6 @@ h3 {
 .contact-panel h2 {
   margin: 0;
   font-size: clamp(2.5rem, 4.7vw, 5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.contact-panel h1 {
-  letter-spacing: -0.04em;
 }
 
 .contact-panel__intro {
@@ -1121,8 +1095,8 @@ h3 {
   color: var(--color-surface);
   cursor: pointer;
   font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1.2;
   padding: 1rem 1.25rem;
   text-transform: uppercase;
@@ -1169,9 +1143,6 @@ h3 {
   max-width: 34rem;
   margin: 0;
   font-size: clamp(2.25rem, 3.6vw, 3.85rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.03;
   text-wrap: balance;
 }
 
@@ -1223,9 +1194,6 @@ h3 {
 .contact-details-section h2 {
   margin: 0;
   font-size: clamp(2.15rem, 3.6vw, 3.85rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.03;
   text-wrap: balance;
 }
 
@@ -1249,8 +1217,6 @@ h3 {
   margin: 0 0 clamp(1rem, 1.7vw, 1.35rem);
   color: var(--color-accent-dark);
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -1306,9 +1272,6 @@ h3 {
 .about-page-hero h1 {
   margin: 0;
   font-size: clamp(3.2rem, 6.2vw, 7.4rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
   text-wrap: balance;
 }
 
@@ -1364,9 +1327,6 @@ h3 {
 .about-final-cta h2 {
   margin: 0;
   font-size: clamp(2.55rem, 4.4vw, 5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.01;
   text-wrap: balance;
 }
 
@@ -1437,8 +1397,6 @@ h3 {
 .about-company-detail h3 {
   margin: 0;
   font-size: clamp(1.2rem, 1.55vw, 1.55rem);
-  font-weight: 500;
-  letter-spacing: 0;
   line-height: 1.14;
 }
 
@@ -1543,8 +1501,6 @@ h3 {
 .about-company-detail h3 {
   color: var(--color-accent-dark);
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
   line-height: 1.2;
   text-transform: uppercase;
 }
@@ -1608,8 +1564,8 @@ h3 {
   background: var(--color-accent);
   color: #11162f;
   font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   padding: 1rem 1.35rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -2356,15 +2312,15 @@ h3 {
 :root h1 {
   font-family: var(--font-sans);
   font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.05;
+  letter-spacing: 0.015em;
+  line-height: 1.02;
 }
 
 :root h2 {
   font-family: var(--font-sans);
   font-weight: 300;
-  letter-spacing: 0.005em;
-  line-height: 1.08;
+  letter-spacing: 0.01em;
+  line-height: 1.06;
 }
 
 :root h3 {
@@ -2374,12 +2330,13 @@ h3 {
 }
 
 :root .site-nav,
-:root button,
 :root .home-hero__cta,
 :root .portfolio-section__cta,
 :root .portfolio-card__link,
 :root .text-link,
+:root .contact-form__button,
 :root .about-final-cta a {
   font-family: var(--font-sans);
-  font-weight: 500;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
