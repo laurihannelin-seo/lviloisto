@@ -9,14 +9,38 @@ const description =
   "LVI-Loisto toteuttaa LVI-urakointia uudis- ja saneerauskohteisiin pääkaupunkiseudulla.";
 
 const serviceItems = [
-  "Käyttövesi",
-  "Viemäröinti",
-  "Lämmitys",
-  "Jäähdytys",
-  "Tekniset tilat",
-  "Lämmönjakokeskukset",
-  "Kaukolämpökeskukset",
-  "Maalämpö / VILP",
+  {
+    title: "Käyttövesi",
+    text: "Käyttövesiputkistojen asennukset ja uusimiset osana uudisrakentamista ja saneerausta. Toteutuksessa huomioidaan järjestelmän toimivuus, huollettavuus ja kohteen muut tekniset ratkaisut.",
+  },
+  {
+    title: "Viemäröinti",
+    text: "Viemärijärjestelmien asennukset ja saneeraukset sekä tarvittavat muutokset olemassa oleviin järjestelmiin. Työt sovitetaan rakenteisiin ja muihin rakennusvaiheisiin.",
+  },
+  {
+    title: "Lämmitys",
+    text: "Patteri- ja lämmitysverkostojen asennukset, muutokset ja saneeraukset. Toteutamme myös verkostojen tasapainotuksia, säätöjä ja vesivirtojen mittauksia.",
+  },
+  {
+    title: "Jäähdytys",
+    text: "Jäähdytysratkaisut erityisesti asuntoihin ja kiinteistöihin, joissa sisäolosuhteilta ja järjestelmien huomaamattomalta toteutukselta vaaditaan tavallista enemmän.",
+  },
+  {
+    title: "Tekniset tilat",
+    text: "Teknisten tilojen putkistot, laitteistot ja niiden yhteensovitus osaksi kiinteistön muuta LVI-järjestelmää. Tavoitteena on selkeä, toimiva ja helposti huollettava kokonaisuus.",
+  },
+  {
+    title: "Lämmönjakokeskukset",
+    text: "Lämmönjakokeskusten asennukset ja uusimiset taloyhtiöihin ja muihin kiinteistöihin. Kokonaisuus toteutetaan kohteen lämmitystarpeen ja olemassa olevan järjestelmän mukaan.",
+  },
+  {
+    title: "Kaukolämpökeskukset",
+    text: "Kaukolämpöön liittyvien laitteistojen ja putkistojen toteutukset sekä saneeraukset osana kiinteistön lämmitysjärjestelmän uudistamista.",
+  },
+  {
+    title: "Maalämpö ja VILP",
+    text: "Maalämpö- ja ilma-vesilämpöpumppuratkaisut uudis- ja saneerauskohteisiin. Järjestelmä sovitetaan rakennuksen lämmitystarpeeseen, teknisiin tiloihin ja olemassa olevaan lämmönjakoon.",
+  },
 ];
 
 const projectTypes = [
@@ -146,7 +170,11 @@ const faqItems = [
     <div class="service-editorial-split__inner page-shell">
       <div class="service-editorial-split__content">
         <h2>LVI-urakointia uudis- ja saneerauskohteisiin</h2>
-        <p>Lyhyt johdanto kohteen tavoitteisiin sovitetusta LVI-urakoinnista.</p>
+        <div class="service-editorial-split__body">
+          <p>LVI-Loisto toteuttaa LVI-urakointia uudisrakennuksiin ja saneerauskohteisiin pääkaupunkiseudulla. Palvelemme taloyhtiöitä, rakennusliikkeitä ja yksityisasiakkaita kohteissa, joissa LVI-järjestelmien toimivuus, huolellinen toteutus ja työn yhteensovittaminen muun rakentamisen kanssa ovat tärkeässä roolissa.</p>
+          <p>Uudisrakentamisessa toteutamme LVI-kokonaisuuksia muun muassa omakoti-, rivi- ja kerrostalokohteisiin. Saneerauskohteissa työ voi käsittää yksittäisten järjestelmien uusimisen tai laajemman LVI-kokonaisuuden osana rakennuksen peruskorjausta. Toteutus suunnitellaan aina kohteen olemassa olevien rakenteiden, LVI-suunnitelmien ja muiden työvaiheiden mukaan.</p>
+          <p>LVI-urakoitsijana huolehdimme siitä, että työ etenee suunnitelmallisesti kartoituksesta ja työvaiheiden yhteensovituksesta aina asennuksiin, tarkastuksiin ja valmiin kokonaisuuden luovutukseen. Tavoitteena on teknisesti toimiva ratkaisu, joka sopii kohteen käyttötarkoitukseen ja kestää käyttöä pitkälle tulevaisuuteen.</p>
+        </div>
         <a class="text-link" href="#urakan-sisalto">Tutustu urakan sisältöön</a>
       </div>
       <figure class="service-editorial-split__media">
@@ -163,11 +191,17 @@ const faqItems = [
     <div class="service-scope-section__inner page-shell">
       <div class="service-scope-section__header">
         <h2 id="scope-heading">Mitä LVI-urakointi sisältää?</h2>
-        <p>Kokonaisuus määritellään aina kohteen suunnitelmien ja tarpeiden mukaan.</p>
+        <p>LVI-urakan sisältö määräytyy aina kohteen suunnitelmien, käyttötarkoituksen ja nykyisten järjestelmien mukaan. LVI-Loisto toteuttaa sekä yksittäisiä järjestelmiä että laajempia LVI-kokonaisuuksia uudis- ja saneerauskohteisiin.</p>
       </div>
       <ul class="service-scope-list">
-        {serviceItems.map((item) => <li>{item}</li>)}
+        {serviceItems.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
       </ul>
+      <p class="service-scope-section__note">Tarvittaessa urakkaan voidaan yhdistää myös esimerkiksi vesimittarivaihtoja sekä käyttövesi- ja patteriverkostojen muita muutostöitä.</p>
     </div>
   </section>
 
