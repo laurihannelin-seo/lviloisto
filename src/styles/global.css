@@ -6,7 +6,8 @@
   --color-border: #ded7ca;
   --color-accent: #a9813f;
   --color-accent-dark: #6f5427;
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --max-content: 1120px;
   --space-page: clamp(1.25rem, 4vw, 4rem);
 }
@@ -18,7 +19,7 @@
 html {
   color: var(--color-text);
   background: var(--color-page);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-weight: 400;
   overflow-x: clip;
 }
@@ -28,7 +29,7 @@ body {
   margin: 0;
   background: var(--color-page);
   color: var(--color-text);
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: clip;
   scroll-padding-top: 5rem;
 }
@@ -41,7 +42,14 @@ button,
 input,
 textarea,
 select {
-  font: inherit;
+  font-family: var(--font-body);
+  font-size: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
 }
 
 .page-shell {
@@ -156,9 +164,9 @@ select {
   max-width: 44rem;
   color: #ffffff;
   font-size: clamp(2.85rem, 4vw, 4.65rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   text-wrap: balance;
 }
 
@@ -281,7 +289,7 @@ select {
   margin: 0;
   font-size: clamp(1.85rem, 3.2vw, 3rem);
   font-weight: 500;
-  letter-spacing: 0;
+  letter-spacing: -0.03em;
   line-height: 1.04;
 }
 
@@ -324,8 +332,8 @@ select {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2.8rem, 4.6vw, 4.85rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -579,8 +587,8 @@ select {
 .about-section h2 {
   margin: 0;
   font-size: clamp(2.2rem, 2.85vw, 3.1rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.04;
   text-wrap: balance;
 }
@@ -752,8 +760,8 @@ select {
 .process-section__header h2 {
   margin: 0;
   font-size: clamp(2.35rem, 3.6vw, 3.9rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -915,8 +923,8 @@ select {
 .faq-section h2 {
   margin: 0;
   font-size: clamp(2.35rem, 4vw, 4.2rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.02;
 }
 
@@ -1027,9 +1035,13 @@ select {
 .contact-panel h2 {
   margin: 0;
   font-size: clamp(2.5rem, 4.7vw, 5rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1;
+}
+
+.contact-panel h1 {
+  letter-spacing: -0.04em;
 }
 
 .contact-panel__intro {
@@ -1157,8 +1169,8 @@ select {
   max-width: 34rem;
   margin: 0;
   font-size: clamp(2.25rem, 3.6vw, 3.85rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.03;
   text-wrap: balance;
 }
@@ -1211,8 +1223,8 @@ select {
 .contact-details-section h2 {
   margin: 0;
   font-size: clamp(2.15rem, 3.6vw, 3.85rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.03;
   text-wrap: balance;
 }
@@ -1294,9 +1306,9 @@ select {
 .about-page-hero h1 {
   margin: 0;
   font-size: clamp(3.2rem, 6.2vw, 7.4rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 0.97;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
   text-wrap: balance;
 }
 
@@ -1352,8 +1364,8 @@ select {
 .about-final-cta h2 {
   margin: 0;
   font-size: clamp(2.55rem, 4.4vw, 5rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1.01;
   text-wrap: balance;
 }
