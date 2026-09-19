@@ -17,12 +17,17 @@ const contactPage = {
 };
 
 const mapSection = {
-  title: "Toimialue ja käyntiosoite",
-  intro:
-    "Toimipisteemme sijaitsee Vantaalla. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä valituissa kohteissa Tampereella ja Turussa.",
+  title: "Toimialueemme",
+  intro: "Toimipisteemme sijaitsee Helsingissä osoitteessa Työpajankatu 13 A.",
+  address: "Työpajankatu 13 A, 00580 Helsinki",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Ty%C3%B6pajankatu+13+A%2C+00580+Helsinki",
   iframeSrc:
-    "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3954.912007648524!2d25.067699!3d60.288990000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692064b116c96ad%3A0x5e3af631fc2b9860!2sSantaradantie%207%2C%2001370%20Vantaa!5e0!3m2!1sen!2sfi!4v1743751201510!5m2!1sen!2sfi",
+    "https://www.google.com/maps?q=Ty%C3%B6pajankatu%2013%20A%2C%2000580%20Helsinki&output=embed",
 };
+
+const contactDetailsIntro =
+  "Voit olla meihin yhteydessä suoraan puhelimitse tai sähköpostilla. Tarjouspyynnöt ja projektitiedustelut voi lähettää myös lomakkeen kautta.";
 
 const details = [
   {
@@ -30,8 +35,8 @@ const details = [
     label: "Yritys",
     items: [
       "LVI-Loisto Oy",
-      "Santaradantie 7",
-      "01370 Vantaa",
+      "Työpajankatu 13 A",
+      "00580 Helsinki",
       "Y-tunnus 3254898-6",
     ],
   },
@@ -74,9 +79,12 @@ const details = [
   <section class="map-section" aria-labelledby="map-heading">
     <div class="map-section__inner page-shell">
       <div class="map-section__content">
-        <p class="section-label">TOIMIALUE</p>
         <h2 id="map-heading">{mapSection.title}</h2>
         <p>{mapSection.intro}</p>
+        <div class="map-section__links">
+          <a href={mapSection.mapsUrl}>{mapSection.address}</a>
+          <a href={mapSection.mapsUrl}>Avaa Google Mapsissa <span aria-hidden="true">→</span></a>
+        </div>
       </div>
 
       <div class="map-section__frame">
@@ -97,8 +105,8 @@ const details = [
   <section class="contact-details-section" aria-labelledby="details-heading">
     <div class="contact-details-section__inner page-shell">
       <div class="contact-details-section__header">
-        <p class="section-label">YHTEYSTIEDOT</p>
-        <h2 id="details-heading">Yritystiedot ja suorat yhteydet</h2>
+        <h2 id="details-heading">Ota yhteyttä suoraan</h2>
+        <p>{contactDetailsIntro}</p>
       </div>
 
       <div class="contact-details-grid">
