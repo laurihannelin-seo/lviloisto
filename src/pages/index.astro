@@ -10,6 +10,8 @@ const solutionsSection = {
   titleLines: ["LVI-urakointia kohteisiin,", "joissa viimeistely ratkaisee"],
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
+  sectionTitle: "LVI-ratkaisut vaativiin kohteisiin",
+  sectionIntro: "Saneerauksista uudisrakentamiseen ja kiinteistöjen lämmitysratkaisuihin.",
   cta: "Keskustele kohteestasi",
   ctaHref: "#yhteystiedot",
   image: "/images/home/solutions-intro-image00007.jpeg",
@@ -240,7 +242,11 @@ const contactSection = {
     </div>
   </section>
 
-  <section class="solutions-section" id="lvi-tyot">
+  <section class="solutions-section" id="lvi-tyot" aria-labelledby="solutions-heading">
+    <div class="solutions-section__intro page-shell">
+      <h2 id="solutions-heading">{solutionsSection.sectionTitle}</h2>
+      <p>{solutionsSection.sectionIntro}</p>
+    </div>
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
         solutionsSection.items.map((item, index) => (
