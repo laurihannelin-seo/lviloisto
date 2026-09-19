@@ -2075,6 +2075,13 @@ h3 {
   text-wrap: balance;
 }
 
+.service-comparison__intro {
+  max-width: 54rem;
+  margin: clamp(1.5rem, 2.5vw, 2.25rem) 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+}
+
 .service-comparison__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2101,6 +2108,10 @@ h3 {
   max-width: 34rem;
   margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
   color: var(--color-muted);
+}
+
+.service-comparison article p + p {
+  margin-top: 1rem;
 }
 
 .service-process-section,
