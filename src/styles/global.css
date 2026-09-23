@@ -2919,7 +2919,7 @@ h3 {
 
 /* Shared service and SEO landing-page content system. */
 .service-content-page {
-  --service-content-width: 72rem;
+  --service-content-width: 92rem;
   --service-heading-size: clamp(2.25rem, 3vw, 2.625rem);
   background: #fbfaf7;
 }
