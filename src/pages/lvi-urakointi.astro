@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import FaqSection from "../components/FaqSection.astro";
+import NumberedContentList from "../components/NumberedContentList.astro";
+import ServiceContentSection from "../components/ServiceContentSection.astro";
 import SplitCta from "../components/SplitCta.astro";
 
 const title = "LVI-urakointi vaativiin kohteisiin | LVI-Loisto";
@@ -47,20 +49,14 @@ const projectTypes = [
   {
     title: "Kodit ja vaativat saneerauskohteet",
     text: "Toteutamme LVI-töitä omakotitaloihin, villoihin, arvoasuntoihin sekä muihin saneerauskohteisiin. Valmiissa ja viimeistellyissä ympäristöissä korostuvat huolellinen työskentely, olemassa olevien rakenteiden huomioiminen sekä LVI-ratkaisujen sovittaminen osaksi muuta kokonaisuutta.",
-    image: "/images/home/taloyhtiot-kiinteistot.jpg",
-    imageAlt: "Tumma viimeistelty märkätila saneerauskohteessa",
   },
   {
     title: "Taloyhtiöt ja kiinteistöt",
     text: "Palvelemme rivi- ja kerrostaloyhtiöitä sekä muita kiinteistöjä LVI-saneerauksissa, lämmitysjärjestelmien uudistuksissa ja muissa teknisissä töissä. Toteutuksiin voivat kuulua esimerkiksi käyttövesi- ja patteriverkostot, lämmönjakokeskukset, vesimittarivaihdot sekä verkostojen säätö- ja mittaustyöt.",
-    image: "/images/home/arvoasunnot-saneeraus.jpeg",
-    imageAlt: "Vaalea viimeistelty kylpyhuone kiinteistökohteessa",
   },
   {
     title: "Uudisrakentaminen ja rakennusliikkeet",
     text: "Toteutamme LVI-urakoita uusiin omakoti-, rivi- ja kerrostalokohteisiin sekä toimimme rakennusliikkeiden ja muiden rakentamisen ammattilaisten LVI-kumppanina. Työt sovitetaan projektin aikatauluun, LVI-suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
-    image: "/images/home/about-imgl1779.jpg",
-    imageAlt: "Moderni viimeistelty sisätila uudisrakennuksessa",
   },
 ];
 
@@ -177,70 +173,49 @@ const faqItems = [
     </div>
   </section>
 
-  <section class="service-editorial-split" id="uudis-ja-saneerauskohteet">
-    <div class="service-editorial-split__inner page-shell">
-      <div class="service-editorial-split__content">
-        <h2>LVI-urakointia uudis- ja saneerauskohteisiin</h2>
-        <div class="service-editorial-split__body">
+  <div class="service-content-page">
+    <ServiceContentSection
+      id="uudis-ja-saneerauskohteet"
+      title="LVI-urakointia uudis- ja saneerauskohteisiin"
+    >
+      <div class="service-prose">
           <p>LVI-Loisto toteuttaa LVI-urakointia uudisrakennuksiin ja saneerauskohteisiin pääkaupunkiseudulla. Palvelemme taloyhtiöitä, rakennusliikkeitä ja yksityisasiakkaita kohteissa, joissa LVI-järjestelmien toimivuus, huolellinen toteutus ja työn yhteensovittaminen muun rakentamisen kanssa ovat tärkeässä roolissa.</p>
           <p>Uudisrakentamisessa toteutamme LVI-kokonaisuuksia muun muassa omakoti-, rivi- ja kerrostalokohteisiin. Saneerauskohteissa työ voi käsittää yksittäisten järjestelmien uusimisen tai laajemman LVI-kokonaisuuden osana rakennuksen peruskorjausta. Toteutus suunnitellaan aina kohteen olemassa olevien rakenteiden, LVI-suunnitelmien ja muiden työvaiheiden mukaan.</p>
           <p>LVI-urakoitsijana huolehdimme siitä, että työ etenee suunnitelmallisesti kartoituksesta ja työvaiheiden yhteensovituksesta aina asennuksiin, tarkastuksiin ja valmiin kokonaisuuden luovutukseen. Tavoitteena on teknisesti toimiva ratkaisu, joka sopii kohteen käyttötarkoitukseen ja kestää käyttöä pitkälle tulevaisuuteen.</p>
-        </div>
         <a class="text-link" href="#urakan-sisalto">Tutustu urakan sisältöön</a>
       </div>
-      <figure class="service-editorial-split__media">
-        <img
-          src="/images/home/about-imgl1779.jpg"
-          alt="Viimeistelty sisätila LVI-urakointikohteessa"
-          loading="lazy"
-        />
-      </figure>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <section class="service-scope-section" id="urakan-sisalto" aria-labelledby="scope-heading">
-    <div class="service-scope-section__inner page-shell">
-      <div class="service-scope-section__header">
-        <h2 id="scope-heading">Mitä LVI-urakointi sisältää?</h2>
-        <p>LVI-urakan sisältö määräytyy aina kohteen suunnitelmien, käyttötarkoituksen ja nykyisten järjestelmien mukaan. LVI-Loisto toteuttaa sekä yksittäisiä järjestelmiä että laajempia LVI-kokonaisuuksia uudis- ja saneerauskohteisiin.</p>
-      </div>
-      <ul class="service-scope-list">
+    <ServiceContentSection
+      id="urakan-sisalto"
+      title="Mitä LVI-urakointi sisältää?"
+      intro="LVI-urakan sisältö määräytyy aina kohteen suunnitelmien, käyttötarkoituksen ja nykyisten järjestelmien mukaan. LVI-Loisto toteuttaa sekä yksittäisiä järjestelmiä että laajempia LVI-kokonaisuuksia uudis- ja saneerauskohteisiin."
+    >
+      <div class="service-detail-grid">
         {serviceItems.map((item) => (
-          <li>
+          <article>
             <h3>{item.title}</h3>
             <p>{item.text}</p>
-          </li>
+          </article>
         ))}
-      </ul>
-      <p class="service-scope-section__note">Tarvittaessa urakkaan voidaan yhdistää myös esimerkiksi vesimittarivaihtoja sekä käyttövesi- ja patteriverkostojen muita muutostöitä.</p>
-    </div>
-  </section>
-
-  <section class="service-project-types" id="kohdetyypit" aria-labelledby="project-types-heading">
-    <div class="service-project-types__inner page-shell">
-      <div class="service-project-types__header">
-        <h2 id="project-types-heading">Kenelle teemme LVI-urakointia?</h2>
-        <p>LVI-Loisto toteuttaa LVI-urakointia erilaisiin asuin- ja kiinteistökohteisiin. Toteutuksen laajuus määritellään aina kohteen, suunnitelmien ja tilaajan tarpeiden mukaan.</p>
       </div>
-      <div class="service-project-types__grid">
-        {
-          projectTypes.map((item) => (
-            <article class="service-project-type">
-              <figure><img src={item.image} alt={item.imageAlt} loading="lazy" /></figure>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+      <p class="service-content-note">Tarvittaessa urakkaan voidaan yhdistää myös esimerkiksi vesimittarivaihtoja sekä käyttövesi- ja patteriverkostojen muita muutostöitä.</p>
+    </ServiceContentSection>
 
-  <section class="service-comparison" id="uudisrakentaminen-ja-saneeraus" aria-labelledby="comparison-heading">
-    <div class="service-comparison__inner page-shell">
-      <h2 id="comparison-heading">LVI-urakointi uudisrakentamisessa ja saneerauksissa</h2>
-      <p class="service-comparison__intro">Uudisrakentaminen ja saneeraus asettavat LVI-urakalle erilaiset lähtökohdat. Uudessa kohteessa järjestelmät voidaan toteuttaa alusta lähtien suunnitelmien mukaisena kokonaisuutena, kun taas saneerauksessa uudet ratkaisut täytyy sovittaa olemassa oleviin rakenteisiin ja järjestelmiin.</p>
-      <div class="service-comparison__grid">
+    <ServiceContentSection
+      id="kohdetyypit"
+      title="Kenelle teemme LVI-urakointia?"
+      intro="LVI-Loisto toteuttaa LVI-urakointia erilaisiin asuin- ja kiinteistökohteisiin. Toteutuksen laajuus määritellään aina kohteen, suunnitelmien ja tilaajan tarpeiden mukaan."
+    >
+      <NumberedContentList items={projectTypes} columns={3} ariaLabel="LVI-urakoinnin kohderyhmät" />
+    </ServiceContentSection>
+
+    <ServiceContentSection
+      id="uudisrakentaminen-ja-saneeraus"
+      title="LVI-urakointi uudisrakentamisessa ja saneerauksissa"
+      intro="Uudisrakentaminen ja saneeraus asettavat LVI-urakalle erilaiset lähtökohdat. Uudessa kohteessa järjestelmät voidaan toteuttaa alusta lähtien suunnitelmien mukaisena kokonaisuutena, kun taas saneerauksessa uudet ratkaisut täytyy sovittaa olemassa oleviin rakenteisiin ja järjestelmiin."
+    >
+      <div class="service-text-columns">
         <article>
           <h3>Uudisrakentaminen</h3>
           <p>Uudiskohteessa LVI-urakointi alkaa suunnitelmien läpikäynnistä ja työvaiheiden yhteensovittamisesta muun rakentamisen kanssa. Toteutamme LVI-järjestelmiä omakoti-, rivi- ja kerrostalokohteisiin sekä muihin uudisrakennuksiin.</p>
@@ -252,53 +227,38 @@ const faqItems = [
           <p>Toteutamme sekä yksittäisiä LVI-muutoksia että laajempia saneerauskokonaisuuksia. Työssä korostuvat huolellinen vaiheistus, olemassa olevien pintojen ja rakenteiden huomioiminen sekä uusien järjestelmien toimiva yhteensovitus vanhan rakennuksen kanssa.</p>
         </article>
       </div>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <section class="service-process-section" id="urakan-eteneminen" aria-labelledby="service-process-heading">
-    <div class="service-process-section__inner page-shell">
-      <div class="service-section-heading">
-        <h2 id="service-process-heading">Näin LVI-urakka etenee</h2>
-        <p>LVI-urakan onnistuminen perustuu selkeään suunnitteluun, oikeaan vaiheistukseen ja siihen, että työ sovitetaan yhteen muun rakentamisen kanssa. LVI-Loisto vie projektin eteenpäin hallitusti lähtötilanteesta valmiiseen kokonaisuuteen.</p>
-      </div>
-      <ol class="service-process-list">
-        {processSteps.map((step) => (
-          <li>
-            <span>{step.number}</span>
-            <h3>{step.title}</h3>
-            <p>{step.text}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
+    <ServiceContentSection
+      id="urakan-eteneminen"
+      title="Näin LVI-urakka etenee"
+      intro="LVI-urakan onnistuminen perustuu selkeään suunnitteluun, oikeaan vaiheistukseen ja siihen, että työ sovitetaan yhteen muun rakentamisen kanssa. LVI-Loisto vie projektin eteenpäin hallitusti lähtötilanteesta valmiiseen kokonaisuuteen."
+    >
+      <NumberedContentList items={processSteps} columns={4} ariaLabel="LVI-urakan vaiheet" />
+    </ServiceContentSection>
 
-  <section class="service-trust-section" id="miksi-lvi-loisto" aria-labelledby="trust-heading">
-    <div class="service-trust-section__inner page-shell">
-      <div class="service-trust-section__copy">
-        <h2 id="trust-heading">LVI-Loisto LVI-urakoitsijana</h2>
-        <div class="service-trust-section__body">
+    <ServiceContentSection id="miksi-lvi-loisto" title="LVI-Loisto LVI-urakoitsijana">
+      <div class="service-trust-layout">
+        <div class="service-prose">
           <p>LVI-urakoitsijan tehtävä ei ole pelkästään asentaa suunnitelmiin merkittyjä järjestelmiä. Vaativassa rakennus- tai saneeraushankkeessa olennaista on ymmärtää kokonaisuutta, sovittaa LVI-työt muihin työvaiheisiin ja varmistaa, että tekninen toteutus toimii myös käytännössä.</p>
           <p>LVI-Loisto toteuttaa urakoita niin yksityisille tilaajille, taloyhtiöille kuin rakennusalan ammattilaisille. Erityisesti vaativissa kohteissa kiinnitämme huomiota työn teknisen toimivuuden lisäksi toteutuksen siisteyteen, yksityiskohtiin ja siihen, miten LVI-ratkaisut istuvat osaksi valmista rakennusta.</p>
         </div>
+        <div class="service-highlight-list">
+          {trustItems.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
-      <div class="service-trust-list">
-        {trustItems.map((item) => (
-          <article>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <section class="service-references" id="valitut-kohteet" aria-labelledby="references-heading">
-    <div class="service-references__inner page-shell">
-      <div class="service-section-heading">
-        <h2 id="references-heading">Valittuja LVI-urakointikohteita</h2>
-        <p>Kohdetiedot ja linkit täydennetään, kun referenssisivut julkaistaan.</p>
-      </div>
+    <ServiceContentSection
+      id="valitut-kohteet"
+      title="Valittuja LVI-urakointikohteita"
+      intro="Kohdetiedot ja linkit täydennetään, kun referenssisivut julkaistaan."
+    >
       <div class="service-reference-grid">
         {portfolioItems.map((item) => (
           <article class="service-reference" data-future-href={item.futureHref}>
@@ -309,15 +269,13 @@ const faqItems = [
           </article>
         ))}
       </div>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <section class="service-city-section" id="toimialueet" aria-labelledby="city-heading">
-    <div class="service-city-section__inner page-shell">
-      <div class="service-city-section__header">
-        <h2 id="city-heading">LVI-urakointi pääkaupunkiseudulla</h2>
-        <p>Kaupunkikohtaiset palvelusivut lisätään tähän rakenteeseen myöhemmin.</p>
-      </div>
+    <ServiceContentSection
+      id="toimialueet"
+      title="LVI-urakointi pääkaupunkiseudulla"
+      intro="Kaupunkikohtaiset palvelusivut lisätään tähän rakenteeseen myöhemmin."
+    >
       <div class="service-city-links" aria-label="Tulevat kaupunkikohtaiset LVI-urakointisivut">
         {
           cityPages.map((city) => (
@@ -328,15 +286,15 @@ const faqItems = [
           ))
         }
       </div>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <FaqSection
-    id="lvi-urakointi-ukk"
-    title="Usein kysyttyä LVI-urakoinnista"
-    intro="Kysymykset ja vastaukset täydennetään osio kerrallaan."
-    items={faqItems}
-  />
+    <FaqSection
+      id="lvi-urakointi-ukk"
+      title="Usein kysyttyä LVI-urakoinnista"
+      intro="Kysymykset ja vastaukset täydennetään osio kerrallaan."
+      items={faqItems}
+    />
+  </div>
 
   <SplitCta
     id="keskustele-urakasta"

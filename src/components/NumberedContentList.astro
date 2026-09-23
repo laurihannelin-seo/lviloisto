@@ -1,0 +1,29 @@
+---
+interface ListItem {
+  number?: string;
+  title: string;
+  text: string;
+}
+
+interface Props {
+  items: ListItem[];
+  columns?: 3 | 4;
+  ariaLabel: string;
+}
+
+const { items, columns = 3, ariaLabel } = Astro.props;
+---
+
+<ol class:list={["numbered-content-list", `numbered-content-list--${columns}`]} aria-label={ariaLabel}>
+  {
+    items.map((item, index) => (
+      <li>
+        <span class="numbered-content-list__number">
+          {item.number ?? String(index + 1).padStart(2, "0")}
+        </span>
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+      </li>
+    ))
+  }
+</ol>

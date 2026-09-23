@@ -1,0 +1,27 @@
+---
+interface Props {
+  id?: string;
+  title: string;
+  intro?: string;
+  className?: string;
+}
+
+const { id, title, intro, className = "" } = Astro.props;
+const headingId = id ? `${id}-heading` : undefined;
+---
+
+<section
+  class:list={["service-content-section", className]}
+  id={id}
+  aria-labelledby={headingId}
+>
+  <div class="service-content-section__inner service-page-shell">
+    <header class="service-content-section__header">
+      <h2 id={headingId}>{title}</h2>
+      {intro && <p>{intro}</p>}
+    </header>
+    <div class="service-content-section__body">
+      <slot />
+    </div>
+  </div>
+</section>
