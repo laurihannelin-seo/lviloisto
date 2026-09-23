@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ContactForm from "../components/ContactForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
-import SplitCta from "../components/SplitCta.astro";
 
 const title = "LVI-urakointi vaativiin kohteisiin | LVI-Loisto";
 const description =
@@ -296,13 +296,23 @@ const faqItems = [
     />
   </div>
 
-  <SplitCta
-    id="keskustele-urakasta"
-    title="Keskustele LVI-urakastasi"
-    text="Kerro lyhyesti kohteesta ja projektin vaiheesta. Täydennämme yhteydenoton sisältöä myöhemmin."
-    ctaLabel="Pyydä tarjous"
-    ctaHref="/yhteystiedot/"
-    image="/images/home/contact-shower-cropped.jpg"
-    imageAlt="Kultainen sadesuihku viimeistellyssä tummassa märkätilassa"
-  />
+  <section class="contact-section" id="keskustele-urakasta" aria-labelledby="service-contact-heading">
+    <div class="contact-section__inner">
+      <figure class="contact-section__media">
+        <img
+          src="/images/home/contact-shower-cropped.jpg"
+          alt="Kultainen sadesuihku viimeistellyssä tummassa märkätilassa"
+          loading="lazy"
+        />
+      </figure>
+
+      <div class="contact-panel">
+        <p class="section-label">Yhteydenotto</p>
+        <h2 id="service-contact-heading">Keskustele LVI-urakastasi</h2>
+        <p class="contact-panel__intro">Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Palaamme asiaan ja arvioimme, miten projekti kannattaa viedä eteenpäin.</p>
+
+        <ContactForm submitLabel="Lähetä tarjouspyyntö" />
+      </div>
+    </div>
+  </section>
 </BaseLayout>
