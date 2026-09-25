@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import NumberedContentList from "../components/NumberedContentList.astro";
+import ServiceContentSection from "../components/ServiceContentSection.astro";
 
 const title = "Tietoa meistä | LVI-Loisto Oy";
 const description =
@@ -89,82 +92,53 @@ const companyDetails = [
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="about-page-hero">
-    <div class="about-page-hero__inner page-shell">
-      <div class="about-page-hero__content">
-        <h1>{pageHero.title}</h1>
+  <section class="service-page-hero about-page-hero" aria-labelledby="about-page-heading">
+    <img class="service-page-hero__image" src={pageHero.image} alt={pageHero.imageAlt} fetchpriority="high" />
+    <div class="service-page-hero__shade" aria-hidden="true"></div>
+    <div class="service-page-hero__inner page-shell">
+      <Breadcrumbs variant="dark" items={[{ label: "Etusivu", href: "/" }, { label: "Tietoa meistä" }]} />
+      <div class="service-page-hero__copy">
+        <h1 id="about-page-heading">{pageHero.title}</h1>
         <p>{pageHero.intro}</p>
       </div>
-
-      <figure class="about-page-hero__media">
-        <img src={pageHero.image} alt={pageHero.imageAlt} fetchpriority="high" />
-      </figure>
     </div>
   </section>
 
-  <section class="about-positioning">
-    <div class="about-positioning__inner page-shell">
-      <div class="about-positioning__content">
-        <h2>{positioning.title}</h2>
-        <div class="about-positioning__body">
+  <div class="service-content-page">
+    <ServiceContentSection id="osaamisemme" title={positioning.title}>
+      <div class="about-positioning-layout">
+        <div class="service-prose">
           {positioning.body.map((paragraph) => <p>{paragraph}</p>)}
         </div>
+        <figure class="about-positioning-layout__media">
+          <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
+        </figure>
       </div>
+    </ServiceContentSection>
 
-      <figure class="about-positioning__media">
-        <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
-      </figure>
-    </div>
-  </section>
-
-  <section class="about-audiences">
-    <div class="about-audiences__inner page-shell">
-      <h2>Kohteet, joissa osaamisemme korostuu</h2>
-
-      <div class="about-audience-grid">
+    <ServiceContentSection id="kohteet" title="Kohteet, joissa osaamisemme korostuu">
+      <div class="service-detail-grid">
         {
           audiences.map((item) => (
-            <article class="about-audience-item">
+            <article>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
           ))
         }
       </div>
-    </div>
-  </section>
+    </ServiceContentSection>
 
-  <section class="about-method">
-    <div class="about-method__inner page-shell">
-      <div class="about-method__intro">
-        <h2>{method.title}</h2>
-        <p>{method.intro}</p>
-      </div>
+    <ServiceContentSection id="tyoskentelytapa" title={method.title} intro={method.intro}>
+      <NumberedContentList items={method.rows} columns={4} ariaLabel="Työskentelymme vaiheet" />
+    </ServiceContentSection>
 
-      <div class="about-method__rows">
-        {
-          method.rows.map((row) => (
-            <article class="about-method-row">
-              <h3>{row.title}</h3>
-              <p>{row.text}</p>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="about-service-area">
-    <div class="about-service-area__inner page-shell">
-      <div class="about-service-area__content">
-        <h2>Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa</h2>
-        <p>
-          LVI-Loiston toimipiste sijaitsee Helsingissä. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä
-          valituissa vaativissa kohteissa Tampereella ja Turussa.
-        </p>
-      </div>
-
-      <div class="contact-details-grid" aria-label="LVI-Loiston yritystiedot">
+    <ServiceContentSection
+      id="toimialue"
+      title="Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa"
+      intro="LVI-Loiston toimipiste sijaitsee Helsingissä. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä valituissa vaativissa kohteissa Tampereella ja Turussa."
+    >
+      <div class="contact-details-grid about-company-details" aria-label="LVI-Loiston yritystiedot">
         {
           companyDetails.map((group) => (
             <section class="contact-detail">
@@ -180,11 +154,11 @@ const companyDetails = [
           ))
         }
       </div>
-    </div>
-  </section>
+    </ServiceContentSection>
+  </div>
 
   <section class="about-final-cta">
-    <div class="about-final-cta__inner page-shell">
+    <div class="about-final-cta__inner service-page-shell">
       <h2>Keskustele kohteestasi</h2>
       <p>
         Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset.
