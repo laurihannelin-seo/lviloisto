@@ -41,18 +41,20 @@ const details = [
     ],
   },
   {
-    id: "puhelin",
-    label: "Puhelin",
+    id: "matias",
+    label: "Matias Ryynänen",
+    kind: "person",
     items: [
       { text: "046 921 4415", href: "tel:+358469214415" },
-      { text: "050 479 6544", href: "tel:+358504796544" },
+      { text: "matias.ryynanen@lviloisto.fi", href: "mailto:matias.ryynanen@lviloisto.fi" },
     ],
   },
   {
-    id: "sahkoposti",
-    label: "Sähköposti",
+    id: "miro",
+    label: "Miro Sorjonen",
+    kind: "person",
     items: [
-      { text: "matias.ryynanen@lviloisto.fi", href: "mailto:matias.ryynanen@lviloisto.fi" },
+      { text: "050 479 6544", href: "tel:+358504796544" },
       { text: "miro.sorjonen@lviloisto.fi", href: "mailto:miro.sorjonen@lviloisto.fi" },
     ],
   },
@@ -112,7 +114,7 @@ const details = [
       <div class="contact-details-grid">
         {
           details.map((group) => (
-            <section class="contact-detail" aria-labelledby={`detail-${group.id}`}>
+            <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`detail-${group.id}`}>
               <h3 id={`detail-${group.id}`}>{group.label}</h3>
               <div class="contact-detail__items">
                 {

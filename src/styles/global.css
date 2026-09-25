@@ -1337,6 +1337,13 @@ h3 {
   text-transform: uppercase;
 }
 
+.contact-detail--person h3 {
+  color: var(--color-text);
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
 .contact-detail__items {
   display: grid;
   gap: 0.45rem;
@@ -1353,6 +1360,7 @@ h3 {
 .contact-detail__items a {
   justify-self: start;
   color: inherit;
+  overflow-wrap: anywhere;
   text-decoration-color: transparent;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.25em;
