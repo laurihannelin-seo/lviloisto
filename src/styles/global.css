@@ -810,7 +810,7 @@ h3 {
 }
 
 .process-section {
-  overflow: hidden;
+  overflow: visible;
   background: var(--color-page);
   padding-block: clamp(3.25rem, 5vw, 5.75rem);
 }
@@ -857,6 +857,10 @@ h3 {
 
 .process-step-list {
   border-top: 1px solid rgba(22, 22, 22, 0.13);
+}
+
+.process-step-entry {
+  position: relative;
 }
 
 .process-step {
@@ -933,6 +937,111 @@ h3 {
 .process-step:focus-visible {
   outline: 1px solid rgba(169, 129, 63, 0.45);
   outline-offset: 0.35rem;
+}
+
+.process-contact-popover {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 0.45rem);
+  left: 3.4rem;
+  width: min(23rem, calc(100% - 3.4rem));
+  border: 1px solid rgba(22, 22, 22, 0.14);
+  border-radius: 4px;
+  background: #ffffff;
+  padding: 1.2rem;
+  box-shadow: 0 12px 30px rgba(22, 22, 22, 0.14);
+}
+
+.process-contact-popover[hidden] {
+  display: none;
+}
+
+.process-contact-popover::before {
+  position: absolute;
+  top: -0.4rem;
+  left: 1.1rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  border-left: 1px solid rgba(22, 22, 22, 0.14);
+  background: #ffffff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.process-contact-popover__header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.process-contact-popover h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.process-contact-popover__close {
+  flex: none;
+  border: 0;
+  background: transparent;
+  padding: 0 0.2rem;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.process-contact-popover__label {
+  margin: 1.1rem 0 0.5rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.process-contact-popover__phones {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.process-contact-popover__phones a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.6rem;
+  justify-content: space-between;
+}
+
+.process-contact-popover__phones span {
+  white-space: nowrap;
+}
+
+.process-contact-popover a {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration-color: rgba(22, 22, 22, 0.3);
+  text-underline-offset: 0.2em;
+}
+
+.process-contact-popover__action {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+.process-contact-popover a:hover,
+.process-contact-popover a:focus-visible,
+.process-contact-popover__close:hover,
+.process-contact-popover__close:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+.process-contact-popover a:focus-visible,
+.process-contact-popover__close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .process-section__cta {
@@ -2497,6 +2606,18 @@ h3 {
 
   .process-step__text {
     font-size: 0.92rem;
+  }
+
+  .process-contact-popover {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 0.75rem 0 1rem;
+  }
+
+  .process-contact-popover::before {
+    left: 1.2rem;
   }
 
   .faq-section {

@@ -420,19 +420,50 @@ const contactSection = {
         <div class="process-step-list" aria-label="Vaativan LVI-projektin eteneminen">
           {
             processSection.steps.map((step, index) => (
-              <button
-                type="button"
-                class={`process-step${index === 0 ? " is-active" : ""}`}
-                data-process-step
-                data-caption={step.caption}
-                aria-pressed={index === 0 ? "true" : "false"}
-              >
-                <span class="process-step__number">{step.number}</span>
-                <span class="process-step__content">
-                  <span class="process-step__title">{step.title}</span>
-                  <span class="process-step__text">{step.text}</span>
-                </span>
-              </button>
+              <div class="process-step-entry">
+                <button
+                  type="button"
+                  class={`process-step${index === 0 ? " is-active" : ""}`}
+                  data-process-step
+                  data-caption={step.caption}
+                  aria-pressed={index === 0 ? "true" : "false"}
+                  aria-controls={index === 0 ? "process-contact-popover" : undefined}
+                  aria-expanded={index === 0 ? "false" : undefined}
+                >
+                  <span class="process-step__number">{step.number}</span>
+                  <span class="process-step__content">
+                    <span class="process-step__title">{step.title}</span>
+                    <span class="process-step__text">{step.text}</span>
+                  </span>
+                </button>
+                {index === 0 && (
+                  <div
+                    class="process-contact-popover"
+                    id="process-contact-popover"
+                    role="region"
+                    aria-labelledby="process-contact-title"
+                    data-process-contact
+                    hidden
+                  >
+                    <div class="process-contact-popover__header">
+                      <h3 id="process-contact-title">Aloitetaanko kohteen kartoitus?</h3>
+                      <button
+                        type="button"
+                        class="process-contact-popover__close"
+                        data-process-contact-close
+                        aria-label="Sulje yhteystiedot"
+                      >×</button>
+                    </div>
+                    <p class="process-contact-popover__label">Soita suoraan</p>
+                    <div class="process-contact-popover__phones">
+                      <a href="tel:+358469214415">Matias Ryynänen <span>046 921 4415</span></a>
+                      <a href="tel:+358504796544">Miro Sorjonen <span>050 479 6544</span></a>
+                    </div>
+                    <a class="process-contact-popover__action" href="mailto:info@lviloisto.fi">Lähetä sähköpostia</a>
+                    <a class="process-contact-popover__action" href="#yhteystiedot">Jätä yhteydenottopyyntö</a>
+                  </div>
+                )}
+              </div>
             ))
           }
         </div>
@@ -567,6 +598,8 @@ const contactSection = {
         const steps = Array.from(section.querySelectorAll("[data-process-step]"));
         const images = Array.from(section.querySelectorAll("[data-process-image]"));
         const caption = section.querySelector("[data-process-caption]");
+        const contact = section.querySelector("[data-process-contact]");
+        const closeButton = section.querySelector("[data-process-contact-close]");
 
         if (!steps.length || !images.length || !caption) {
           return;
@@ -588,10 +621,35 @@ const contactSection = {
           caption.textContent = steps[activeIndex].dataset.caption || "";
         };
 
+        const setContactOpen = (isOpen, returnFocus = false) => {
+          if (!contact) return;
+          contact.hidden = !isOpen;
+          steps[0].setAttribute("aria-expanded", isOpen ? "true" : "false");
+          if (returnFocus) steps[0].focus();
+        };
+
         steps.forEach((step, index) => {
           step.addEventListener("mouseenter", () => setActiveStep(index));
           step.addEventListener("focus", () => setActiveStep(index));
-          step.addEventListener("click", () => setActiveStep(index));
+          step.addEventListener("click", () => {
+            setActiveStep(index);
+            setContactOpen(index === 0 && Boolean(contact?.hidden));
+          });
+        });
+
+        closeButton?.addEventListener("click", () => setContactOpen(false, true));
+        contact?.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setContactOpen(false));
+        });
+        document.addEventListener("pointerdown", (event) => {
+          if (contact && !contact.hidden && !contact.parentElement.contains(event.target)) {
+            setContactOpen(false);
+          }
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && contact && !contact.hidden) {
+            setContactOpen(false, true);
+          }
         });
 
         setActiveStep(0);
