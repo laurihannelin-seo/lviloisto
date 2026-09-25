@@ -1475,45 +1475,36 @@ h3 {
 }
 
 .about-audiences {
-  background: #f3eee6;
-  padding-block: clamp(4.75rem, 7vw, 7.5rem);
+  background: var(--color-page);
+  padding-block: clamp(4rem, 6vw, 6rem);
 }
 
 .about-audiences__inner.page-shell {
-  width: min(100% - (var(--space-page) * 2), 84rem);
+  width: min(100% - (var(--space-page) * 2), 92rem);
 }
 
 .about-audiences h2 {
-  max-width: 56rem;
+  max-width: 48rem;
 }
 
 .about-audience-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: clamp(2.35rem, 4vw, 4rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
+  column-gap: clamp(3rem, 6vw, 6rem);
+  row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  margin-top: clamp(2rem, 3.5vw, 3.25rem);
 }
 
 .about-audience-item {
-  min-height: 13rem;
-  padding: clamp(1.45rem, 2.6vw, 2.4rem) clamp(1.5rem, 3vw, 2.8rem) clamp(1.55rem, 2.7vw, 2.5rem) 0;
-  border-bottom: 1px solid rgba(22, 22, 22, 0.13);
-}
-
-.about-audience-item:nth-child(odd) {
-  border-right: 1px solid rgba(22, 22, 22, 0.13);
-}
-
-.about-audience-item:nth-child(even) {
-  padding-left: clamp(1.5rem, 3vw, 2.8rem);
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  border-top: 1px solid rgba(22, 22, 22, 0.13);
 }
 
 .about-audience-item h3,
-.about-method-row h3,
-.about-company-detail h3 {
+.about-method-row h3 {
   margin: 0;
-  font-size: clamp(1.2rem, 1.55vw, 1.55rem);
-  line-height: 1.14;
+  font-size: clamp(1.2rem, 1.65vw, 1.55rem);
+  line-height: 1.25;
 }
 
 .about-audience-item p,
@@ -1529,7 +1520,7 @@ h3 {
 
 .about-method {
   background: var(--color-page);
-  padding-block: clamp(4.75rem, 7vw, 7.5rem);
+  padding-block: clamp(2rem, 4vw, 4rem) clamp(4rem, 6vw, 6rem);
 }
 
 .about-method__inner.page-shell {
@@ -1538,14 +1529,11 @@ h3 {
 
 .about-method__inner {
   display: grid;
-  grid-template-columns: minmax(22rem, 0.82fr) minmax(0, 1fr);
-  column-gap: clamp(3rem, 7vw, 7.5rem);
-  row-gap: 2.25rem;
-  align-items: start;
+  gap: clamp(2rem, 3.5vw, 3.25rem);
 }
 
 .about-method__intro {
-  max-width: 42rem;
+  max-width: 52rem;
 }
 
 .about-method__intro p {
@@ -1556,24 +1544,24 @@ h3 {
 }
 
 .about-method__rows {
-  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(3rem, 6vw, 6rem);
+  row-gap: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 .about-method-row {
-  display: grid;
-  grid-template-columns: minmax(10rem, 0.58fr) minmax(0, 1fr);
-  column-gap: clamp(1.5rem, 3vw, 3rem);
-  border-bottom: 1px solid rgba(22, 22, 22, 0.14);
-  padding-block: clamp(1.25rem, 2.1vw, 1.85rem);
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  border-top: 1px solid rgba(22, 22, 22, 0.13);
 }
 
 .about-method-row p {
-  margin-top: 0;
+  margin-top: clamp(0.85rem, 1.4vw, 1.1rem);
 }
 
 .about-service-area {
-  background: var(--color-surface);
-  padding-block: clamp(4.75rem, 7vw, 7.5rem);
+  background: #f8f5ef;
+  padding-block: clamp(4rem, 6vw, 6rem);
 }
 
 .about-service-area__inner.page-shell {
@@ -1582,69 +1570,23 @@ h3 {
 
 .about-service-area__inner {
   display: grid;
-  gap: clamp(2.25rem, 4vw, 4rem);
+  gap: clamp(2.75rem, 4.5vw, 4.5rem);
 }
 
 .about-service-area__content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
-  column-gap: clamp(3rem, 7vw, 7rem);
-  align-items: end;
+  max-width: 64rem;
   border-top: 1px solid rgba(22, 22, 22, 0.12);
-  padding-top: clamp(2rem, 3vw, 3rem);
+  padding-top: clamp(3rem, 4.5vw, 4.75rem);
+}
+
+.about-service-area h2 {
+  max-width: 64rem;
+  font-size: clamp(2.15rem, 3.6vw, 3.85rem);
 }
 
 .about-service-area__content p {
-  margin-top: 0;
-}
-
-.about-company-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid rgba(22, 22, 22, 0.14);
-  border-bottom: 1px solid rgba(22, 22, 22, 0.14);
-}
-
-.about-company-detail {
-  padding: clamp(1.35rem, 2.4vw, 2.1rem) clamp(1.1rem, 2.4vw, 2rem) clamp(1.35rem, 2.4vw, 2.1rem) 0;
-  border-right: 1px solid rgba(22, 22, 22, 0.12);
-}
-
-.about-company-detail:last-child {
-  border-right: 0;
-}
-
-.about-company-detail h3 {
-  color: var(--color-accent-dark);
-  font-size: 0.78rem;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.about-company-detail__items {
-  display: grid;
-  gap: 0.45rem;
-  margin-top: clamp(1rem, 1.7vw, 1.35rem);
-  color: var(--color-text);
-  font-size: clamp(1rem, 1.18vw, 1.14rem);
-  font-weight: 400;
-  line-height: 1.55;
-}
-
-.about-company-detail__items p {
-  margin: 0;
-}
-
-.about-company-detail__items a {
-  justify-self: start;
-  text-decoration: none;
-  transition: color 180ms ease;
-}
-
-.about-company-detail__items a:hover,
-.about-company-detail__items a:focus-visible {
-  color: var(--color-accent-dark);
-  outline: none;
+  max-width: 43rem;
+  margin-top: clamp(1.1rem, 1.8vw, 1.5rem);
 }
 
 .about-final-cta {
@@ -2840,8 +2782,7 @@ h3 {
 
   .about-page-hero__inner,
   .about-positioning__inner,
-  .about-method__inner,
-  .about-service-area__content {
+  .about-method__inner {
     grid-template-columns: 1fr;
   }
 
@@ -2870,50 +2811,40 @@ h3 {
 
   .about-positioning,
   .about-audiences,
-  .about-method,
   .about-service-area,
   .about-final-cta {
     padding-block: 4.25rem 4.75rem;
   }
 
+  .about-method {
+    padding-block: 1.75rem 4.75rem;
+  }
+
   .about-positioning h2,
   .about-audiences h2,
   .about-method h2,
-  .about-service-area h2,
   .about-final-cta h2 {
     font-size: clamp(2.05rem, 9vw, 3rem);
     line-height: 1.04;
   }
 
-  .about-audience-grid {
+  .about-service-area h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .about-audience-grid,
+  .about-method__rows {
     grid-template-columns: 1fr;
+  }
+
+  .about-audience-grid {
     margin-top: 2rem;
   }
 
   .about-audience-item,
-  .about-audience-item:nth-child(even) {
-    min-height: 0;
-    padding: 1.35rem 0;
-    border-right: 0;
-  }
-
   .about-method-row {
-    grid-template-columns: 1fr;
-    row-gap: 0.75rem;
-  }
-
-  .about-company-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-company-detail {
-    padding: 1.35rem 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(22, 22, 22, 0.12);
-  }
-
-  .about-company-detail:last-child {
-    border-bottom: 0;
+    padding-top: 1.35rem;
   }
 }
 
@@ -3380,8 +3311,7 @@ h3 {
     height: clamp(30rem, 58vh, 38rem);
   }
 
-  .about-positioning__inner,
-  .about-method__inner {
+  .about-positioning__inner {
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
     column-gap: clamp(2rem, 4vw, 3.75rem);
   }
@@ -3389,7 +3319,6 @@ h3 {
   .about-positioning h2,
   .about-audiences h2,
   .about-method h2,
-  .about-service-area h2,
   .about-final-cta h2 {
     font-size: clamp(2.35rem, 4.8vw, 3.9rem);
   }
@@ -3398,33 +3327,6 @@ h3 {
     height: clamp(27rem, 52vh, 34rem);
   }
 
-  .about-method-row {
-    grid-template-columns: 1fr;
-    row-gap: 0.75rem;
-  }
-
-  .about-service-area__content {
-    grid-template-columns: 1fr;
-    max-width: 52rem;
-  }
-
-  .about-service-area__content p {
-    margin-top: 1.2rem;
-  }
-
-  .about-company-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-company-detail {
-    padding: 1.35rem 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(22, 22, 22, 0.12);
-  }
-
-  .about-company-detail:last-child {
-    border-bottom: 0;
-  }
 }
 
 /* Site-wide Avenir typography system. The :root prefix keeps these final

@@ -69,7 +69,7 @@ const method = {
 const companyDetails = [
   {
     title: "Yritys",
-    items: ["LVI-Loisto Oy", "Santaradantie 7, 01370 Vantaa", "Y-tunnus 3254898-6"],
+    items: ["LVI-Loisto Oy", "Työpajankatu 13 A", "00580 Helsinki", "Y-tunnus 3254898-6"],
   },
   {
     title: "Puhelin",
@@ -159,17 +159,17 @@ const companyDetails = [
       <div class="about-service-area__content">
         <h2>Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa</h2>
         <p>
-          LVI-Loiston toimipiste sijaitsee Vantaalla. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä
+          LVI-Loiston toimipiste sijaitsee Helsingissä. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä
           valituissa vaativissa kohteissa Tampereella ja Turussa.
         </p>
       </div>
 
-      <div class="about-company-grid" aria-label="LVI-Loiston yritystiedot">
+      <div class="contact-details-grid" aria-label="LVI-Loiston yritystiedot">
         {
           companyDetails.map((group) => (
-            <section class="about-company-detail">
+            <section class="contact-detail">
               <h3>{group.title}</h3>
-              <div class="about-company-detail__items">
+              <div class="contact-detail__items">
                 {
                   group.items.map((item) => (
                     typeof item === "string" ? <p>{item}</p> : <a href={item.href}>{item.text}</a>
