@@ -1637,7 +1637,7 @@ h3 {
   position: relative;
   isolation: isolate;
   min-height: clamp(38rem, 76svh, 48rem);
-  overflow: hidden;
+  overflow: visible;
   background: #111111;
   color: #ffffff;
 }
@@ -1709,17 +1709,42 @@ h3 {
   margin-top: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-.service-page-hero__actions a {
+.service-page-hero__actions > a,
+.service-page-hero__contact > .service-page-hero__primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 3.35rem;
+  border-radius: 0;
   color: #ffffff;
+  font-family: inherit;
   font-size: 0.85rem;
   font-weight: 400;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.service-page-hero__contact {
+  position: relative;
+}
+
+.service-page-contact-popover {
+  top: auto;
+  right: auto;
+  bottom: calc(100% + 0.85rem);
+  left: 0;
+  width: min(23rem, calc(100vw - (var(--space-page) * 2)));
+  color: var(--color-text);
+  text-align: left;
+}
+
+.service-page-contact-popover::before {
+  top: auto;
+  bottom: -0.42rem;
+  left: 1.35rem;
+  transform: rotate(225deg);
 }
 
 .service-page-hero__primary {
@@ -1745,7 +1770,8 @@ h3 {
   color: var(--color-accent);
 }
 
-.service-page-hero__actions a:focus-visible {
+.service-page-hero__actions > a:focus-visible,
+.service-page-hero__contact > .service-page-hero__primary:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
 }
@@ -2871,8 +2897,18 @@ h3 {
   margin: 1.5rem 0 0;
   border-left: 2px solid var(--color-accent);
   padding-left: 1rem;
+}
+
+.service-content-note h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+}
+
+.service-content-note p {
+  margin: 0.55rem 0 0;
   color: var(--color-muted);
   font-size: 1rem;
+  line-height: 1.6;
 }
 
 .numbered-content-list {
