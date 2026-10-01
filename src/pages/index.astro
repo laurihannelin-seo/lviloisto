@@ -245,9 +245,80 @@ const contactSection = {
         }
       </h1>
       <p class="home-hero__intro">{solutionsSection.intro}</p>
-      <a class="home-hero__cta" href={solutionsSection.ctaHref}>{solutionsSection.cta}</a>
+      <div class="home-hero__contact">
+        <button
+          class="home-hero__cta"
+          type="button"
+          aria-controls="home-hero-contact-popover"
+          aria-expanded="false"
+          data-home-contact-trigger
+        >{solutionsSection.cta}</button>
+        <div
+          class="process-contact-popover home-hero-contact-popover"
+          id="home-hero-contact-popover"
+          role="region"
+          aria-labelledby="home-hero-contact-title"
+          data-home-contact-popover
+          hidden
+        >
+          <div class="process-contact-popover__header">
+            <h3 id="home-hero-contact-title">Aloitetaanko kohteen kartoitus?</h3>
+            <button
+              type="button"
+              class="process-contact-popover__close"
+              data-home-contact-close
+              aria-label="Sulje yhteystiedot"
+            >×</button>
+          </div>
+          <p class="process-contact-popover__label">Soita suoraan</p>
+          <div class="process-contact-popover__phones">
+            <a href="tel:+358469214415">Matias Ryynänen <span>046 921 4415</span></a>
+            <a href="tel:+358504796544">Miro Sorjonen <span>050 479 6544</span></a>
+          </div>
+          <a class="process-contact-popover__action" href="mailto:matias.ryynanen@lviloisto.fi">Lähetä sähköpostia</a>
+          <a class="process-contact-popover__action" href="#yhteystiedot">Jätä yhteydenottopyyntö</a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <script>
+    const initHomeContactPopover = () => {
+      const trigger = document.querySelector("[data-home-contact-trigger]");
+      const popover = document.querySelector("[data-home-contact-popover]");
+      const closeButton = popover?.querySelector("[data-home-contact-close]");
+
+      if (!(trigger instanceof HTMLButtonElement) || !(popover instanceof HTMLElement)) return;
+
+      const setOpen = (isOpen, returnFocus = false) => {
+        popover.hidden = !isOpen;
+        trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if (returnFocus) trigger.focus();
+      };
+
+      trigger.addEventListener("click", () => setOpen(popover.hidden));
+      closeButton?.addEventListener("click", () => setOpen(false, true));
+      popover.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setOpen(false));
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (!popover.hidden && !popover.parentElement?.contains(event.target as Node)) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !popover.hidden) setOpen(false, true);
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initHomeContactPopover, { once: true });
+    } else {
+      initHomeContactPopover();
+    }
+  </script>
 
   <section class="solutions-section" id="lvi-tyot" aria-labelledby="solutions-heading">
     <div class="solutions-section__intro page-shell">

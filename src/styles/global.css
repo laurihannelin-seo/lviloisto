@@ -194,12 +194,18 @@ h3 {
 .home-hero__cta {
   display: inline-flex;
   margin-top: clamp(1.2rem, 1.8vw, 1.55rem);
+  border: 0;
   border-bottom: 1px solid currentColor;
-  padding-bottom: 0.22rem;
+  border-radius: 0;
+  background: transparent;
+  padding: 0 0 0.22rem;
   color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 400;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
   transition: color 180ms ease;
 }
 
@@ -207,6 +213,27 @@ h3 {
 .home-hero__cta:focus-visible {
   color: #e7d16b;
   outline: none;
+}
+
+.home-hero__contact {
+  position: relative;
+}
+
+.process-contact-popover.home-hero-contact-popover {
+  top: auto;
+  right: auto;
+  bottom: calc(100% + 0.75rem);
+  left: 0;
+  width: min(23rem, calc(100vw - (var(--space-page) * 2)));
+  color: var(--color-text);
+  text-align: left;
+}
+
+.process-contact-popover.home-hero-contact-popover::before {
+  top: auto;
+  bottom: -0.42rem;
+  left: 1.2rem;
+  transform: rotate(225deg);
 }
 
 .solutions-section {
@@ -2649,6 +2676,13 @@ h3 {
 
   .process-contact-popover::before {
     left: 1.2rem;
+  }
+
+  .process-contact-popover.home-hero-contact-popover {
+    right: auto;
+    bottom: auto;
+    color: var(--color-text);
+    text-align: left;
   }
 
   .faq-section {
