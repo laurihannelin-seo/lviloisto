@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
@@ -105,6 +106,8 @@ const companyDetails = [
       </div>
     </div>
   </section>
+
+  <AboutOverviewSection ctaHref="/yhteystiedot/" />
 
   <div class="service-content-page">
     <ServiceContentSection id="osaamisemme" title={positioning.title}>
