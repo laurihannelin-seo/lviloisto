@@ -62,6 +62,36 @@ const details = [
 ---
 
 <BaseLayout title={title} description={description}>
+  <section class="contact-details-section contact-details-section--hero" aria-labelledby="page-heading">
+    <div class="contact-details-section__inner page-shell">
+      <div class="contact-details-section__header">
+        <h1 id="page-heading">Ota yhteyttä, niin katsotaan yhdessä</h1>
+        <p>{contactDetailsIntro}</p>
+      </div>
+
+      <div class="contact-details-grid">
+        {
+          details.map((group) => (
+            <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`detail-${group.id}`}>
+              <h2 id={`detail-${group.id}`}>{group.label}</h2>
+              <div class="contact-detail__items">
+                {
+                  group.items.map((item) => (
+                    typeof item === "string" ? (
+                      <p>{item}</p>
+                    ) : (
+                      <a href={item.href}>{item.text}</a>
+                    )
+                  ))
+                }
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="contact-section contact-section--page" aria-labelledby="contact-heading">
     <div class="contact-section__inner">
       <figure class="contact-section__media">
@@ -70,7 +100,7 @@ const details = [
 
       <div class="contact-panel">
         <p class="section-label">{contactPage.label}</p>
-        <h1 id="contact-heading">{contactPage.title}</h1>
+        <h2 id="contact-heading">{contactPage.title}</h2>
         <p class="contact-panel__intro">{contactPage.intro}</p>
 
         <ContactForm submitLabel={contactPage.submitLabel} />
@@ -100,36 +130,6 @@ const details = [
           referrerpolicy="no-referrer-when-downgrade"
           title="Google Maps -kartta LVI-Loiston toimipisteelle"
         ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-details-section" aria-labelledby="details-heading">
-    <div class="contact-details-section__inner page-shell">
-      <div class="contact-details-section__header">
-        <h2 id="details-heading">Ota yhteyttä suoraan</h2>
-        <p>{contactDetailsIntro}</p>
-      </div>
-
-      <div class="contact-details-grid">
-        {
-          details.map((group) => (
-            <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`detail-${group.id}`}>
-              <h3 id={`detail-${group.id}`}>{group.label}</h3>
-              <div class="contact-detail__items">
-                {
-                  group.items.map((item) => (
-                    typeof item === "string" ? (
-                      <p>{item}</p>
-                    ) : (
-                      <a href={item.href}>{item.text}</a>
-                    )
-                  ))
-                }
-              </div>
-            </section>
-          ))
-        }
       </div>
     </div>
   </section>

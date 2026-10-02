@@ -1455,7 +1455,8 @@ h3 {
   max-width: 48rem;
 }
 
-.contact-details-section h2 {
+.contact-details-section__header h1,
+.contact-details-section__header h2 {
   margin: 0;
   font-size: clamp(2.15rem, 3.6vw, 3.85rem);
   text-wrap: balance;
@@ -1469,6 +1470,41 @@ h3 {
   line-height: 1.65;
 }
 
+.contact-details-section--hero {
+  display: grid;
+  min-height: clamp(36rem, 68svh, 49rem);
+  align-items: center;
+  padding-block: clamp(5.5rem, 8vw, 8rem);
+}
+
+.contact-details-section--hero .contact-details-section__inner {
+  gap: clamp(3.75rem, 6vw, 6.5rem);
+  border-top: 0;
+  padding-top: 0;
+}
+
+.contact-details-section--hero .contact-details-section__header {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, 1.45fr) minmax(19rem, 0.55fr);
+  gap: clamp(2.5rem, 7vw, 8rem);
+  align-items: end;
+}
+
+.contact-details-section--hero .contact-details-section__header h1 {
+  max-width: 15ch;
+  font-size: clamp(3.5rem, 6vw, 6.75rem);
+}
+
+.contact-details-section--hero .contact-details-section__header p {
+  margin: 0 0 0.5rem;
+}
+
+.contact-details-section--hero .contact-details-grid {
+  border-top: 1px solid rgba(22, 22, 22, 0.12);
+  padding-top: clamp(2rem, 3vw, 3rem);
+}
+
 .contact-details-grid {
   display: grid;
   max-width: 92rem;
@@ -1480,6 +1516,7 @@ h3 {
   padding: 0;
 }
 
+.contact-detail h2,
 .contact-detail h3 {
   margin: 0 0 clamp(1rem, 1.7vw, 1.35rem);
   color: var(--color-accent-dark);
@@ -1488,6 +1525,7 @@ h3 {
   text-transform: uppercase;
 }
 
+.contact-detail--person h2,
 .contact-detail--person h3 {
   color: var(--color-text);
   font-size: 1.15rem;
@@ -2766,7 +2804,7 @@ h3 {
 
   .contact-section--page .contact-panel {
     order: 1;
-    padding-top: 6.75rem;
+    padding-top: 4rem;
   }
 
   .contact-section--page .contact-section__media {
@@ -2799,9 +2837,37 @@ h3 {
     padding-block: 1rem 4.75rem;
   }
 
-  .contact-details-section h2 {
+  .contact-details-section__header h1,
+  .contact-details-section__header h2 {
     font-size: clamp(2rem, 9vw, 3rem);
     line-height: 1.04;
+  }
+
+  .contact-details-section--hero {
+    min-height: 0;
+    padding-block: 7.25rem 4.5rem;
+  }
+
+  .contact-details-section--hero .contact-details-section__inner {
+    gap: 3.25rem;
+  }
+
+  .contact-details-section--hero .contact-details-section__header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-details-section--hero .contact-details-section__header h1 {
+    max-width: 12ch;
+    font-size: clamp(2.7rem, 13vw, 4rem);
+  }
+
+  .contact-details-section--hero .contact-details-section__header p {
+    margin: 0;
+  }
+
+  .contact-details-section--hero .contact-details-grid {
+    padding-top: 2rem;
   }
 
   .contact-details-grid {
