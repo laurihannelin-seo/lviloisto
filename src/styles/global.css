@@ -9,7 +9,6 @@
   --font-sans: "Figtree Variable", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --max-content: 128rem;
   --space-page: clamp(1.25rem, 4vw, 4rem);
-  --home-hero-overlap: clamp(3.75rem, 6vw, 6.25rem);
 }
 
 * {
@@ -121,8 +120,7 @@ h3 {
 .home-hero {
   position: relative;
   isolation: isolate;
-  --hero-inset: clamp(2rem, 6vw, 9rem);
-  min-height: clamp(34rem, calc(100svh - 4.6rem), 42rem);
+  min-height: calc(100svh - 4.6rem);
   background: #111111;
   color: #ffffff;
 }
@@ -156,18 +154,22 @@ h3 {
 .home-hero__content {
   position: relative;
   z-index: 1;
-  display: flex;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-height: inherit;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-block: var(--hero-inset) calc(var(--hero-inset) + var(--home-hero-overlap));
+  padding-block: clamp(2rem, 4.5vh, 3.5rem) clamp(1.75rem, 3.5vh, 3rem);
 }
 
 .home-hero__content.page-shell {
   width: min(100% - (var(--space-page) * 2), var(--max-content));
   margin-inline: auto;
   padding-inline: 0;
+}
+
+.home-hero__primary {
+  align-self: center;
+  justify-self: start;
+  padding-block: 1rem 2rem;
 }
 
 .home-hero h1 {
@@ -236,26 +238,28 @@ h3 {
   transform: rotate(225deg);
 }
 
-.solutions-section {
-  position: relative;
-  z-index: 2;
-  margin-top: calc(-1 * var(--home-hero-overlap));
-  background: #f3eee6;
-  padding-block: 0 clamp(6.25rem, 9vw, 8.5rem);
+.home-hero__statement {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  padding-top: clamp(1.25rem, 2.5vh, 2rem);
 }
 
-.solutions-section__intro {
-  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
-  padding-block: clamp(4.25rem, 5.5vw, 5.75rem) clamp(3rem, 4vw, 4rem);
-}
-
-.solutions-section__intro h2 {
+.home-hero__statement h2 {
+  max-width: 70rem;
   margin: 0;
-  font-size: clamp(3rem, 4.5vw, 5.25rem);
+  color: #ffffff;
+  font-size: clamp(2.35rem, 4vw, 4.75rem);
   font-weight: 300;
   line-height: 1;
   letter-spacing: 0.01em;
   white-space: nowrap;
+}
+
+.solutions-section {
+  position: relative;
+  z-index: 2;
+  background: #f3eee6;
+  padding-block: 0 clamp(6.25rem, 9vw, 8.5rem);
 }
 
 .section-anchor-nav {
@@ -1803,6 +1807,19 @@ h3 {
   outline-offset: 4px;
 }
 
+.section-anchor-nav--hero {
+  margin-top: clamp(1rem, 2vh, 1.5rem);
+}
+
+.section-anchor-nav--hero a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.section-anchor-nav--hero a:hover,
+.section-anchor-nav--hero a:focus-visible {
+  color: #e7d16b;
+}
+
 .service-editorial-split {
   background: #fbfaf7;
   padding-block: clamp(5rem, 8vw, 8rem);
@@ -2341,10 +2358,6 @@ h3 {
 }
 
 @media (max-width: 760px) {
-  :root {
-    --home-hero-overlap: 2.5rem;
-  }
-
   body {
     scroll-padding-top: 5.5rem;
   }
@@ -2401,8 +2414,7 @@ h3 {
   }
 
   .home-hero {
-    --hero-inset: 1rem;
-    min-height: clamp(34rem, 92svh, 42rem);
+    min-height: 100svh;
   }
 
   .home-hero::after {
@@ -2412,7 +2424,11 @@ h3 {
   }
 
   .home-hero__content {
-    padding-block: 5.25rem calc(5.25rem + var(--home-hero-overlap));
+    padding-block: 4.85rem 1.6rem;
+  }
+
+  .home-hero__primary {
+    padding-block: 0.75rem 1.5rem;
   }
 
   .home-hero h1 {
@@ -2437,21 +2453,17 @@ h3 {
     padding-block: 0 5.25rem;
   }
 
-  .solutions-section__intro {
-    padding-block: 3.75rem 2.75rem;
-  }
-
-  .solutions-section__intro h2 {
+  .home-hero__statement h2 {
     max-width: 21rem;
-    font-size: clamp(2.1rem, 9.5vw, 3rem);
+    font-size: clamp(1.85rem, 8.4vw, 2.65rem);
     white-space: normal;
     text-wrap: balance;
   }
 
-  .section-anchor-nav {
+  .section-anchor-nav--hero {
     width: calc(100% + var(--space-page));
     gap: 2rem;
-    margin-top: 1.75rem;
+    margin-top: 1rem;
     padding-right: var(--space-page);
   }
 
