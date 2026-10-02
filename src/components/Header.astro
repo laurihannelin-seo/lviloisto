@@ -10,3 +10,39 @@
     </nav>
   </div>
 </header>
+
+<script>
+  const initHeaderTheme = () => {
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const darkHero = document.querySelector<HTMLElement>(".home-hero, .service-page-hero");
+
+    if (!header || !darkHero) return;
+
+    let frame = 0;
+
+    const updateHeaderTheme = () => {
+      const headerBounds = header.getBoundingClientRect();
+      const heroBounds = darkHero.getBoundingClientRect();
+      const overlapsHero = heroBounds.top < headerBounds.bottom && heroBounds.bottom > headerBounds.bottom;
+
+      header.classList.toggle("site-header--over-dark", overlapsHero);
+      frame = 0;
+    };
+
+    const requestThemeUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateHeaderTheme);
+      }
+    };
+
+    updateHeaderTheme();
+    window.addEventListener("scroll", requestThemeUpdate, { passive: true });
+    window.addEventListener("resize", requestThemeUpdate);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeaderTheme, { once: true });
+  } else {
+    initHeaderTheme();
+  }
+</script>
