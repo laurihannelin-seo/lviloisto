@@ -11,7 +11,6 @@ const solutionsSection = {
   titleLines: ["LVI-urakointia kohteisiin,", "joissa viimeistely ratkaisee"],
   intro:
     "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
-  sectionTitle: "Vaativien kohteiden LVI-kumppani",
   cta: "Keskustele kohteestasi",
   ctaHref: "#yhteystiedot",
   image: "/images/home/solutions-intro-image00007.jpeg",
@@ -223,10 +222,6 @@ const contactSection = {
             <a class="process-contact-popover__action" href="#yhteystiedot">Jätä yhteydenottopyyntö</a>
           </div>
         </div>
-      </div>
-
-      <div class="home-hero__statement">
-        <h2 id="solutions-heading">{solutionsSection.sectionTitle}</h2>
         <nav class="section-anchor-nav section-anchor-nav--hero" aria-label="Etusivun osiot">
           {
             sectionNavigation.map((item) => (
@@ -278,7 +273,7 @@ const contactSection = {
 
   <AboutOverviewSection id="tietoa-meista" ctaHref="#yhteystiedot" />
 
-  <section class="solutions-section" id="lvi-tyot" aria-labelledby="solutions-heading">
+  <section class="solutions-section" id="lvi-tyot" aria-label="LVI-ratkaisut vaativiin kohteisiin">
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
         solutionsSection.items.map((item, index) => (
