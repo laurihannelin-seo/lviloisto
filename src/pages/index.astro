@@ -2,46 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import ContactForm from "../components/ContactForm.astro";
+import content from "../content/cms/home.json";
 
-const title = "LVI-urakointi Helsinki ja Uusimaa | LVI-Loisto Oy";
-const description =
-  "LVI-Loisto tekee LVI-urakointia, saneerauksia, lämmönjakokeskuksia ja lämmitysratkaisuja vaativiin asuntoihin, taloyhtiöihin ja kiinteistöihin.";
-
-const solutionsSection = {
-  titleLines: ["LVI-urakointia kohteisiin,", "joissa viimeistely ratkaisee"],
-  intro:
-    "Toteutamme LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa työnjäljellä, aikataululla ja huolellisella toteutuksella on erityinen merkitys.",
-  cta: "Keskustele kohteestasi",
-  ctaHref: "#yhteystiedot",
-  image: "/images/home/solutions-intro-image00007.jpeg",
-  imageAlt: "Vaativa LVI-kohde viimeistellyssä sisätilassa",
-  items: [
-    {
-      title: "Arvoasunnot ja saneerauskohteet",
-      text: "Huolellista LVI-työtä valmiisiin ja vaativiin asuinympäristöihin.",
-      image: "/images/home/taloyhtiot-kiinteistot.jpg",
-      imageAlt: "Tumma premium-tason sauna- ja märkätila saneerauskohteessa",
-    },
-    {
-      title: "Uudisrakennukset ja villat",
-      text: "LVI-urakointia omakotitaloihin, huviloihin ja suuriin yksityiskohteisiin.",
-      image: "/images/home/uudisrakennukset-villat.jpeg",
-      imageAlt: "Laadukas kodinhoito- ja märkätila yksityiskohteessa",
-    },
-    {
-      title: "Taloyhtiöt ja kiinteistöt",
-      text: "Lämmönjakokeskukset, kaukolämpökeskukset ja kiinteistöjen LVI-ratkaisut.",
-      image: "/images/home/arvoasunnot-saneeraus.jpeg",
-      imageAlt: "Viimeistelty vaalea kylpyhuone kiinteistökohteessa",
-    },
-    {
-      title: "Lämmitysratkaisut",
-      text: "Maalämpö, VILP ja lämmitysjärjestelmien uudistukset.",
-      image: "/images/home/lammitysratkaisut.jpeg",
-      imageAlt: "Tekninen lämmitysratkaisun ohjauslaite kodin tilassa",
-    },
-  ],
-};
+const title = content.seo.title;
+const description = content.seo.description;
+const solutionsSection = { ...content.hero, items: content.services.items };
 
 const sectionNavigation = [
   { label: "LVI-ratkaisut", href: "#lvi-tyot" },
@@ -51,126 +16,21 @@ const sectionNavigation = [
   { label: "Yhteydenotto", href: "#yhteystiedot" },
 ];
 
-const portfolioSection = {
-  title: "Valittuja kohteita",
-  intro:
-    "Kohteita, joissa LVI-toteutuksen pitää tukea arkkitehtuuria, asumismukavuutta ja kiinteistön pitkäaikaista toimivuutta.",
-  cta: "Katso kaikki kohteet",
-  ctaHref: "/kohteet/",
-  items: [
-    {
-      title: "Arvoasunnon kylpyhuonesaneeraus",
-      location: "Helsinki",
-      text: "LVI-toteutus valmiiseen asuinympäristöön, jossa materiaalit, näkyvät pinnat ja viimeistelty työnjälki määrittävät kokonaisuuden onnistumisen.",
-      href: "/kohteet/arvoasunnon-kylpyhuonesaneeraus-helsinki/",
-      image: "/images/home/taloyhtiot-kiinteistot.jpg",
-      imageAlt: "Tumma premium-tason märkätila arvoasunnon saneerauskohteessa",
-    },
-    {
-      title: "Villan LVI-kokonaisuus",
-      location: "Espoo",
-      text: "LVI-urakointi suureen yksityiskohteeseen, jossa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan yhtenä kokonaisuutena.",
-      href: "/kohteet/villan-lvi-kokonaisuus-espoo/",
-      image: "/images/home/uudisrakennukset-villat.jpeg",
-      imageAlt: "Laadukas kodinhoito- ja märkätila suuressa yksityiskohteessa",
-    },
-    {
-      title: "Taloyhtiön lämmönjakokeskus",
-      location: "Vantaa",
-      text: "Lämmönjakokeskuksen ja kaukolämpökeskuksen uusiminen kiinteistölle, jossa toimintavarmuus, aikataulu ja huollettavuus ovat keskeisiä.",
-      href: "/kohteet/taloyhtion-lammonjakokeskus-vantaa/",
-      image: "/images/home/arvoasunnot-saneeraus.jpeg",
-      imageAlt: "Viimeistelty vaalea kylpyhuone kiinteistökohteessa",
-    },
-  ],
-};
+const portfolioSection = content.portfolio;
 
-const processSection = {
-  title: "Tarkkuutta suunnittelusta luovutukseen",
-  intro:
-    "Vaativassa LVI-projektissa onnistuminen syntyy ennen asennusta. Kohteen rakenteet, arkkitehtuuri, aikataulu ja muut urakoitsijat sovitetaan yhteen ennen toteutusta.",
-  cta: "Aloita kohteen kartoitus",
-  ctaHref: "mailto:matias.ryynanen@lviloisto.fi",
-  steps: [
-    {
-      number: "01",
-      title: "Kartoitus",
-      text: "Käymme läpi kohteen lähtötilanteen, tavoitteet, aikataulun ja tekniset tarpeet.",
-      image: "/images/home/quality-imgl1757.jpg",
-      imageAlt: "Kultaiset hanakalusteet ja viimeistelty kivipinta vaativassa märkätilassa",
-      caption: "Lähtötilanteen, tavoitteiden ja teknisten tarpeiden ymmärtäminen.",
-    },
-    {
-      number: "02",
-      title: "Suunnittelu ja yhteensovitus",
-      text: "Sovitamme LVI-ratkaisut kohteen rakenteisiin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
-      image: "/images/home/uudisrakennukset-villat.jpeg",
-      imageAlt: "Viimeistelty kodinhoito- ja märkätila yksityiskohteessa",
-      caption: "LVI-ratkaisut sovitetaan kohteen rakenteisiin, suunnitelmiin ja aikatauluun.",
-    },
-    {
-      number: "03",
-      title: "Toteutus",
-      text: "Työt tehdään sovitun aikataulun mukaan huolellisesti, siististi ja kohteen vaatimukset huomioiden.",
-      image: "/images/home/taloyhtiot-kiinteistot.jpg",
-      imageAlt: "Tumma premium-tason märkätila kultaisilla suihkukalusteilla",
-      caption: "Huolellinen toteutus työmaalla kohteen vaatimukset huomioiden.",
-    },
-    {
-      number: "04",
-      title: "Viimeistely ja luovutus",
-      text: "Lopputulos tarkistetaan, viimeistellään ja luovutetaan niin, että järjestelmät toimivat käytännössä.",
-      image: "/images/home/arvoasunnot-saneeraus.jpeg",
-      imageAlt: "Vaalea viimeistelty kylpyhuone arvoasunnon saneerauskohteessa",
-      caption: "Lopputulos tarkistetaan, viimeistellään ja luovutetaan käyttöön.",
-    },
-  ],
-};
+const processSection = content.process;
 
-const faqSection = {
-  title: "Usein kysyttyä",
-  intro: "Tässä muutama yleinen kysymys LVI-Loiston palveluista.",
-  items: [
-    {
-      question: "Millä alueella LVI-Loisto toimii?",
-      answer:
-        "LVI-Loisto palvelee ensisijaisesti pääkaupunkiseudulla sekä valituissa kohteissa Tampereella ja Turussa.",
-    },
-    {
-      question: "Millaisiin kohteisiin LVI-Loisto sopii?",
-      answer:
-        "Palvelu sopii erityisesti arvoasuntoihin, villoihin, suuriin omakotitaloihin, taloyhtiöihin ja vaativiin kiinteistökohteisiin.",
-    },
-    {
-      question: "Teettekö sekä saneerauksia että uudiskohteita?",
-      answer:
-        "Kyllä. Toteutamme sekä saneerauksia että uudisrakennusten LVI-kokonaisuuksia kohteen tarpeen mukaan.",
-    },
-    {
-      question: "Voiko tarjouspyynnön lähettää jo suunnitteluvaiheessa?",
-      answer:
-        "Kyllä. Mukaan voi laittaa myös alustavat tiedot kohteesta, niin kokonaisuutta voidaan arvioida jo varhaisessa vaiheessa.",
-    },
-  ],
-};
+const faqSection = content.faq;
 
-const contactSection = {
-  label: "YHTEYDENOTTO",
-  title: "Pyydä tarjous",
-  intro:
-    "Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Palaamme asiaan ja arvioimme, miten projekti kannattaa viedä eteenpäin.",
-  image: "/images/home/contact-shower-cropped.jpg",
-  imageAlt: "Kultainen sadesuihku viimeistellyssä tummassa märkätilassa",
-  submitLabel: "Lähetä tarjouspyyntö",
-};
+const contactSection = content.contact;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="home-hero" aria-labelledby="home-heading">
     <figure class="home-hero__media">
       <img
-        src="/images/home/hero-imgl1743.jpg"
-        alt="Tumma premium-tason märkätila kultaisilla suihkukalusteilla"
+        src={content.hero.image}
+        alt={content.hero.imageAlt}
         fetchpriority="high"
       />
     </figure>

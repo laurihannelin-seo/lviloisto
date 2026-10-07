@@ -1,0 +1,381 @@
+media:
+  input: public/images
+  output: /images
+  rename: safe
+  categories: [image]
+
+settings:
+  hide: true
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      update: "Sisältöpäivitys: {name} ({userName})"
+
+components:
+  seo:
+    type: object
+    label: Hakukonenäkyvyys
+    fields:
+      - name: title
+        label: Sivun title
+        type: string
+        required: true
+        description: Näkyy selaimen välilehdellä ja Googlen hakutuloksissa.
+      - name: description
+        label: Meta description
+        type: text
+        required: true
+
+  image:
+    type: object
+    label: Kuva
+    fields:
+      - name: image
+        label: Kuva
+        type: image
+        required: true
+      - name: imageAlt
+        label: Kuvan alt-teksti
+        type: string
+        required: true
+        description: Kuvaile kuvan sisältö lyhyesti saavutettavuutta varten.
+
+  text_item:
+    type: object
+    label: Tekstinosto
+    fields:
+      - name: title
+        label: Otsikko
+        type: string
+        required: true
+      - name: text
+        label: Teksti
+        type: text
+        required: true
+
+  faq_item:
+    type: object
+    label: Kysymys ja vastaus
+    fields:
+      - name: question
+        label: Kysymys
+        type: string
+        required: true
+      - name: answer
+        label: Vastaus
+        type: text
+        required: true
+
+content:
+  - name: home
+    label: Etusivu
+    type: file
+    path: src/content/cms/home.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: titleLines
+            label: Pääotsikon rivit
+            type: string
+            list:
+              min: 1
+              max: 3
+            required: true
+            description: Jokainen kohta näkyy omalla rivillään.
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: cta
+            label: Toimintolinkin teksti
+            type: string
+            required: true
+          - name: ctaHref
+            label: Toimintolinkin osoite
+            type: string
+            hidden: true
+          - name: image
+            label: Taustakuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Taustakuvan alt-teksti
+            type: string
+            required: true
+
+      - name: services
+        label: LVI-palvelut
+        type: object
+        fields:
+          - name: items
+            label: Palvelut
+            type: object
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Otsikko
+                type: string
+                required: true
+              - name: text
+                label: Kuvaus
+                type: text
+                required: true
+              - name: image
+                label: Kuva
+                type: image
+                required: true
+              - name: imageAlt
+                label: Kuvan alt-teksti
+                type: string
+                required: true
+
+      - name: process
+        label: Menetelmä
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: cta
+            label: Toimintolinkin teksti
+            type: string
+            required: true
+          - name: ctaHref
+            label: Toimintolinkin osoite
+            type: string
+            hidden: true
+          - name: steps
+            label: Vaiheet
+            type: object
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{number} {title}"
+            fields:
+              - name: number
+                label: Numero
+                type: string
+                required: true
+              - name: title
+                label: Otsikko
+                type: string
+                required: true
+              - name: text
+                label: Kuvaus
+                type: text
+                required: true
+              - name: image
+                label: Kuva
+                type: image
+                required: true
+              - name: imageAlt
+                label: Kuvan alt-teksti
+                type: string
+                required: true
+              - name: caption
+                label: Kuvateksti
+                type: text
+                required: true
+
+      - name: portfolio
+        label: Valitut kohteet
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: cta
+            label: Linkin teksti
+            type: string
+            required: true
+          - name: ctaHref
+            label: Linkin osoite
+            type: string
+            hidden: true
+          - name: items
+            label: Kohteet
+            type: object
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Kohteen nimi
+                type: string
+                required: true
+              - name: location
+                label: Sijainti
+                type: string
+                required: true
+              - name: text
+                label: Kuvaus
+                type: text
+                required: true
+              - name: href
+                label: Kohdesivun osoite
+                type: string
+                hidden: true
+              - name: image
+                label: Kuva
+                type: image
+                required: true
+              - name: imageAlt
+                label: Kuvan alt-teksti
+                type: string
+                required: true
+
+      - name: contact
+        label: Yhteydenotto
+        type: object
+        fields:
+          - name: label
+            label: Pieni otsikko
+            type: string
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+          - name: submitLabel
+            label: Lähetyspainikkeen teksti
+            type: string
+            required: true
+
+      - name: faq
+        label: Usein kysyttyä
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kysymykset
+            component: faq_item
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+
+  - name: about_overview
+    label: Tietoa meistä -nosto
+    type: file
+    path: src/content/cms/about-overview.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: label
+        label: Pieni otsikko
+        type: string
+        required: true
+      - name: title
+        label: Otsikko
+        type: string
+        required: true
+      - name: body
+        label: Leipätekstit
+        type: text
+        list:
+          min: 1
+          max: 4
+        required: true
+      - name: highlights
+        label: Nostot
+        component: text_item
+        list:
+          min: 1
+          max: 5
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+      - name: cta
+        label: Toimintolinkin teksti
+        type: string
+        required: true
+      - name: images
+        label: Kuvakaruselli
+        type: object
+        list:
+          min: 1
+          max: 6
+          collapsible:
+            collapsed: true
+            summary: "Kuva {index}"
+        fields:
+          - name: src
+            label: Kuva
+            type: image
+            required: true
+          - name: alt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: caption
+        label: Kuvateksti
+        type: text
+        required: true
+      - name: trustMarks
+        label: Luottamustunnukset
+        type: object
+        hidden: true
+        list: true
+        fields:
+          - name: src
+            type: image
+          - name: alt
+            type: string
+          - name: width
+            type: number
+          - name: height
+            type: number

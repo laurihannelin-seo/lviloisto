@@ -1,4 +1,6 @@
 ---
+import section from "../content/cms/about-overview.json";
+
 interface Props {
   id?: string;
   ctaHref?: string;
@@ -7,63 +9,6 @@ interface Props {
 const { id, ctaHref = "/yhteystiedot/" } = Astro.props;
 const headingId = id ? `${id}-heading` : "about-overview-heading";
 
-const section = {
-  label: "TIETOA MEISTÄ",
-  title: "LVI-kumppani vaativiin koteihin ja kiinteistöihin",
-  body: [
-    "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa tekninen toimivuus, huolellinen työnjälki ja sujuva yhteistyö ratkaisevat lopputuloksen.",
-    "Työskentelemme yksityisasiakkaiden, taloyhtiöiden, rakennusliikkeiden ja suunnittelijoiden kanssa kohteissa, joissa LVI-ratkaisujen pitää sopia sekä teknisiin vaatimuksiin että kohteen viimeisteltyyn kokonaisuuteen.",
-  ],
-  images: [
-    {
-      src: "/images/home/about-imgl1779.jpg",
-      alt: "Vaalea viimeistelty kylpyhuone puisella katolla ja marmoripinnoilla",
-    },
-    {
-      src: "/images/home/arvoasunnot-saneeraus.jpeg",
-      alt: "Viimeistelty kylpyhuone arvoasunnon saneerauskohteessa",
-    },
-    {
-      src: "/images/home/uudisrakennukset-villat.jpeg",
-      alt: "Laadukas kodinhoito- ja märkätila yksityiskohteessa",
-    },
-    {
-      src: "/images/home/quality-imgl1757.jpg",
-      alt: "Kultaiset hanakalusteet viimeistellyssä märkätilassa",
-    },
-  ],
-  caption:
-    "Arvoasuntojen ja vaativien kohteiden LVI-ratkaisuissa korostuvat tekninen varmuus, siisti toteutus ja yksityiskohtien hallinta.",
-  cta: "Keskustele kohteestasi",
-  trustMarks: [
-    {
-      src: "/images/trust/luotettava-kumppani.png",
-      alt: "Luotettava kumppani",
-      width: 345,
-      height: 162,
-    },
-    {
-      src: "/images/trust/aaa-rating.png",
-      alt: "AAA-luottoluokitus",
-      width: 899,
-      height: 567,
-    },
-  ],
-  highlights: [
-    {
-      title: "Suunnitelmallinen toteutus",
-      text: "Työ sovitetaan kohteen aikatauluun, rakenteisiin ja muiden urakoitsijoiden etenemiseen.",
-    },
-    {
-      title: "Siisti ja viimeistelty työnjälki",
-      text: "Erityisesti valmiissa asuinympäristöissä toteutuksen pitää olla huolellinen alusta loppuun.",
-    },
-    {
-      title: "Teknisesti kestävä lopputulos",
-      text: "Ratkaisut valitaan niin, että ne toimivat käytössä, eivät vain näytä hyvältä luovutushetkellä.",
-    },
-  ],
-};
 ---
 
 <section class="about-section" id={id} aria-labelledby={headingId}>
