@@ -3191,181 +3191,205 @@ h3 {
     linear-gradient(0deg, rgba(8, 8, 8, 0.38) 0%, transparent 55%);
 }
 
-.lvi-work-page .service-content-section__header {
-  max-width: 58rem;
+.lvi-work-content {
+  background: #fbfaf7;
 }
 
-.lvi-work-page {
-  --service-content-width: 75rem;
-}
-
-.lvi-work-page .service-content-section__inner {
-  padding-block: clamp(3.25rem, 4vw, 4rem);
-}
-
-.lvi-work-page .service-content-section__body {
-  margin-top: clamp(1rem, 1.5vw, 1.375rem);
-}
-
-.lvi-work-page .service-prose {
-  max-width: 52rem;
-}
-
-.lvi-work-page > .service-content-section:nth-child(even) {
-  background: #f6f3ed;
-}
-
-.lvi-work-feature .service-content-section__inner,
-.lvi-work-renovation .service-content-section__inner {
+.lvi-work-content__layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.85fr) minmax(17rem, 1fr);
-  grid-template-rows: auto minmax(0, 1fr);
-  column-gap: clamp(3rem, 6vw, 5rem);
+  width: min(100% - (var(--space-page) * 2), 75rem);
+  grid-template-columns: minmax(0, 51rem) minmax(15rem, 17.5rem);
+  gap: clamp(5rem, 7vw, 6.25rem);
   align-items: start;
+  margin-inline: auto;
+  padding-block: clamp(3.75rem, 5vw, 4.5rem);
 }
 
-.lvi-work-feature .service-content-section__header,
-.lvi-work-feature__copy,
-.lvi-work-renovation .service-content-section__header,
-.lvi-work-renovation__copy {
-  grid-column: 1;
+.lvi-work-article {
+  min-width: 0;
 }
 
-.lvi-work-feature .service-content-section__body,
-.lvi-work-renovation .service-content-section__body {
-  display: contents;
+.lvi-work-article__section {
+  scroll-margin-top: 7.5rem;
 }
 
-.lvi-work-feature__copy,
-.lvi-work-renovation__copy {
-  margin-top: clamp(1rem, 1.5vw, 1.375rem);
+.lvi-work-article__section + .lvi-work-article__section {
+  margin-top: clamp(3.5rem, 5vw, 4.25rem);
+  border-top: 1px solid rgba(22, 22, 22, 0.13);
+  padding-top: clamp(3.5rem, 5vw, 4.25rem);
 }
 
-.lvi-work-feature__media {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  height: clamp(13.75rem, 18vw, 17.5rem);
+.lvi-work-article h2 {
+  margin: 0 0 clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(2.25rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.lvi-work-article h3 {
   margin: 0;
-  overflow: hidden;
-  background: #161616;
+  font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+  line-height: 1.25;
 }
 
-.lvi-work-feature__media img,
-.lvi-work-renovation__media img {
+.lvi-work-article p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
+  line-height: 1.62;
+}
+
+.lvi-work-article p + p {
+  margin-top: 1.1rem;
+}
+
+.lvi-work-article .text-link {
+  display: inline-flex;
+  margin-top: 1.25rem;
+}
+
+.lvi-work-bullet-list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--color-muted);
+  font-size: clamp(1.0625rem, 1.25vw, 1.125rem);
+  line-height: 1.55;
+}
+
+.lvi-work-bullet-list li::marker {
+  color: var(--color-accent-dark);
+}
+
+.lvi-work-list-heading {
+  margin-top: 1.5rem !important;
+  color: var(--color-text) !important;
+  font-weight: 500;
+}
+
+.lvi-work-article__media {
+  margin: 2rem 0 0;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: #e8e3da;
+}
+
+.lvi-work-article__media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.service-simple-list {
+.lvi-work-service-list {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid rgba(22, 22, 22, 0.15);
+  padding: 0;
+  list-style: none;
+}
+
+.lvi-work-service-list li {
   display: grid;
-  gap: 0.35rem;
-  margin: -0.25rem 0 0;
-  padding-left: 1.25rem;
-  color: var(--color-muted);
-  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  grid-template-columns: 3.75rem minmax(13rem, 16.25rem) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.15);
+  padding-block: 1.25rem;
+}
+
+.lvi-work-service-list li > span {
+  padding-top: 0.3rem;
+  color: var(--color-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.lvi-work-service-list p {
+  font-size: 1rem;
   line-height: 1.55;
 }
 
-.service-simple-list li::marker {
-  color: var(--color-accent-dark);
+.lvi-work-audience-list {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(22, 22, 22, 0.15);
 }
 
-.lvi-work-list-intro {
-  margin-bottom: 1.25rem;
+.lvi-work-audience-list article {
+  display: grid;
+  grid-template-columns: minmax(12rem, 15rem) minmax(0, 1fr);
+  gap: 2rem;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.15);
+  padding-block: 1.25rem;
 }
 
-.lvi-work-renovation__types {
+.lvi-work-audience-list p {
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.lvi-work-toc {
+  position: sticky;
+  top: 7.5rem;
   grid-column: 2;
-  grid-row: 1 / span 2;
-  margin: 0;
+  grid-row: 1;
+  border-top: 1px solid rgba(22, 22, 22, 0.2);
+  padding-top: 1rem;
 }
 
-.lvi-work-renovation__media {
-  height: clamp(13.75rem, 18vw, 17.5rem);
-  margin: 0 0 1.25rem;
-  overflow: hidden;
-  background: #e8e3da;
-}
-
-.lvi-work-renovation__types > p {
+.lvi-work-toc__title {
   margin: 0 0 1rem;
-  color: var(--color-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.lvi-work-renovation__types ol {
+.lvi-work-toc ul {
+  display: grid;
+  gap: 0;
   margin: 0;
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
   padding: 0;
   list-style: none;
 }
 
-.lvi-work-renovation__types li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 0.75rem;
-  border-bottom: 1px solid rgba(22, 22, 22, 0.13);
-  padding-block: 1rem;
+.lvi-work-toc li {
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
 }
 
-.lvi-work-renovation__types li span:first-child {
-  color: var(--color-accent-dark);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.lvi-work-renovation__types li span:last-child {
-  font-size: 1.05rem;
-  line-height: 1.45;
-}
-
-.lvi-work-numbered-list {
-  display: grid;
-  max-width: none;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 0;
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
-  padding: 0;
-  list-style: none;
-}
-
-.lvi-work-numbered-list li {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr);
-  gap: clamp(1rem, 2vw, 1.75rem);
-  border-bottom: 1px solid rgba(22, 22, 22, 0.13);
-  padding: 1.25rem clamp(1.5rem, 3vw, 2.5rem) 1.25rem 0;
-}
-
-.lvi-work-numbered-list li:nth-child(even) {
-  border-left: 1px solid rgba(22, 22, 22, 0.13);
-  padding-right: 0;
-  padding-left: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-.lvi-work-numbered-list li > span {
-  padding-top: 0.2rem;
-  color: var(--color-accent-dark);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.lvi-work-numbered-list h3 {
-  margin: 0;
-  font-size: clamp(1.25rem, 1.65vw, 1.5rem);
-  line-height: 1.2;
-}
-
-.lvi-work-numbered-list p {
-  margin: 0.45rem 0 0;
+.lvi-work-toc li a,
+.lvi-work-toc__cta {
+  display: inline-flex;
   color: var(--color-muted);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.lvi-work-toc li a {
+  width: 100%;
+  padding-block: 0.7rem;
+}
+
+.lvi-work-toc__cta {
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.45);
+  padding-bottom: 0.2rem;
+  color: var(--color-text);
+}
+
+.lvi-work-toc a:hover,
+.lvi-work-toc a:focus-visible {
+  color: var(--color-accent-dark);
+  outline: none;
+}
+
+.lvi-work-toc a:focus-visible {
+  outline: 2px solid var(--color-accent-dark);
+  outline-offset: 4px;
 }
 
 .lvi-work-final-cta {
@@ -3443,6 +3467,33 @@ h3 {
 .lvi-work-final-cta__actions a:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
+}
+
+@media (max-width: 1060px) {
+  .lvi-work-content__layout {
+    width: min(100% - (var(--space-page) * 2), 51rem);
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .lvi-work-toc {
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: clamp(3rem, 7vw, 4rem);
+    border-bottom: 1px solid rgba(22, 22, 22, 0.15);
+    padding-bottom: 1.5rem;
+  }
+
+  .lvi-work-toc ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .lvi-work-article {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
 
 @media (max-width: 900px) {
@@ -3530,48 +3581,47 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .lvi-work-page .service-content-section__inner {
-    padding-block: clamp(2.25rem, 10vw, 2.75rem);
+  .lvi-work-content__layout {
+    padding-block: clamp(2.5rem, 9vw, 3.25rem);
   }
 
-  .lvi-work-feature .service-content-section__inner,
-  .lvi-work-renovation .service-content-section__inner {
-    display: block;
+  .lvi-work-article__section + .lvi-work-article__section {
+    margin-top: clamp(2.25rem, 10vw, 3rem);
+    padding-top: clamp(2.25rem, 10vw, 3rem);
   }
 
-  .lvi-work-feature .service-content-section__body,
-  .lvi-work-renovation .service-content-section__body {
-    display: block;
-    margin-top: 0;
+  .lvi-work-article h2 {
+    margin-bottom: 1.15rem;
+    font-size: clamp(1.75rem, 8vw, 2rem);
   }
 
-  .lvi-work-feature__copy,
-  .lvi-work-renovation__copy {
-    margin-top: clamp(1rem, 1.5vw, 1.375rem);
+  .lvi-work-article h3 {
+    font-size: clamp(1.25rem, 6vw, 1.4rem);
   }
 
-  .lvi-work-feature__media {
-    height: clamp(13.75rem, 58vw, 17.5rem);
-    margin-top: 2rem;
+  .lvi-work-article p,
+  .lvi-work-bullet-list {
+    font-size: 1rem;
   }
 
-  .lvi-work-renovation__types {
-    margin-top: 2rem;
-    padding-top: 0;
+  .lvi-work-service-list li {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    gap: 0.35rem 1rem;
   }
 
-  .lvi-work-renovation__media {
-    height: clamp(13.75rem, 58vw, 17.5rem);
+  .lvi-work-service-list h3,
+  .lvi-work-service-list p {
+    grid-column: 2;
   }
 
-  .lvi-work-numbered-list {
+  .lvi-work-audience-list article {
     grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 
-  .lvi-work-numbered-list li,
-  .lvi-work-numbered-list li:nth-child(even) {
-    border-left: 0;
-    padding: 1.2rem 0;
+  .lvi-work-audience-list p,
+  .lvi-work-service-list p {
+    font-size: 1rem;
   }
 
   .lvi-work-final-cta__inner {
@@ -3581,6 +3631,16 @@ h3 {
 
   .lvi-work-final-cta h2 {
     font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .lvi-work-toc ul {
+    grid-template-columns: 1fr;
+  }
+
+  .lvi-work-toc li a {
+    padding-block: 0.62rem;
   }
 }
 
