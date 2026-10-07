@@ -106,17 +106,19 @@ const customerGroups = [
       </div>
     </ServiceContentSection>
 
-    <ServiceContentSection id="saneeraustyot" title="LVI-saneeraustyöt">
-      <div class="service-prose">
+    <ServiceContentSection id="saneeraustyot" title="LVI-saneeraustyöt" className="lvi-work-renovation">
+      <div class="service-prose lvi-work-renovation__copy">
         <p>LVI-saneerauksessa olemassa olevia järjestelmiä uusitaan, muutetaan tai täydennetään rakennuksen tarpeiden mukaan. Toteutamme saneeraustöitä niin yksittäisiin asuntoihin kuin laajempiin asuin- ja kiinteistökohteisiin.</p>
-        <p>Teemme LVI-saneerauksia:</p>
-        <ul class="service-simple-list">
-          <li>omakotitaloissa</li>
-          <li>rivitaloissa</li>
-          <li>kerrostaloissa</li>
-        </ul>
         <p>Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia.</p>
       </div>
+      <aside class="lvi-work-renovation__types" aria-labelledby="renovation-types-heading">
+        <p id="renovation-types-heading">Teemme LVI-saneerauksia:</p>
+        <ol>
+          <li><span>01</span><span>Omakotitaloissa</span></li>
+          <li><span>02</span><span>Rivitaloissa</span></li>
+          <li><span>03</span><span>Kerrostaloissa</span></li>
+        </ol>
+      </aside>
     </ServiceContentSection>
 
     <ServiceContentSection id="korjaukset-ja-asennukset" title="LVI-korjaukset ja asennustyöt">
