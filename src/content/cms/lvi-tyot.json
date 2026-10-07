@@ -1,0 +1,109 @@
+{
+  "seo": {
+    "title": "LVI-työt Helsinki ja Uusimaa | LVI-Loisto",
+    "description": "LVI-Loisto toteuttaa LVI-työt uudis- ja saneerauskohteisiin Helsingissä ja Uudellamaalla. Palvelemme taloyhtiöitä, yrityksiä ja kotitalouksia."
+  },
+  "hero": {
+    "title": "LVI-työt Helsingissä ja Uudellamaalla",
+    "intro": "LVI-Loisto toteuttaa LVI-uudisrakentamisen, saneeraustyöt ja korjaustyöt taloyhtiöille, rakennusalan yrityksille ja kotitalouksille. Palvelemme joustavasti niin pienissä kuin suuremmissakin LVI-töissä.",
+    "image": "/images/lvi-tyot/tekninen-tila-hero.webp",
+    "imageAlt": "Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita",
+    "primaryCta": "Pyydä tarjous",
+    "secondaryCta": "Ota yhteyttä"
+  },
+  "introSection": {
+    "title": "Monipuoliset LVI-työt uudis- ja saneerauskohteisiin",
+    "body": [
+      "LVI-Loisto tarjoaa LVI-palveluita uudisrakentamiseen, saneerauksiin ja erilaisiin korjaustöihin Helsingissä ja muualla Uudellamaalla. Palvelemme taloyhtiöitä, rakennusalan yrityksiä ja kotitalouksia kohteen ja työn laajuuden mukaan.",
+      "Toteutamme sekä kokonaisia LVI-töitä uudis- ja saneerauskohteisiin että yksittäisiä asennus- ja korjaustöitä. Työn sisältö suunnitellaan aina kohteen tarpeiden, olemassa olevien järjestelmien ja mahdollisten LVI-suunnitelmien perusteella."
+    ]
+  },
+  "newBuild": {
+    "title": "LVI-työt uudisrakentamiseen",
+    "bodyBeforeList": [
+      "Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.",
+      "Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:"
+    ],
+    "items": ["omakotitalot", "rivitalot", "kerrostalot"],
+    "bodyAfterList": "Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.",
+    "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
+    "imageAlt": "Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
+  },
+  "renovation": {
+    "title": "LVI-saneeraustyöt",
+    "body": [
+      "LVI-saneerauksessa olemassa olevia järjestelmiä uusitaan, muutetaan tai täydennetään rakennuksen tarpeiden mukaan. Toteutamme saneeraustöitä niin yksittäisiin asuntoihin kuin laajempiin asuin- ja kiinteistökohteisiin.",
+      "Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia."
+    ],
+    "listHeading": "Teemme LVI-saneerauksia:",
+    "items": ["omakotitaloissa", "rivitaloissa", "kerrostaloissa"]
+  },
+  "repairs": {
+    "title": "LVI-korjaukset ja asennustyöt",
+    "body": [
+      "Laajempien uudis- ja saneeraustöiden lisäksi toteutamme LVI-korjauksia ja asennuksia esimerkiksi pientaloihin ja taloyhtiöihin.",
+      "Palveluihimme kuuluvat muun muassa:"
+    ],
+    "items": [
+      {
+        "number": "01",
+        "title": "Vesimittarivaihdot",
+        "text": "Vesimittareiden vaihdot taloyhtiöihin ja muihin soveltuviin kohteisiin."
+      },
+      {
+        "number": "02",
+        "title": "Verkostojen tasapainotus ja säätö",
+        "text": "Lämmitysverkostojen tasapainotukset, pakkaskauden säädöt ja vesivirtojen mittaustyöt."
+      },
+      {
+        "number": "03",
+        "title": "Käyttövesiverkostot",
+        "text": "Käyttövesiputkistojen asennukset ja muut LVI-työt osana uudis- ja saneerauskohteita."
+      },
+      {
+        "number": "04",
+        "title": "Patteriverkostot",
+        "text": "Patteriverkostojen asennukset ja niihin liittyvät muutostyöt."
+      }
+    ]
+  },
+  "audiences": {
+    "title": "LVI-työt erilaisiin kohteisiin",
+    "intro": "Palvelemme yksityisasiakkaita, taloyhtiöitä ja rakennusalan yrityksiä. Työn laajuus määritellään aina kohteen ja tarpeen mukaan.",
+    "items": [
+      {
+        "title": "Kotitaloudet",
+        "text": "LVI-uudisrakentamista, saneerauksia ja korjaustöitä omakotitaloihin, asuntoihin ja muihin yksityisiin kohteisiin."
+      },
+      {
+        "title": "Taloyhtiöt",
+        "text": "LVI-saneerauksia, korjaustöitä, verkostojen säätöjä, vesimittaritöitä sekä käyttövesi- ja patteriverkostojen asennuksia."
+      },
+      {
+        "title": "Rakennusalan yritykset",
+        "text": "LVI-töitä uudis- ja saneerauskohteisiin osana rakennusprojektin muuta toteutusta."
+      }
+    ]
+  },
+  "scale": {
+    "title": "Pienet ja suuret LVI-työt",
+    "body": [
+      "LVI-Loisto ottaa vastaan sekä pienempiä LVI-töitä että suurempia uudis- ja saneerauskokonaisuuksia. Työn sisältö ja toteutustapa sovitaan aina kohteen tarpeiden perusteella.",
+      "Jos kyseessä on laajempi LVI-urakka, tutustu myös urakointipalveluumme."
+    ],
+    "linkLabel": "Tutustu LVI-urakointiin"
+  },
+  "region": {
+    "title": "LVI-työt Helsingissä ja Uudellamaalla",
+    "body": [
+      "LVI-Loisto palvelee asiakkaita Helsingissä ja muualla Uudenmaan alueella. Toimipisteemme sijaitsee Vantaalla, ja toteutamme LVI-töitä eri puolilla pääkaupunkiseutua sekä soveltuvissa kohteissa muualla Uudellamaalla.",
+      "Kun tarvitset tekijän uudisrakentamisen LVI-töihin, saneeraukseen tai yksittäiseen LVI-korjaukseen, ota yhteyttä ja kerro kohteesta sekä työn tarpeesta."
+    ]
+  },
+  "finalCta": {
+    "title": "Tarvitsetko tekijän LVI-töihin?",
+    "text": "Kerro meille kohteesta ja tarvitsemastasi LVI-työstä. Voit olla yhteydessä puhelimitse, sähköpostilla tai lähettää tarjouspyynnön yhteydenottolomakkeella.",
+    "primaryCta": "Pyydä tarjous",
+    "secondaryCta": "Yhteystiedot"
+  }
+}

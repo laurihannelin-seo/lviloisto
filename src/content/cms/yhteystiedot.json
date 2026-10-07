@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Yhteystiedot | LVI-Loisto Oy",
+    "description": "Ota yhteyttä LVI-Loistoon. Pyydä tarjous vaativaan LVI-urakointiin, saneeraukseen, lämmitysratkaisuun tai kiinteistökohteen LVI-toteutukseen."
+  },
+  "detailsSection": {
+    "title": "Ota yhteyttä, niin katsotaan yhdessä",
+    "intro": "Voit olla meihin yhteydessä suoraan puhelimitse tai sähköpostilla. Tarjouspyynnöt ja projektitiedustelut voi lähettää myös lomakkeen kautta.",
+    "groups": [
+      {
+        "id": "yritys",
+        "label": "Yritys",
+        "kind": "company",
+        "items": [
+          { "text": "LVI-Loisto Oy", "href": "" },
+          { "text": "Työpajankatu 13 A", "href": "" },
+          { "text": "00580 Helsinki", "href": "" },
+          { "text": "Y-tunnus 3254898-6", "href": "" }
+        ]
+      },
+      {
+        "id": "matias",
+        "label": "Matias Ryynänen",
+        "kind": "person",
+        "items": [
+          { "text": "046 921 4415", "href": "tel:+358469214415" },
+          { "text": "matias.ryynanen@lviloisto.fi", "href": "mailto:matias.ryynanen@lviloisto.fi" }
+        ]
+      },
+      {
+        "id": "miro",
+        "label": "Miro Sorjonen",
+        "kind": "person",
+        "items": [
+          { "text": "050 479 6544", "href": "tel:+358504796544" },
+          { "text": "miro.sorjonen@lviloisto.fi", "href": "mailto:miro.sorjonen@lviloisto.fi" }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "label": "YHTEYDENOTTO",
+    "title": "Pyydä tarjous",
+    "intro": "Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Palaamme asiaan ja arvioimme, miten projekti kannattaa viedä eteenpäin.",
+    "image": "/images/home/contact-shower-cropped.jpg",
+    "imageAlt": "Kultainen sadesuihku viimeistellyssä tummassa märkätilassa",
+    "submitLabel": "Lähetä tarjouspyyntö"
+  },
+  "map": {
+    "title": "Toimistomme",
+    "intro": "Toimistomme sijaitsee Helsingissä osoitteessa Työpajankatu 13 A",
+    "address": "Työpajankatu 13 A, 00580 Helsinki",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ty%C3%B6pajankatu+13+A%2C+00580+Helsinki",
+    "iframeSrc": "https://www.google.com/maps?q=Ty%C3%B6pajankatu%2013%20A%2C%2000580%20Helsinki&output=embed",
+    "linkLabel": "Avaa Google Mapsissa",
+    "iframeTitle": "Google Maps -kartta LVI-Loiston toimipisteelle"
+  }
+}

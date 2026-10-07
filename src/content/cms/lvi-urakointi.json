@@ -1,0 +1,130 @@
+{
+  "seo": {
+    "title": "LVI-urakointi vaativiin kohteisiin | LVI-Loisto",
+    "description": "LVI-Loisto toteuttaa LVI-urakointia uudis- ja saneerauskohteisiin pääkaupunkiseudulla."
+  },
+  "hero": {
+    "title": "LVI-urakointi vaativiin kohteisiin",
+    "intro": "LVI-urakointia uudis- ja saneerauskohteisiin pääkaupunkiseudulla. Toteutamme toimivia ja huolellisesti viimeisteltyjä LVI-kokonaisuuksia koteihin, taloyhtiöihin ja kiinteistöihin.",
+    "image": "/images/home/hero-imgl1743.jpg",
+    "imageAlt": "Tumma viimeistelty märkätila vaativassa LVI-kohteessa",
+    "primaryCta": "Keskustele kohteestasi",
+    "secondaryCta": "Katso toteutettuja kohteita"
+  },
+  "introSection": {
+    "title": "LVI-urakointia uudis- ja saneerauskohteisiin",
+    "body": [
+      "LVI-Loisto toteuttaa LVI-urakointia uudisrakennuksiin ja saneerauskohteisiin pääkaupunkiseudulla. Palvelemme taloyhtiöitä, rakennusliikkeitä ja yksityisasiakkaita aina yksittäisistä järjestelmäuudistuksista laajempiin LVI-kokonaisuuksiin.",
+      "Uudisrakentamisessa toteutamme LVI-töitä muun muassa omakoti-, rivi- ja kerrostalokohteisiin. Saneerauksissa työ voi käsittää esimerkiksi käyttövesi- tai lämmitysverkoston uusimisen, teknisen tilan muutoksia tai LVI-järjestelmien päivittämistä osana laajempaa remonttia.",
+      "Urakka sovitetaan kohteen suunnitelmiin, rakenteisiin ja muiden urakoitsijoiden työvaiheisiin. Tavoitteena on toimiva ja huollettava kokonaisuus, joka palvelee rakennuksen käyttöä pitkälle tulevaisuuteen."
+    ],
+    "linkLabel": "Tutustu urakan sisältöön",
+    "image": "/images/home/service-imgl1754.jpg",
+    "imageAlt": "Viimeistelty kylpyhuone LVI-urakointikohteessa"
+  },
+  "services": {
+    "title": "Mitä LVI-urakointi sisältää?",
+    "intro": "LVI-urakan sisältö määräytyy kohteen, suunnitelmien ja olemassa olevien järjestelmien mukaan. Toteutamme sekä yksittäisiä LVI-töitä että laajempia kokonaisuuksia.",
+    "items": [
+      { "title": "Käyttövesi", "text": "Käyttövesiputkistojen asennukset, uusimiset ja muutostyöt uudis- ja saneerauskohteissa." },
+      { "title": "Viemäröinti", "text": "Viemäriputkistojen asennukset, saneeraukset ja muutokset osana rakennuksen LVI-kokonaisuutta." },
+      { "title": "Lämmitys", "text": "Patteri- ja lämmitysverkostojen asennukset ja saneeraukset sekä verkostojen tasapainotus, säädöt ja vesivirtojen mittaukset." },
+      { "title": "Jäähdytys", "text": "Jäähdytysratkaisut asuntoihin ja kiinteistöihin, joissa sisäolosuhteilta ja toteutuksen viimeistelyltä vaaditaan tavallista enemmän." },
+      { "title": "Tekniset tilat", "text": "Teknisten tilojen putkistot ja laiteasennukset sekä järjestelmien yhteensovitus selkeäksi ja huollettavaksi kokonaisuudeksi." },
+      { "title": "Lämmönjakokeskukset", "text": "Lämmönjakokeskusten asennukset ja uusimiset taloyhtiöihin ja muihin kiinteistöihin." },
+      { "title": "Kaukolämpökeskukset", "text": "Kaukolämpöön liittyvien laitteistojen ja putkistojen toteutukset sekä saneeraukset." },
+      { "title": "Maalämpö ja VILP", "text": "Maalämpö- ja ilma-vesilämpöpumppuratkaisujen toteutukset uudis- ja saneerauskohteisiin." }
+    ],
+    "noteTitle": "Tyypillisiä LVI-urakan töitä",
+    "noteText": "LVI-urakka voi käsittää yhden järjestelmän uusimisen tai useita rakennuksen teknisiä järjestelmiä. Tyypillisiä töitä ovat esimerkiksi käyttövesi- ja viemäriputkistojen asennukset, patteri- ja lämmitysverkostojen saneeraukset, vesimittarien vaihdot, verkostojen tasapainotus ja mittaukset sekä teknisten tilojen ja lämmitysjärjestelmien muutostyöt."
+  },
+  "audiences": {
+    "title": "Kenelle teemme LVI-urakointia?",
+    "intro": "Toteutamme LVI-urakoita erilaisiin asuin- ja kiinteistökohteisiin. Urakan laajuus ja toteutustapa suunnitellaan aina kohteen ja tilaajan tarpeiden mukaan.",
+    "items": [
+      { "title": "Kodit ja vaativat saneerauskohteet", "text": "LVI-töitä omakotitaloihin, villoihin, asuntoihin ja muihin saneerauskohteisiin. Valmiissa ympäristössä korostuvat huolellinen työskentely, rakenteiden huomioiminen ja siisti viimeistely." },
+      { "title": "Taloyhtiöt ja kiinteistöt", "text": "LVI-saneerauksia sekä lämmitys-, käyttövesi- ja muita teknisiä töitä rivi- ja kerrostaloyhtiöihin sekä muihin kiinteistöihin. Toteutuksiin voivat kuulua esimerkiksi verkostot, lämmönjakokeskukset, vesimittarit sekä säätö- ja mittaustyöt." },
+      { "title": "Uudisrakentaminen ja rakennusliikkeet", "text": "LVI-urakointia uusiin omakoti-, rivi- ja kerrostalokohteisiin sekä rakennusliikkeiden ja muiden rakentamisen ammattilaisten projekteihin. Työ sovitetaan projektin aikatauluun ja muiden urakoitsijoiden työvaiheisiin." }
+    ]
+  },
+  "comparison": {
+    "title": "LVI-urakointi uudisrakentamisessa ja saneerauksissa",
+    "intro": "Uudisrakennuksessa LVI-järjestelmät rakennetaan osaksi kokonaisuutta alusta lähtien. Saneerauksessa uudet ratkaisut täytyy puolestaan sovittaa olemassa oleviin rakenteisiin ja järjestelmiin.",
+    "columns": [
+      {
+        "title": "Uudisrakentaminen",
+        "body": [
+          "Uudiskohteessa LVI-urakka etenee suunnitelmien ja rakennushankkeen aikataulun mukaisesti. Toteutus voi sisältää käyttövesi- ja viemärijärjestelmät, lämmityksen, tekniset tilat sekä kohteen muut LVI-ratkaisut.",
+          "Huolellinen yhteensovitus muun rakentamisen kanssa auttaa varmistamaan, että putkireitit, laitteiden sijoittelu ja tekniset varaukset voidaan toteuttaa suunnitellusti."
+        ]
+      },
+      {
+        "title": "Saneerauskohteet",
+        "body": [
+          "Saneerauksessa lähtökohtana ovat rakennuksen nykyiset rakenteet ja tekniset järjestelmät. Ennen toteutusta selvitetään, mitä voidaan säilyttää, mitä uusitaan ja miten uudet ratkaisut voidaan liittää olemassa olevaan kokonaisuuteen.",
+          "Työ voi käsittää yksittäisiä muutoksia tai laajemman LVI-saneerauksen osana rakennuksen peruskorjausta."
+        ]
+      }
+    ]
+  },
+  "process": {
+    "title": "Näin LVI-urakka etenee",
+    "intro": "Selkeä työnjako ja suunnitelmallinen eteneminen helpottavat sekä tilaajan että muiden projektissa työskentelevien osapuolten työtä.",
+    "items": [
+      { "number": "01", "title": "Kohteen kartoitus", "text": "Käymme läpi kohteen lähtötilanteen, suunnitelmat, urakan laajuuden ja aikataulun." },
+      { "number": "02", "title": "Toteutuksen yhteensovitus", "text": "LVI-työt sovitetaan rakenteisiin, teknisiin suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin." },
+      { "number": "03", "title": "Toteutus", "text": "Asennukset ja muut LVI-työt tehdään sovitun suunnitelman ja työmaan aikataulun mukaisesti." },
+      { "number": "04", "title": "Tarkistus ja luovutus", "text": "Valmis kokonaisuus tarkistetaan ja tarvittavat säädöt ja mittaukset tehdään ennen luovutusta." }
+    ]
+  },
+  "trust": {
+    "title": "LVI-Loisto LVI-urakoitsijana",
+    "body": [
+      "LVI-urakoitsijan tehtävä ei ole ainoastaan asentaa suunnitelmiin merkittyjä putkia ja laitteita. Rakennus- ja saneeraushankkeissa LVI-töiden täytyy sopia yhteen rakenteiden, muiden teknisten järjestelmien ja projektin aikataulun kanssa.",
+      "LVI-Loisto toteuttaa urakoita yksityisille tilaajille, taloyhtiöille ja rakennusalan ammattilaisille. Vaativissa kohteissa kiinnitämme teknisen toimivuuden lisäksi huomiota työn siisteyteen, yksityiskohtiin ja siihen, että valmiit ratkaisut sopivat rakennuksen muuhun kokonaisuuteen."
+    ],
+    "items": [
+      { "title": "Suunnitelmallinen toteutus", "text": "Urakan sisältö ja työvaiheet käydään läpi ennen toteutusta." },
+      { "title": "Yhteistyö muiden ammattilaisten kanssa", "text": "LVI-työt sovitetaan suunnittelijoiden, rakennusliikkeiden ja muiden urakoitsijoiden työhön." },
+      { "title": "Monipuoliset kohteet", "text": "Toteutamme töitä uudisrakennuksiin, saneerauskohteisiin, taloyhtiöihin ja yksityisiin kiinteistöihin." },
+      { "title": "Huolellinen viimeistely", "text": "Valmiissa ympäristössä huomioimme teknisen toteutuksen lisäksi ympäröivät pinnat ja rakenteet." }
+    ]
+  },
+  "portfolio": {
+    "title": "Valittuja LVI-urakointikohteita",
+    "intro": "Tutustu esimerkkeihin LVI-Loiston toteuttamista uudis-, saneeraus- ja kiinteistökohteista.",
+    "items": [
+      { "image": "/images/home/taloyhtiot-kiinteistot.jpg", "imageAlt": "Tumma viimeistelty märkätila" },
+      { "image": "/images/home/uudisrakennukset-villat.jpeg", "imageAlt": "Viimeistelty kodinhoito- ja märkätila" },
+      { "image": "/images/home/arvoasunnot-saneeraus.jpeg", "imageAlt": "Vaalea viimeistelty sisätila" }
+    ]
+  },
+  "cities": {
+    "title": "LVI-urakointi pääkaupunkiseudulla",
+    "intro": "LVI-Loisto toteuttaa LVI-urakointia Helsingissä, Espoossa, Vantaalla ja muualla pääkaupunkiseudulla. Toimipisteemme sijaitsee Vantaalla.",
+    "items": [
+      { "title": "LVI-urakointi Helsinki", "href": "/lvi-urakointi/helsinki/" },
+      { "title": "LVI-urakointi Espoo", "href": "/lvi-urakointi/espoo/" },
+      { "title": "LVI-urakointi Vantaa", "href": "/lvi-urakointi/vantaa/" }
+    ]
+  },
+  "faq": {
+    "title": "Usein kysyttyä LVI-urakoinnista",
+    "items": [
+      { "question": "Mitä LVI-urakointi sisältää?", "answer": "LVI-urakka voi sisältää esimerkiksi käyttövesi- ja viemäriputkistoja, lämmitysjärjestelmiä, teknisiä tiloja sekä erilaisia saneeraus- ja muutostöitä. Tarkka sisältö määräytyy aina kohteen suunnitelmien ja tarpeiden mukaan." },
+      { "question": "Millaisiin kohteisiin LVI-Loisto tekee urakointia?", "answer": "Toteutamme LVI-töitä muun muassa omakoti-, rivi- ja kerrostalokohteisiin, taloyhtiöihin sekä muihin asuin- ja kiinteistökohteisiin." },
+      { "question": "Teettekö sekä uudisrakentamista että saneerauksia?", "answer": "Kyllä. Toteutamme LVI-urakointia sekä uudisrakennuksiin että olemassa olevien rakennusten saneeraus- ja muutostöihin." },
+      { "question": "Milloin LVI-urakoitsija kannattaa ottaa mukaan projektiin?", "answer": "Mitä aikaisemmin LVI-toteutusta voidaan tarkastella suhteessa suunnitelmiin ja muihin työvaiheisiin, sitä helpompi mahdolliset yhteensovitustarpeet on huomioida ennen rakentamisen etenemistä." },
+      { "question": "Millä alueella LVI-Loisto toimii?", "answer": "Toimimme ensisijaisesti Helsingissä, Espoossa, Vantaalla ja muualla pääkaupunkiseudulla sekä valituissa kohteissa myös muualla Suomessa." },
+      { "question": "Mitä tarjouspyyntöön kannattaa liittää?", "answer": "Kerro ainakin kohteen sijainti, työn arvioitu laajuus ja projektin aikataulu. Jos LVI-suunnitelmat tai muut kohdetiedot ovat jo saatavilla, ne helpottavat urakan arviointia." }
+    ]
+  },
+  "contact": {
+    "label": "Yhteydenotto",
+    "title": "Keskustele LVI-urakastasi",
+    "intro": "Kerro meille kohteesta, sen sijainnista ja tarvitsemastasi LVI-kokonaisuudesta. Käymme lähtötiedot läpi ja arvioimme, miten projekti kannattaa toteuttaa.",
+    "image": "/images/home/contact-shower-cropped.jpg",
+    "imageAlt": "Kultainen sadesuihku viimeistellyssä tummassa märkätilassa",
+    "submitLabel": "Lähetä tarjouspyyntö"
+  }
+}

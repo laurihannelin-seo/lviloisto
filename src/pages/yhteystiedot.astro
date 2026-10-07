@@ -1,72 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import content from "../content/cms/yhteystiedot.json";
 
-const title = "Yhteystiedot | LVI-Loisto Oy";
-const description =
-  "Ota yhteyttä LVI-Loistoon. Pyydä tarjous vaativaan LVI-urakointiin, saneeraukseen, lämmitysratkaisuun tai kiinteistökohteen LVI-toteutukseen.";
-
-const contactPage = {
-  label: "YHTEYDENOTTO",
-  title: "Pyydä tarjous",
-  intro:
-    "Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Palaamme asiaan ja arvioimme, miten projekti kannattaa viedä eteenpäin.",
-  image: "/images/home/contact-shower-cropped.jpg",
-  imageAlt: "Kultainen sadesuihku viimeistellyssä tummassa märkätilassa",
-  submitLabel: "Lähetä tarjouspyyntö",
-};
-
-const mapSection = {
-  title: "Toimistomme",
-  intro: "Toimistomme sijaitsee Helsingissä osoitteessa Työpajankatu 13 A",
-  address: "Työpajankatu 13 A, 00580 Helsinki",
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Ty%C3%B6pajankatu+13+A%2C+00580+Helsinki",
-  iframeSrc:
-    "https://www.google.com/maps?q=Ty%C3%B6pajankatu%2013%20A%2C%2000580%20Helsinki&output=embed",
-};
-
-const contactDetailsIntro =
-  "Voit olla meihin yhteydessä suoraan puhelimitse tai sähköpostilla. Tarjouspyynnöt ja projektitiedustelut voi lähettää myös lomakkeen kautta.";
-
-const details = [
-  {
-    id: "yritys",
-    label: "Yritys",
-    items: [
-      "LVI-Loisto Oy",
-      "Työpajankatu 13 A",
-      "00580 Helsinki",
-      "Y-tunnus 3254898-6",
-    ],
-  },
-  {
-    id: "matias",
-    label: "Matias Ryynänen",
-    kind: "person",
-    items: [
-      { text: "046 921 4415", href: "tel:+358469214415" },
-      { text: "matias.ryynanen@lviloisto.fi", href: "mailto:matias.ryynanen@lviloisto.fi" },
-    ],
-  },
-  {
-    id: "miro",
-    label: "Miro Sorjonen",
-    kind: "person",
-    items: [
-      { text: "050 479 6544", href: "tel:+358504796544" },
-      { text: "miro.sorjonen@lviloisto.fi", href: "mailto:miro.sorjonen@lviloisto.fi" },
-    ],
-  },
-];
+const title = content.seo.title;
+const description = content.seo.description;
+const contactPage = content.contact;
+const mapSection = content.map;
+const details = content.detailsSection.groups;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="contact-details-section contact-details-section--hero" aria-labelledby="page-heading">
     <div class="contact-details-section__inner page-shell">
       <div class="contact-details-section__header">
-        <h1 id="page-heading">Ota yhteyttä, niin katsotaan yhdessä</h1>
-        <p>{contactDetailsIntro}</p>
+        <h1 id="page-heading">{content.detailsSection.title}</h1>
+        <p>{content.detailsSection.intro}</p>
       </div>
 
       <div class="contact-details-grid">
@@ -77,11 +26,7 @@ const details = [
               <div class="contact-detail__items">
                 {
                   group.items.map((item) => (
-                    typeof item === "string" ? (
-                      <p>{item}</p>
-                    ) : (
-                      <a href={item.href}>{item.text}</a>
-                    )
+                    item.href ? <a href={item.href}>{item.text}</a> : <p>{item.text}</p>
                   ))
                 }
               </div>
@@ -115,7 +60,7 @@ const details = [
         <p>{mapSection.intro}</p>
         <div class="map-section__links">
           <a href={mapSection.mapsUrl}>{mapSection.address}</a>
-          <a href={mapSection.mapsUrl}>Avaa Google Mapsissa <span aria-hidden="true">→</span></a>
+          <a href={mapSection.mapsUrl}>{mapSection.linkLabel} <span aria-hidden="true">→</span></a>
         </div>
       </div>
 
@@ -128,7 +73,7 @@ const details = [
           allowfullscreen
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Google Maps -kartta LVI-Loiston toimipisteelle"
+          title={mapSection.iframeTitle}
         ></iframe>
       </div>
     </div>

@@ -4,94 +4,15 @@ import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
+import content from "../content/cms/tietoa-meista.json";
 
-const title = "Tietoa meistä | LVI-Loisto Oy";
-const description =
-  "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja vaativiin kohteisiin, kuten arvoasuntoihin, taloyhtiöihin, villoihin ja kiinteistöihin.";
-
-const pageHero = {
-  title: "LVI-kumppani vaativiin koteihin ja kiinteistöihin",
-  intro:
-    "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa tekninen toimivuus, huolellinen työnjälki ja sujuva yhteistyö ratkaisevat lopputuloksen.",
-  image: "/images/home/about-imgl1779.jpg",
-  imageAlt: "Viimeistelty kylpyhuone vaativassa asuinkohteessa",
-};
-
-const positioning = {
-  title: "Tekninen toteutus osana viimeisteltyä kokonaisuutta",
-  body: [
-    "Vaativissa kohteissa LVI-työ ei ole irrallinen työvaihe. Sen pitää sopia rakenteisiin, arkkitehtuuriin, materiaaleihin, aikatauluun ja lopulliseen käyttökokemukseen.",
-    "LVI-Loisto työskentelee yksityisasiakkaiden, taloyhtiöiden, rakennusliikkeiden ja suunnittelijoiden kanssa kohteissa, joissa kokonaisuuden hallinta on yhtä tärkeää kuin tekninen asennus.",
-  ],
-  image: "/images/home/quality-imgl1757.jpg",
-  imageAlt: "Kultaiset hanakalusteet ja kivipinnat viimeistellyssä märkätilassa",
-};
-
-const audiences = [
-  {
-    title: "Arvoasunnot ja saneerauskohteet",
-    text: "Huolellista LVI-työtä valmiisiin asuinympäristöihin, joissa näkyvät pinnat ja materiaalit vaativat viimeisteltyä toteutusta.",
-  },
-  {
-    title: "Villat ja suuret omakotitalot",
-    text: "LVI-kokonaisuuksia kohteisiin, joissa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan pitkäaikaiseen käyttöön.",
-  },
-  {
-    title: "Taloyhtiöt ja kiinteistöt",
-    text: "Lämmönjakokeskuksia, kaukolämpökeskuksia ja teknisiä LVI-ratkaisuja kohteisiin, joissa toimintavarmuus ja huollettavuus ovat keskeisiä.",
-  },
-  {
-    title: "Uudisrakennukset ja vaativat projektit",
-    text: "LVI-urakointia kohteisiin, joissa yhteistyö suunnittelijoiden ja muiden urakoitsijoiden kanssa vaikuttaa suoraan lopputulokseen.",
-  },
-];
-
-const method = {
-  title: "Miten työskentelemme",
-  intro:
-    "Hyvä LVI-toteutus alkaa ennen työmaata. Ensin ymmärretään kohteen tavoitteet, tekniset reunaehdot ja aikataulu. Sen jälkeen työ sovitetaan muuhun rakentamiseen niin, että lopputulos toimii käytännössä ja kestää aikaa.",
-  rows: [
-    {
-      title: "Kohteen ymmärtäminen",
-      text: "Käymme läpi lähtötilanteen, tavoitteet, suunnitelmat ja tekniset tarpeet.",
-    },
-    {
-      title: "Yhteensovitus",
-      text: "Sovitamme LVI-työt rakenteisiin, materiaaleihin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
-    },
-    {
-      title: "Huolellinen toteutus",
-      text: "Työ tehdään hallitusti, siististi ja kohteen vaatimukset huomioiden.",
-    },
-    {
-      title: "Luovutus ja toimivuus",
-      text: "Lopputulos tarkistetaan ja viimeistellään niin, että järjestelmät toimivat käytännössä.",
-    },
-  ],
-};
-
-const companyDetails = [
-  {
-    title: "Yritys",
-    items: ["LVI-Loisto Oy", "Työpajankatu 13 A", "00580 Helsinki", "Y-tunnus 3254898-6"],
-  },
-  {
-    title: "Matias Ryynänen",
-    kind: "person",
-    items: [
-      { text: "046 921 4415", href: "tel:+358469214415" },
-      { text: "matias.ryynanen@lviloisto.fi", href: "mailto:matias.ryynanen@lviloisto.fi" },
-    ],
-  },
-  {
-    title: "Miro Sorjonen",
-    kind: "person",
-    items: [
-      { text: "050 479 6544", href: "tel:+358504796544" },
-      { text: "miro.sorjonen@lviloisto.fi", href: "mailto:miro.sorjonen@lviloisto.fi" },
-    ],
-  },
-];
+const title = content.seo.title;
+const description = content.seo.description;
+const pageHero = content.hero;
+const positioning = content.positioning;
+const audiences = content.audiencesSection.items;
+const method = content.method;
+const companyDetails = content.region.groups;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -121,7 +42,7 @@ const companyDetails = [
       </div>
     </ServiceContentSection>
 
-    <ServiceContentSection id="kohteet" title="Kohteet, joissa osaamisemme korostuu">
+    <ServiceContentSection id="kohteet" title={content.audiencesSection.title}>
       <div class="service-detail-grid">
         {
           audiences.map((item) => (
@@ -140,8 +61,8 @@ const companyDetails = [
 
     <ServiceContentSection
       id="toimialue"
-      title="Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa"
-      intro="LVI-Loiston toimipiste sijaitsee Helsingissä. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä valituissa vaativissa kohteissa Tampereella ja Turussa."
+      title={content.region.title}
+      intro={content.region.intro}
     >
       <div class="contact-details-grid about-company-details" aria-label="LVI-Loiston yritystiedot">
         {
@@ -151,7 +72,7 @@ const companyDetails = [
               <div class="contact-detail__items">
                 {
                   group.items.map((item) => (
-                    typeof item === "string" ? <p>{item}</p> : <a href={item.href}>{item.text}</a>
+                    item.href ? <a href={item.href}>{item.text}</a> : <p>{item.text}</p>
                   ))
                 }
               </div>
@@ -164,12 +85,9 @@ const companyDetails = [
 
   <section class="about-final-cta">
     <div class="about-final-cta__inner service-page-shell">
-      <h2>Keskustele kohteestasi</h2>
-      <p>
-        Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset.
-        Arvioimme, miten projekti kannattaa viedä eteenpäin.
-      </p>
-      <a href="/yhteystiedot/">Ota yhteyttä</a>
+      <h2>{content.finalCta.title}</h2>
+      <p>{content.finalCta.text}</p>
+      <a href="/yhteystiedot/">{content.finalCta.linkLabel}</a>
     </div>
   </section>
 </BaseLayout>

@@ -68,6 +68,68 @@ components:
         type: text
         required: true
 
+  numbered_item:
+    type: object
+    label: Numeroitu nosto
+    fields:
+      - name: number
+        label: Numero
+        type: string
+        required: true
+      - name: title
+        label: Otsikko
+        type: string
+        required: true
+      - name: text
+        label: Teksti
+        type: text
+        required: true
+
+  image_item:
+    type: object
+    label: Kuva
+    fields:
+      - name: image
+        label: Kuva
+        type: image
+        required: true
+      - name: imageAlt
+        label: Kuvan alt-teksti
+        type: string
+        required: true
+
+  contact_group:
+    type: object
+    label: Yhteystietoryhmä
+    fields:
+      - name: id
+        type: string
+        hidden: true
+      - name: label
+        label: Otsikko
+        type: string
+        required: true
+      - name: kind
+        type: string
+        hidden: true
+      - name: items
+        label: Tiedot
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{text}"
+        fields:
+          - name: text
+            label: Teksti
+            type: string
+            required: true
+          - name: href
+            label: Linkki
+            type: string
+            hidden: true
+
 content:
   - name: home
     label: Etusivu
@@ -379,3 +441,892 @@ content:
             type: number
           - name: height
             type: number
+
+  - name: contact_page
+    label: Yhteystiedot-sivu
+    type: file
+    path: src/content/cms/yhteystiedot.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+      - name: detailsSection
+        label: Suorat yhteystiedot
+        type: object
+        fields:
+          - name: title
+            label: Pääotsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: groups
+            label: Yhteystiedot
+            component: contact_group
+            list:
+              min: 1
+              max: 5
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+      - name: contact
+        label: Tarjouslomake
+        type: object
+        fields:
+          - name: label
+            label: Pieni otsikko
+            type: string
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+          - name: submitLabel
+            label: Lähetyspainikkeen teksti
+            type: string
+            required: true
+      - name: map
+        label: Toimisto ja kartta
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Teksti
+            type: text
+            required: true
+          - name: address
+            label: Osoite
+            type: string
+            required: true
+          - name: mapsUrl
+            type: string
+            hidden: true
+          - name: iframeSrc
+            type: string
+            hidden: true
+          - name: linkLabel
+            label: Karttalinkin teksti
+            type: string
+            required: true
+          - name: iframeTitle
+            label: Kartan saavutettavuusteksti
+            type: string
+            required: true
+
+  - name: about_page
+    label: Tietoa meistä -sivu
+    type: file
+    path: src/content/cms/tietoa-meista.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: title
+            label: Pääotsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: positioning
+        label: Tekninen toteutus
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: audiencesSection
+        label: Kohteet
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: items
+            label: Kohdetyypit
+            component: text_item
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: method
+        label: Työskentelytapa
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: rows
+            label: Vaiheet
+            component: text_item
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: region
+        label: Toimialue ja yritystiedot
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: groups
+            label: Yhteystiedot
+            component: contact_group
+            list:
+              min: 1
+              max: 5
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+      - name: finalCta
+        label: Loppunosto
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: text
+            label: Teksti
+            type: text
+            required: true
+          - name: linkLabel
+            label: Linkin teksti
+            type: string
+            required: true
+
+  - name: lvi_work_page
+    label: LVI-työt-sivu
+    type: file
+    path: src/content/cms/lvi-tyot.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: title
+            label: Pääotsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Taustakuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+          - name: primaryCta
+            label: Ensisijainen painike
+            type: string
+            required: true
+          - name: secondaryCta
+            label: Toinen painike
+            type: string
+            required: true
+
+      - name: introSection
+        label: Monipuoliset LVI-työt
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 6
+      - name: newBuild
+        label: Uudisrakentaminen
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: bodyBeforeList
+            label: Tekstikappaleet ennen listaa
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: items
+            label: Kohdetyypit
+            type: string
+            list:
+              min: 1
+              max: 8
+          - name: bodyAfterList
+            label: Lopputeksti
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: renovation
+        label: Saneeraustyöt
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 6
+          - name: listHeading
+            label: Listan otsikko
+            type: string
+            required: true
+          - name: items
+            label: Kohdetyypit
+            type: string
+            list:
+              min: 1
+              max: 8
+      - name: repairs
+        label: Korjaukset ja asennustyöt
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: items
+            label: Palvelut
+            component: numbered_item
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{number} {title}"
+      - name: audiences
+        label: Kohderyhmät
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kohderyhmät
+            component: text_item
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: scale
+        label: Pienet ja suuret työt
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: linkLabel
+            label: Linkin teksti
+            type: string
+            required: true
+      - name: region
+        label: Toimialue
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+      - name: finalCta
+        label: Loppunosto
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: text
+            label: Teksti
+            type: text
+            required: true
+          - name: primaryCta
+            label: Ensisijainen painike
+            type: string
+            required: true
+          - name: secondaryCta
+            label: Toinen painike
+            type: string
+            required: true
+
+  - name: lvi_contracting_page
+    label: LVI-urakointi-sivu
+    type: file
+    path: src/content/cms/lvi-urakointi.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: title
+            label: Pääotsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Taustakuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+          - name: primaryCta
+            label: Ensisijainen painike
+            type: string
+            required: true
+          - name: secondaryCta
+            label: Toinen painike
+            type: string
+            required: true
+      - name: introSection
+        label: Uudis- ja saneerauskohteet
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 8
+          - name: linkLabel
+            label: Linkin teksti
+            type: string
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: services
+        label: Urakan sisältö
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Palvelut
+            component: text_item
+            list:
+              min: 1
+              max: 12
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+          - name: noteTitle
+            label: Lisänoston otsikko
+            type: string
+            required: true
+          - name: noteText
+            label: Lisänoston teksti
+            type: text
+            required: true
+      - name: audiences
+        label: Kohderyhmät
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kohderyhmät
+            component: text_item
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: comparison
+        label: Uudisrakentaminen ja saneeraus
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: columns
+            label: Vertailupalstat
+            type: object
+            list:
+              min: 2
+              max: 3
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Otsikko
+                type: string
+                required: true
+              - name: body
+                label: Tekstikappaleet
+                type: text
+                list:
+                  min: 1
+                  max: 5
+      - name: process
+        label: Urakan eteneminen
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Vaiheet
+            component: numbered_item
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{number} {title}"
+      - name: trust
+        label: LVI-Loisto urakoitsijana
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 6
+          - name: items
+            label: Nostot
+            component: text_item
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: portfolio
+        label: Valitut kohteet
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kuvat
+            component: image_item
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "Kuva {index}"
+      - name: cities
+        label: Kaupunkisivut
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kaupunkilinkit
+            type: object
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Linkin teksti
+                type: string
+                required: true
+              - name: href
+                type: string
+                hidden: true
+      - name: faq
+        label: Usein kysyttyä
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: items
+            label: Kysymykset
+            component: faq_item
+            list:
+              min: 1
+              collapsible:
+                collapsed: true
+                summary: "{question}"
+      - name: contact
+        label: Yhteydenotto
+        type: object
+        fields:
+          - name: label
+            label: Pieni otsikko
+            type: string
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+          - name: submitLabel
+            label: Lähetyspainikkeen teksti
+            type: string
+            required: true
+      - name: _unusedWorkIntro
+        label: Monipuoliset LVI-työt
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 6
+      - name: _unusedWorkNewBuild
+        label: Uudisrakentaminen
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: bodyBeforeList
+            label: Tekstikappaleet ennen listaa
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: items
+            label: Kohdetyypit
+            type: string
+            list:
+              min: 1
+              max: 8
+          - name: bodyAfterList
+            label: Lopputeksti
+            type: text
+            required: true
+          - name: image
+            label: Kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
+      - name: _unusedWorkRenovation
+        label: Saneeraustyöt
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 6
+          - name: listHeading
+            label: Listan otsikko
+            type: string
+            required: true
+          - name: items
+            label: Kohdetyypit
+            type: string
+            list:
+              min: 1
+              max: 8
+      - name: _unusedWorkRepairs
+        label: Korjaukset ja asennustyöt
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: items
+            label: Palvelut
+            component: numbered_item
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{number} {title}"
+      - name: _unusedWorkAudiences
+        label: Kohderyhmät
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: items
+            label: Kohderyhmät
+            component: text_item
+            list:
+              min: 1
+              max: 6
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+      - name: _unusedWorkScale
+        label: Pienet ja suuret työt
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+          - name: linkLabel
+            label: Linkin teksti
+            type: string
+            required: true
+      - name: _unusedWorkRegion
+        label: Toimialue
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 5
+      - name: _unusedWorkFinalCta
+        label: Loppunosto
+        hidden: true
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: text
+            label: Teksti
+            type: text
+            required: true
+          - name: primaryCta
+            label: Ensisijainen painike
+            type: string
+            required: true
+          - name: secondaryCta
+            label: Toinen painike
+            type: string
+            required: true

@@ -1,0 +1,101 @@
+{
+  "seo": {
+    "title": "Tietoa meistä | LVI-Loisto Oy",
+    "description": "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja vaativiin kohteisiin, kuten arvoasuntoihin, taloyhtiöihin, villoihin ja kiinteistöihin."
+  },
+  "hero": {
+    "title": "LVI-kumppani vaativiin koteihin ja kiinteistöihin",
+    "intro": "LVI-Loisto toteuttaa LVI-urakointia, saneerauksia ja lämmitysratkaisuja kohteisiin, joissa tekninen toimivuus, huolellinen työnjälki ja sujuva yhteistyö ratkaisevat lopputuloksen.",
+    "image": "/images/home/about-imgl1779.jpg",
+    "imageAlt": "Viimeistelty kylpyhuone vaativassa asuinkohteessa"
+  },
+  "positioning": {
+    "title": "Tekninen toteutus osana viimeisteltyä kokonaisuutta",
+    "body": [
+      "Vaativissa kohteissa LVI-työ ei ole irrallinen työvaihe. Sen pitää sopia rakenteisiin, arkkitehtuuriin, materiaaleihin, aikatauluun ja lopulliseen käyttökokemukseen.",
+      "LVI-Loisto työskentelee yksityisasiakkaiden, taloyhtiöiden, rakennusliikkeiden ja suunnittelijoiden kanssa kohteissa, joissa kokonaisuuden hallinta on yhtä tärkeää kuin tekninen asennus."
+    ],
+    "image": "/images/home/quality-imgl1757.jpg",
+    "imageAlt": "Kultaiset hanakalusteet ja kivipinnat viimeistellyssä märkätilassa"
+  },
+  "audiencesSection": {
+    "title": "Kohteet, joissa osaamisemme korostuu",
+    "items": [
+      {
+        "title": "Arvoasunnot ja saneerauskohteet",
+        "text": "Huolellista LVI-työtä valmiisiin asuinympäristöihin, joissa näkyvät pinnat ja materiaalit vaativat viimeisteltyä toteutusta."
+      },
+      {
+        "title": "Villat ja suuret omakotitalot",
+        "text": "LVI-kokonaisuuksia kohteisiin, joissa lämmitys, käyttövesi, tekninen tila ja asumismukavuus suunnitellaan pitkäaikaiseen käyttöön."
+      },
+      {
+        "title": "Taloyhtiöt ja kiinteistöt",
+        "text": "Lämmönjakokeskuksia, kaukolämpökeskuksia ja teknisiä LVI-ratkaisuja kohteisiin, joissa toimintavarmuus ja huollettavuus ovat keskeisiä."
+      },
+      {
+        "title": "Uudisrakennukset ja vaativat projektit",
+        "text": "LVI-urakointia kohteisiin, joissa yhteistyö suunnittelijoiden ja muiden urakoitsijoiden kanssa vaikuttaa suoraan lopputulokseen."
+      }
+    ]
+  },
+  "method": {
+    "title": "Miten työskentelemme",
+    "intro": "Hyvä LVI-toteutus alkaa ennen työmaata. Ensin ymmärretään kohteen tavoitteet, tekniset reunaehdot ja aikataulu. Sen jälkeen työ sovitetaan muuhun rakentamiseen niin, että lopputulos toimii käytännössä ja kestää aikaa.",
+    "rows": [
+      {
+        "title": "Kohteen ymmärtäminen",
+        "text": "Käymme läpi lähtötilanteen, tavoitteet, suunnitelmat ja tekniset tarpeet."
+      },
+      {
+        "title": "Yhteensovitus",
+        "text": "Sovitamme LVI-työt rakenteisiin, materiaaleihin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin."
+      },
+      {
+        "title": "Huolellinen toteutus",
+        "text": "Työ tehdään hallitusti, siististi ja kohteen vaatimukset huomioiden."
+      },
+      {
+        "title": "Luovutus ja toimivuus",
+        "text": "Lopputulos tarkistetaan ja viimeistellään niin, että järjestelmät toimivat käytännössä."
+      }
+    ]
+  },
+  "region": {
+    "title": "Toimimme vaativissa kohteissa pääkaupunkiseudulla, Tampereella ja Turussa",
+    "intro": "LVI-Loiston toimipiste sijaitsee Helsingissä. Palvelemme ensisijaisesti pääkaupunkiseudulla sekä valituissa vaativissa kohteissa Tampereella ja Turussa.",
+    "groups": [
+      {
+        "title": "Yritys",
+        "kind": "company",
+        "items": [
+          { "text": "LVI-Loisto Oy", "href": "" },
+          { "text": "Työpajankatu 13 A", "href": "" },
+          { "text": "00580 Helsinki", "href": "" },
+          { "text": "Y-tunnus 3254898-6", "href": "" }
+        ]
+      },
+      {
+        "title": "Matias Ryynänen",
+        "kind": "person",
+        "items": [
+          { "text": "046 921 4415", "href": "tel:+358469214415" },
+          { "text": "matias.ryynanen@lviloisto.fi", "href": "mailto:matias.ryynanen@lviloisto.fi" }
+        ]
+      },
+      {
+        "title": "Miro Sorjonen",
+        "kind": "person",
+        "items": [
+          { "text": "050 479 6544", "href": "tel:+358504796544" },
+          { "text": "miro.sorjonen@lviloisto.fi", "href": "mailto:miro.sorjonen@lviloisto.fi" }
+        ]
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Keskustele kohteestasi",
+    "text": "Kerro millaisesta kohteesta on kyse, missä se sijaitsee ja mitä LVI-kokonaisuutta tarvitset. Arvioimme, miten projekti kannattaa viedä eteenpäin.",
+    "linkLabel": "Ota yhteyttä"
+  }
+}

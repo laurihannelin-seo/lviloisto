@@ -2,56 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactPopover from "../components/ContactPopover.astro";
+import content from "../content/cms/lvi-tyot.json";
 
-const title = "LVI-työt Helsinki ja Uusimaa | LVI-Loisto";
-const description =
-  "LVI-Loisto toteuttaa LVI-työt uudis- ja saneerauskohteisiin Helsingissä ja Uudellamaalla. Palvelemme taloyhtiöitä, yrityksiä ja kotitalouksia.";
-
-const repairItems = [
-  {
-    number: "01",
-    title: "Vesimittarivaihdot",
-    text: "Vesimittareiden vaihdot taloyhtiöihin ja muihin soveltuviin kohteisiin.",
-  },
-  {
-    number: "02",
-    title: "Verkostojen tasapainotus ja säätö",
-    text: "Lämmitysverkostojen tasapainotukset, pakkaskauden säädöt ja vesivirtojen mittaustyöt.",
-  },
-  {
-    number: "03",
-    title: "Käyttövesiverkostot",
-    text: "Käyttövesiputkistojen asennukset ja muut LVI-työt osana uudis- ja saneerauskohteita.",
-  },
-  {
-    number: "04",
-    title: "Patteriverkostot",
-    text: "Patteriverkostojen asennukset ja niihin liittyvät muutostyöt.",
-  },
-];
-
-const customerGroups = [
-  {
-    title: "Kotitaloudet",
-    text: "LVI-uudisrakentamista, saneerauksia ja korjaustöitä omakotitaloihin, asuntoihin ja muihin yksityisiin kohteisiin.",
-  },
-  {
-    title: "Taloyhtiöt",
-    text: "LVI-saneerauksia, korjaustöitä, verkostojen säätöjä, vesimittaritöitä sekä käyttövesi- ja patteriverkostojen asennuksia.",
-  },
-  {
-    title: "Rakennusalan yritykset",
-    text: "LVI-töitä uudis- ja saneerauskohteisiin osana rakennusprojektin muuta toteutusta.",
-  },
-];
+const title = content.seo.title;
+const description = content.seo.description;
+const repairItems = content.repairs.items;
+const customerGroups = content.audiences.items;
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="service-page-hero lvi-work-hero" aria-labelledby="lvi-work-heading">
     <img
       class="service-page-hero__image"
-      src="/images/lvi-tyot/tekninen-tila-hero.webp"
-      alt="Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita"
+      src={content.hero.image}
+      alt={content.hero.imageAlt}
       loading="eager"
       fetchpriority="high"
     />
@@ -62,8 +26,8 @@ const customerGroups = [
         items={[{ label: "Etusivu", href: "/" }, { label: "LVI-työt" }]}
       />
       <div class="service-page-hero__copy">
-        <h1 id="lvi-work-heading">LVI-työt Helsingissä ja Uudellamaalla</h1>
-        <p>LVI-Loisto toteuttaa LVI-uudisrakentamisen, saneeraustyöt ja korjaustyöt taloyhtiöille, rakennusalan yrityksille ja kotitalouksille. Palvelemme joustavasti niin pienissä kuin suuremmissakin LVI-töissä.</p>
+        <h1 id="lvi-work-heading">{content.hero.title}</h1>
+        <p>{content.hero.intro}</p>
         <div class="service-page-hero__actions">
           <div class="service-page-hero__contact" data-lvi-work-contact>
             <button
@@ -72,13 +36,13 @@ const customerGroups = [
               aria-controls="lvi-work-hero-contact-popover"
               aria-expanded="false"
               data-lvi-work-contact-trigger
-            >Pyydä tarjous</button>
+            >{content.hero.primaryCta}</button>
             <ContactPopover
               id="lvi-work-hero-contact-popover"
               className="service-page-contact-popover"
             />
           </div>
-          <a class="service-page-hero__secondary" href="/yhteystiedot/">Ota yhteyttä</a>
+          <a class="service-page-hero__secondary" href="/yhteystiedot/">{content.hero.secondaryCta}</a>
         </div>
       </div>
     </div>
@@ -115,46 +79,38 @@ const customerGroups = [
 
       <article class="lvi-work-article">
         <section class="lvi-work-article__section" id="monipuoliset-lvi-tyot" aria-labelledby="monipuoliset-lvi-tyot-heading">
-          <h2 id="monipuoliset-lvi-tyot-heading">Monipuoliset LVI-työt uudis- ja saneerauskohteisiin</h2>
-        <p>LVI-Loisto tarjoaa LVI-palveluita uudisrakentamiseen, saneerauksiin ja erilaisiin korjaustöihin Helsingissä ja muualla Uudellamaalla. Palvelemme taloyhtiöitä, rakennusalan yrityksiä ja kotitalouksia kohteen ja työn laajuuden mukaan.</p>
-        <p>Toteutamme sekä kokonaisia LVI-töitä uudis- ja saneerauskohteisiin että yksittäisiä asennus- ja korjaustöitä. Työn sisältö suunnitellaan aina kohteen tarpeiden, olemassa olevien järjestelmien ja mahdollisten LVI-suunnitelmien perusteella.</p>
+          <h2 id="monipuoliset-lvi-tyot-heading">{content.introSection.title}</h2>
+          {content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}
         </section>
 
         <section class="lvi-work-article__section" id="uudisrakentaminen" aria-labelledby="uudisrakentaminen-heading">
-          <h2 id="uudisrakentaminen-heading">LVI-työt uudisrakentamiseen</h2>
-        <p>Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.</p>
-        <p>Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:</p>
+          <h2 id="uudisrakentaminen-heading">{content.newBuild.title}</h2>
+          {content.newBuild.bodyBeforeList.map((paragraph) => <p>{paragraph}</p>)}
           <ul class="lvi-work-bullet-list">
-          <li>omakotitalot</li>
-          <li>rivitalot</li>
-          <li>kerrostalot</li>
-        </ul>
-        <p>Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.</p>
+            {content.newBuild.items.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>{content.newBuild.bodyAfterList}</p>
           <figure class="lvi-work-article__media">
             <img
-              src="/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp"
-              alt="Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
+              src={content.newBuild.image}
+              alt={content.newBuild.imageAlt}
               loading="lazy"
             />
           </figure>
         </section>
 
         <section class="lvi-work-article__section" id="saneeraustyot" aria-labelledby="saneeraustyot-heading">
-          <h2 id="saneeraustyot-heading">LVI-saneeraustyöt</h2>
-        <p>LVI-saneerauksessa olemassa olevia järjestelmiä uusitaan, muutetaan tai täydennetään rakennuksen tarpeiden mukaan. Toteutamme saneeraustöitä niin yksittäisiin asuntoihin kuin laajempiin asuin- ja kiinteistökohteisiin.</p>
-        <p>Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia.</p>
-          <p class="lvi-work-list-heading">Teemme LVI-saneerauksia:</p>
+          <h2 id="saneeraustyot-heading">{content.renovation.title}</h2>
+          {content.renovation.body.map((paragraph) => <p>{paragraph}</p>)}
+          <p class="lvi-work-list-heading">{content.renovation.listHeading}</p>
           <ul class="lvi-work-bullet-list">
-            <li>omakotitaloissa</li>
-            <li>rivitaloissa</li>
-            <li>kerrostaloissa</li>
+            {content.renovation.items.map((item) => <li>{item}</li>)}
           </ul>
         </section>
 
         <section class="lvi-work-article__section" id="korjaukset-ja-asennukset" aria-labelledby="korjaukset-ja-asennukset-heading">
-          <h2 id="korjaukset-ja-asennukset-heading">LVI-korjaukset ja asennustyöt</h2>
-        <p>Laajempien uudis- ja saneeraustöiden lisäksi toteutamme LVI-korjauksia ja asennuksia esimerkiksi pientaloihin ja taloyhtiöihin.</p>
-        <p>Palveluihimme kuuluvat muun muassa:</p>
+          <h2 id="korjaukset-ja-asennukset-heading">{content.repairs.title}</h2>
+          {content.repairs.body.map((paragraph) => <p>{paragraph}</p>)}
           <ol class="lvi-work-service-list" aria-label="LVI-korjaukset ja asennustyöt">
             {repairItems.map((item) => (
               <li>
@@ -167,8 +123,8 @@ const customerGroups = [
         </section>
 
         <section class="lvi-work-article__section" id="kohteet" aria-labelledby="kohteet-heading">
-          <h2 id="kohteet-heading">LVI-työt erilaisiin kohteisiin</h2>
-          <p>Palvelemme yksityisasiakkaita, taloyhtiöitä ja rakennusalan yrityksiä. Työn laajuus määritellään aina kohteen ja tarpeen mukaan.</p>
+          <h2 id="kohteet-heading">{content.audiences.title}</h2>
+          <p>{content.audiences.intro}</p>
           <div class="lvi-work-audience-list">
             {customerGroups.map((item) => (
               <article>
@@ -180,16 +136,14 @@ const customerGroups = [
         </section>
 
         <section class="lvi-work-article__section" id="pienet-ja-suuret-tyot" aria-labelledby="pienet-ja-suuret-tyot-heading">
-          <h2 id="pienet-ja-suuret-tyot-heading">Pienet ja suuret LVI-työt</h2>
-        <p>LVI-Loisto ottaa vastaan sekä pienempiä LVI-töitä että suurempia uudis- ja saneerauskokonaisuuksia. Työn sisältö ja toteutustapa sovitaan aina kohteen tarpeiden perusteella.</p>
-        <p>Jos kyseessä on laajempi LVI-urakka, tutustu myös urakointipalveluumme.</p>
-        <a class="text-link" href="/lvi-urakointi/">Tutustu LVI-urakointiin <span aria-hidden="true">→</span></a>
+          <h2 id="pienet-ja-suuret-tyot-heading">{content.scale.title}</h2>
+          {content.scale.body.map((paragraph) => <p>{paragraph}</p>)}
+          <a class="text-link" href="/lvi-urakointi/">{content.scale.linkLabel} <span aria-hidden="true">→</span></a>
         </section>
 
         <section class="lvi-work-article__section" id="toimialue" aria-labelledby="toimialue-heading">
-          <h2 id="toimialue-heading">LVI-työt Helsingissä ja Uudellamaalla</h2>
-        <p>LVI-Loisto palvelee asiakkaita Helsingissä ja muualla Uudenmaan alueella. Toimipisteemme sijaitsee Vantaalla, ja toteutamme LVI-töitä eri puolilla pääkaupunkiseutua sekä soveltuvissa kohteissa muualla Uudellamaalla.</p>
-        <p>Kun tarvitset tekijän uudisrakentamisen LVI-töihin, saneeraukseen tai yksittäiseen LVI-korjaukseen, ota yhteyttä ja kerro kohteesta sekä työn tarpeesta.</p>
+          <h2 id="toimialue-heading">{content.region.title}</h2>
+          {content.region.body.map((paragraph) => <p>{paragraph}</p>)}
         </section>
       </article>
     </div>
@@ -198,8 +152,8 @@ const customerGroups = [
   <section class="lvi-work-final-cta" aria-labelledby="lvi-work-cta-heading">
     <div class="lvi-work-final-cta__inner page-shell">
       <div>
-        <h2 id="lvi-work-cta-heading">Tarvitsetko tekijän LVI-töihin?</h2>
-        <p>Kerro meille kohteesta ja tarvitsemastasi LVI-työstä. Voit olla yhteydessä puhelimitse, sähköpostilla tai lähettää tarjouspyynnön yhteydenottolomakkeella.</p>
+        <h2 id="lvi-work-cta-heading">{content.finalCta.title}</h2>
+        <p>{content.finalCta.text}</p>
       </div>
       <div class="lvi-work-final-cta__actions">
         <div class="lvi-work-final-cta__contact" data-lvi-work-contact>
@@ -209,13 +163,13 @@ const customerGroups = [
             aria-controls="lvi-work-final-contact-popover"
             aria-expanded="false"
             data-lvi-work-contact-trigger
-          >Pyydä tarjous</button>
+          >{content.finalCta.primaryCta}</button>
           <ContactPopover
             id="lvi-work-final-contact-popover"
             className="lvi-work-final-cta__popover"
           />
         </div>
-        <a class="lvi-work-final-cta__secondary" href="/yhteystiedot/">Yhteystiedot <span aria-hidden="true">→</span></a>
+        <a class="lvi-work-final-cta__secondary" href="/yhteystiedot/">{content.finalCta.secondaryCta} <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
