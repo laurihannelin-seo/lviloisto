@@ -3376,9 +3376,13 @@ h3 {
 .lvi-work-toc__cta {
   gap: 0.65rem;
   margin-top: 1.25rem;
+  border: 0;
   border-bottom: 1px solid rgba(22, 22, 22, 0.45);
-  padding-bottom: 0.2rem;
+  background: transparent;
+  padding: 0 0 0.2rem;
   color: var(--color-text);
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .lvi-work-toc a:hover,
@@ -3390,6 +3394,27 @@ h3 {
 .lvi-work-toc a:focus-visible {
   outline: 2px solid var(--color-accent-dark);
   outline-offset: 4px;
+}
+
+.lvi-work-toc__contact,
+.lvi-work-final-cta__contact {
+  position: relative;
+}
+
+.lvi-work-toc__popover {
+  position: absolute;
+  top: calc(100% + 0.85rem);
+  right: 0;
+  left: auto;
+  width: min(23rem, calc(100vw - (var(--space-page) * 2)));
+  margin: 0;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.lvi-work-toc__popover::before {
+  right: 1.35rem;
+  left: auto;
 }
 
 .lvi-work-final-cta {
@@ -3428,22 +3453,27 @@ h3 {
   align-items: center;
 }
 
-.lvi-work-final-cta__actions a {
+.lvi-work-final-cta__actions > a,
+.lvi-work-final-cta__contact > button {
   display: inline-flex;
   min-height: 3.25rem;
   align-items: center;
   justify-content: center;
   color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
   font-weight: 400;
   letter-spacing: 0.02em;
   text-decoration: none;
+  cursor: pointer;
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.lvi-work-final-cta__primary {
+.lvi-work-final-cta__contact > .lvi-work-final-cta__primary {
   border: 1px solid var(--color-accent);
   background: var(--color-accent);
   padding-inline: 1.5rem;
+  color: #11162f;
 }
 
 .lvi-work-final-cta__secondary {
@@ -3451,22 +3481,45 @@ h3 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 }
 
-.lvi-work-final-cta__actions a:hover,
-.lvi-work-final-cta__actions a:focus-visible {
+.lvi-work-final-cta__actions > a:hover,
+.lvi-work-final-cta__actions > a:focus-visible,
+.lvi-work-final-cta__contact > button:hover,
+.lvi-work-final-cta__contact > button:focus-visible {
   border-color: #e7d16b;
   color: #e7d16b;
   outline: none;
 }
 
-.lvi-work-final-cta__primary:hover,
-.lvi-work-final-cta__primary:focus-visible {
+.lvi-work-final-cta__actions .lvi-work-final-cta__primary:hover,
+.lvi-work-final-cta__actions .lvi-work-final-cta__primary:focus-visible {
   background: #e7d16b;
   color: #11162f;
 }
 
-.lvi-work-final-cta__actions a:focus-visible {
+.lvi-work-final-cta__actions > a:focus-visible,
+.lvi-work-final-cta__contact > button:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: 4px;
+}
+
+.lvi-work-final-cta__popover {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: calc(100% + 0.85rem);
+  left: auto;
+  width: min(23rem, calc(100vw - (var(--space-page) * 2)));
+  margin: 0;
+  color: var(--color-text);
+  text-align: left;
+}
+
+.lvi-work-final-cta__popover::before {
+  top: auto;
+  right: 1.35rem;
+  bottom: -0.42rem;
+  left: auto;
+  transform: rotate(225deg);
 }
 
 @media (max-width: 1060px) {
@@ -3488,6 +3541,16 @@ h3 {
   .lvi-work-toc ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 2rem;
+  }
+
+  .lvi-work-toc__popover {
+    right: auto;
+    left: 0;
+  }
+
+  .lvi-work-toc__popover::before {
+    right: auto;
+    left: 1.35rem;
   }
 
   .lvi-work-article {
@@ -3579,6 +3642,16 @@ h3 {
 
   .lvi-work-final-cta__inner {
     grid-template-columns: 1fr;
+  }
+
+  .lvi-work-final-cta__popover {
+    right: auto;
+    left: 0;
+  }
+
+  .lvi-work-final-cta__popover::before {
+    right: auto;
+    left: 1.35rem;
   }
 
   .lvi-work-content__layout {

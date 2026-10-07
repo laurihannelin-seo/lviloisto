@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ContactPopover from "../components/ContactPopover.astro";
 
 const title = "LVI-työt Helsinki ja Uusimaa | LVI-Loisto";
 const description =
@@ -64,7 +65,19 @@ const customerGroups = [
         <h1 id="lvi-work-heading">LVI-työt Helsingissä ja Uudellamaalla</h1>
         <p>LVI-Loisto toteuttaa LVI-uudisrakentamisen, saneeraustyöt ja korjaustyöt taloyhtiöille, rakennusalan yrityksille ja kotitalouksille. Palvelemme joustavasti niin pienissä kuin suuremmissakin LVI-töissä.</p>
         <div class="service-page-hero__actions">
-          <a class="service-page-hero__primary" href="/yhteystiedot/">Pyydä tarjous</a>
+          <div class="service-page-hero__contact" data-lvi-work-contact>
+            <button
+              class="service-page-hero__primary"
+              type="button"
+              aria-controls="lvi-work-hero-contact-popover"
+              aria-expanded="false"
+              data-lvi-work-contact-trigger
+            >Pyydä tarjous</button>
+            <ContactPopover
+              id="lvi-work-hero-contact-popover"
+              className="service-page-contact-popover"
+            />
+          </div>
           <a class="service-page-hero__secondary" href="/yhteystiedot/">Ota yhteyttä</a>
         </div>
       </div>
@@ -84,7 +97,19 @@ const customerGroups = [
             <li><a href="#kohteet">Kohteet</a></li>
             <li><a href="#toimialue">Toimialue</a></li>
           </ul>
-          <a class="lvi-work-toc__cta" href="/yhteystiedot/">Pyydä tarjous <span aria-hidden="true">→</span></a>
+          <div class="lvi-work-toc__contact" data-lvi-work-contact>
+            <button
+              class="lvi-work-toc__cta"
+              type="button"
+              aria-controls="lvi-work-toc-contact-popover"
+              aria-expanded="false"
+              data-lvi-work-contact-trigger
+            >Pyydä tarjous <span aria-hidden="true">→</span></button>
+            <ContactPopover
+              id="lvi-work-toc-contact-popover"
+              className="lvi-work-toc__popover"
+            />
+          </div>
         </nav>
       </aside>
 
@@ -177,9 +202,80 @@ const customerGroups = [
         <p>Kerro meille kohteesta ja tarvitsemastasi LVI-työstä. Voit olla yhteydessä puhelimitse, sähköpostilla tai lähettää tarjouspyynnön yhteydenottolomakkeella.</p>
       </div>
       <div class="lvi-work-final-cta__actions">
-        <a class="lvi-work-final-cta__primary" href="/yhteystiedot/">Pyydä tarjous</a>
+        <div class="lvi-work-final-cta__contact" data-lvi-work-contact>
+          <button
+            class="lvi-work-final-cta__primary"
+            type="button"
+            aria-controls="lvi-work-final-contact-popover"
+            aria-expanded="false"
+            data-lvi-work-contact-trigger
+          >Pyydä tarjous</button>
+          <ContactPopover
+            id="lvi-work-final-contact-popover"
+            className="lvi-work-final-cta__popover"
+          />
+        </div>
         <a class="lvi-work-final-cta__secondary" href="/yhteystiedot/">Yhteystiedot <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
+
+  <script>
+    const initLviWorkContactPopovers = () => {
+      const contacts = Array.from(document.querySelectorAll("[data-lvi-work-contact]"));
+
+      const setOpen = (contact: Element, isOpen: boolean, returnFocus = false) => {
+        const trigger = contact.querySelector("[data-lvi-work-contact-trigger]");
+        const popover = contact.querySelector("[data-lvi-work-contact-popover]");
+
+        if (!(trigger instanceof HTMLButtonElement) || !(popover instanceof HTMLElement)) return;
+
+        popover.hidden = !isOpen;
+        trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        if (returnFocus) trigger.focus();
+      };
+
+      contacts.forEach((contact) => {
+        const trigger = contact.querySelector("[data-lvi-work-contact-trigger]");
+        const popover = contact.querySelector("[data-lvi-work-contact-popover]");
+        const closeButton = contact.querySelector("[data-lvi-work-contact-close]");
+
+        if (!(trigger instanceof HTMLButtonElement) || !(popover instanceof HTMLElement)) return;
+
+        trigger.addEventListener("click", () => {
+          const shouldOpen = popover.hidden;
+          contacts.forEach((item) => setOpen(item, false));
+          setOpen(contact, shouldOpen);
+        });
+
+        closeButton?.addEventListener("click", () => setOpen(contact, false, true));
+        popover.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => setOpen(contact, false));
+        });
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        contacts.forEach((contact) => {
+          const popover = contact.querySelector("[data-lvi-work-contact-popover]");
+          if (popover instanceof HTMLElement && !popover.hidden && !contact.contains(event.target as Node)) {
+            setOpen(contact, false);
+          }
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        contacts.forEach((contact) => {
+          const popover = contact.querySelector("[data-lvi-work-contact-popover]");
+          if (popover instanceof HTMLElement && !popover.hidden) setOpen(contact, false, true);
+        });
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initLviWorkContactPopovers, { once: true });
+    } else {
+      initLviWorkContactPopovers();
+    }
+  </script>
 </BaseLayout>
