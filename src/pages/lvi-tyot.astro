@@ -77,33 +77,39 @@ const customerGroups = [
     <ServiceContentSection
       id="monipuoliset-lvi-tyot"
       title="Monipuoliset LVI-työt uudis- ja saneerauskohteisiin"
+      className="lvi-work-feature"
     >
-      <div class="service-prose">
+      <div class="service-prose lvi-work-feature__copy">
         <p>LVI-Loisto tarjoaa LVI-palveluita uudisrakentamiseen, saneerauksiin ja erilaisiin korjaustöihin Helsingissä ja muualla Uudellamaalla. Palvelemme taloyhtiöitä, rakennusalan yrityksiä ja kotitalouksia kohteen ja työn laajuuden mukaan.</p>
         <p>Toteutamme sekä kokonaisia LVI-töitä uudis- ja saneerauskohteisiin että yksittäisiä asennus- ja korjaustöitä. Työn sisältö suunnitellaan aina kohteen tarpeiden, olemassa olevien järjestelmien ja mahdollisten LVI-suunnitelmien perusteella.</p>
       </div>
+      <figure class="lvi-work-feature__media">
+        <img
+          src="/images/home/quality-imgl1757.jpg"
+          alt="Valmiin kylpyhuonekohteen musta kivitaso ja messinkiset vesikalusteet"
+          loading="lazy"
+        />
+      </figure>
     </ServiceContentSection>
 
-    <ServiceContentSection id="uudisrakentaminen" title="LVI-työt uudisrakentamiseen">
-      <div class="lvi-work-split">
-        <div class="service-prose">
-          <p>Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.</p>
-          <p>Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:</p>
-          <ul class="service-simple-list">
-            <li>omakotitalot</li>
-            <li>rivitalot</li>
-            <li>kerrostalot</li>
-          </ul>
-          <p>Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.</p>
-        </div>
-        <figure class="lvi-work-split__media">
-          <img
-            src="/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp"
-            alt="Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
-            loading="lazy"
-          />
-        </figure>
+    <ServiceContentSection id="uudisrakentaminen" title="LVI-työt uudisrakentamiseen" className="lvi-work-feature">
+      <div class="service-prose lvi-work-feature__copy">
+        <p>Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.</p>
+        <p>Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:</p>
+        <ul class="service-simple-list">
+          <li>omakotitalot</li>
+          <li>rivitalot</li>
+          <li>kerrostalot</li>
+        </ul>
+        <p>Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.</p>
       </div>
+      <figure class="lvi-work-feature__media">
+        <img
+          src="/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp"
+          alt="Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
+          loading="lazy"
+        />
+      </figure>
     </ServiceContentSection>
 
     <ServiceContentSection id="saneeraustyot" title="LVI-saneeraustyöt" className="lvi-work-renovation">
@@ -112,6 +118,13 @@ const customerGroups = [
         <p>Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia.</p>
       </div>
       <aside class="lvi-work-renovation__types" aria-labelledby="renovation-types-heading">
+        <figure class="lvi-work-renovation__media">
+          <img
+            src="/images/home/about-imgl1779.jpg"
+            alt="Viimeistelty saneerauskohteen kylpyhuone, jossa LVI-ratkaisut on sovitettu osaksi sisustusta"
+            loading="lazy"
+          />
+        </figure>
         <p id="renovation-types-heading">Teemme LVI-saneerauksia:</p>
         <ol>
           <li><span>01</span><span>Omakotitaloissa</span></li>
