@@ -1753,6 +1753,239 @@ h3 {
   padding-block: clamp(1.75rem, 3vw, 2.75rem) clamp(3.5rem, 6vw, 6rem);
 }
 
+/* Compact, CMS-editable company values page. */
+.company-page {
+  background: #fbfaf7;
+}
+
+.company-shell {
+  width: min(100% - (var(--space-page) * 2), 74rem);
+  margin-inline: auto;
+}
+
+.company-intro {
+  padding-block: clamp(3rem, 5vw, 4.75rem) clamp(3.75rem, 6vw, 5.5rem);
+}
+
+.company-intro .breadcrumbs {
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+
+.company-intro__layout {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.58fr) minmax(0, 1.42fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: start;
+}
+
+.company-intro h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 3.6vw, 3.75rem);
+  line-height: 1.02;
+}
+
+.company-intro__copy {
+  max-width: 46rem;
+}
+
+.company-intro__copy h2,
+.company-values h2,
+.company-working h2,
+.company-contact h2 {
+  margin: 0;
+  font-size: clamp(2.25rem, 3vw, 2.5rem);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+
+.company-intro__copy > p {
+  max-width: 66ch;
+  margin: 1.35rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.company-intro__copy .company-intro__statement {
+  max-width: 34ch;
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+  color: var(--color-text);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.35;
+}
+
+.company-values,
+.company-working,
+.company-contact {
+  padding-block: clamp(3.75rem, 6vw, 5rem);
+}
+
+.company-values {
+  background: #f5f1e9;
+}
+
+.company-values__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(3rem, 7vw, 7rem);
+  margin: clamp(2rem, 3vw, 2.75rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.company-values__grid li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  padding-block: 1.5rem 1.75rem;
+  column-gap: 0.75rem;
+}
+
+.company-values__number {
+  grid-row: 1 / span 2;
+  color: var(--color-accent-dark);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.company-values h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 1.7vw, 1.6rem);
+  line-height: 1.2;
+}
+
+.company-values__grid p {
+  max-width: 52ch;
+  margin: 0.7rem 0 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.company-image {
+  aspect-ratio: 12 / 5;
+  margin-block: clamp(3.75rem, 6vw, 5.5rem);
+  overflow: hidden;
+  background: #e6dfd3;
+}
+
+.company-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 52%;
+}
+
+.company-working__layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(3rem, 8vw, 8rem);
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.company-working__copy {
+  display: grid;
+  max-width: 62ch;
+  gap: 1rem;
+}
+
+.company-working__copy p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.company-contact {
+  background: #f5f1e9;
+}
+
+.company-contact__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: end;
+}
+
+.company-contact__header p {
+  max-width: 48rem;
+  margin: 1.1rem 0 0;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+}
+
+.company-contact__header .text-link {
+  white-space: nowrap;
+}
+
+.company-contact__grid {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
+  padding-top: clamp(2rem, 3vw, 2.75rem);
+}
+
+@media (max-width: 760px) {
+  .company-shell {
+    width: min(100% - 2.5rem, 74rem);
+  }
+
+  .company-intro {
+    padding-block: 7rem 3.5rem;
+  }
+
+  .company-intro .breadcrumbs {
+    margin-bottom: 2rem;
+  }
+
+  .company-intro__layout,
+  .company-working__layout,
+  .company-contact__header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .company-intro h1 {
+    font-size: clamp(2rem, 10vw, 2.75rem);
+  }
+
+  .company-intro__copy h2,
+  .company-values h2,
+  .company-working h2,
+  .company-contact h2 {
+    font-size: clamp(1.8rem, 8.5vw, 2rem);
+  }
+
+  .company-values,
+  .company-working,
+  .company-contact {
+    padding-block: 3.25rem;
+  }
+
+  .company-values__grid {
+    grid-template-columns: 1fr;
+    margin-top: 1.75rem;
+  }
+
+  .company-values__grid li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+  }
+
+  .company-image {
+    aspect-ratio: 4 / 3;
+    margin-block: 3rem;
+  }
+
+  .company-working__layout {
+    padding-top: 2.25rem;
+  }
+
+  .company-contact__header .text-link {
+    justify-self: start;
+  }
+}
+
 @media (min-width: 761px) {
   .service-page-hero {
     margin-top: -4.6rem;

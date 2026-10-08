@@ -1330,3 +1330,97 @@ content:
             label: Toinen painike
             type: string
             required: true
+
+  - name: company_page
+    label: Yrityksemme-sivu
+    type: file
+    path: src/content/cms/yrityksemme.json
+    format: json
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: seo
+        component: seo
+      - name: hero
+        label: Intro
+        type: object
+        fields:
+          - name: pageTitle
+            label: Sivun pääotsikko
+            type: string
+            required: true
+          - name: title
+            label: Intro-otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: statement
+            label: Statement
+            type: text
+            required: true
+      - name: valuesSection
+        label: Arvot
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: items
+            label: Arvot
+            component: numbered_item
+            list:
+              min: 4
+              max: 4
+              collapsible:
+                collapsed: true
+                summary: "{number} {title}"
+      - name: imageSection
+        component: image
+      - name: workingSection
+        label: Arvot työssä
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: body
+            label: Tekstikappaleet
+            type: text
+            list:
+              min: 1
+              max: 3
+      - name: contactSection
+        label: Yhteystiedot
+        type: object
+        fields:
+          - name: title
+            label: Otsikko
+            type: string
+            required: true
+          - name: intro
+            label: Ingressi
+            type: text
+            required: true
+          - name: serviceLinkLabel
+            label: Palvelulinkin teksti
+            type: string
+            required: true
+          - name: serviceLinkHref
+            type: string
+            hidden: true
+          - name: groups
+            label: Yritys ja yhteyshenkilöt
+            component: contact_group
+            list:
+              min: 3
+              max: 3
+              collapsible:
+                collapsed: true
+                summary: "{label}"

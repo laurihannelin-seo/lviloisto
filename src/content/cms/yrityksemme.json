@@ -1,0 +1,84 @@
+{
+  "seo": {
+    "title": "Yrityksemme | LVI-Loisto Oy",
+    "description": "Tutustu LVI-Loistoon ja siihen kuinka arvomme näkyvät työssämme asiakkaiden ja kumppaneiden kanssa."
+  },
+  "hero": {
+    "pageTitle": "Yrityksemme",
+    "title": "Arvomme",
+    "intro": "Arvomme ohjaavat tapaamme tehdä työtä, kohdata asiakkaat ja viedä projektit loppuun. Ne näkyvät sekä työnjäljessä että siinä, miten toimimme asiakkaiden, suunnittelijoiden ja muiden ammattilaisten kanssa.",
+    "statement": "Hyvä LVI-toteutus syntyy teknisestä osaamisesta, huolellisesta tekemisestä ja toimivasta yhteistyöstä."
+  },
+  "valuesSection": {
+    "title": "Arvot, joiden mukaan toimimme",
+    "items": [
+      {
+        "number": "01",
+        "title": "[Arvo 1]",
+        "text": "[Tähän 2–3 lausetta siitä, mitä arvo tarkoittaa LVI-Loiston toiminnassa ja miten se näkyy käytännössä.]"
+      },
+      {
+        "number": "02",
+        "title": "[Arvo 2]",
+        "text": "[Tähän 2–3 lausetta.]"
+      },
+      {
+        "number": "03",
+        "title": "[Arvo 3]",
+        "text": "[Tähän 2–3 lausetta.]"
+      },
+      {
+        "number": "04",
+        "title": "[Arvo 4]",
+        "text": "[Tähän 2–3 lausetta.]"
+      }
+    ]
+  },
+  "imageSection": {
+    "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
+    "imageAlt": "LVI-putkisto ja jakotukki rakenteilla olevassa kohteessa"
+  },
+  "workingSection": {
+    "title": "Arvot näkyvät tavassamme työskennellä",
+    "body": [
+      "[Tähän asiakas voi workshopissa kuvata omin sanoin, miten arvot näkyvät päivittäisessä työssä, asiakaspalvelussa, projektien toteutuksessa ja yhteistyössä muiden ammattilaisten kanssa.]"
+    ]
+  },
+  "contactSection": {
+    "title": "Ota meihin yhteyttä niin jutellaan lisää",
+    "intro": "Voit olla meihin yhteydessä suoraan puhelimitse tai sähköpostilla.",
+    "serviceLinkLabel": "Tutustu LVI-töihin",
+    "serviceLinkHref": "/lvi-tyot/",
+    "groups": [
+      {
+        "id": "yritys",
+        "label": "Yritys",
+        "kind": "company",
+        "items": [
+          { "text": "LVI-Loisto Oy", "href": "" },
+          { "text": "Työpajankatu 13 A", "href": "" },
+          { "text": "00580 Helsinki", "href": "" },
+          { "text": "Y-tunnus 3254898-6", "href": "" }
+        ]
+      },
+      {
+        "id": "matias",
+        "label": "Matias Ryynänen",
+        "kind": "person",
+        "items": [
+          { "text": "046 921 4415", "href": "tel:+358469214415" },
+          { "text": "matias.ryynanen@lviloisto.fi", "href": "mailto:matias.ryynanen@lviloisto.fi" }
+        ]
+      },
+      {
+        "id": "miro",
+        "label": "Miro Sorjonen",
+        "kind": "person",
+        "items": [
+          { "text": "050 479 6544", "href": "tel:+358504796544" },
+          { "text": "miro.sorjonen@lviloisto.fi", "href": "mailto:miro.sorjonen@lviloisto.fi" }
+        ]
+      }
+    ]
+  }
+}
