@@ -1,8 +1,10 @@
 # LVI-Loisto Oy website
 
-Technical foundation for the future LVI-Loisto Oy website.
+Astro-based website for LVI-Loisto Oy. The site is deployed from `main` through
+Cloudflare Pages, and editable page content is managed with Pages CMS.
 
-This project is intentionally minimal: Astro, one homepage, global styles, and a structure that can grow later. CMS/editor tooling is not installed yet.
+Read `PROJECT_CONTEXT.md` before continuing development on a new computer or in
+a new Codex conversation.
 
 ## Local development
 
@@ -40,6 +42,18 @@ Use these settings when connecting the GitHub repository to Cloudflare Pages:
 - Production branch: `main`
 
 The current `lviloisto.fi` domain remains on the existing platform for now. This Astro site should first be deployed to a Cloudflare Pages preview/staging URL.
+
+## Pages CMS
+
+The CMS configuration is stored in `.pages.yml`. Editable content is stored as
+JSON in `src/content/cms/` and is imported by the Astro pages.
+
+Open the editor at:
+
+`https://app.pagescms.org/laurihannelin-seo/lviloisto/main/file/home`
+
+CMS saves are committed to `main`, so run `git pull origin main` before starting
+local development after anyone has edited content in the CMS.
 
 ## Branch workflow
 

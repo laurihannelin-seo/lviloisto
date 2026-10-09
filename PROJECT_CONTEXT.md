@@ -21,7 +21,11 @@ on jäänyt päivityksistä jälkeen.
 ## Tekninen toteutus
 
 - Astro 5, TypeScript ja staattinen build
-- Ei CMS:ää, backendia tai sisältökokoelmia tässä vaiheessa
+- Sisällönhallinta: Pages CMS, jonka konfiguraatio on repositorion juuressa
+  tiedostossa `.pages.yml`
+- Pages CMS muokkaa `src/content/cms/*.json`-tiedostoja ja tallentaa muutokset
+  suoraan GitHubin `main`-haaraan
+- Ei erillistä backendia; Astro rakentaa JSON-sisällöstä staattisen sivuston
 - Fontti: paikallisesti npm-paketista ladattu Figtree Variable
 - Päätyylit: `src/styles/global.css`
 - Yhteinen layout: `src/layouts/BaseLayout.astro`
@@ -43,9 +47,11 @@ järjestelmänvalvojan oikeuksia tai suojausasetusten muuttamista.
 ## Nykyiset sivut
 
 - `/` - premium-etusivu
+- `/lvi-tyot/` - LVI-töiden palvelusivu
 - `/lvi-urakointi/` - LVI-urakoinnin parent-palvelusivu
-- `/tietoa-meista/` - yrityssivu
+- `/tietoa-meista/` - palveluista ja toimintatavasta kertova sivu
 - `/yhteystiedot/` - yhteydenotto, kartta ja yritystiedot
+- `/yrityksemme/` - lyhyt CMS-muokattava arvo- ja yrityssivu
 
 Kaupunkikohtaisia sivuja ei ole vielä rakennettu. Tuleva rakenne:
 
@@ -155,6 +161,35 @@ raakakuvia ja videoita. Älä poista, siirrä tai commitoi niitä ilman erillist
 pyyntöä. Sivuston käyttämät julkaistavat kuvat ovat `public/images/`-kansiossa
 ja kuuluvat Git-repositorioon.
 
+## Pages CMS
+
+- CMS: `https://app.pagescms.org/laurihannelin-seo/lviloisto/main/file/home`
+- Kirjaudu GitHub-tunnuksella, jolla on oikeus repositorioon, tai asiakkaalle
+  lisätyllä collaborator-kutsulla.
+- CMS toimii selaimessa samalla tavalla millä tahansa tietokoneella. Paikallista
+  Node.js- tai Astro-asennusta ei tarvita pelkkään sisältöjen muokkaamiseen.
+- CMS:n sivuvalikossa ovat tällä hetkellä Etusivu, Tietoa meistä -nosto,
+  Yhteystiedot-sivu, Tietoa meistä -sivu, LVI-työt-sivu,
+  LVI-urakointi-sivu ja Yrityksemme-sivu.
+- CMS:n tallennus tekee Git-commitin suoraan `main`-haaraan. Cloudflare Pages
+  julkaisee commitin automaattisesti.
+- Jos sisältöä on muutettu CMS:ssä, aja paikallisessa projektissa aina
+  `git pull origin main` ennen seuraavaa Codex-muutosta.
+- Älä muokkaa samaa sisältökenttää CMS:ssä samalla hetkellä, kun Codex tekee
+  siihen koodimuutosta.
+
+CMS-sisällöt sijaitsevat täällä:
+
+```text
+src/content/cms/home.json
+src/content/cms/about-overview.json
+src/content/cms/yhteystiedot.json
+src/content/cms/tietoa-meista.json
+src/content/cms/lvi-tyot.json
+src/content/cms/lvi-urakointi.json
+src/content/cms/yrityksemme.json
+```
+
 ## Työskentely Codexin kanssa
 
 Uuden tehtävän alussa:
@@ -166,5 +201,18 @@ Uuden tehtävän alussa:
 5. Toteuta muutos, tarkista responsiivisuus ja aja build.
 6. Commitoi ja puske vain kyseiseen tehtävään kuuluvat tiedostot.
 
-Viimeisin merkittävä toteutustilanne tätä tiedostoa luotaessa: commit
-`02b9327` (`Add contact form to service page`).
+Tämän projektin Codex-keskusteluhistoria ei välttämättä näy toisella koneella.
+Uudessa läppärin keskustelussa riittää aloituspyyntö:
+
+> Lue ensin `PROJECT_CONTEXT.md`, tarkista `git status` ja viimeisimmät commitit,
+> ja jatka sen jälkeen tästä projektista.
+
+Viimeisimmät merkittävät muutokset 8.10.2026:
+
+- `c14d852` - uusi CMS-muokattava `/yrityksemme/`-sivu ja navigaatiolinkki
+- `9d30622` - loput sivut lisättiin Pages CMS:ään
+- `9684dc5` - Pages CMS otettiin käyttöön
+- `541eab0` - LVI-palvelusivujen CTA-linkit käyttävät yhteystietopuhekuplaa
+
+Tarkista aina `git log -5 --oneline`, koska tämä lista voi jäädä myöhemmistä
+commiteista jälkeen.
