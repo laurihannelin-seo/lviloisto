@@ -1012,7 +1012,7 @@ h3 {
   justify-content: space-between;
 }
 
-.process-contact-popover h3 {
+.process-contact-popover__title {
   margin: 0;
   font-size: 1.15rem;
   font-weight: 500;
@@ -4235,7 +4235,7 @@ h3 {
   }
 
   .service-page-hero__inner {
-    padding-block: 1.4rem 3rem;
+    padding-block: 5.5rem 3rem;
   }
 
   .service-page-hero h1 {
