@@ -1,12 +1,13 @@
 ---
 import section from "../content/cms/about-overview.json";
+import ContactPopover from "./ContactPopover.astro";
 
 interface Props {
   id?: string;
-  ctaHref?: string;
+  requestHref?: string;
 }
 
-const { id, ctaHref = "/yhteystiedot/" } = Astro.props;
+const { id, requestHref = "/yhteystiedot/#contact-heading" } = Astro.props;
 const headingId = id ? `${id}-heading` : "about-overview-heading";
 
 ---
@@ -32,7 +33,21 @@ const headingId = id ? `${id}-heading` : "about-overview-heading";
         }
       </div>
 
-      <a class="text-link" href={ctaHref}>{section.cta}</a>
+      <div class="about-contact" data-about-contact>
+        <button
+          class="text-link about-contact__trigger"
+          type="button"
+          aria-controls="about-overview-contact-popover"
+          aria-expanded="false"
+          data-about-contact-trigger
+        >{section.cta}</button>
+        <ContactPopover
+          id="about-overview-contact-popover"
+          className="about-contact__popover"
+          requestHref={requestHref}
+          context="about"
+        />
+      </div>
 
       <div class="about-trust" aria-label="Luottamustunnukset">
         {

@@ -3,12 +3,14 @@ interface Props {
   id: string;
   className?: string;
   requestHref?: string;
+  context?: "lvi-work" | "about";
 }
 
 const {
   id,
   className = "",
   requestHref = "/yhteystiedot/#contact-heading",
+  context = "lvi-work",
 } = Astro.props;
 
 const titleId = `${id}-title`;
@@ -19,7 +21,7 @@ const titleId = `${id}-title`;
   id={id}
   role="region"
   aria-labelledby={titleId}
-  data-lvi-work-contact-popover
+  data-lvi-work-contact-popover={context === "lvi-work" ? "" : undefined}
   hidden
 >
   <div class="process-contact-popover__header">

@@ -4,6 +4,7 @@ import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
+import ContactPopover from "../components/ContactPopover.astro";
 import content from "../content/cms/tietoa-meista.json";
 
 const title = content.seo.title;
@@ -28,7 +29,7 @@ const companyDetails = content.region.groups;
     </div>
   </section>
 
-  <AboutOverviewSection ctaHref="/yhteystiedot/" />
+  <AboutOverviewSection />
 
   <div class="service-content-page">
     <ServiceContentSection id="osaamisemme" title={positioning.title}>
@@ -87,7 +88,71 @@ const companyDetails = content.region.groups;
     <div class="about-final-cta__inner service-page-shell">
       <h2>{content.finalCta.title}</h2>
       <p>{content.finalCta.text}</p>
-      <a href="/yhteystiedot/">{content.finalCta.linkLabel}</a>
+      <div class="about-contact" data-about-contact>
+        <button
+          class="about-final-cta__trigger"
+          type="button"
+          aria-controls="about-final-contact-popover"
+          aria-expanded="false"
+          data-about-contact-trigger
+        >{content.finalCta.linkLabel}</button>
+        <ContactPopover
+          id="about-final-contact-popover"
+          className="about-contact__popover"
+          context="about"
+        />
+      </div>
     </div>
   </section>
+
+  <script>
+    const initAboutContactPopovers = () => {
+      const contacts = Array.from(document.querySelectorAll<HTMLElement>("[data-about-contact]"));
+
+      const setOpen = (contact: HTMLElement, isOpen: boolean, returnFocus = false) => {
+        const trigger = contact.querySelector<HTMLButtonElement>("[data-about-contact-trigger]");
+        const popover = contact.querySelector<HTMLElement>(".process-contact-popover");
+        if (!trigger || !popover) return;
+
+        popover.hidden = !isOpen;
+        trigger.setAttribute("aria-expanded", String(isOpen));
+        if (returnFocus) trigger.focus();
+      };
+
+      contacts.forEach((contact) => {
+        const trigger = contact.querySelector<HTMLButtonElement>("[data-about-contact-trigger]");
+        const popover = contact.querySelector<HTMLElement>(".process-contact-popover");
+        if (!trigger || !popover) return;
+
+        trigger.addEventListener("click", () => {
+          const shouldOpen = popover.hidden;
+          contacts.forEach((other) => setOpen(other, false));
+          setOpen(contact, shouldOpen);
+        });
+
+        popover.querySelector(".process-contact-popover__close")?.addEventListener("click", () => setOpen(contact, false, true));
+        popover.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(contact, false)));
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        contacts.forEach((contact) => {
+          if (!contact.contains(event.target as Node)) setOpen(contact, false);
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        contacts.forEach((contact) => {
+          const popover = contact.querySelector<HTMLElement>(".process-contact-popover");
+          if (popover && !popover.hidden) setOpen(contact, false, true);
+        });
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initAboutContactPopovers, { once: true });
+    } else {
+      initAboutContactPopovers();
+    }
+  </script>
 </BaseLayout>

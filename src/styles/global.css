@@ -722,7 +722,6 @@ h3 {
 }
 
 .about-section {
-  overflow: hidden;
   background: var(--color-section);
   padding-block: clamp(2.75rem, 3vw, 4.5rem);
 }
@@ -759,6 +758,33 @@ h3 {
 .about-section__copy > * {
   position: relative;
   z-index: 1;
+}
+
+.about-section__copy > .about-contact {
+  z-index: 3;
+}
+
+.about-contact {
+  position: relative;
+  justify-self: start;
+}
+
+.about-contact__trigger {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  background: transparent;
+  padding-inline: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.process-contact-popover.about-contact__popover {
+  left: 0;
+  width: min(23rem, calc(100vw - (var(--space-page) * 2)));
+  color: var(--color-text);
+  text-align: left;
 }
 
 .section-label {
@@ -1729,7 +1755,7 @@ h3 {
   line-height: 1.08;
 }
 
-.about-final-cta p {
+.about-final-cta__inner > p {
   max-width: 75ch;
   margin: 1.25rem 0 0;
   color: var(--color-muted);
@@ -1737,18 +1763,20 @@ h3 {
   line-height: 1.62;
 }
 
-.about-final-cta a {
+.about-final-cta__trigger {
   display: inline-flex;
   margin-top: clamp(1.5rem, 2.4vw, 2.1rem);
   border: 1px solid var(--color-accent);
   background: var(--color-accent);
   color: #11162f;
   font-size: 0.82rem;
+  font-family: inherit;
   font-weight: 400;
   letter-spacing: 0.02em;
   padding: 1rem 1.35rem;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
   transition:
     background 180ms ease,
     border-color 180ms ease,
@@ -1756,15 +1784,15 @@ h3 {
     transform 180ms ease;
 }
 
-.about-final-cta a:hover,
-.about-final-cta a:focus-visible {
+.about-final-cta__trigger:hover,
+.about-final-cta__trigger:focus-visible {
   border-color: #e7d16b;
   background: #e7d16b;
   color: #11162f;
   transform: translateY(-1px);
 }
 
-.about-final-cta a:focus-visible {
+.about-final-cta__trigger:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 4px;
 }
@@ -4303,7 +4331,7 @@ h3 {
 :root .portfolio-card__link,
 :root .text-link,
 :root .contact-form__button,
-:root .about-final-cta a {
+:root .about-final-cta__trigger {
   font-family: var(--font-sans);
   font-weight: 400;
   letter-spacing: 0;
