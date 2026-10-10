@@ -32,15 +32,13 @@ const companyDetails = content.region.groups;
   <AboutOverviewSection />
 
   <div class="service-content-page">
-    <ServiceContentSection id="osaamisemme" title={positioning.title}>
-      <div class="about-positioning-layout">
-        <div class="service-prose">
-          {positioning.body.map((paragraph) => <p>{paragraph}</p>)}
-        </div>
-        <figure class="about-positioning-layout__media">
-          <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
-        </figure>
+    <ServiceContentSection id="osaamisemme" title={positioning.title} className="about-positioning-section">
+      <div class="service-prose">
+        {positioning.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
+      <figure class="about-positioning-section__media" slot="media">
+        <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
+      </figure>
     </ServiceContentSection>
 
     <ServiceContentSection id="kohteet" title={content.audiencesSection.title}>
