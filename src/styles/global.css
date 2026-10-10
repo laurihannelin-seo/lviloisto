@@ -1,24 +1,16 @@
 @font-face {
-  font-family: "Sulphur Point";
-  src: url("/fonts/SulphurPoint-Light.ttf") format("truetype");
+  font-family: "Clarity City";
+  src: url("/fonts/ClarityCity-VariableFont_wght.ttf") format("truetype");
   font-style: normal;
-  font-weight: 300;
+  font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Sulphur Point";
-  src: url("/fonts/SulphurPoint-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Sulphur Point";
-  src: url("/fonts/SulphurPoint-Bold.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Clarity City";
+  src: url("/fonts/ClarityCity-Italic-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -30,7 +22,7 @@
   --color-border: #ded7ca;
   --color-accent: #a9813f;
   --color-accent-dark: #6f5427;
-  --font-sans: "Sulphur Point", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Clarity City", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --max-content: 128rem;
   --space-page: clamp(1.25rem, 4vw, 4rem);
 }
