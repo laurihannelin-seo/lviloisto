@@ -12,6 +12,13 @@ const details = content.detailsSection.groups;
 
 <BaseLayout title={title} description={description}>
   <section class="contact-details-section contact-details-section--hero" aria-labelledby="page-heading">
+    <img
+      class="contact-details-section__image"
+      src={content.detailsSection.image}
+      alt={content.detailsSection.imageAlt}
+      fetchpriority="high"
+    />
+    <div class="contact-details-section__shade" aria-hidden="true"></div>
     <div class="contact-details-section__inner page-shell">
       <div class="contact-details-section__header">
         <h1 id="page-heading">{content.detailsSection.title}</h1>

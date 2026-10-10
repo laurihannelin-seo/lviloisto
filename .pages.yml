@@ -394,6 +394,14 @@ content:
             label: Ingressi
             type: text
             required: true
+          - name: image
+            label: Herokuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Herokuvan alt-teksti
+            type: string
+            required: true
           - name: groups
             label: Yhteystiedot
             component: contact_group

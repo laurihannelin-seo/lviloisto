@@ -1635,14 +1635,39 @@ h3 {
 }
 
 .contact-details-section--hero {
+  position: relative;
+  isolation: isolate;
   display: grid;
   min-height: clamp(36rem, 68svh, 49rem);
   align-items: center;
+  background: #22201e;
+  color: #ffffff;
   padding-block: clamp(5.5rem, 8vw, 8rem);
 }
 
+.contact-details-section__image,
+.contact-details-section__shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-details-section__image {
+  z-index: -2;
+  object-fit: cover;
+  object-position: center 56%;
+}
+
+.contact-details-section__shade {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.78), rgba(9, 9, 9, 0.49)),
+    linear-gradient(0deg, rgba(9, 9, 9, 0.62), transparent 70%);
+}
+
 .contact-details-section--hero .contact-details-section__inner {
-  gap: clamp(3.75rem, 6vw, 6.5rem);
+  gap: clamp(3rem, 4vw, 4.5rem);
   border-top: 0;
   padding-top: 0;
 }
@@ -1656,17 +1681,29 @@ h3 {
 }
 
 .contact-details-section--hero .contact-details-section__header h1 {
-  max-width: 15ch;
-  font-size: clamp(3.5rem, 6vw, 6.75rem);
+  max-width: 18ch;
+  font-size: clamp(2.7rem, 4vw, 4.5rem);
+  line-height: 1.08;
 }
 
 .contact-details-section--hero .contact-details-section__header p {
   margin: 0 0 0.5rem;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .contact-details-section--hero .contact-details-grid {
-  border-top: 1px solid rgba(22, 22, 22, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.42);
   padding-top: clamp(2rem, 3vw, 3rem);
+}
+
+.contact-details-section--hero .contact-detail h2,
+.contact-details-section--hero .contact-detail__items {
+  color: #ffffff;
+}
+
+.contact-details-section--hero .contact-detail__items a:hover,
+.contact-details-section--hero .contact-detail__items a:focus-visible {
+  color: #e7d16b;
 }
 
 .contact-details-grid {
@@ -3356,8 +3393,8 @@ h3 {
   }
 
   .contact-details-section--hero .contact-details-section__header h1 {
-    max-width: 12ch;
-    font-size: clamp(2.7rem, 13vw, 4rem);
+    max-width: 16ch;
+    font-size: clamp(2.6rem, 9vw, 3.6rem);
   }
 
   .contact-details-section--hero .contact-details-section__header p {

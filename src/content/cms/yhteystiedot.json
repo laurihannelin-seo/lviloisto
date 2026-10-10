@@ -6,6 +6,8 @@
   "detailsSection": {
     "title": "Ota yhteyttä, niin katsotaan yhdessä",
     "intro": "Voit olla meihin yhteydessä suoraan puhelimitse tai sähköpostilla. Tarjouspyynnöt ja projektitiedustelut voi lähettää myös lomakkeen kautta.",
+    "image": "/images/home/solutions-intro-image00007.jpeg",
+    "imageAlt": "Vaalea kylpyhuone, jossa on marmoripinnat ja puinen allaskaappi",
     "groups": [
       {
         "id": "yritys",
