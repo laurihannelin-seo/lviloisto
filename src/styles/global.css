@@ -282,6 +282,15 @@ h3 {
   padding-block: 0 clamp(6.25rem, 9vw, 8.5rem);
 }
 
+.solutions-section__heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .section-anchor-nav {
   display: flex;
   align-items: center;
@@ -360,6 +369,7 @@ h3 {
   align-items: center;
   border-top: 1px solid rgba(22, 22, 22, 0.1);
   padding-top: clamp(2rem, 4vw, 3.25rem);
+  scroll-margin-top: 6rem;
 }
 
 .solution-feature:first-child {
@@ -428,7 +438,7 @@ h3 {
   justify-self: start;
 }
 
-.solution-feature h2 {
+.solution-feature h3 {
   margin: 0;
   font-size: clamp(1.85rem, 3.2vw, 3rem);
 }
@@ -2801,7 +2811,7 @@ h3 {
     aspect-ratio: 10 / 9;
   }
 
-  .solution-feature h2 {
+  .solution-feature h3 {
     font-size: clamp(1.75rem, 8vw, 2.45rem);
     line-height: 1.04;
   }
@@ -4163,6 +4173,11 @@ h3 {
   font-family: var(--font-sans);
   font-weight: 400;
   letter-spacing: 0;
+}
+
+:root .solution-feature h3 {
+  font-weight: 300;
+  line-height: 1.06;
 }
 
 :root .site-nav,

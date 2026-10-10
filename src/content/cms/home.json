@@ -17,28 +17,28 @@
   "services": {
     "items": [
       {
-        "title": "Arvoasunnot ja saneerauskohteet",
+        "title": "Arvoasunnot",
         "text": "Huolellista LVI-työtä valmiisiin ja vaativiin asuinympäristöihin.",
         "image": "/images/home/taloyhtiot-kiinteistot.jpg",
         "imageAlt": "Tumma premium-tason sauna- ja märkätila saneerauskohteessa"
       },
       {
-        "title": "Uudisrakennukset ja villat",
+        "title": "Omakotitalot",
         "text": "LVI-urakointia omakotitaloihin, huviloihin ja suuriin yksityiskohteisiin.",
         "image": "/images/home/uudisrakennukset-villat.jpeg",
         "imageAlt": "Laadukas kodinhoito- ja märkätila yksityiskohteessa"
       },
       {
-        "title": "Taloyhtiöt ja kiinteistöt",
+        "title": "Taloyhtiöt",
         "text": "Lämmönjakokeskukset, kaukolämpökeskukset ja kiinteistöjen LVI-ratkaisut.",
         "image": "/images/home/arvoasunnot-saneeraus.jpeg",
         "imageAlt": "Viimeistelty vaalea kylpyhuone kiinteistökohteessa"
       },
       {
-        "title": "Lämmitysratkaisut",
-        "text": "Maalämpö, VILP ja lämmitysjärjestelmien uudistukset.",
-        "image": "/images/home/lammitysratkaisut.jpeg",
-        "imageAlt": "Tekninen lämmitysratkaisun ohjauslaite kodin tilassa"
+        "title": "Rakennusliikkeet",
+        "text": "LVI-urakointia rakennusliikkeiden uudis- ja saneerauskohteisiin suunnitelmien ja aikataulun mukaan.",
+        "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
+        "imageAlt": "LVI-putkiasennuksia rakenteilla olevassa kohteessa"
       }
     ]
   },

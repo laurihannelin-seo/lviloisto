@@ -8,13 +8,11 @@ const title = content.seo.title;
 const description = content.seo.description;
 const solutionsSection = { ...content.hero, items: content.services.items };
 
-const sectionNavigation = [
-  { label: "LVI-ratkaisut", href: "#lvi-tyot" },
-  { label: "Tietoa meistä", href: "#tietoa-meista" },
-  { label: "Menetelmä", href: "#menetelma" },
-  { label: "Kohteet", href: "#kohteet" },
-  { label: "Yhteydenotto", href: "#yhteystiedot" },
-];
+const solutionIds = ["arvoasunnot", "omakotitalot", "taloyhtiot", "rakennusliikkeet"];
+const sectionNavigation = solutionsSection.items.slice(0, solutionIds.length).map((item, index) => ({
+  label: item.title,
+  href: `#${solutionIds[index]}`,
+}));
 
 const portfolioSection = content.portfolio;
 
@@ -82,7 +80,7 @@ const contactSection = content.contact;
             <a class="process-contact-popover__action" href="#yhteystiedot">Jätä yhteydenottopyyntö</a>
           </div>
         </div>
-        <nav class="section-anchor-nav section-anchor-nav--hero" aria-label="Etusivun osiot">
+        <nav class="section-anchor-nav section-anchor-nav--hero" aria-label="LVI-ratkaisut">
           {
             sectionNavigation.map((item) => (
               <a href={item.href}>{item.label}</a>
@@ -133,11 +131,12 @@ const contactSection = content.contact;
 
   <AboutOverviewSection id="tietoa-meista" ctaHref="#yhteystiedot" />
 
-  <section class="solutions-section" id="lvi-tyot" aria-label="LVI-ratkaisut vaativiin kohteisiin">
+  <section class="solutions-section" id="lvi-tyot" aria-labelledby="lvi-ratkaisut-heading">
+    <h2 class="solutions-section__heading" id="lvi-ratkaisut-heading">LVI-ratkaisut</h2>
     <div class="solution-feature-list" aria-label="LVI-Loiston palvelupilarit">
       {
         solutionsSection.items.map((item, index) => (
-          <article class="solution-feature page-shell">
+          <article class="solution-feature page-shell" id={solutionIds[index]}>
             <figure
               class="solution-feature__media"
               data-scroll-image
@@ -146,7 +145,7 @@ const contactSection = content.contact;
               <img src={item.image} alt={item.imageAlt} loading="lazy" />
             </figure>
             <div class="solution-feature__copy">
-              <h2>{item.title}</h2>
+              <h3>{item.title}</h3>
               <p>{item.text}</p>
             </div>
           </article>
