@@ -2518,6 +2518,23 @@ h3 {
   cursor: default;
 }
 
+.portfolio-section--text-only .portfolio-card--text {
+  border-top: 1px solid rgba(231, 209, 107, 0.35);
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.portfolio-section--text-only .portfolio-card--text .portfolio-card__content {
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+  padding-top: 0;
+}
+
+.portfolio-section--text-only .portfolio-card__placeholder {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 1rem;
+  line-height: 2;
+  white-space: pre-line;
+}
+
 .service-reference-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
