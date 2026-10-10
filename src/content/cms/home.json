@@ -42,46 +42,6 @@
       }
     ]
   },
-  "process": {
-    "title": "Tarkkuutta suunnittelusta luovutukseen",
-    "intro": "Vaativassa LVI-projektissa onnistuminen syntyy ennen asennusta. Kohteen rakenteet, arkkitehtuuri, aikataulu ja muut urakoitsijat sovitetaan yhteen ennen toteutusta.",
-    "cta": "Aloita kohteen kartoitus",
-    "ctaHref": "mailto:matias.ryynanen@lviloisto.fi",
-    "steps": [
-      {
-        "number": "01",
-        "title": "Kartoitus",
-        "text": "Käymme läpi kohteen lähtötilanteen, tavoitteet, aikataulun ja tekniset tarpeet.",
-        "image": "/images/home/quality-imgl1757.jpg",
-        "imageAlt": "Kultaiset hanakalusteet ja viimeistelty kivipinta vaativassa märkätilassa",
-        "caption": "Lähtötilanteen, tavoitteiden ja teknisten tarpeiden ymmärtäminen."
-      },
-      {
-        "number": "02",
-        "title": "Suunnittelu ja yhteensovitus",
-        "text": "Sovitamme LVI-ratkaisut kohteen rakenteisiin, suunnitelmiin ja muiden urakoitsijoiden työvaiheisiin.",
-        "image": "/images/home/uudisrakennukset-villat.jpeg",
-        "imageAlt": "Viimeistelty kodinhoito- ja märkätila yksityiskohteessa",
-        "caption": "LVI-ratkaisut sovitetaan kohteen rakenteisiin, suunnitelmiin ja aikatauluun."
-      },
-      {
-        "number": "03",
-        "title": "Toteutus",
-        "text": "Työt tehdään sovitun aikataulun mukaan huolellisesti, siististi ja kohteen vaatimukset huomioiden.",
-        "image": "/images/home/taloyhtiot-kiinteistot.jpg",
-        "imageAlt": "Tumma premium-tason märkätila kultaisilla suihkukalusteilla",
-        "caption": "Huolellinen toteutus työmaalla kohteen vaatimukset huomioiden."
-      },
-      {
-        "number": "04",
-        "title": "Viimeistely ja luovutus",
-        "text": "Lopputulos tarkistetaan, viimeistellään ja luovutetaan niin, että järjestelmät toimivat käytännössä.",
-        "image": "/images/home/arvoasunnot-saneeraus.jpeg",
-        "imageAlt": "Vaalea viimeistelty kylpyhuone arvoasunnon saneerauskohteessa",
-        "caption": "Lopputulos tarkistetaan, viimeistellään ja luovutetaan käyttöön."
-      }
-    ]
-  },
   "portfolio": {
     "title": "Valittuja kohteita",
     "intro": "",

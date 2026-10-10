@@ -208,63 +208,8 @@ content:
                 type: string
                 required: true
 
-      - name: process
-        label: Menetelmä
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: intro
-            label: Ingressi
-            type: text
-            required: true
-          - name: cta
-            label: Toimintolinkin teksti
-            type: string
-            required: true
-          - name: ctaHref
-            label: Toimintolinkin osoite
-            type: string
-            hidden: true
-          - name: steps
-            label: Vaiheet
-            type: object
-            list:
-              min: 1
-              max: 6
-              collapsible:
-                collapsed: true
-                summary: "{number} {title}"
-            fields:
-              - name: number
-                label: Numero
-                type: string
-                required: true
-              - name: title
-                label: Otsikko
-                type: string
-                required: true
-              - name: text
-                label: Kuvaus
-                type: text
-                required: true
-              - name: image
-                label: Kuva
-                type: image
-                required: true
-              - name: imageAlt
-                label: Kuvan alt-teksti
-                type: string
-                required: true
-              - name: caption
-                label: Kuvateksti
-                type: text
-                required: true
-
       - name: portfolio
-        label: Valitut kohteet
+        label: Valittuja kohteita
         type: object
         fields:
           - name: title
@@ -274,17 +219,8 @@ content:
           - name: intro
             label: Ingressi
             type: text
-            required: true
-          - name: cta
-            label: Linkin teksti
-            type: string
-            required: true
-          - name: ctaHref
-            label: Linkin osoite
-            type: string
-            hidden: true
           - name: items
-            label: Kohteet
+            label: Kohdetyypit
             type: object
             list:
               min: 1
@@ -294,28 +230,12 @@ content:
                 summary: "{title}"
             fields:
               - name: title
-                label: Kohteen nimi
-                type: string
-                required: true
-              - name: location
-                label: Sijainti
+                label: Väliotsikko
                 type: string
                 required: true
               - name: text
-                label: Kuvaus
+                label: Tekstisisältö
                 type: text
-                required: true
-              - name: href
-                label: Kohdesivun osoite
-                type: string
-                hidden: true
-              - name: image
-                label: Kuva
-                type: image
-                required: true
-              - name: imageAlt
-                label: Kuvan alt-teksti
-                type: string
                 required: true
 
       - name: contact
