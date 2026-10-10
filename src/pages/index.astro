@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import ContactForm from "../components/ContactForm.astro";
 import content from "../content/cms/home.json";
 
@@ -128,8 +127,6 @@ const contactSection = content.contact;
       initHomeContactPopover();
     }
   </script>
-
-  <AboutOverviewSection id="tietoa-meista" ctaHref="#yhteystiedot" />
 
   <section class="solutions-section" id="lvi-tyot" aria-labelledby="lvi-ratkaisut-heading">
     <h2 class="solutions-section__heading" id="lvi-ratkaisut-heading">LVI-ratkaisut</h2>
