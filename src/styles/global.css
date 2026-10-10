@@ -134,7 +134,7 @@ h3 {
   color: #ffffff;
 }
 
-.site-header--over-dark {
+.site-header--over-hero {
   background: transparent;
 }
 
@@ -2132,6 +2132,19 @@ h3 {
 }
 
 @media (min-width: 761px) {
+  .company-intro,
+  .contact-details-section--hero {
+    margin-top: -4.6rem;
+  }
+
+  .company-intro {
+    padding-top: calc(clamp(3rem, 5vw, 4.75rem) + 4.6rem);
+  }
+
+  .contact-details-section--hero {
+    padding-top: calc(clamp(5.5rem, 8vw, 8rem) + 4.6rem);
+  }
+
   .service-page-hero {
     margin-top: -4.6rem;
   }

@@ -14,18 +14,23 @@
 <script>
   const initHeaderTheme = () => {
     const header = document.querySelector<HTMLElement>(".site-header");
-    const darkHero = document.querySelector<HTMLElement>(".home-hero, .service-page-hero");
+    const hero = document.querySelector<HTMLElement>(
+      ".home-hero, .service-page-hero, .company-intro, .contact-details-section--hero",
+    );
 
-    if (!header || !darkHero) return;
+    if (!header || !hero) return;
+
+    const isDarkHero = hero.matches(".home-hero, .service-page-hero, .company-intro--image");
 
     let frame = 0;
 
     const updateHeaderTheme = () => {
       const headerBounds = header.getBoundingClientRect();
-      const heroBounds = darkHero.getBoundingClientRect();
+      const heroBounds = hero.getBoundingClientRect();
       const overlapsHero = heroBounds.top < headerBounds.bottom && heroBounds.bottom > headerBounds.bottom;
 
-      header.classList.toggle("site-header--over-dark", overlapsHero);
+      header.classList.toggle("site-header--over-hero", overlapsHero);
+      header.classList.toggle("site-header--over-dark", overlapsHero && isDarkHero);
       frame = 0;
     };
 
