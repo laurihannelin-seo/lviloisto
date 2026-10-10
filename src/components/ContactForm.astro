@@ -24,23 +24,9 @@ const { submitLabel = "Lähetä tarjouspyyntö" } = Astro.props;
     </div>
   </div>
 
-  <div class="contact-form__row">
-    <div class="form-field">
-      <label for="contact-location">Kohteen sijainti</label>
-      <input id="contact-location" name="Kohteen sijainti" type="text" autocomplete="address-level2" />
-    </div>
-
-    <div class="form-field">
-      <label for="contact-service">Palvelun tyyppi</label>
-      <select id="contact-service" name="Palvelun tyyppi">
-        <option value="">Valitse palvelu</option>
-        <option>Arvoasunnon saneeraus</option>
-        <option>Uudisrakennuksen LVI-kokonaisuus</option>
-        <option>Taloyhtiö tai kiinteistö</option>
-        <option>Lämmitysratkaisu</option>
-        <option>Muu LVI-urakointi</option>
-      </select>
-    </div>
+  <div class="form-field">
+    <label for="contact-location">Kohteen sijainti</label>
+    <input id="contact-location" name="Kohteen sijainti" type="text" autocomplete="address-level2" />
   </div>
 
   <div class="form-field">
