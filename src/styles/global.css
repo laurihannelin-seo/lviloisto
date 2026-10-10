@@ -16,6 +16,7 @@
 
 :root {
   --color-page: #f7f4ee;
+  --color-section: #f3eee6;
   --color-surface: #ffffff;
   --color-text: #161616;
   --color-muted: #5f5c56;
@@ -278,7 +279,7 @@ h3 {
 .solutions-section {
   position: relative;
   z-index: 2;
-  background: #f3eee6;
+  background: var(--color-section);
   padding-block: 0 clamp(6.25rem, 9vw, 8.5rem);
 }
 
@@ -460,7 +461,7 @@ h3 {
 }
 
 .portfolio-section--text-only {
-  background: #f3eee6;
+  background: var(--color-section);
   color: var(--color-text);
 }
 
@@ -718,7 +719,7 @@ h3 {
 
 .about-section {
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-section);
   padding-block: clamp(2.75rem, 3vw, 4.5rem);
 }
 
@@ -1197,12 +1198,12 @@ h3 {
 }
 
 .faq-section {
-  background: #f3eee6;
+  background: var(--color-section);
   padding-block: clamp(4.75rem, 7vw, 7rem);
 }
 
 .faq-section--home {
-  background: #f3eee6;
+  background: var(--color-section);
   color: var(--color-text);
 }
 
@@ -1313,12 +1314,12 @@ h3 {
 
 .contact-section {
   --contact-panel-y: clamp(1.75rem, 2.6vw, 2.75rem);
-  background: var(--color-surface);
+  background: var(--color-section);
 }
 
 .contact-section--home,
 .contact-section--home .contact-panel {
-  background: #f3eee6;
+  background: var(--color-section);
 }
 
 .contact-section__inner {
@@ -1348,7 +1349,7 @@ h3 {
   display: grid;
   align-content: center;
   padding: var(--contact-panel-y) clamp(2rem, 5.5vw, 5rem);
-  background: #fbfaf7;
+  background: var(--color-section);
 }
 
 .contact-panel h1,
@@ -1456,7 +1457,7 @@ h3 {
 }
 
 .map-section {
-  background: #f8f5ef;
+  background: var(--color-section);
   padding-block: clamp(4rem, 5.5vw, 6rem);
 }
 
@@ -1705,21 +1706,21 @@ h3 {
 
 .about-final-cta {
   --service-content-width: var(--max-content);
-  background: #11162f;
-  color: #ffffff;
+  background: var(--color-section);
+  color: var(--color-text);
   padding-block: clamp(3.5rem, 5vw, 4.5rem);
 }
 
 .about-final-cta__inner {
   display: grid;
   justify-items: start;
-  border-top: 1px solid rgba(231, 209, 107, 0.24);
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(2.25rem, 3vw, 3rem);
 }
 
 .about-final-cta h2 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.25rem, 3vw, 2.625rem);
   line-height: 1.08;
 }
@@ -1727,7 +1728,7 @@ h3 {
 .about-final-cta p {
   max-width: 75ch;
   margin: 1.25rem 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--color-muted);
   font-size: 1rem;
   line-height: 1.62;
 }
@@ -1760,7 +1761,7 @@ h3 {
 }
 
 .about-final-cta a:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--color-text);
   outline-offset: 4px;
 }
 
@@ -1858,7 +1859,7 @@ h3 {
 
 /* Compact, CMS-editable company values page. */
 .company-page {
-  background: #fbfaf7;
+  background: var(--color-section);
 }
 
 .company-shell {
@@ -1956,7 +1957,7 @@ h3 {
 }
 
 .company-values {
-  background: #f5f1e9;
+  background: var(--color-section);
 }
 
 .company-values__grid {
@@ -2034,7 +2035,7 @@ h3 {
 }
 
 .company-contact {
-  background: #f5f1e9;
+  background: var(--color-section);
 }
 
 .company-contact__header {
@@ -3306,7 +3307,7 @@ h3 {
 .service-content-page {
   --service-content-width: var(--max-content);
   --service-heading-size: clamp(2.25rem, 3vw, 2.625rem);
-  background: #fbfaf7;
+  background: var(--color-section);
 }
 
 .service-page-shell {
@@ -3682,7 +3683,7 @@ h3 {
 }
 
 .lvi-work-content {
-  background: #fbfaf7;
+  background: var(--color-section);
 }
 
 .lvi-work-content__layout {
@@ -3821,8 +3822,8 @@ h3 {
 }
 
 .lvi-work-final-cta {
-  background: #11162f;
-  color: #ffffff;
+  background: var(--color-section);
+  color: var(--color-text);
 }
 
 .lvi-work-final-cta__inner {
@@ -3836,7 +3837,7 @@ h3 {
 .lvi-work-final-cta h2 {
   max-width: 48rem;
   margin: 0;
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.25rem, 4vw, 4.25rem);
   line-height: 1.04;
 }
@@ -3844,7 +3845,7 @@ h3 {
 .lvi-work-final-cta p {
   max-width: 48rem;
   margin: 1.25rem 0 0;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--color-muted);
   font-size: clamp(1rem, 1.2vw, 1.08rem);
   line-height: 1.62;
 }
@@ -3862,7 +3863,7 @@ h3 {
   min-height: 3.25rem;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--color-text);
   font-family: inherit;
   font-size: inherit;
   font-weight: 400;
@@ -3881,15 +3882,15 @@ h3 {
 
 .lvi-work-final-cta__secondary {
   gap: 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(22, 22, 22, 0.45);
 }
 
 .lvi-work-final-cta__actions > a:hover,
 .lvi-work-final-cta__actions > a:focus-visible,
 .lvi-work-final-cta__contact > button:hover,
 .lvi-work-final-cta__contact > button:focus-visible {
-  border-color: #e7d16b;
-  color: #e7d16b;
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
   outline: none;
 }
 
@@ -3901,7 +3902,7 @@ h3 {
 
 .lvi-work-final-cta__actions > a:focus-visible,
 .lvi-work-final-cta__contact > button:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--color-text);
   outline-offset: 4px;
 }
 
