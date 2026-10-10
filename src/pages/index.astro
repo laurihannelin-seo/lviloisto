@@ -206,22 +206,27 @@ const contactSection = content.contact;
         {portfolioSection.intro && <div class="portfolio-section__intro"><p>{portfolioSection.intro}</p></div>}
       </div>
 
-      <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
-        {
-          portfolioSection.items.map((item) => (
-            <article class="portfolio-card portfolio-card--static portfolio-card--text">
-              <div class="portfolio-card__content">
-                <h3>{item.title}</h3>
-                <p class="portfolio-card__placeholder" aria-hidden={item.text === "•\n•\n•"}>{item.text}</p>
-              </div>
-            </article>
-          ))
-        }
+      <div class="portfolio-section__body">
+        <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
+          {
+            portfolioSection.items.map((item) => (
+              <article class="portfolio-card portfolio-card--static portfolio-card--text">
+                <div class="portfolio-card__content">
+                  <h3>{item.title}</h3>
+                  <p class="portfolio-card__placeholder" aria-hidden={item.text === "•\n•\n•"}>{item.text}</p>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+        <figure class="portfolio-section__image">
+          <img src={portfolioSection.image} alt={portfolioSection.imageAlt} loading="lazy" />
+        </figure>
       </div>
     </div>
   </section>
 
-  <section class="contact-section" id="yhteystiedot" aria-labelledby="contact-heading">
+  <section class="contact-section contact-section--home" id="yhteystiedot" aria-labelledby="contact-heading">
     <div class="contact-section__inner">
       <figure class="contact-section__media">
         <img src={contactSection.image} alt={contactSection.imageAlt} loading="lazy" />

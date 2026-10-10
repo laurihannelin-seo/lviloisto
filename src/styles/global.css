@@ -460,7 +460,7 @@ h3 {
 }
 
 .portfolio-section--text-only {
-  background: var(--color-page);
+  background: #f3eee6;
   color: var(--color-text);
 }
 
@@ -564,6 +564,32 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.1rem, 2vw, 1.6rem);
+}
+
+.portfolio-section--text-only .portfolio-section__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(2.5rem, 6vw, 7rem);
+  align-items: start;
+}
+
+.portfolio-section--text-only .portfolio-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.portfolio-section__image {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #ded7ca;
+}
+
+.portfolio-section__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .portfolio-card {
@@ -1176,30 +1202,30 @@ h3 {
 }
 
 .faq-section--home {
-  background: #11162f;
-  color: #ffffff;
+  background: #f3eee6;
+  color: var(--color-text);
 }
 
 .faq-section--home .faq-section__header > p:not(.section-label),
 .faq-section--home .faq-item p {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--color-muted);
 }
 
 .faq-section--home .faq-list,
 .faq-section--home .faq-item {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(22, 22, 22, 0.14);
 }
 
 .faq-section--home .faq-item summary {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .faq-section--home .faq-item summary::after {
-  color: #e7d16b;
+  color: var(--color-accent-dark);
 }
 
 .faq-section--home .faq-item summary:focus-visible {
-  outline-color: #e7d16b;
+  outline-color: var(--color-accent);
 }
 
 .faq-section__inner.page-shell {
@@ -1288,6 +1314,11 @@ h3 {
 .contact-section {
   --contact-panel-y: clamp(1.75rem, 2.6vw, 2.75rem);
   background: var(--color-surface);
+}
+
+.contact-section--home,
+.contact-section--home .contact-panel {
+  background: #f3eee6;
 }
 
 .contact-section__inner {
@@ -2602,6 +2633,11 @@ h3 {
 .portfolio-section--text-only .portfolio-card--text {
   border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  padding-bottom: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.portfolio-section--text-only .portfolio-card--text:last-child {
+  border-bottom: 1px solid rgba(22, 22, 22, 0.14);
 }
 
 .portfolio-section--text-only .portfolio-card--text .portfolio-card__content {
@@ -2942,6 +2978,11 @@ h3 {
   }
 
   .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .portfolio-section--text-only .portfolio-section__body {
     grid-template-columns: 1fr;
     gap: 2rem;
   }

@@ -45,6 +45,8 @@
   "portfolio": {
     "title": "Valittuja kohteita",
     "intro": "",
+    "image": "/images/home/solutions-intro-image00007.jpeg",
+    "imageAlt": "Viimeistelty kylpyhuone, jossa on marmoripinnat ja puinen allaskaapisto",
     "items": [
       {
         "title": "Arvoasunnot",

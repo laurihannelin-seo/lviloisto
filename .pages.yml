@@ -219,6 +219,14 @@ content:
           - name: intro
             label: Ingressi
             type: text
+          - name: image
+            label: Osion kuva
+            type: image
+            required: true
+          - name: imageAlt
+            label: Kuvan alt-teksti
+            type: string
+            required: true
           - name: items
             label: Kohdetyypit
             type: object
