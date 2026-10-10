@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "Sulphur Point";
+  src: url("/fonts/SulphurPoint-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sulphur Point";
+  src: url("/fonts/SulphurPoint-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sulphur Point";
+  src: url("/fonts/SulphurPoint-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   --color-page: #f7f4ee;
   --color-surface: #ffffff;
@@ -6,7 +30,7 @@
   --color-border: #ded7ca;
   --color-accent: #a9813f;
   --color-accent-dark: #6f5427;
-  --font-sans: "Figtree Variable", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-sans: "Sulphur Point", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --max-content: 128rem;
   --space-page: clamp(1.25rem, 4vw, 4rem);
 }
@@ -30,7 +54,7 @@ body {
   background: var(--color-page);
   color: var(--color-text);
   font-weight: 400;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   line-height: 1.65;
   overflow-x: clip;
   scroll-padding-top: 5rem;
@@ -3277,8 +3301,8 @@ h3 {
   }
 
   .site-nav {
-    justify-content: space-between;
-    overflow: hidden;
+    justify-content: flex-start;
+    overflow-x: auto;
     font-size: 0.64rem;
   }
 
@@ -4127,26 +4151,26 @@ h3 {
 
 }
 
-/* Site-wide Avenir typography system. The :root prefix keeps these final
+/* Site-wide typography system. The :root prefix keeps these final
    values authoritative over section-specific responsive heading rules. */
 :root h1 {
   font-family: var(--font-sans);
   font-weight: 300;
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
   line-height: 1.02;
 }
 
 :root h2 {
   font-family: var(--font-sans);
   font-weight: 300;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   line-height: 1.06;
 }
 
 :root h3 {
   font-family: var(--font-sans);
   font-weight: 400;
-  letter-spacing: 0.005em;
+  letter-spacing: 0;
 }
 
 :root .site-nav,
@@ -4158,7 +4182,7 @@ h3 {
 :root .about-final-cta a {
   font-family: var(--font-sans);
   font-weight: 400;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 
 @media (max-width: 1080px) {
