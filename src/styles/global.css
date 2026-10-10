@@ -1521,6 +1521,61 @@ h3 {
   transform: translateY(-1px);
 }
 
+.contact-form__send {
+  position: relative;
+  justify-self: start;
+  margin-top: clamp(0.45rem, 0.8vw, 0.75rem);
+}
+
+.contact-form__send .contact-form__button {
+  display: block;
+  margin-top: 0;
+  list-style: none;
+}
+
+.contact-form__send .contact-form__button::-webkit-details-marker {
+  display: none;
+}
+
+.contact-form__recipients {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2 * var(--space-page)));
+  border: 1px solid rgba(22, 22, 22, 0.18);
+  background: var(--color-surface);
+}
+
+.contact-form__recipients button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  padding: 0.9rem 1rem;
+  text-align: left;
+}
+
+.contact-form__recipients button + button {
+  border-top: 1px solid rgba(22, 22, 22, 0.12);
+}
+
+.contact-form__recipients button:hover,
+.contact-form__recipients button:focus-visible {
+  background: var(--color-section);
+  outline: none;
+}
+
+.contact-form__recipients button span:first-child {
+  font-weight: 600;
+}
+
 .map-section {
   background: var(--color-section);
   padding-block: clamp(4rem, 5.5vw, 6rem);
@@ -3359,6 +3414,16 @@ h3 {
   .contact-form__button {
     width: 100%;
     justify-self: stretch;
+  }
+
+  .contact-form__send {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .contact-form__recipients {
+    width: 100%;
+    max-width: 100%;
   }
 
   .contact-section--page .contact-panel {

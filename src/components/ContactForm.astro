@@ -34,5 +34,17 @@ const { submitLabel = "Lähetä tarjouspyyntö" } = Astro.props;
     <textarea id="contact-message" name="Viesti" rows="5" required></textarea>
   </div>
 
-  <button class="contact-form__button" type="submit">{submitLabel}</button>
+  <details class="contact-form__send">
+    <summary class="contact-form__button">{submitLabel}</summary>
+    <div class="contact-form__recipients" aria-label="Valitse vastaanottaja">
+      <button type="submit" formaction="mailto:matias.ryynanen@lviloisto.fi" aria-label="Matias - Arvoasunnot ja rakennusliikkeet">
+        <span>Matias -</span>
+        <span>Arvoasunnot &amp; Rakennusliikkeet</span>
+      </button>
+      <button type="submit" formaction="mailto:miro.sorjonen@lviloisto.fi" aria-label="Miro - Omakotitalot ja taloyhtiöt">
+        <span>Miro -</span>
+        <span>Omakotitalot &amp; Taloyhtiöt</span>
+      </button>
+    </div>
+  </details>
 </form>
