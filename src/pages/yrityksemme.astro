@@ -19,11 +19,11 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
         <Breadcrumbs items={[{ label: "Etusivu", href: "/" }, { label: hero.pageTitle }]} />
 
         <div class="company-intro__layout">
-          <h1 id="company-page-title">{hero.pageTitle}</h1>
           <div class="company-intro__copy">
-            <h2>{hero.title}</h2>
-            <p>{hero.intro}</p>
+            <p class="company-intro__eyebrow">{hero.title}</p>
+            <h1 id="company-page-title">{hero.pageTitle}</h1>
             <p class="company-intro__statement">{hero.statement}</p>
+            <p>{hero.intro}</p>
           </div>
         </div>
       </div>

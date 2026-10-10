@@ -1872,11 +1872,20 @@ h3 {
 }
 
 .company-intro--image {
+  display: flex;
+  flex-direction: column;
   position: relative;
   isolation: isolate;
   min-height: clamp(32rem, 65svh, 43rem);
-  background: #11162f;
+  background: #161616;
   color: #ffffff;
+}
+
+.company-intro--image > .company-shell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .company-intro__image,
@@ -1890,17 +1899,23 @@ h3 {
 .company-intro__image {
   z-index: -2;
   object-fit: cover;
+  object-position: center 57%;
 }
 
 .company-intro__shade {
   z-index: -1;
-  background: linear-gradient(90deg, rgba(8, 8, 8, 0.82), rgba(8, 8, 8, 0.42));
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.86) 0%, rgba(8, 8, 8, 0.68) 43%, rgba(8, 8, 8, 0.2) 100%),
+    linear-gradient(0deg, rgba(8, 8, 8, 0.3), transparent 45%);
 }
 
 .company-intro--image .breadcrumbs,
-.company-intro--image .company-intro__copy > p,
-.company-intro--image .company-intro__copy .company-intro__statement {
+.company-intro--image .company-intro__copy > p {
   color: rgba(255, 255, 255, 0.9);
+}
+
+.company-intro--image .company-intro__copy > .company-intro__eyebrow {
+  color: #e7d16b;
 }
 
 .company-intro .breadcrumbs {
@@ -1908,23 +1923,19 @@ h3 {
 }
 
 .company-intro__layout {
-  display: grid;
-  grid-template-columns: minmax(12rem, 0.58fr) minmax(0, 1.42fr);
-  gap: clamp(3rem, 8vw, 8rem);
-  align-items: start;
+  max-width: 45rem;
 }
 
 .company-intro h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 3.6vw, 3.75rem);
+  font-size: clamp(3.25rem, 5.5vw, 5.75rem);
   line-height: 1.02;
 }
 
 .company-intro__copy {
-  max-width: 46rem;
+  max-width: 45rem;
 }
 
-.company-intro__copy h2,
 .company-values h2,
 .company-working h2,
 .company-contact h2 {
@@ -1935,19 +1946,28 @@ h3 {
 }
 
 .company-intro__copy > p {
-  max-width: 66ch;
-  margin: 1.35rem 0 0;
+  max-width: 60ch;
+  margin: 1rem 0 0;
   color: var(--color-muted);
   font-size: clamp(1rem, 1.15vw, 1.08rem);
-  line-height: 1.65;
+  line-height: 1.58;
+}
+
+.company-intro__copy > .company-intro__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .company-intro__copy .company-intro__statement {
-  max-width: 34ch;
-  margin-top: clamp(2rem, 3.5vw, 3rem);
+  max-width: 38ch;
+  margin-top: clamp(1.25rem, 2vw, 1.75rem);
   color: var(--color-text);
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  line-height: 1.35;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.4;
 }
 
 .company-values,
@@ -2068,18 +2088,17 @@ h3 {
   }
 
   .company-intro {
-    padding-block: 7rem 3.5rem;
+    padding-block: 7rem 2.75rem;
   }
 
   .company-intro__shade {
-    background: linear-gradient(0deg, rgba(8, 8, 8, 0.84), rgba(8, 8, 8, 0.5));
+    background: linear-gradient(0deg, rgba(8, 8, 8, 0.88), rgba(8, 8, 8, 0.46));
   }
 
   .company-intro .breadcrumbs {
     margin-bottom: 2rem;
   }
 
-  .company-intro__layout,
   .company-working__layout,
   .company-contact__header {
     grid-template-columns: 1fr;
@@ -2087,10 +2106,9 @@ h3 {
   }
 
   .company-intro h1 {
-    font-size: clamp(2rem, 10vw, 2.75rem);
+    font-size: clamp(2.75rem, 11vw, 3.5rem);
   }
 
-  .company-intro__copy h2,
   .company-values h2,
   .company-working h2,
   .company-contact h2 {
