@@ -44,7 +44,7 @@
   },
   "portfolio": {
     "title": "Referenssikohteita",
-    "image": "/images/kylpyhuone-1.jpg",
+    "image": "/images/home/solutions-intro-image00007.jpeg",
     "imageAlt": "Viimeistelty kylpyhuone, jossa on marmoripinnat ja puinen allaskaapisto",
     "items": [
       {
@@ -59,7 +59,8 @@
         "title": "Taloyhtiöt",
         "text": "•\n•\n•"
       }
-    ]
+    ],
+    "intro": "Tutustu LVI-Loisto Oyn toteuttamiin kohteisiin"
   },
   "contact": {
     "label": "YHTEYDENOTTO",
