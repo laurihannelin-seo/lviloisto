@@ -1764,7 +1764,6 @@ h3 {
 }
 
 .contact-details-section--hero .contact-detail h2,
-.contact-details-section--hero .contact-detail__eyebrow,
 .contact-details-section--hero .contact-detail__items {
   color: #ffffff;
 }
@@ -1786,8 +1785,7 @@ h3 {
 }
 
 .contact-detail h2,
-.contact-detail h3,
-.contact-detail__eyebrow {
+.contact-detail h3 {
   margin: 0 0 clamp(1rem, 1.7vw, 1.35rem);
   color: var(--color-accent-dark);
   font-size: 0.78rem;
@@ -1801,6 +1799,11 @@ h3 {
   font-size: 1.15rem;
   font-weight: 500;
   text-transform: none;
+}
+
+.contact-details-section--hero .contact-detail--person h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
 }
 
 .contact-detail__items {

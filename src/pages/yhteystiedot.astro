@@ -40,7 +40,6 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
         {
           details.map((group) => (
             <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`detail-${group.id}`}>
-              {group.kind === "person" && <p class="contact-detail__eyebrow">{group.label.split(" ")[0]}</p>}
               <h2 id={`detail-${group.id}`}>{group.label}</h2>
               <div class="contact-detail__items">
                 {
