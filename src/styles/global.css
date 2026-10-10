@@ -459,6 +459,11 @@ h3 {
   padding-block: clamp(2.4rem, 3.6vw, 4.2rem);
 }
 
+.portfolio-section--text-only {
+  background: var(--color-page);
+  color: var(--color-text);
+}
+
 .portfolio-section__inner.page-shell {
   width: min(100% - (var(--space-page) * 2), var(--max-content));
 }
@@ -478,12 +483,21 @@ h3 {
   padding-top: clamp(1rem, 1.7vw, 1.5rem);
 }
 
+.portfolio-section--text-only .portfolio-section__header {
+  border-top-color: rgba(22, 22, 22, 0.14);
+}
+
 .portfolio-section h2 {
   max-width: 58rem;
   margin: 0;
   color: #ffffff;
   font-size: clamp(2.8rem, 4.6vw, 4.85rem);
   text-wrap: balance;
+}
+
+.portfolio-section--text-only h2,
+.portfolio-section--text-only .portfolio-card h3 {
+  color: var(--color-text);
 }
 
 .portfolio-section__intro {
@@ -496,6 +510,10 @@ h3 {
   font-size: clamp(0.96rem, 1vw, 1.05rem);
   font-weight: 400;
   line-height: 1.58;
+}
+
+.portfolio-section--text-only .portfolio-section__intro p {
+  color: var(--color-muted);
 }
 
 .portfolio-section__cta {
@@ -1155,6 +1173,33 @@ h3 {
 .faq-section {
   background: #f3eee6;
   padding-block: clamp(4.75rem, 7vw, 7rem);
+}
+
+.faq-section--home {
+  background: #11162f;
+  color: #ffffff;
+}
+
+.faq-section--home .faq-section__header > p:not(.section-label),
+.faq-section--home .faq-item p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.faq-section--home .faq-list,
+.faq-section--home .faq-item {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.faq-section--home .faq-item summary {
+  color: #ffffff;
+}
+
+.faq-section--home .faq-item summary::after {
+  color: #e7d16b;
+}
+
+.faq-section--home .faq-item summary:focus-visible {
+  outline-color: #e7d16b;
 }
 
 .faq-section__inner.page-shell {
@@ -2519,7 +2564,7 @@ h3 {
 }
 
 .portfolio-section--text-only .portfolio-card--text {
-  border-top: 1px solid rgba(231, 209, 107, 0.35);
+  border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(1.25rem, 2vw, 1.75rem);
 }
 
@@ -2529,7 +2574,7 @@ h3 {
 }
 
 .portfolio-section--text-only .portfolio-card__placeholder {
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--color-muted);
   font-size: 1rem;
   line-height: 2;
   white-space: pre-line;
