@@ -368,13 +368,11 @@ h3 {
   column-gap: clamp(3.5rem, 8vw, 7.5rem);
   row-gap: 2.5rem;
   align-items: center;
-  border-top: 1px solid rgba(22, 22, 22, 0.1);
   padding-top: clamp(2rem, 4vw, 3.25rem);
   scroll-margin-top: 6rem;
 }
 
 .solution-feature:first-child {
-  border-top: 0;
   padding-top: 0;
 }
 
@@ -484,7 +482,6 @@ h3 {
   column-gap: clamp(3rem, 9vw, 8.5rem);
   row-gap: 1.75rem;
   align-items: start;
-  border-top: 1px solid rgba(231, 209, 107, 0.24);
   padding-top: clamp(1rem, 1.7vw, 1.5rem);
 }
 
@@ -1666,7 +1663,6 @@ h3 {
 .contact-details-section__inner {
   display: grid;
   gap: clamp(2.75rem, 4.5vw, 4.5rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.1);
   padding-top: clamp(3rem, 4.5vw, 4.75rem);
 }
 
@@ -1764,7 +1760,6 @@ h3 {
 }
 
 .contact-details-section--hero .contact-details-grid {
-  border-top: 1px solid rgba(255, 255, 255, 0.42);
   padding-top: clamp(2rem, 3vw, 3rem);
 }
 
@@ -1895,7 +1890,6 @@ h3 {
 .about-final-cta__inner {
   display: grid;
   justify-items: start;
-  border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(2.25rem, 3vw, 3rem);
 }
 
@@ -2211,7 +2205,6 @@ h3 {
   display: grid;
   grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
   gap: clamp(3rem, 8vw, 8rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(2.5rem, 4vw, 3.5rem);
 }
 
@@ -2252,7 +2245,6 @@ h3 {
 
 .company-contact__grid {
   margin-top: clamp(2.5rem, 4vw, 3.5rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.14);
   padding-top: clamp(2rem, 3vw, 2.75rem);
 }
 
@@ -2590,7 +2582,6 @@ h3 {
   grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 0.55fr);
   gap: 2rem clamp(3rem, 8vw, 8rem);
   align-items: end;
-  border-top: 1px solid rgba(22, 22, 22, 0.12);
   padding-top: clamp(2rem, 3vw, 3rem);
 }
 
@@ -2713,7 +2704,6 @@ h3 {
 
 .service-process-section__inner,
 .service-references__inner {
-  border-top: 1px solid rgba(22, 22, 22, 0.12);
   padding-top: clamp(2rem, 3vw, 3rem);
 }
 
@@ -2785,7 +2775,6 @@ h3 {
   grid-template-columns: minmax(20rem, 0.82fr) minmax(0, 1fr);
   gap: clamp(3rem, 8vw, 8rem);
   align-items: start;
-  border-top: 1px solid rgba(22, 22, 22, 0.12);
   padding-top: clamp(2rem, 3vw, 3rem);
 }
 
@@ -2996,7 +2985,6 @@ h3 {
 }
 
 .site-footer {
-  border-top: 1px solid var(--color-border);
   padding-block: 1.5rem;
   color: var(--color-muted);
   font-size: 0.9rem;
@@ -3133,7 +3121,6 @@ h3 {
   }
 
   .solution-feature:first-child {
-    border-top: 0;
     padding-top: 0;
   }
 
@@ -3543,12 +3530,7 @@ h3 {
 }
 
 .service-content-section__inner {
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
   padding-block: clamp(3.5rem, 5vw, 4.5rem);
-}
-
-.service-content-page > .service-content-section:first-child .service-content-section__inner {
-  border-top: 0;
 }
 
 .service-content-section__header {
@@ -3790,7 +3772,6 @@ h3 {
 
 .service-content-page .faq-section__inner.page-shell {
   width: min(100% - (var(--space-page) * 2), var(--service-content-width));
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
   padding-block: clamp(3.5rem, 5vw, 4.5rem);
 }
 
@@ -3925,8 +3906,6 @@ h3 {
 }
 
 .lvi-work-article__section + .lvi-work-article__section {
-  margin-top: clamp(3.5rem, 5vw, 4.25rem);
-  border-top: 1px solid rgba(22, 22, 22, 0.13);
   padding-top: clamp(3.5rem, 5vw, 4.25rem);
 }
 
