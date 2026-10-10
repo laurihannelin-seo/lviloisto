@@ -1298,10 +1298,6 @@ content:
             label: Sivun pääotsikko
             type: string
             required: true
-          - name: title
-            label: Pieni hero-otsikko
-            type: string
-            required: true
           - name: intro
             label: Ingressi
             type: text
