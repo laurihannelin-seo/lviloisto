@@ -36,7 +36,7 @@
       },
       {
         "title": "Rakennusliikkeet",
-        "text": "LVI-urakointia rakennusliikkeiden uudis- ja saneerauskohteisiin suunnitelmien ja aikataulun mukaan.",
+        "text": "Toimimme rakennusliikkeiden LVI-kumppanina uudisrakennus- ja saneerauskohteissa. Toteutamme LVI-työt suunnitelmien mukaisesti ja sovitamme oman tekemisemme yhteen rakennusprojektin muiden työvaiheiden, urakoitsijoiden ja aikataulujen kanssa. \n\nTavoitteemme on olla luotettava kumppani, jonka kanssa yhteistyö on sujuvaa, sovitut aikataulut pitävät ja työn laatuun voi luottaa koko projektin ajan.",
         "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
         "imageAlt": "LVI-putkiasennuksia rakenteilla olevassa kohteessa"
       }
@@ -83,8 +83,8 @@
     ]
   },
   "portfolio": {
-    "title": "Valittuja kohteita",
-    "intro": "Kohteita, joissa LVI-toteutuksen pitää tukea arkkitehtuuria, asumismukavuutta ja kiinteistön pitkäaikaista toimivuutta.",
+    "title": "Referenssikohteita",
+    "intro": "LVI-Loiston urakoituja kohteita",
     "cta": "Katso kaikki kohteet",
     "ctaHref": "/kohteet/",
     "items": [
