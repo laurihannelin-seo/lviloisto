@@ -195,9 +195,9 @@ h3 {
 
 .home-hero h1 {
   margin: 0;
-  max-width: 60rem;
+  max-width: 72rem;
   color: #ffffff;
-  font-size: 4rem;
+  font-size: clamp(3.25rem, 5vw, 4rem);
   text-wrap: balance;
 }
 
@@ -4383,5 +4383,11 @@ h3 {
     border-bottom: 1px solid rgba(22, 22, 22, 0.14);
     border-left: 0;
     padding: 1.6rem 0;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+  .home-hero h1 {
+    font-size: 2.75rem;
   }
 }
