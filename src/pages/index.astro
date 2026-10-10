@@ -15,8 +15,6 @@ const sectionNavigation = solutionsSection.items.slice(0, solutionIds.length).ma
 
 const portfolioSection = content.portfolio;
 
-const processSection = content.process;
-
 const faqSection = content.faq;
 
 const contactSection = content.contact;
@@ -201,90 +199,6 @@ const contactSection = content.contact;
     }
   </script>
 
-  <section class="process-section" id="menetelma" data-process-section>
-    <div class="process-section__inner page-shell">
-      <div class="process-section__header">
-        <h2>{processSection.title}</h2>
-        <p>{processSection.intro}</p>
-      </div>
-
-      <figure class="process-visual" aria-live="polite">
-        <div class="process-visual__viewport">
-          {
-            processSection.steps.map((step, index) => (
-              <img
-                src={step.image}
-                alt={step.imageAlt}
-                loading="lazy"
-                class={`process-visual__image${index === 0 ? " is-active" : ""}`}
-                data-process-image
-                aria-hidden={index === 0 ? "false" : "true"}
-              />
-            ))
-          }
-        </div>
-        <figcaption class="process-visual__caption" data-process-caption>
-          {processSection.steps[0].caption}
-        </figcaption>
-      </figure>
-
-      <div class="process-section__steps">
-        <div class="process-step-list" aria-label="Vaativan LVI-projektin eteneminen">
-          {
-            processSection.steps.map((step, index) => (
-              <div class="process-step-entry">
-                <button
-                  type="button"
-                  class={`process-step${index === 0 ? " is-active" : ""}`}
-                  data-process-step
-                  data-caption={step.caption}
-                  aria-pressed={index === 0 ? "true" : "false"}
-                  aria-controls={index === 0 ? "process-contact-popover" : undefined}
-                  aria-expanded={index === 0 ? "false" : undefined}
-                >
-                  <span class="process-step__number">{step.number}</span>
-                  <span class="process-step__content">
-                    <span class="process-step__title">{step.title}</span>
-                    <span class="process-step__text">{step.text}</span>
-                  </span>
-                </button>
-                {index === 0 && (
-                  <div
-                    class="process-contact-popover"
-                    id="process-contact-popover"
-                    role="region"
-                    aria-labelledby="process-contact-title"
-                    data-process-contact
-                    hidden
-                  >
-                    <div class="process-contact-popover__header">
-                      <p class="process-contact-popover__title" id="process-contact-title">Yhteystietomme</p>
-                      <button
-                        type="button"
-                        class="process-contact-popover__close"
-                        data-process-contact-close
-                        aria-label="Sulje yhteystiedot"
-                      >×</button>
-                    </div>
-                    <p class="process-contact-popover__label">Puhelin</p>
-                    <div class="process-contact-popover__phones">
-                      <a href="tel:+358469214415">Matias Ryynänen <span>046 921 4415</span></a>
-                      <a href="tel:+358504796544">Miro Sorjonen <span>050 479 6544</span></a>
-                    </div>
-                    <a class="process-contact-popover__action" href="mailto:matias.ryynanen@lviloisto.fi">Lähetä sähköpostia</a>
-                    <a class="process-contact-popover__action" href="#yhteystiedot">Jätä yhteydenottopyyntö</a>
-                  </div>
-                )}
-              </div>
-            ))
-          }
-        </div>
-
-        <a class="process-section__cta text-link" href={processSection.ctaHref}>{processSection.cta}</a>
-      </div>
-    </div>
-  </section>
-
   <section class="portfolio-section" id="kohteet">
     <div class="portfolio-section__inner page-shell">
       <div class="portfolio-section__header">
@@ -361,76 +275,4 @@ const contactSection = content.contact;
     </div>
   </section>
 
-  <script>
-    const initProcessSections = () => {
-      const sections = Array.from(document.querySelectorAll("[data-process-section]"));
-
-      sections.forEach((section) => {
-        const steps = Array.from(section.querySelectorAll("[data-process-step]"));
-        const images = Array.from(section.querySelectorAll("[data-process-image]"));
-        const caption = section.querySelector("[data-process-caption]");
-        const contact = section.querySelector("[data-process-contact]");
-        const closeButton = section.querySelector("[data-process-contact-close]");
-
-        if (!steps.length || !images.length || !caption) {
-          return;
-        }
-
-        const setActiveStep = (activeIndex) => {
-          steps.forEach((step, index) => {
-            const isActive = index === activeIndex;
-            step.classList.toggle("is-active", isActive);
-            step.setAttribute("aria-pressed", isActive ? "true" : "false");
-          });
-
-          images.forEach((image, index) => {
-            const isActive = index === activeIndex;
-            image.classList.toggle("is-active", isActive);
-            image.setAttribute("aria-hidden", isActive ? "false" : "true");
-          });
-
-          caption.textContent = steps[activeIndex].dataset.caption || "";
-        };
-
-        const setContactOpen = (isOpen, returnFocus = false) => {
-          if (!contact) return;
-          contact.hidden = !isOpen;
-          steps[0].setAttribute("aria-expanded", isOpen ? "true" : "false");
-          if (returnFocus) steps[0].focus();
-        };
-
-        steps.forEach((step, index) => {
-          step.addEventListener("mouseenter", () => setActiveStep(index));
-          step.addEventListener("focus", () => setActiveStep(index));
-          step.addEventListener("click", () => {
-            setActiveStep(index);
-            setContactOpen(index === 0 && Boolean(contact?.hidden));
-          });
-        });
-
-        closeButton?.addEventListener("click", () => setContactOpen(false, true));
-        contact?.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => setContactOpen(false));
-        });
-        document.addEventListener("pointerdown", (event) => {
-          if (contact && !contact.hidden && !contact.parentElement.contains(event.target)) {
-            setContactOpen(false);
-          }
-        });
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && contact && !contact.hidden) {
-            setContactOpen(false, true);
-          }
-        });
-
-        setActiveStep(0);
-      });
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initProcessSections, { once: true });
-    } else {
-      initProcessSections();
-    }
-  </script>
 </BaseLayout>
