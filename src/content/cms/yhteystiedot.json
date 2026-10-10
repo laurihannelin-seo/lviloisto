@@ -23,6 +23,7 @@
         "label": "Matias Ryynänen",
         "kind": "person",
         "items": [
+          { "text": "Arvoasunnot ja rakennusliikkeet", "href": "" },
           { "text": "046 921 4415", "href": "tel:+358469214415" },
           { "text": "matias.ryynanen@lviloisto.fi", "href": "mailto:matias.ryynanen@lviloisto.fi" }
         ]
@@ -32,6 +33,7 @@
         "label": "Miro Sorjonen",
         "kind": "person",
         "items": [
+          { "text": "Omakotitalot ja taloyhtiöt", "href": "" },
           { "text": "050 479 6544", "href": "tel:+358504796544" },
           { "text": "miro.sorjonen@lviloisto.fi", "href": "mailto:miro.sorjonen@lviloisto.fi" }
         ]

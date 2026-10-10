@@ -1169,6 +1169,41 @@ h3 {
   margin-top: 0.85rem;
 }
 
+.process-contact-popover__email {
+  margin-top: 0.85rem;
+}
+
+.process-contact-popover__email summary {
+  width: fit-content;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-color: rgba(22, 22, 22, 0.3);
+  text-underline-offset: 0.2em;
+}
+
+.process-contact-popover__email summary:hover,
+.process-contact-popover__email summary:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+.process-contact-popover__email summary:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.process-contact-popover__email-options {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.65rem;
+}
+
+.process-contact-popover__email-options a {
+  overflow-wrap: anywhere;
+}
+
 .process-contact-popover a:hover,
 .process-contact-popover a:focus-visible,
 .process-contact-popover__close:hover,

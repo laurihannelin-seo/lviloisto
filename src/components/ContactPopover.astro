@@ -1,4 +1,6 @@
 ---
+import EmailContactOptions from "./EmailContactOptions.astro";
+
 interface Props {
   id: string;
   className?: string;
@@ -38,6 +40,6 @@ const titleId = `${id}-title`;
     <a href="tel:+358469214415">Matias Ryynänen <span>046 921 4415</span></a>
     <a href="tel:+358504796544">Miro Sorjonen <span>050 479 6544</span></a>
   </div>
-  <a class="process-contact-popover__action" href="mailto:matias.ryynanen@lviloisto.fi">Lähetä sähköpostia</a>
+  <EmailContactOptions />
   <a class="process-contact-popover__action" href={requestHref}>Jätä yhteydenottopyyntö</a>
 </div>
