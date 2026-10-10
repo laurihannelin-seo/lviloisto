@@ -11,26 +11,83 @@
     "primaryCta": "Pyydä tarjous",
     "secondaryCta": "Ota yhteyttä",
     "navigation": [
-      { "slot": 1, "label": "Monipuoliset LVI-työt", "href": "#monipuoliset-lvi-tyot" },
-      { "slot": 2, "label": "Uudisrakentaminen", "href": "#uudisrakentaminen" },
-      { "slot": 3, "label": "LVI-saneeraustyöt", "href": "#saneeraustyot" },
-      { "slot": 4, "label": "Korjaukset ja asennustyöt", "href": "#korjaukset-ja-asennukset" },
-      { "slot": 5, "label": "Kohteet", "href": "#kohteet" },
-      { "slot": 6, "label": "Toimialue", "href": "#toimialue" },
-      { "slot": 7, "label": "", "href": "", "body": [] },
-      { "slot": 8, "label": "", "href": "", "body": [] },
-      { "slot": 9, "label": "", "href": "", "body": [] },
-      { "slot": 10, "label": "", "href": "", "body": [] },
-      { "slot": 11, "label": "", "href": "", "body": [] },
-      { "slot": 12, "label": "", "href": "", "body": [] },
-      { "slot": 13, "label": "", "href": "", "body": [] },
-      { "slot": 14, "label": "", "href": "", "body": [] },
-      { "slot": 15, "label": "", "href": "", "body": [] },
-      { "slot": 16, "label": "", "href": "", "body": [] },
-      { "slot": 17, "label": "", "href": "", "body": [] },
-      { "slot": 18, "label": "", "href": "", "body": [] },
-      { "slot": 19, "label": "", "href": "", "body": [] },
-      { "slot": 20, "label": "", "href": "", "body": [] }
+      {
+        "slot": 1,
+        "label": "Monipuoliset LVI-työt",
+        "href": "#monipuoliset-lvi-tyot"
+      },
+      {
+        "slot": 2,
+        "label": "Uudisrakentaminen",
+        "href": "#uudisrakentaminen"
+      },
+      {
+        "slot": 3,
+        "label": "LVI-saneeraustyöt",
+        "href": "#saneeraustyot"
+      },
+      {
+        "slot": 4,
+        "label": "Korjaukset ja asennustyöt",
+        "href": "#korjaukset-ja-asennukset"
+      },
+      {
+        "slot": 5,
+        "label": "Kohteet",
+        "href": "#kohteet"
+      },
+      {
+        "slot": 6,
+        "label": "Toimialue",
+        "href": "#toimialue"
+      },
+      {
+        "slot": 7
+      },
+      {
+        "slot": 8
+      },
+      {
+        "slot": 9
+      },
+      {
+        "slot": 10
+      },
+      {
+        "slot": 11
+      },
+      {
+        "slot": 12
+      },
+      {
+        "slot": 13
+      },
+      {
+        "slot": 14
+      },
+      {
+        "slot": 15
+      },
+      {
+        "slot": 16
+      },
+      {
+        "slot": 17,
+        "label": "gfsgfsgfsgfs",
+        "href": "#gfsgfsgfsgf",
+        "body": [
+          "gfsgfsgfsgf"
+        ]
+      },
+      {
+        "slot": 18
+      },
+      {
+        "slot": 19
+      },
+      {
+        "slot": 20
+      }
     ]
   },
   "introSection": {
@@ -46,7 +103,11 @@
       "Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.",
       "Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:"
     ],
-    "items": ["omakotitalot", "rivitalot", "kerrostalot"],
+    "items": [
+      "omakotitalot",
+      "rivitalot",
+      "kerrostalot"
+    ],
     "bodyAfterList": "Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.",
     "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
     "imageAlt": "Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
@@ -58,7 +119,11 @@
       "Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia."
     ],
     "listHeading": "Teemme LVI-saneerauksia:",
-    "items": ["omakotitaloissa", "rivitaloissa", "kerrostaloissa"]
+    "items": [
+      "omakotitaloissa",
+      "rivitaloissa",
+      "kerrostaloissa"
+    ]
   },
   "repairs": {
     "title": "LVI-korjaukset ja asennustyöt",
