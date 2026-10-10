@@ -9,7 +9,15 @@
     "image": "/images/lvi-tyot/tekninen-tila-hero.webp",
     "imageAlt": "Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita",
     "primaryCta": "Pyydä tarjous",
-    "secondaryCta": "Ota yhteyttä"
+    "secondaryCta": "Ota yhteyttä",
+    "navigation": {
+      "intro": "Monipuoliset LVI-työt",
+      "newBuild": "Uudisrakentaminen",
+      "renovation": "LVI-saneeraustyöt",
+      "repairs": "Korjaukset ja asennustyöt",
+      "audiences": "Kohteet",
+      "region": "Toimialue"
+    }
   },
   "introSection": {
     "title": "Monipuoliset LVI-työt uudis- ja saneerauskohteisiin",

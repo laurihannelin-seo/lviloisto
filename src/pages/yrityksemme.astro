@@ -8,7 +8,13 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
 
 <BaseLayout title={seo.title} description={seo.description}>
   <article class="company-page">
-    <header class="company-intro" aria-labelledby="company-page-title">
+    <header class:list={["company-intro", { "company-intro--image": Boolean(hero.image) }]} aria-labelledby="company-page-title">
+      {hero.image && (
+        <>
+          <img class="company-intro__image" src={hero.image} alt={hero.imageAlt || ""} loading="eager" fetchpriority="high" />
+          <div class="company-intro__shade" aria-hidden="true"></div>
+        </>
+      )}
       <div class="company-shell">
         <Breadcrumbs items={[{ label: "Etusivu", href: "/" }, { label: hero.pageTitle }]} />
 

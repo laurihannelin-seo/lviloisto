@@ -623,6 +623,34 @@ content:
             label: Toinen painike
             type: string
             required: true
+          - name: navigation
+            label: Sisällysluettelon linkkitekstit
+            type: object
+            fields:
+              - name: intro
+                label: Monipuoliset LVI-työt
+                type: string
+                required: true
+              - name: newBuild
+                label: Uudisrakentaminen
+                type: string
+                required: true
+              - name: renovation
+                label: Saneeraustyöt
+                type: string
+                required: true
+              - name: repairs
+                label: Korjaukset ja asennukset
+                type: string
+                required: true
+              - name: audiences
+                label: Kohteet
+                type: string
+                required: true
+              - name: region
+                label: Toimialue
+                type: string
+                required: true
 
       - name: introSection
         label: Monipuoliset LVI-työt
@@ -1283,6 +1311,14 @@ content:
             label: Statement
             type: text
             required: true
+          - name: image
+            label: Hero-kuva
+            type: image
+            description: Jätä tyhjäksi, jos haluat säilyttää vaalean tekstipohjan.
+          - name: imageAlt
+            label: Hero-kuvan alt-teksti
+            type: string
+            description: Kuvaile kuvan sisältöä lyhyesti. Jätä tyhjäksi, jos kuva on vain koriste.
       - name: valuesSection
         label: Arvot
         type: object
