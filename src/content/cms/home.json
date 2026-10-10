@@ -59,8 +59,7 @@
         "title": "Taloyhtiöt",
         "text": "•\n•\n•"
       }
-    ],
-    "intro": "Tutustu LVI-Loisto Oyn toteuttamiin kohteisiin"
+    ]
   },
   "contact": {
     "label": "YHTEYDENOTTO",
@@ -89,6 +88,10 @@
       {
         "question": "Voiko tarjouspyynnön lähettää jo suunnitteluvaiheessa?",
         "answer": "Kyllä. Mukaan voi laittaa myös alustavat tiedot kohteesta, niin kokonaisuutta voidaan arvioida jo varhaisessa vaiheessa."
+      },
+      {
+        "question": "Tarjoaako LVI-Loisto KVV- ja IV-työnjohtajan palveluita?",
+        "answer": "Kyllä, pääsääntöisesti omissa kohteissamme."
       }
     ]
   }
