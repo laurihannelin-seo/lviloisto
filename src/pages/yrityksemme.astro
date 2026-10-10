@@ -6,7 +6,7 @@ import content from "../content/cms/yrityksemme.json";
 const { seo, hero, valuesSection, imageSection, workingSection, contactSection } = content;
 ---
 
-<BaseLayout title={seo.title} description={seo.description}>
+<BaseLayout title={seo.title} description={seo.description} headerTheme={hero.image ? "dark" : "light"}>
   <article class="company-page">
     <header class:list={["company-intro", { "company-intro--image": Boolean(hero.image) }]} aria-labelledby="company-page-title">
       {hero.image && (

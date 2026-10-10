@@ -1,4 +1,15 @@
-<header class="site-header">
+---
+interface Props {
+  initialTheme?: "dark" | "light";
+}
+
+const { initialTheme } = Astro.props;
+---
+
+<header class:list={["site-header", {
+  "site-header--over-hero": Boolean(initialTheme),
+  "site-header--over-dark": initialTheme === "dark",
+}]}>
   <div class="site-header__inner">
     <a class="brand" href="/" aria-label="LVI-Loisto Oy etusivulle">
       <img src="/lvi-loisto-logo.svg" alt="LVI-Loisto Oy" class="brand__logo" />
@@ -43,6 +54,7 @@
     updateHeaderTheme();
     window.addEventListener("scroll", requestThemeUpdate, { passive: true });
     window.addEventListener("resize", requestThemeUpdate);
+    window.addEventListener("pageshow", updateHeaderTheme);
   };
 
   if (document.readyState === "loading") {
