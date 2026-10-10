@@ -7,6 +7,8 @@ const title = content.seo.title;
 const description = content.seo.description;
 const contactPage = content.contact;
 const mapSection = content.map;
+const appleMapsUrl = new URL("https://maps.apple.com/search");
+appleMapsUrl.searchParams.set("query", mapSection.address);
 const details = content.detailsSection.groups;
 const intro = content.detailsSection.intro;
 const formLinkWord = "lomakkeen";
@@ -61,6 +63,7 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
         <div class="map-section__links">
           <a href={mapSection.mapsUrl}>{mapSection.address}</a>
           <a href={mapSection.mapsUrl}>{mapSection.linkLabel} <span aria-hidden="true">→</span></a>
+          <a href={appleMapsUrl.toString()}>Avaa Apple Kartoissa <span aria-hidden="true">→</span></a>
         </div>
       </div>
 
