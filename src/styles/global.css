@@ -454,6 +454,10 @@ h3 {
   line-height: 1.65;
 }
 
+.solution-feature__link {
+  font-size: 0.9rem;
+}
+
 .portfolio-section {
   background: #11162f;
   color: var(--color-surface);
