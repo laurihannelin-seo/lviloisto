@@ -6,7 +6,7 @@
   "hero": {
     "pageTitle": "Yrityksemme",
     "intro": "Arvomme ohjaavat tapaamme tehdä työtä, kohdata asiakkaat ja viedä projektit loppuun. Ne näkyvät sekä työnjäljessä että siinä, miten toimimme asiakkaiden, suunnittelijoiden ja muiden ammattilaisten kanssa.",
-    "statement": "Hyvä LVI-toteutus syntyy teknisestä osaamisesta, huolellisesta tekemisestä ja toimivasta yhteistyöstä.",
+    "statement": "Onnistunut projekti syntyy teknisestä osaamisesta, huolellisesta tekemisestä ja toimivasta yhteistyöstä.",
     "image": "/images/kylpyhuone-1.jpg",
     "imageAlt": "Viimeistelty marmorikylpyhuone, jossa on kultaiset amme- ja suihkukalusteet"
   },
@@ -56,10 +56,18 @@
         "label": "Yritys",
         "kind": "company",
         "items": [
-          { "text": "LVI-Loisto Oy", "href": "" },
-          { "text": "Työpajankatu 13 A", "href": "" },
-          { "text": "00580 Helsinki", "href": "" },
-          { "text": "Y-tunnus 3254898-6", "href": "" }
+          {
+            "text": "LVI-Loisto Oy"
+          },
+          {
+            "text": "Työpajankatu 13 A"
+          },
+          {
+            "text": "00580 Helsinki"
+          },
+          {
+            "text": "Y-tunnus 3254898-6"
+          }
         ]
       },
       {
@@ -67,8 +75,14 @@
         "label": "Matias Ryynänen",
         "kind": "person",
         "items": [
-          { "text": "046 921 4415", "href": "tel:+358469214415" },
-          { "text": "matias.ryynanen@lviloisto.fi", "href": "mailto:matias.ryynanen@lviloisto.fi" }
+          {
+            "text": "046 921 4415",
+            "href": "tel:+358469214415"
+          },
+          {
+            "text": "matias.ryynanen@lviloisto.fi",
+            "href": "mailto:matias.ryynanen@lviloisto.fi"
+          }
         ]
       },
       {
@@ -76,8 +90,14 @@
         "label": "Miro Sorjonen",
         "kind": "person",
         "items": [
-          { "text": "050 479 6544", "href": "tel:+358504796544" },
-          { "text": "miro.sorjonen@lviloisto.fi", "href": "mailto:miro.sorjonen@lviloisto.fi" }
+          {
+            "text": "050 479 6544",
+            "href": "tel:+358504796544"
+          },
+          {
+            "text": "miro.sorjonen@lviloisto.fi",
+            "href": "mailto:miro.sorjonen@lviloisto.fi"
+          }
         ]
       }
     ]
