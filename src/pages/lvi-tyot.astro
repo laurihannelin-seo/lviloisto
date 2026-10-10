@@ -45,9 +45,18 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
           </div>
           <a class="service-page-hero__secondary" href="/yhteystiedot/">{content.hero.secondaryCta}</a>
         </div>
-        <nav class="section-anchor-nav section-anchor-nav--hero lvi-work-hero__nav" aria-label="LVI-töiden sisältö">
-          {sectionNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
-        </nav>
+        {sectionNavigation.length > 0 && (
+          <details class="lvi-work-hero__toc" data-lvi-work-toc>
+            <summary>Sisällysluettelo <span aria-hidden="true">▾</span></summary>
+            <div class="process-contact-popover lvi-work-hero__toc-panel">
+              <nav class="lvi-work-hero__toc-list" aria-label="LVI-töiden sisältö">
+                <ul>
+                  {sectionNavigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+                </ul>
+              </nav>
+            </div>
+          </details>
+        )}
       </div>
     </div>
   </section>
@@ -152,8 +161,9 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
   </section>
 
   <script>
-    const initLviWorkContactPopovers = () => {
+    const initLviWorkInteractions = () => {
       const contacts = Array.from(document.querySelectorAll("[data-lvi-work-contact]"));
+      const toc = document.querySelector("[data-lvi-work-toc]");
 
       const setOpen = (contact: Element, isOpen: boolean, returnFocus = false) => {
         const trigger = contact.querySelector("[data-lvi-work-contact-trigger]");
@@ -176,6 +186,7 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
         trigger.addEventListener("click", () => {
           const shouldOpen = popover.hidden;
           contacts.forEach((item) => setOpen(item, false));
+          if (toc instanceof HTMLDetailsElement) toc.open = false;
           setOpen(contact, shouldOpen);
         });
 
@@ -185,7 +196,22 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
         });
       });
 
+      if (toc instanceof HTMLDetailsElement) {
+        toc.addEventListener("toggle", () => {
+          if (toc.open) {
+            contacts.forEach((contact) => setOpen(contact, false));
+            toc.scrollIntoView({ block: "start" });
+          }
+        });
+        toc.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => { toc.open = false; });
+        });
+      }
+
       document.addEventListener("pointerdown", (event) => {
+        if (toc instanceof HTMLDetailsElement && toc.open && !toc.contains(event.target as Node)) {
+          toc.open = false;
+        }
         contacts.forEach((contact) => {
           const popover = contact.querySelector("[data-lvi-work-contact-popover]");
           if (popover instanceof HTMLElement && !popover.hidden && !contact.contains(event.target as Node)) {
@@ -196,6 +222,10 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
 
       document.addEventListener("keydown", (event) => {
         if (event.key !== "Escape") return;
+        if (toc instanceof HTMLDetailsElement && toc.open) {
+          toc.open = false;
+          toc.querySelector("summary")?.focus();
+        }
         contacts.forEach((contact) => {
           const popover = contact.querySelector("[data-lvi-work-contact-popover]");
           if (popover instanceof HTMLElement && !popover.hidden) setOpen(contact, false, true);
@@ -204,9 +234,9 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
     };
 
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initLviWorkContactPopovers, { once: true });
+      document.addEventListener("DOMContentLoaded", initLviWorkInteractions, { once: true });
     } else {
-      initLviWorkContactPopovers();
+      initLviWorkInteractions();
     }
   </script>
 </BaseLayout>
