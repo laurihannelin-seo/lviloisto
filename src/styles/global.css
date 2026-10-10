@@ -1673,11 +1673,7 @@ h3 {
 }
 
 .contact-details-section--hero .contact-details-section__header {
-  display: grid;
-  max-width: none;
-  grid-template-columns: minmax(0, 1.45fr) minmax(19rem, 0.55fr);
-  gap: clamp(2.5rem, 7vw, 8rem);
-  align-items: end;
+  max-width: 48rem;
 }
 
 .contact-details-section--hero .contact-details-section__header h1 {
@@ -1687,8 +1683,29 @@ h3 {
 }
 
 .contact-details-section--hero .contact-details-section__header p {
-  margin: 0 0 0.5rem;
+  max-width: 38rem;
+  margin: clamp(1.25rem, 2vw, 1.75rem) 0 0;
   color: rgba(255, 255, 255, 0.88);
+}
+
+.contact-details-section__header p a {
+  color: #ffffff;
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+  text-underline-offset: 0.2em;
+}
+
+.contact-details-section__header p a:hover,
+.contact-details-section__header p a:focus-visible {
+  color: #e7d16b;
+}
+
+.contact-details-section__header p a:focus-visible {
+  outline: 2px solid #e7d16b;
+  outline-offset: 3px;
+}
+
+.contact-section--page #contact-heading {
+  scroll-margin-top: 6rem;
 }
 
 .contact-details-section--hero .contact-details-grid {
@@ -3395,8 +3412,7 @@ h3 {
   }
 
   .contact-details-section--hero .contact-details-section__header {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    max-width: none;
   }
 
   .contact-details-section--hero .contact-details-section__header h1 {
@@ -3405,7 +3421,7 @@ h3 {
   }
 
   .contact-details-section--hero .contact-details-section__header p {
-    margin: 0;
+    margin-top: 1.25rem;
   }
 
   .contact-details-section--hero .contact-details-grid {

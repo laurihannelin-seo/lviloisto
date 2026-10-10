@@ -8,6 +8,9 @@ const description = content.seo.description;
 const contactPage = content.contact;
 const mapSection = content.map;
 const details = content.detailsSection.groups;
+const intro = content.detailsSection.intro;
+const formLinkWord = "lomakkeen";
+const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -22,7 +25,13 @@ const details = content.detailsSection.groups;
     <div class="contact-details-section__inner page-shell">
       <div class="contact-details-section__header">
         <h1 id="page-heading">{content.detailsSection.title}</h1>
-        <p>{content.detailsSection.intro}</p>
+        <p>
+          {formLinkIndex < 0 ? intro : (
+            <>
+              {intro.slice(0, formLinkIndex)}<a href="#contact-heading">{intro.slice(formLinkIndex, formLinkIndex + formLinkWord.length)}</a>{intro.slice(formLinkIndex + formLinkWord.length)}
+            </>
+          )}
+        </p>
       </div>
 
       <div class="contact-details-grid">
