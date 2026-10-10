@@ -8,14 +8,7 @@ const title = content.seo.title;
 const description = content.seo.description;
 const repairItems = content.repairs.items;
 const customerGroups = content.audiences.items;
-const sectionNavigation = [
-  { label: content.hero.navigation.intro, href: "#monipuoliset-lvi-tyot" },
-  { label: content.hero.navigation.newBuild, href: "#uudisrakentaminen" },
-  { label: content.hero.navigation.renovation, href: "#saneeraustyot" },
-  { label: content.hero.navigation.repairs, href: "#korjaukset-ja-asennukset" },
-  { label: content.hero.navigation.audiences, href: "#kohteet" },
-  { label: content.hero.navigation.region, href: "#toimialue" },
-];
+const sectionNavigation = content.hero.navigation.filter((item) => item.label?.trim() && item.href?.trim());
 ---
 
 <BaseLayout title={title} description={description}>

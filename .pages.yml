@@ -624,33 +624,24 @@ content:
             type: string
             required: true
           - name: navigation
-            label: Sisällysluettelon linkkitekstit
+            label: Sisällysluettelon linkit
             type: object
+            list:
+              max: 20
+              collapsible:
+                collapsed: true
+                summary: "Linkki {slot}: {label}"
             fields:
-              - name: intro
-                label: Monipuoliset LVI-työt
+              - name: slot
+                type: number
+                hidden: true
+              - name: label
+                label: Linkin teksti
                 type: string
-                required: true
-              - name: newBuild
-                label: Uudisrakentaminen
+              - name: href
+                label: Linkin osoite
                 type: string
-                required: true
-              - name: renovation
-                label: Saneeraustyöt
-                type: string
-                required: true
-              - name: repairs
-                label: Korjaukset ja asennukset
-                type: string
-                required: true
-              - name: audiences
-                label: Kohteet
-                type: string
-                required: true
-              - name: region
-                label: Toimialue
-                type: string
-                required: true
+                description: Esimerkiksi #uudisrakentaminen tai /yhteystiedot/. Jätä keskeneräinen linkki tyhjäksi.
 
       - name: introSection
         label: Monipuoliset LVI-työt

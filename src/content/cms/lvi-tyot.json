@@ -10,14 +10,28 @@
     "imageAlt": "Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita",
     "primaryCta": "Pyydä tarjous",
     "secondaryCta": "Ota yhteyttä",
-    "navigation": {
-      "intro": "Monipuoliset LVI-työt",
-      "newBuild": "Uudisrakentaminen",
-      "renovation": "LVI-saneeraustyöt",
-      "repairs": "Korjaukset ja asennustyöt",
-      "audiences": "Kohteet",
-      "region": "Toimialue"
-    }
+    "navigation": [
+      { "slot": 1, "label": "Monipuoliset LVI-työt", "href": "#monipuoliset-lvi-tyot" },
+      { "slot": 2, "label": "Uudisrakentaminen", "href": "#uudisrakentaminen" },
+      { "slot": 3, "label": "LVI-saneeraustyöt", "href": "#saneeraustyot" },
+      { "slot": 4, "label": "Korjaukset ja asennustyöt", "href": "#korjaukset-ja-asennukset" },
+      { "slot": 5, "label": "Kohteet", "href": "#kohteet" },
+      { "slot": 6, "label": "Toimialue", "href": "#toimialue" },
+      { "slot": 7, "label": "", "href": "" },
+      { "slot": 8, "label": "", "href": "" },
+      { "slot": 9, "label": "", "href": "" },
+      { "slot": 10, "label": "", "href": "" },
+      { "slot": 11, "label": "", "href": "" },
+      { "slot": 12, "label": "", "href": "" },
+      { "slot": 13, "label": "", "href": "" },
+      { "slot": 14, "label": "", "href": "" },
+      { "slot": 15, "label": "", "href": "" },
+      { "slot": 16, "label": "", "href": "" },
+      { "slot": 17, "label": "", "href": "" },
+      { "slot": 18, "label": "", "href": "" },
+      { "slot": 19, "label": "", "href": "" },
+      { "slot": 20, "label": "", "href": "" }
+    ]
   },
   "introSection": {
     "title": "Monipuoliset LVI-työt uudis- ja saneerauskohteisiin",
