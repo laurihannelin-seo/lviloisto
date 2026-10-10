@@ -44,22 +44,6 @@ const details = content.detailsSection.groups;
     </div>
   </section>
 
-  <section class="contact-section contact-section--page" aria-labelledby="contact-heading">
-    <div class="contact-section__inner">
-      <figure class="contact-section__media">
-        <img src={contactPage.image} alt={contactPage.imageAlt} loading="eager" />
-      </figure>
-
-      <div class="contact-panel">
-        <p class="section-label">{contactPage.label}</p>
-        <h2 id="contact-heading">{contactPage.title}</h2>
-        <p class="contact-panel__intro">{contactPage.intro}</p>
-
-        <ContactForm submitLabel={contactPage.submitLabel} />
-      </div>
-    </div>
-  </section>
-
   <section class="map-section" aria-labelledby="map-heading">
     <div class="map-section__inner page-shell">
       <div class="map-section__content">
@@ -82,6 +66,22 @@ const details = content.detailsSection.groups;
           referrerpolicy="no-referrer-when-downgrade"
           title={mapSection.iframeTitle}
         ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section contact-section--page" aria-labelledby="contact-heading">
+    <div class="contact-section__inner">
+      <figure class="contact-section__media">
+        <img src={contactPage.image} alt={contactPage.imageAlt} loading="lazy" />
+      </figure>
+
+      <div class="contact-panel">
+        <p class="section-label">{contactPage.label}</p>
+        <h2 id="contact-heading">{contactPage.title}</h2>
+        <p class="contact-panel__intro">{contactPage.intro}</p>
+
+        <ContactForm submitLabel={contactPage.submitLabel} />
       </div>
     </div>
   </section>
