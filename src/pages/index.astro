@@ -205,17 +205,13 @@ const contactSection = content.contact;
         <h2>{portfolioSection.title}</h2>
         <div class="portfolio-section__intro">
           <p>{portfolioSection.intro}</p>
-          <a class="portfolio-section__cta" href={portfolioSection.ctaHref}>
-            <span aria-hidden="true">↗</span>
-            {portfolioSection.cta}
-          </a>
         </div>
       </div>
 
       <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
         {
           portfolioSection.items.map((item) => (
-            <a class="portfolio-card" href={item.href} aria-label={`Tutustu kohteeseen ${item.title}`}>
+            <article class="portfolio-card portfolio-card--static">
               <figure class="portfolio-card__media">
                 <img src={item.image} alt={item.imageAlt} loading="lazy" />
               </figure>
@@ -225,12 +221,8 @@ const contactSection = content.contact;
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
 
-                <span class="portfolio-card__link">
-                  <span>Tutustu kohteeseen</span>
-                  <span aria-hidden="true">↗</span>
-                </span>
               </div>
-            </a>
+            </article>
           ))
         }
       </div>
