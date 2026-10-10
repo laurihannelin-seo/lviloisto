@@ -143,7 +143,11 @@ const contactSection = content.contact;
             </figure>
             <div class="solution-feature__copy">
               <h3>{item.title}</h3>
-              <p>{item.text}</p>
+              {
+                item.text.trim().split(/\r?\n\s*\r?\n/).map((paragraph) => (
+                  <p>{paragraph.trim()}</p>
+                ))
+              }
             </div>
           </article>
         ))

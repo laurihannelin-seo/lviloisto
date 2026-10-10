@@ -449,6 +449,7 @@ h3 {
   color: var(--color-muted);
   font-size: clamp(1rem, 1.4vw, 1.12rem);
   font-weight: 400;
+  white-space: pre-line;
   line-height: 1.65;
 }
 
