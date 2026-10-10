@@ -657,7 +657,13 @@ content:
               - name: href
                 label: Linkin osoite
                 type: string
-                description: Esimerkiksi #uudisrakentaminen tai /yhteystiedot/. Jätä keskeneräinen linkki tyhjäksi.
+                description: Paikoissa 1-6 nykyisen osion ankkuri. Paikoissa 7-20 osoite muodostuu automaattisesti, joten jätä tämä tyhjäksi.
+              - name: body
+                label: Uuden osion tekstikappaleet (paikat 7-20)
+                type: text
+                description: Täytä linkin nimike ja lisää haluamasi tekstikappaleet. Paikoissa 1-6 sisältöä muokataan alempana.
+                list:
+                  max: 12
 
       - name: introSection
         label: Monipuoliset LVI-työt

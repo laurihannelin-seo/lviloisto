@@ -8,7 +8,20 @@ const title = content.seo.title;
 const description = content.seo.description;
 const repairItems = content.repairs.items;
 const customerGroups = content.audiences.items;
-const sectionNavigation = content.hero.navigation.filter((item) => item.label?.trim() && item.href?.trim());
+const customSections = content.hero.navigation
+  .filter((item) => item.slot >= 7 && item.slot <= 20 && item.label?.trim())
+  .map((item) => ({
+    id: `lvi-tyo-${item.slot}`,
+    title: item.label.trim(),
+    body: "body" in item && Array.isArray(item.body) ? item.body.filter((paragraph) => paragraph.trim()) : [],
+  }));
+const sectionNavigation = content.hero.navigation
+  .filter((item) => item.label?.trim())
+  .map((item) => ({
+    label: item.label.trim(),
+    href: item.slot >= 7 && item.slot <= 20 ? `#lvi-tyo-${item.slot}` : item.href?.trim(),
+  }))
+  .filter((item) => item.href);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -131,6 +144,13 @@ const sectionNavigation = content.hero.navigation.filter((item) => item.label?.t
           <h2 id="toimialue-heading">{content.region.title}</h2>
           {content.region.body.map((paragraph) => <p>{paragraph}</p>)}
         </section>
+
+        {customSections.map((section) => (
+          <section class="lvi-work-article__section" id={section.id} aria-labelledby={`${section.id}-heading`}>
+            <h2 id={`${section.id}-heading`}>{section.title}</h2>
+            {section.body.map((paragraph) => <p>{paragraph}</p>)}
+          </section>
+        ))}
       </article>
     </div>
   </div>
