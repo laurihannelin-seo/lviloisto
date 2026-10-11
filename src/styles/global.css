@@ -570,9 +570,23 @@ h3 {
 
 .portfolio-section--text-only .portfolio-section__body {
   display: grid;
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
   gap: clamp(2.5rem, 6vw, 7rem);
   align-items: start;
+}
+
+.portfolio-section--text-only .portfolio-section__content {
+  display: grid;
+  align-content: start;
+}
+
+.portfolio-section--text-only .portfolio-section__header {
+  display: block;
+  padding-top: 0;
+}
+
+.portfolio-section--text-only .portfolio-section__header + .portfolio-grid {
+  margin-top: clamp(1.5rem, 2.6vw, 2.5rem);
 }
 
 .portfolio-section--text-only .portfolio-grid {
@@ -1382,6 +1396,33 @@ h3 {
 .contact-section--home,
 .contact-section--home .contact-panel {
   background: var(--color-section);
+}
+
+.portfolio-contact-transition {
+  --contact-transition-shift: 0px;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--color-section);
+}
+
+.portfolio-contact-transition .portfolio-section {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(6rem, 8vw, 9rem);
+}
+
+.portfolio-contact-transition .contact-section--home {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-6rem, -6vw, -4rem);
+  transform: translate3d(0, var(--contact-transition-shift), 0);
+  will-change: transform;
+}
+
+.contact-section--home .contact-section__inner {
+  width: min(100%, 120rem);
+  margin-inline: auto;
 }
 
 .contact-section__inner {
@@ -3219,6 +3260,16 @@ h3 {
     gap: 2rem;
   }
 
+  .portfolio-contact-transition .portfolio-section {
+    padding-bottom: 3.75rem;
+  }
+
+  .portfolio-contact-transition .contact-section--home {
+    margin-top: 0;
+    transform: none;
+    will-change: auto;
+  }
+
   .portfolio-card {
     padding-top: 0.75rem;
   }
@@ -4356,6 +4407,18 @@ h3 {
   .section-anchor-nav a,
   .section-anchor-nav a::after {
     transition: none;
+  }
+
+  .portfolio-contact-transition .contact-section--home {
+    transform: none;
+    will-change: auto;
+  }
+}
+
+@media (min-width: 1081px) {
+  .contact-section--home .contact-section__inner {
+    height: clamp(42rem, 46vw, 50rem);
+    max-height: 50rem;
   }
 }
 
