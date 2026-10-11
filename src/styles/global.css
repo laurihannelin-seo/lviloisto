@@ -570,9 +570,14 @@ h3 {
 
 .portfolio-section--text-only .portfolio-section__body {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(25rem, 0.85fr);
   gap: clamp(2.5rem, 6vw, 7rem);
   align-items: start;
+}
+
+.portfolio-section--text-only h2 {
+  font-size: clamp(2.6rem, 3.5vw, 4rem);
+  line-height: 1;
 }
 
 .portfolio-section--text-only .portfolio-section__content {
@@ -4445,6 +4450,10 @@ h3 {
 
   .portfolio-section h2 {
     font-size: clamp(2.7rem, 5.8vw, 4.35rem);
+  }
+
+  .portfolio-section--text-only h2 {
+    font-size: clamp(2.4rem, 4.5vw, 3.2rem);
   }
 
   .portfolio-section__intro {
