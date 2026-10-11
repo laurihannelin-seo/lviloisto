@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import content from "../content/cms/yrityksemme.json";
 
@@ -11,7 +12,7 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
     <header class:list={["company-intro", { "company-intro--image": Boolean(hero.image) }]} aria-labelledby="company-page-title">
       {hero.image && (
         <>
-          <img class="company-intro__image" src={hero.image} alt={hero.imageAlt || ""} loading="eager" fetchpriority="high" />
+          <CmsImage class="company-intro__image" src={hero.image} alt={hero.imageAlt || ""} sizes="100vw" loading="eager" fetchpriority="high" />
           <div class="company-intro__shade" aria-hidden="true"></div>
         </>
       )}
@@ -46,7 +47,7 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
     </section>
 
     <figure class="company-image company-shell">
-      <img src={imageSection.image} alt={imageSection.imageAlt} loading="lazy" />
+      <CmsImage src={imageSection.image} alt={imageSection.imageAlt} loading="lazy" sizes="(max-width: 1568px) 100vw, 1440px" />
     </figure>
 
     <section class="company-working" aria-labelledby="company-working-title">

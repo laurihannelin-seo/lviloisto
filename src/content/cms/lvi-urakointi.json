@@ -101,7 +101,7 @@
   },
   "cities": {
     "title": "LVI-urakointi pääkaupunkiseudulla",
-    "intro": "LVI-Loisto toteuttaa LVI-urakointia Helsingissä, Espoossa, Vantaalla ja muualla pääkaupunkiseudulla. Toimipisteemme sijaitsee Vantaalla.",
+    "intro": "LVI-Loisto toteuttaa LVI-urakointia Helsingissä, Espoossa, Vantaalla ja muualla pääkaupunkiseudulla. Toimipisteemme sijaitsee Helsingissä.",
     "items": [
       { "title": "LVI-urakointi Helsinki", "href": "/lvi-urakointi/helsinki/" },
       { "title": "LVI-urakointi Espoo", "href": "/lvi-urakointi/espoo/" },

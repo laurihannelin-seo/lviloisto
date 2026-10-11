@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
 import EmailContactOptions from "../components/EmailContactOptions.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactForm from "../components/ContactForm.astro";
@@ -27,7 +28,9 @@ const faqItems = content.faq.items;
 
 <BaseLayout title={title} description={description} headerTheme="dark">
   <section class="service-page-hero" aria-labelledby="service-page-heading">
-    <img
+    <CmsImage
+      sizes="100vw"
+      fetchpriority="high"
       class="service-page-hero__image"
       src={content.hero.image}
       alt={content.hero.imageAlt}
@@ -95,7 +98,7 @@ const faqItems = content.faq.items;
         </div>
 
         <figure class="service-intro-layout__media">
-          <img
+          <CmsImage
             src={content.introSection.image}
             alt={content.introSection.imageAlt}
             loading="lazy"
@@ -178,7 +181,7 @@ const faqItems = content.faq.items;
       <div class="service-reference-grid">
         {portfolioItems.map((item) => (
           <article class="service-reference service-reference--image-only">
-            <figure><img src={item.image} alt={item.imageAlt} loading="lazy" /></figure>
+            <figure><CmsImage src={item.image} alt={item.imageAlt} loading="lazy" sizes="(max-width: 760px) 100vw, 33vw" /></figure>
           </article>
         ))}
       </div>
@@ -211,7 +214,7 @@ const faqItems = content.faq.items;
   <section class="contact-section" id="keskustele-urakasta" aria-labelledby="service-contact-heading">
     <div class="contact-section__inner">
       <figure class="contact-section__media">
-        <img
+        <CmsImage
           src={content.contact.image}
           alt={content.contact.imageAlt}
           loading="lazy"

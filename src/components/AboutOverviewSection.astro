@@ -1,6 +1,7 @@
 ---
 import section from "../content/cms/about-overview.json";
 import ContactPopover from "./ContactPopover.astro";
+import CmsImage from "./CmsImage.astro";
 
 interface Props {
   id?: string;
@@ -62,7 +63,7 @@ const headingId = id ? `${id}-heading` : "about-overview-heading";
       <div class="about-carousel__viewport">
         {
           section.images.map((image, index) => (
-            <img
+            <CmsImage
               src={image.src}
               alt={image.alt}
               loading="lazy"

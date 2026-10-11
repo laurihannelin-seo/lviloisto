@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactPopover from "../components/ContactPopover.astro";
 import content from "../content/cms/lvi-tyot.json";
@@ -26,7 +27,8 @@ const sectionNavigation = content.hero.navigation
 
 <BaseLayout title={title} description={description} headerTheme="dark">
   <section class="service-page-hero lvi-work-hero" aria-labelledby="lvi-work-heading">
-    <img
+    <CmsImage
+      sizes="100vw"
       class="service-page-hero__image"
       src={content.hero.image}
       alt={content.hero.imageAlt}
@@ -82,15 +84,17 @@ const sectionNavigation = content.hero.navigation
           {content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}
         </section>
 
-        <section class="lvi-work-article__section" id="uudisrakentaminen" aria-labelledby="uudisrakentaminen-heading">
+        <section class="lvi-work-article__section lvi-work-article__section--split" id="uudisrakentaminen" aria-labelledby="uudisrakentaminen-heading">
+          <div class="lvi-work-article__copy">
           <h2 id="uudisrakentaminen-heading">{content.newBuild.title}</h2>
           {content.newBuild.bodyBeforeList.map((paragraph) => <p>{paragraph}</p>)}
           <ul class="lvi-work-bullet-list">
             {content.newBuild.items.map((item) => <li>{item}</li>)}
           </ul>
           <p>{content.newBuild.bodyAfterList}</p>
+          </div>
           <figure class="lvi-work-article__media">
-            <img
+            <CmsImage
               src={content.newBuild.image}
               alt={content.newBuild.imageAlt}
               loading="lazy"
@@ -98,13 +102,17 @@ const sectionNavigation = content.hero.navigation
           </figure>
         </section>
 
-        <section class="lvi-work-article__section" id="saneeraustyot" aria-labelledby="saneeraustyot-heading">
+        <section class="lvi-work-article__section lvi-work-article__section--split" id="saneeraustyot" aria-labelledby="saneeraustyot-heading">
+          <div class="lvi-work-article__copy">
           <h2 id="saneeraustyot-heading">{content.renovation.title}</h2>
           {content.renovation.body.map((paragraph) => <p>{paragraph}</p>)}
-          <p class="lvi-work-list-heading">{content.renovation.listHeading}</p>
-          <ul class="lvi-work-bullet-list">
-            {content.renovation.items.map((item) => <li>{item}</li>)}
-          </ul>
+          </div>
+          <aside class="lvi-work-article__aside">
+            <h3>{content.renovation.listHeading}</h3>
+            <ol class="lvi-work-compact-list">
+              {content.renovation.items.map((item, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>{item}</li>)}
+            </ol>
+          </aside>
         </section>
 
         <section class="lvi-work-article__section" id="korjaukset-ja-asennukset" aria-labelledby="korjaukset-ja-asennukset-heading">

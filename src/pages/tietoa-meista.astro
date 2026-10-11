@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
 import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
@@ -18,7 +19,7 @@ const companyDetails = content.region.groups;
 
 <BaseLayout title={title} description={description} headerTheme="dark">
   <section class="service-page-hero about-page-hero" aria-labelledby="about-page-heading">
-    <img class="service-page-hero__image" src={pageHero.image} alt={pageHero.imageAlt} fetchpriority="high" />
+    <CmsImage class="service-page-hero__image" src={pageHero.image} alt={pageHero.imageAlt} sizes="100vw" fetchpriority="high" />
     <div class="service-page-hero__shade" aria-hidden="true"></div>
     <div class="service-page-hero__inner page-shell">
       <Breadcrumbs variant="dark" items={[{ label: "Etusivu", href: "/" }, { label: "Tietoa meistä" }]} />
@@ -37,7 +38,7 @@ const companyDetails = content.region.groups;
         {positioning.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
       <figure class="about-positioning-section__media" slot="media">
-        <img src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
+        <CmsImage src={positioning.image} alt={positioning.imageAlt} loading="lazy" />
       </figure>
     </ServiceContentSection>
 

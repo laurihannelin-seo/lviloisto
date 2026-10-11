@@ -260,3 +260,31 @@ Viimeisimmät merkittävät muutokset 10.10.2026:
 
 Tarkista aina `git log -5 --oneline`, koska tämä lista voi jäädä myöhemmistä
 commiteista jälkeen.
+
+## Ulkoasun viimeistely 11.10.2026
+
+- Kaikki kuusi sivua käyttävät yhteistä viimeistelykerrosta
+  `src/styles/refinements.css`, joka ladataan `global.css`:n jälkeen.
+  Tee jatkossa yhteisen gridin, otsikkokokojen, headerin ja välien muutokset
+  ensisijaisesti tähän tiedostoon, jotta vanhat komponenttityylit eivät
+  kumoa muutosta. Maksimileveys on 1440 px; pitkät kappaleet rajataan erikseen.
+- Mobiilissa on avattava Valikko/Sulje-navigaatio. Näppäimistöfokus, Escape,
+  nykyisen sivun merkintä ja Siirry sisältöön -linkki on huomioitu.
+- `CmsImage.astro` käsittelee `public/images/`-kuvat Astro-kuvaputken kautta:
+  build luo WebP-versiot, srcsetin ja kuvan mitat. CMS:n alkuperäisiä
+  kuvapolkuja ei tarvitse vaihtaa. Alkuperäisiä tai raakakuvia ei poisteta.
+- Referenssit ja lomake käyttävät samaa gridiä. Lomakepaneeli määrää kuvan
+  korkeuden. Etusivun parallax mittaa siirtämätöntä sijaintia ja rajoittaa
+  limityksen siten, ettei teksti peity. Liike on pois mobiilissa/tabletissa
+  ja reduced-motion-asetuksella.
+- Yhteystietosivu: suorat yhteystiedot, lomake, toimiston kartta.
+  Palvelusivujen vanha Vantaa-toimipistemaininta yhtenäistettiin muun sivuston
+  Helsinki-osoitteen kanssa. LVI-työt-sivun CMS-testiteksti poistettiin;
+  workshopiin tarkoitetut yrityksen arvopaikkamerkit säilytettiin.
+- Tarkistukset: 6 sivua, 320/390/768/1024/1440/2560 px, sisäiset linkit,
+  kuvapolut, ankkurit, tunnisteet, puhekuplat, mobiilivalikko, FAQ,
+  kuvagalleria, lomakkeen vastaanottajat ja pakollisten kenttien validointi.
+- Lomakkeen oikeaa sähköpostitoimitusta ei pidä väittää vahvistetuksi:
+  Resend-domainin DNS-vahvistus on yhä erillinen julkaisun edellytys.
+- Oikeat referenssitiedot ja workshopin arvotekstit täydennetään asiakkaan
+  kanssa. Niitä ei keksitty ulkoasun korjauskierroksella.

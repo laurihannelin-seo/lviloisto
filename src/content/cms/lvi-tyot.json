@@ -72,12 +72,7 @@
         "slot": 16
       },
       {
-        "slot": 17,
-        "label": "gfsgfsgfsgfs",
-        "href": "#gfsgfsgfsgf",
-        "body": [
-          "gfsgfsgfsgf"
-        ]
+        "slot": 17
       },
       {
         "slot": 18
@@ -183,7 +178,7 @@
   "region": {
     "title": "LVI-työt Helsingissä ja Uudellamaalla",
     "body": [
-      "LVI-Loisto palvelee asiakkaita Helsingissä ja muualla Uudenmaan alueella. Toimipisteemme sijaitsee Vantaalla, ja toteutamme LVI-töitä eri puolilla pääkaupunkiseutua sekä soveltuvissa kohteissa muualla Uudellamaalla.",
+      "LVI-Loisto palvelee asiakkaita Helsingissä ja muualla Uudenmaan alueella. Toimipisteemme sijaitsee Helsingissä, ja toteutamme LVI-töitä eri puolilla pääkaupunkiseutua sekä soveltuvissa kohteissa muualla Uudellamaalla.",
       "Kun tarvitset tekijän uudisrakentamisen LVI-töihin, saneeraukseen tai yksittäiseen LVI-korjaukseen, ota yhteyttä ja kerro kohteesta sekä työn tarpeesta."
     ]
   },

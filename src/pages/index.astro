@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import CmsImage from "../components/CmsImage.astro";
 import EmailContactOptions from "../components/EmailContactOptions.astro";
 import content from "../content/cms/home.json";
 
@@ -24,7 +25,8 @@ const contactSection = content.contact;
 <BaseLayout title={title} description={description} headerTheme="dark">
   <section class="home-hero" aria-labelledby="home-heading">
     <figure class="home-hero__media">
-      <img
+      <CmsImage
+        sizes="100vw"
         src={content.hero.image}
         alt={content.hero.imageAlt}
         fetchpriority="high"
@@ -138,7 +140,7 @@ const contactSection = content.contact;
               data-scroll-image
               data-reveal-direction={index % 2 === 0 ? "left" : "right"}
             >
-              <img src={item.image} alt={item.imageAlt} loading="lazy" />
+              <CmsImage src={item.image} alt={item.imageAlt} loading="lazy" />
             </figure>
             <div class="solution-feature__copy">
               <h3>{item.title}</h3>
@@ -206,7 +208,7 @@ const contactSection = content.contact;
       <div class="portfolio-section__inner page-shell">
         <div class="portfolio-section__body">
           <figure class="portfolio-section__image">
-            <img src={portfolioSection.image} alt={portfolioSection.imageAlt} loading="lazy" />
+            <CmsImage src={portfolioSection.image} alt={portfolioSection.imageAlt} loading="lazy" />
           </figure>
 
           <div class="portfolio-section__content">
@@ -221,7 +223,7 @@ const contactSection = content.contact;
                   <article class="portfolio-card portfolio-card--static portfolio-card--text">
                     <div class="portfolio-card__content">
                       <h3>{item.title}</h3>
-                      <p class="portfolio-card__placeholder" aria-hidden={item.text === "•\n•\n•"}>{item.text}</p>
+                      {item.text.replace(/[•\s]/g, "") && <p class="portfolio-card__placeholder">{item.text}</p>}
                     </div>
                   </article>
                 ))
@@ -235,7 +237,7 @@ const contactSection = content.contact;
     <section class="contact-section contact-section--home" id="yhteystiedot" aria-labelledby="contact-heading" data-parallax-panel>
       <div class="contact-section__inner">
         <figure class="contact-section__media">
-          <img src={contactSection.image} alt={contactSection.imageAlt} loading="lazy" />
+          <CmsImage src={contactSection.image} alt={contactSection.imageAlt} loading="lazy" />
         </figure>
 
         <div class="contact-panel">
@@ -257,24 +259,32 @@ const contactSection = content.contact;
       if (!(transition instanceof HTMLElement) || !(panel instanceof HTMLElement)) return;
 
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const compactLayout = window.matchMedia("(max-width: 760px)");
+      const compactLayout = window.matchMedia("(max-width: 900px)");
       let frame = 0;
+      let currentShift = 0;
 
       const update = () => {
         frame = 0;
 
         if (reducedMotion.matches || compactLayout.matches) {
           transition.style.setProperty("--contact-transition-shift", "0px");
+          currentShift = 0;
           return;
         }
 
-        const panelTop = panel.getBoundingClientRect().top;
+        // Measure the original position, not the translated layer itself.
+        const panelTop = panel.getBoundingClientRect().top - currentShift;
         const start = window.innerHeight * 1.02;
         const end = window.innerHeight * 0.56;
         const progress = Math.min(1, Math.max(0, (start - panelTop) / (start - end)));
-        const maxShift = window.innerWidth <= 1080 ? 36 : 72;
+        const referenceImage = transition.querySelector(".portfolio-section__image");
+        const referenceContent = transition.querySelector(".portfolio-section__content");
+        const safeOverlap = referenceImage && referenceContent
+          ? Math.max(0, referenceImage.getBoundingClientRect().bottom - referenceContent.getBoundingClientRect().bottom - 24)
+          : 0;
+        const maxShift = Math.min(36, safeOverlap);
         const shift = -progress * maxShift;
-
+        currentShift = shift;
         transition.style.setProperty("--contact-transition-shift", `${shift.toFixed(2)}px`);
       };
 

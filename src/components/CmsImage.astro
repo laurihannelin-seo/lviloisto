@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = Omit<HTMLAttributes<"img">, "src" | "alt"> & {
+  src: string;
+  alt: string;
+};
+
+const { src, alt, sizes = "(max-width: 760px) 100vw, (max-width: 1568px) 55vw, 800px", loading = Astro.props.fetchpriority === "high" ? "eager" : "lazy", ...attributes } = Astro.props;
+// Keep CMS paths unchanged while letting Astro generate responsive build assets.
+const images = import.meta.glob<ImageMetadata>("/public/images/**/*.{jpg,jpeg,png,webp,avif}", { import: "default" });
+const loadImage = images[`/public${src}`];
+const image = loadImage ? await loadImage() : undefined;
+const widths = image ? [...new Set([480, 800, 1200, 1600, Math.min(image.width, 2400)].filter((width) => width <= image.width))] : [];
+---
+
+{image ? (
+  <Image src={image} alt={alt} width={Math.min(image.width, 1600)} widths={widths} sizes={sizes} format="webp" quality={82} loading={loading} {...attributes} />
+) : (
+  <img src={src} alt={alt} loading={loading} {...attributes} />
+)}

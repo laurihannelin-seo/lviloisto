@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import CmsImage from "../components/CmsImage.astro";
 import ContactForm from "../components/ContactForm.astro";
 import content from "../content/cms/yhteystiedot.json";
 
@@ -17,7 +18,8 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
 
 <BaseLayout title={title} description={description} headerTheme="dark">
   <section class="contact-details-section contact-details-section--hero" aria-labelledby="page-heading">
-    <img
+    <CmsImage
+      sizes="100vw"
       class="contact-details-section__image"
       src={content.detailsSection.image}
       alt={content.detailsSection.imageAlt}
@@ -55,6 +57,20 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
     </div>
   </section>
 
+  <section class="contact-section contact-section--page" aria-labelledby="contact-heading">
+    <div class="contact-section__inner">
+      <figure class="contact-section__media">
+        <CmsImage src={contactPage.image} alt={contactPage.imageAlt} loading="lazy" />
+      </figure>
+      <div class="contact-panel">
+        <p class="section-label">{contactPage.label}</p>
+        <h2 id="contact-heading">{contactPage.title}</h2>
+        <p class="contact-panel__intro">{contactPage.intro}</p>
+        <ContactForm submitLabel={contactPage.submitLabel} />
+      </div>
+    </div>
+  </section>
+
   <section class="map-section" aria-labelledby="map-heading">
     <div class="map-section__inner page-shell">
       <div class="map-section__content">
@@ -82,19 +98,4 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
     </div>
   </section>
 
-  <section class="contact-section contact-section--page" aria-labelledby="contact-heading">
-    <div class="contact-section__inner">
-      <figure class="contact-section__media">
-        <img src={contactPage.image} alt={contactPage.imageAlt} loading="lazy" />
-      </figure>
-
-      <div class="contact-panel">
-        <p class="section-label">{contactPage.label}</p>
-        <h2 id="contact-heading">{contactPage.title}</h2>
-        <p class="contact-panel__intro">{contactPage.intro}</p>
-
-        <ContactForm submitLabel={contactPage.submitLabel} />
-      </div>
-    </div>
-  </section>
 </BaseLayout>
