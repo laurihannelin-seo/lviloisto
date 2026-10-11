@@ -273,7 +273,9 @@ commiteista jälkeen.
 - `CmsImage.astro` käsittelee `public/images/`-kuvat Astro-kuvaputken kautta:
   build luo WebP-versiot, srcsetin ja kuvan mitat. CMS:n alkuperäisiä
   kuvapolkuja ei tarvitse vaihtaa. Alkuperäisiä tai raakakuvia ei poisteta.
-- Herokuvien enimmäisleveys on 1792 px ja ne keskitetään suurilla näytöillä.
+- Koko sivun (body, header, kaikki osiot ja footer) enimmäisleveys on sama
+  1792 px kuin herokuvilla. Sivukehys keskitetään suurilla näytöillä;
+  osioiden taustat eivät jatku sen ulkopuolelle. Sisältögridin raja on 1440 px.
   Etusivun heron korkeus rajataan 832 px:iin; sisältö saa silti kasvattaa
   korkeutta tarvittaessa pienissä näkymissä. Header ja sisältö pysyvät linjassa.
 - Etusivulla referenssikuva on vasemmalla ja teksti oikealla; seuraavassa
