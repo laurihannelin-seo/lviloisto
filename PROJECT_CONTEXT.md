@@ -26,7 +26,7 @@ on jäänyt päivityksistä jälkeen.
 - Pages CMS muokkaa `src/content/cms/*.json`-tiedostoja ja tallentaa muutokset
   suoraan GitHubin `main`-haaraan
 - Ei erillistä backendia; Astro rakentaa JSON-sisällöstä staattisen sivuston
-- Fontti: paikallisesti npm-paketista ladattu Figtree Variable
+- Fontti: paikalliset Clarity City Variable -fonttitiedostot `public/fonts/`-kansiossa
 - Päätyylit: `src/styles/global.css`
 - Yhteinen layout: `src/layouts/BaseLayout.astro`
 - Build output: `dist`
@@ -70,8 +70,8 @@ Kaupunkikohtaisia sivuja ei ole vielä rakennettu. Tuleva rakenne:
 - `Breadcrumbs.astro` - sisältösivujen murupolku
 - `ServiceContentSection.astro` - palvelu- ja SEO-sivujen yhteinen sisältöosio
 - `NumberedContentList.astro` - numeroidut kohderyhmä- ja prosessilistat
-- `PortfolioSection.astro` - etusivun kohteet
-- `ProcessSection.astro` - etusivun interaktiivinen prosessiosio
+- `PortfolioSection.astro` ja `ProcessSection.astro` - aiemmat komponentit,
+  joita nykyinen etusivu ei käytä
 - `SplitCta.astro` - kuvallinen kaksipalstainen CTA tarvittaessa
 
 Käytä olemassa olevia komponentteja ennen uuden rinnakkaisen toteutuksen
@@ -84,7 +84,8 @@ luomista. Pidä muutokset rajattuina pyydettyyn sivuun tai ominaisuuteen.
 - Typografinen ja kuvallinen ilme, ei geneerisiä LVI-ikoneita
 - Ei raskaita varjoja, sisäkkäisiä kortteja tai tarpeettomia animaatioita
 - Paljon harkittua tilaa, mutta sisältösivuilla ei ylimitoitettua tyhjää tilaa
-- Ohuet jakoviivat ja rauhalliset hover-efektit
+- Tarpeettomat osioiden jakoviivat on poistettu; listojen ja lomakekenttien
+  toiminnalliset erottimet sekä rauhalliset hover-efektit säilyvät
 - Kuvat käyttävät `object-fit: cover` -rajausta ja helposti vaihdettavia polkuja
 - Mobiilissa sisältö pinoutuu selkeästi eikä sivu saa vuotaa vaakasuunnassa
 
@@ -106,12 +107,15 @@ heroa tai yleistä sommittelua ilman nimenomaista pyyntöä.
 Etusivulla on muun muassa:
 
 - kuvallinen hero, jonka päällä on yksi H1
-- palvelu- ja kohdetyyppiosiot
-- Tietoa meistä -osio ja luottamuslogot
-- menetelmä/prosessiosio
-- tumma portfolio-osio
+- neljä palvelu- ja kohdetyyppiosiota (Arvoasunnot, Omakotitalot,
+  Taloyhtiöt, Rakennusliikkeet) ja niihin vievät heron hyppylinkit
+- vaalea tekstipohjainen referenssikohteiden osio, jossa kolme ryhmää,
+  CMS-tekstit ja suuri kuva; ei kohdelinkkejä
 - tarjouspyyntölomake
 - FAQ
+
+Etusivun aiemmat Tietoa meistä - ja Tarkkuutta suunnittelusta luovutukseen
+-osiot on poistettu. Hero-CTA avaa yhteystietopuhekuplan.
 
 ## Palvelu- ja SEO-sivujen periaate
 
@@ -144,14 +148,49 @@ tarjouspyyntölomaketta kuin etusivulla.
 - Responsiivisuus tarkistetaan desktopilla ja mobiilissa
 - `npm.cmd run build` suoritetaan aina ennen valmiiksi ilmoittamista
 
+## Tilanne 10.10.2026
+
+- Header on kaikilla kuvan päällä olevilla heroilla läpinäkyvä jo ensi
+  latauksella ja muuttuu vaaleaksi, kun hero ei enää ole headerin alla.
+  Navigaatio on Palvelumme, Yrityksemme, Yhteystiedot.
+- Kaikkien sivujen herojen jälkeinen vaalea osiopohja on `#f3eee6`.
+  Koristeelliset osioiden väliviivat poistettiin 10.10.; toiminnalliset
+  listan, valikon ja lomakkeen erotinviivat jäivät.
+- `/lvi-tyot/`-sivun herossa on avattava sisällysluettelo. CMS:ssä on 20
+  muokattavaa linkkipaikkaa. Paikat 7-20 luovat sivulle H2-osion ja
+  kappaleet vasta, kun paikalle annetaan nimi (ja mahdollinen sisältö).
+- `/yrityksemme/`-sivulla on CMS:stä vaihdettava kuvallinen hero, jonka
+  teksti on linjassa etusivun heron kanssa. Hero ei näytä Arvomme-pikkuotsikkoa.
+- `/yhteystiedot/`-sivun hero käyttää CMS-kuvaa. Herossa ovat yrityksen,
+  Matiaksen ja Miron yhteystiedot; henkilöiden otsikkoina ovat koko nimet,
+  ja heti alla ovat puhelinnumero ja sähköposti. Toimistomme-kartta on heron
+  jälkeen, tarjouspyyntölomake viimeisenä. Heron ingressin lomake-linkki
+  vie lomakkeelle. Kartan vieressä on Google Maps- ja Apple Kartat -linkit.
+- Jaettu `ContactForm.astro` sisältää nimen, sähköpostin, puhelimen,
+  kohteen sijainnin ja viestin. Lähetyksen vastaanottaja valitaan lopuksi:
+  Matias (arvoasunnot ja rakennusliikkeet) tai Miro (omakotitalot,
+  taloyhtiöt ja muut LVI-palvelut). Yhteystietopuhekuplassa ovat molemmat
+  puhelinnumerot ja sähköpostit.
+- Lomakkeen nykyinen lähetys käyttää `mailto:`-osoitetta ja käyttäjän
+  sähköpostiohjelmaa. Erillistä palvelinpuolen lähetysjärjestelmää tai
+  toimivaa liitteiden lähetystä ei ole; älä kuvaa sitä valmiina.
+- Sivuston CMS-sisältöä muutettiin samana päivänä useilla erillisillä
+  commiteilla. Koodi ja `git log` ovat aina ensisijaisia tähän koosteeseen
+  nähden.
+
 ## Git- ja laitekohtainen työnkulku
 
 Ennen työn aloittamista toisella koneella:
 
 ```powershell
-git pull origin main
+git status --short --branch
+git pull --ff-only origin main
 npm.cmd ci
 ```
+
+Jos työkoneella on omia keskeneräisiä muutoksia, älä yliaja niitä pullin
+tieltä. Selvitä tila ensin. `npm.cmd ci` tarvitaan, jos riippuvuuksia ei ole
+vielä asennettu tai `package-lock.json` on muuttunut.
 
 Älä tee samanaikaisesti julkaisemattomia muutoksia kahdella koneella. Puske
 ensin yhden koneen muutokset GitHubiin ja vedä ne toiselle koneelle.
@@ -202,17 +241,19 @@ Uuden tehtävän alussa:
 6. Commitoi ja puske vain kyseiseen tehtävään kuuluvat tiedostot.
 
 Tämän projektin Codex-keskusteluhistoria ei välttämättä näy toisella koneella.
-Uudessa läppärin keskustelussa riittää aloituspyyntö:
+Uudessa keskustelussa toisella koneella riittää aloituspyyntö:
 
 > Lue ensin `PROJECT_CONTEXT.md`, tarkista `git status` ja viimeisimmät commitit,
 > ja jatka sen jälkeen tästä projektista.
 
-Viimeisimmät merkittävät muutokset 8.10.2026:
+Viimeisimmät merkittävät muutokset 10.10.2026:
 
-- `c14d852` - uusi CMS-muokattava `/yrityksemme/`-sivu ja navigaatiolinkki
-- `9d30622` - loput sivut lisättiin Pages CMS:ään
-- `9684dc5` - Pages CMS otettiin käyttöön
-- `541eab0` - LVI-palvelusivujen CTA-linkit käyttävät yhteystietopuhekuplaa
+- `e7ab0d0` - yhteystietosivun henkilöotsikot ja suorat yhteystiedot
+- `e805ccf` - ylimääräiset koristeelliset osioviivat pois
+- `085b4fa` - Miron lomakevalintaan muut LVI-palvelut
+- `63d2bc0` - läpinäkyvä header heti ensilatauksesta
+- `d04a3aa` - CMS-sisällysluettelon uusien kohtien sisältöosiot
+- `f41268d` - Clarity City -fontti koko sivustolle
 
 Tarkista aina `git log -5 --oneline`, koska tämä lista voi jäädä myöhemmistä
 commiteista jälkeen.
