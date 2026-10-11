@@ -273,10 +273,16 @@ commiteista jälkeen.
 - `CmsImage.astro` käsittelee `public/images/`-kuvat Astro-kuvaputken kautta:
   build luo WebP-versiot, srcsetin ja kuvan mitat. CMS:n alkuperäisiä
   kuvapolkuja ei tarvitse vaihtaa. Alkuperäisiä tai raakakuvia ei poisteta.
-- Referenssit ja lomake käyttävät samaa gridiä. Lomakepaneeli määrää kuvan
-  korkeuden. Etusivun parallax mittaa siirtämätöntä sijaintia ja rajoittaa
-  limityksen siten, ettei teksti peity. Liike on pois mobiilissa/tabletissa
-  ja reduced-motion-asetuksella.
+- Herokuvien enimmäisleveys on 1792 px ja ne keskitetään suurilla näytöillä.
+  Etusivun heron korkeus rajataan 832 px:iin; sisältö saa silti kasvattaa
+  korkeutta tarvittaessa pienissä näkymissä. Header ja sisältö pysyvät linjassa.
+- Etusivulla referenssikuva on vasemmalla ja teksti oikealla; seuraavassa
+  yhteydenotto-osiossa lomake on vasemmalla ja kuva oikealla. Ohut jakoviiva
+  ja kuvan 64 px porrastus muodostavat siirtymän ilman erillistä väliosiota.
+  Lomake määrää kuvan korkeuden (lisänä enintään porrastuksen 64 px).
+  Parallax liikuttaa vain kuvaa rajauksen sisällä, ei lomaketta tai osiota.
+  Porrastus huomioi referenssitekstin korkeuden. Liike ja porrastus poistetaan
+  mobiilissa/tabletissa; reduced-motion poistaa liikkeen.
 - Yhteystietosivu: suorat yhteystiedot, lomake, toimiston kartta.
   Palvelusivujen vanha Vantaa-toimipistemaininta yhtenäistettiin muun sivuston
   Helsinki-osoitteen kanssa. LVI-työt-sivun CMS-testiteksti poistettiin;
