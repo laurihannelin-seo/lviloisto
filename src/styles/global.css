@@ -1414,19 +1414,18 @@ h3 {
 .portfolio-contact-transition .portfolio-section {
   position: relative;
   z-index: 1;
-  padding-bottom: clamp(6rem, 8vw, 9rem);
 }
 
 .portfolio-contact-transition .contact-section--home {
   position: relative;
   z-index: 2;
-  margin-top: clamp(-6rem, -6vw, -4rem);
+  margin-top: clamp(-4.5rem, -4vw, -3rem);
   transform: translate3d(0, var(--contact-transition-shift), 0);
   will-change: transform;
 }
 
 .contact-section--home .contact-section__inner {
-  width: min(100%, 120rem);
+  width: min(100%, var(--max-content));
   margin-inline: auto;
 }
 
@@ -3266,7 +3265,7 @@ h3 {
   }
 
   .portfolio-contact-transition .portfolio-section {
-    padding-bottom: 3.75rem;
+    padding-bottom: 0;
   }
 
   .portfolio-contact-transition .contact-section--home {
@@ -4421,6 +4420,10 @@ h3 {
 }
 
 @media (min-width: 1081px) {
+  .contact-section--home .contact-section__inner {
+    width: min(100% - (var(--space-page) * 2), var(--max-content));
+  }
+
   .contact-section--home .contact-section__media {
     position: relative;
   }
@@ -4433,6 +4436,10 @@ h3 {
 }
 
 @media (min-width: 761px) and (max-width: 1080px) {
+  .contact-section--home .contact-section__inner {
+    width: min(100% - (var(--space-page) * 2), var(--max-content));
+  }
+
   .solution-feature,
   .solution-feature:nth-child(even) {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.88fr);
