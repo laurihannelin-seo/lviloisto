@@ -1,0 +1,9 @@
+<script>
+  import { setupScrollReveal } from "../scripts/scroll-reveal";
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupScrollReveal, { once: true });
+  } else {
+    setupScrollReveal();
+  }
+</script>

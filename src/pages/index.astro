@@ -135,11 +135,7 @@ const contactSection = content.contact;
       {
         solutionsSection.items.map((item, index) => (
           <article class="solution-feature page-shell" id={solutionIds[index]}>
-            <figure
-              class="solution-feature__media"
-              data-scroll-image
-              data-reveal-direction={index % 2 === 0 ? "left" : "right"}
-            >
+            <figure class="solution-feature__media">
               <CmsImage src={item.image} alt={item.imageAlt} loading="lazy" />
             </figure>
             <div class="solution-feature__copy">
@@ -157,53 +153,7 @@ const contactSection = content.contact;
     </div>
   </section>
 
-  <script>
-    const revealImages = () => {
-      const images = Array.from(document.querySelectorAll("[data-scroll-image]"));
-
-      if (!images.length) {
-        return;
-      }
-
-      document.documentElement.classList.add("scroll-reveal-ready");
-
-      const reveal = (element) => {
-        element.classList.add("is-visible");
-      };
-
-      if (!("IntersectionObserver" in window)) {
-        images.forEach(reveal);
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            reveal(entry.target);
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          rootMargin: "0px 0px -12% 0px",
-          threshold: 0.18,
-        },
-      );
-
-      images.forEach((image) => observer.observe(image));
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", revealImages, { once: true });
-    } else {
-      revealImages();
-    }
-  </script>
-
-  <div class="portfolio-contact-transition" data-portfolio-contact-transition>
+  <div class="portfolio-contact-transition">
     <section class="portfolio-section portfolio-section--text-only" id="kohteet">
       <div class="portfolio-section__inner page-shell">
         <div class="portfolio-section__body">
@@ -234,7 +184,7 @@ const contactSection = content.contact;
       </div>
     </section>
 
-    <section class="contact-section contact-section--home" id="yhteystiedot" aria-labelledby="contact-heading" data-parallax-panel>
+    <section class="contact-section contact-section--home" id="yhteystiedot" aria-labelledby="contact-heading">
       <div class="contact-section__inner">
         <div class="contact-panel">
           <p class="section-label">{contactSection.label}</p>
@@ -249,58 +199,6 @@ const contactSection = content.contact;
       </div>
     </section>
   </div>
-
-  <script>
-    const setupPortfolioContactTransition = () => {
-      const transition = document.querySelector("[data-portfolio-contact-transition]");
-      const panel = transition?.querySelector("[data-parallax-panel]");
-
-      if (!(transition instanceof HTMLElement) || !(panel instanceof HTMLElement)) return;
-
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const compactLayout = window.matchMedia("(max-width: 900px)");
-      let frame = 0;
-
-      const update = () => {
-        frame = 0;
-
-        if (reducedMotion.matches || compactLayout.matches) {
-          panel.style.setProperty("--contact-image-shift", "0px");
-        }
-        const referenceImage = transition.querySelector(".portfolio-section__image");
-        const referenceContent = transition.querySelector(".portfolio-section__content");
-        // Stagger the photo across the divider without covering reference content.
-        const safeOverlap = referenceImage && referenceContent
-          ? Math.max(0, referenceImage.getBoundingClientRect().bottom - referenceContent.getBoundingClientRect().bottom - 24)
-          : 0;
-        const overlap = compactLayout.matches ? 0 : Math.min(64, safeOverlap);
-        panel.style.setProperty("--contact-image-overlap", `${overlap.toFixed(2)}px`);
-
-        if (reducedMotion.matches || compactLayout.matches) return;
-
-        // Move the image inside its fixed crop, never the form or the section.
-        const bounds = panel.getBoundingClientRect();
-        const progress = Math.min(1, Math.max(0, (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height)));
-        panel.style.setProperty("--contact-image-shift", `${(24 - progress * 48).toFixed(2)}px`);
-      };
-
-      const requestUpdate = () => {
-        if (!frame) frame = window.requestAnimationFrame(update);
-      };
-
-      update();
-      window.addEventListener("scroll", requestUpdate, { passive: true });
-      window.addEventListener("resize", requestUpdate);
-      reducedMotion.addEventListener("change", requestUpdate);
-      compactLayout.addEventListener("change", requestUpdate);
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", setupPortfolioContactTransition, { once: true });
-    } else {
-      setupPortfolioContactTransition();
-    }
-  </script>
 
   <section class="faq-section faq-section--home" aria-labelledby="faq-heading">
     <div class="faq-section__inner page-shell">

@@ -13,11 +13,16 @@ const { src, alt, sizes = "(max-width: 760px) 100vw, (max-width: 1568px) 55vw, 8
 const images = import.meta.glob<ImageMetadata>("/public/images/**/*.{jpg,jpeg,png,webp,avif}", { import: "default" });
 const loadImage = images[`/public${src}`];
 const image = loadImage ? await loadImage() : undefined;
-const widths = image ? [...new Set([480, 800, 1200, 1600, Math.min(image.width, 2400)].filter((width) => width <= image.width))] : [];
+const isHero = attributes.fetchpriority === "high";
+const widths = image ? [...new Set([480, 800, 1200, 1600, 2400, Math.min(image.width, isHero ? 3200 : 2400)].filter((width) => width <= image.width))] : [];
+// A portrait viewport crops a landscape hero: its height, not just width, sets resolution.
+const responsiveSizes = isHero && image && sizes === "100vw"
+  ? `(max-width: 760px) ${Math.ceil(Math.min(image.width, image.width / image.height * 832))}px, 100vw`
+  : sizes;
 ---
 
 {image ? (
-  <Image src={image} alt={alt} width={Math.min(image.width, 1600)} widths={widths} sizes={sizes} format="webp" quality={82} loading={loading} {...attributes} />
+  <Image src={image} alt={alt} width={Math.min(image.width, 1600)} widths={widths} sizes={responsiveSizes} format="webp" quality={82} loading={loading} {...attributes} />
 ) : (
   <img src={src} alt={alt} loading={loading} {...attributes} />
 )}

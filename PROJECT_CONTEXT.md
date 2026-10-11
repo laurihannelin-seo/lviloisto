@@ -273,18 +273,27 @@ commiteista jälkeen.
 - `CmsImage.astro` käsittelee `public/images/`-kuvat Astro-kuvaputken kautta:
   build luo WebP-versiot, srcsetin ja kuvan mitat. CMS:n alkuperäisiä
   kuvapolkuja ei tarvitse vaihtaa. Alkuperäisiä tai raakakuvia ei poisteta.
-- Koko sivun (body, header, kaikki osiot ja footer) enimmäisleveys on sama
-  1792 px kuin herokuvilla. Sivukehys keskitetään suurilla näytöillä;
-  osioiden taustat eivät jatku sen ulkopuolelle. Sisältögridin raja on 1440 px.
-  Etusivun heron korkeus rajataan 832 px:iin; sisältö saa silti kasvattaa
+- SIHA/Fume-suunnan mukaisesti body, header, herot ja osioiden taustat
+  täyttävät selainleveyden. Vanha 1792 px sivukehys poistettiin, jotta
+  heron ympärille ei jää erivärisiä sivupalkkeja. Sisältögridin raja on
+  edelleen 1440 px ja pitkät tekstikappaleet rajataan erikseen.
+  Etusivun heron tavoitekorkeus rajataan 832 px:iin; sisältö saa kasvattaa
   korkeutta tarvittaessa pienissä näkymissä. Header ja sisältö pysyvät linjassa.
 - Etusivulla referenssikuva on vasemmalla ja teksti oikealla; seuraavassa
-  yhteydenotto-osiossa lomake on vasemmalla ja kuva oikealla. Ohut jakoviiva
-  ja kuvan 64 px porrastus muodostavat siirtymän ilman erillistä väliosiota.
-  Lomake määrää kuvan korkeuden (lisänä enintään porrastuksen 64 px).
-  Parallax liikuttaa vain kuvaa rajauksen sisällä, ei lomaketta tai osiota.
-  Porrastus huomioi referenssitekstin korkeuden. Liike ja porrastus poistetaan
-  mobiilissa/tabletissa; reduced-motion poistaa liikkeen.
+  yhteydenotto-osiossa lomake on vasemmalla ja kuva oikealla. Kuva-/tekstirivit
+  jakavat saman gridin ja kuvat käyttävät pääosin 4:3-rajausta. Kuvallisten
+  osioiden väli on desktopilla 72 px ja mobiilissa 48 px. Vanha 64 px
+  porrastus, päällekkäisyys ja erillinen parallax poistettiin.
+  Lomake määrää yhteydenottokuvan korkeuden, ei päinvastoin.
+- `ScrollReveal.astro` ja `src/scripts/scroll-reveal.ts` lisäävät kaikille
+  sivuille yhteisen IntersectionObserver-sisääntulon: kuvat häivyttyvät ja
+  nousevat kevyesti, teksti vain häivyttyy. Lomaketta ei animoida. Vain aluksi
+  näkymän ulkopuolella olevat elementit animoidaan kerran. Näppäimistöfokus,
+  reduced-motion ja selaimen historiapalautus näyttävät sisällön heti;
+  ilman JavaScriptiä sisältö pysyy näkyvänä. Älä lisää rinnakkaisia kuvaefektejä.
+- Hero-kuvien srcset sisältää tarvittaessa myös 3200 px version. Mobiilin
+  sizes huomioi vaakakuvan korkean cover-rajauksen, jotta kuva ei sumentuisi
+  liian pienen kuvatiedoston vuoksi. CMS-kuvapolut ja omat kuvat säilyvät.
 - Yhteystietosivu: suorat yhteystiedot, lomake, toimiston kartta.
   Palvelusivujen vanha Vantaa-toimipistemaininta yhtenäistettiin muun sivuston
   Helsinki-osoitteen kanssa. LVI-työt-sivun CMS-testiteksti poistettiin;
@@ -296,3 +305,9 @@ commiteista jälkeen.
   Resend-domainin DNS-vahvistus on yhä erillinen julkaisun edellytys.
 - Oikeat referenssitiedot ja workshopin arvotekstit täydennetään asiakkaan
   kanssa. Niitä ei keksitty ulkoasun korjauskierroksella.
+- Uuden kuvarytmin tarkistukset: kaikki 6 sivua 320/390/768/1440/2560/4096 px
+  selainleveyksillä ilman vaakasuuntaista ylivuotoa, mobiilin puhekuplat ja
+  kuvagallerian seuraava kuva. Referenssi-/yhteydenottoväli mitattu 72 px;
+  lomake ja viereinen kuva saman korkuiset. `npm run build` menee läpi.
+  `node --test tests/scroll-reveal.test.mjs` suorittaa 5 sisääntulon,
+  näppäimistöfokuksen ja reduced-motionin regressiotestiä.
