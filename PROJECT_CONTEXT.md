@@ -25,7 +25,8 @@ on jäänyt päivityksistä jälkeen.
   tiedostossa `.pages.yml`
 - Pages CMS muokkaa `src/content/cms/*.json`-tiedostoja ja tallentaa muutokset
   suoraan GitHubin `main`-haaraan
-- Ei erillistä backendia; Astro rakentaa JSON-sisällöstä staattisen sivuston
+- Astro rakentaa JSON-sisällöstä staattisen sivuston. Tarjouspyyntölomakkeen
+  lähetys toimii Cloudflare Pages Function -reitillä `/api/contact`.
 - Fontti: paikalliset Clarity City Variable -fonttitiedostot `public/fonts/`-kansiossa
 - Päätyylit: `src/styles/global.css`
 - Yhteinen layout: `src/layouts/BaseLayout.astro`
@@ -171,9 +172,11 @@ tarjouspyyntölomaketta kuin etusivulla.
   Matias (arvoasunnot ja rakennusliikkeet) tai Miro (omakotitalot,
   taloyhtiöt ja muut LVI-palvelut). Yhteystietopuhekuplassa ovat molemmat
   puhelinnumerot ja sähköpostit.
-- Lomakkeen nykyinen lähetys käyttää `mailto:`-osoitetta ja käyttäjän
-  sähköpostiohjelmaa. Erillistä palvelinpuolen lähetysjärjestelmää tai
-  toimivaa liitteiden lähetystä ei ole; älä kuvaa sitä valmiina.
+- Lomake lähettää tiedot Cloudflare Pages Functionin kautta Resend-palveluun.
+  Cloudflare-projektin tuotanto- ja preview-ympäristöissä pitää olla salainen
+  `RESEND_API_KEY`. Lähettäjä on oletuksena `verkkosivut@lviloisto.fi`, joten
+  `lviloisto.fi` pitää olla vahvistettu Resendissä. Valittu vastaanottaja
+  (Matias tai Miro) ratkaistaan palvelinpuolella. Liitteitä ei tueta.
 - Sivuston CMS-sisältöä muutettiin samana päivänä useilla erillisillä
   commiteilla. Koodi ja `git log` ovat aina ensisijaisia tähän koosteeseen
   nähden.

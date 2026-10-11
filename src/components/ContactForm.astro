@@ -6,45 +6,123 @@ interface Props {
 const { submitLabel = "Lähetä tarjouspyyntö" } = Astro.props;
 ---
 
-<form class="contact-form" action="mailto:matias.ryynanen@lviloisto.fi" method="post" enctype="text/plain">
+<form class="contact-form" action="/api/contact" method="post">
   <div class="form-field">
     <label for="contact-name">Nimi</label>
-    <input id="contact-name" name="Nimi" type="text" autocomplete="name" required />
+    <input id="contact-name" name="name" type="text" autocomplete="name" maxlength="120" required />
   </div>
 
   <div class="contact-form__row">
     <div class="form-field">
       <label for="contact-email">Sähköposti</label>
-      <input id="contact-email" name="Sähköposti" type="email" autocomplete="email" required />
+      <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required />
     </div>
 
     <div class="form-field">
       <label for="contact-phone">Puhelin</label>
-      <input id="contact-phone" name="Puhelin" type="tel" autocomplete="tel" />
+      <input id="contact-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" />
     </div>
   </div>
 
   <div class="form-field">
     <label for="contact-location">Kohteen sijainti</label>
-    <input id="contact-location" name="Kohteen sijainti" type="text" autocomplete="address-level2" />
+    <input id="contact-location" name="location" type="text" autocomplete="address-level2" maxlength="160" />
   </div>
 
   <div class="form-field">
     <label for="contact-message">Viesti</label>
-    <textarea id="contact-message" name="Viesti" rows="5" required></textarea>
+    <textarea id="contact-message" name="message" rows="5" maxlength="5000" required></textarea>
+  </div>
+
+  <div class="contact-form__honeypot" aria-hidden="true">
+    <label for="contact-company">Yritys</label>
+    <input id="contact-company" name="company" type="text" autocomplete="off" tabindex="-1" />
   </div>
 
   <details class="contact-form__send">
     <summary class="contact-form__button">{submitLabel}</summary>
     <div class="contact-form__recipients" aria-label="Valitse vastaanottaja">
-      <button type="submit" formaction="mailto:matias.ryynanen@lviloisto.fi" aria-label="Matias - Arvoasunnot ja rakennusliikkeet">
+      <button type="submit" name="recipient" value="matias" aria-label="Matias - Arvoasunnot ja rakennusliikkeet">
         <span>Matias -</span>
         <span>Arvoasunnot &amp; Rakennusliikkeet</span>
       </button>
-      <button type="submit" formaction="mailto:miro.sorjonen@lviloisto.fi" aria-label="Miro - Omakotitalot &amp; Taloyhtiöt &amp; Muut LVI-Palvelut">
+      <button type="submit" name="recipient" value="miro" aria-label="Miro - Omakotitalot &amp; Taloyhtiöt &amp; Muut LVI-Palvelut">
         <span>Miro -</span>
         <span>Omakotitalot &amp; Taloyhtiöt &amp; Muut LVI-Palvelut</span>
       </button>
     </div>
   </details>
+
+  <p class="contact-form__status" role="status" aria-live="polite"></p>
 </form>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>(".contact-form");
+
+  for (const form of forms) {
+    if (form.dataset.enhanced === "true") continue;
+    form.dataset.enhanced = "true";
+
+    const status = form.querySelector<HTMLElement>(".contact-form__status");
+    const recipientButtons = Array.from(
+      form.querySelectorAll<HTMLButtonElement>('.contact-form__recipients button[type="submit"]'),
+    );
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const submitter = event.submitter;
+      if (!(submitter instanceof HTMLButtonElement)) return;
+
+      const recipient = submitter.value;
+      const formData = new FormData(form);
+      const payload = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        location: formData.get("location"),
+        message: formData.get("message"),
+        company: formData.get("company"),
+        recipient,
+      };
+
+      form.setAttribute("aria-busy", "true");
+      recipientButtons.forEach((button) => (button.disabled = true));
+      if (status) {
+        status.dataset.state = "pending";
+        status.textContent = "Lähetetään viestiä...";
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          throw new Error(result?.message || "Viestin lähetys epäonnistui.");
+        }
+
+        form.reset();
+        form.querySelector<HTMLDetailsElement>(".contact-form__send")?.removeAttribute("open");
+        if (status) {
+          status.dataset.state = "success";
+          status.textContent = "Kiitos! Viestisi on lähetetty. Olemme sinuun yhteydessä pian.";
+        }
+      } catch (error) {
+        if (status) {
+          status.dataset.state = "error";
+          status.textContent =
+            error instanceof Error
+              ? error.message
+              : "Viestin lähetys ei onnistunut. Yritä uudelleen tai ota yhteyttä puhelimitse.";
+        }
+      } finally {
+        form.removeAttribute("aria-busy");
+        recipientButtons.forEach((button) => (button.disabled = false));
+      }
+    });
+  }
+</script>
