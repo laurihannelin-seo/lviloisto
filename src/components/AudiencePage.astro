@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import CmsImage from "./CmsImage.astro";
+import ContactAction from "./ContactAction.astro";
+import ServiceContentSection from "./ServiceContentSection.astro";
+
+interface Props {
+  label: string;
+  content: {
+    noindex: boolean;
+    seo: { title: string; description: string };
+    hero: { title: string; intro: string; image: string; imageAlt: string };
+    introSection: { title: string; body: string[] };
+    services: { title: string; intro: string; items: { title: string; text: string }[] };
+    working: { title: string; body: string[] };
+    contact: { title: string; text: string; cta: string };
+  };
+}
+
+const { content, label } = Astro.props;
+---
+
+<BaseLayout title={content.seo.title} description={content.seo.description} headerTheme="dark" pageClass="audience-page" noindex={content.noindex}>
+  <section class="service-page-hero audience-page__hero" aria-labelledby="audience-heading">
+    <CmsImage src={content.hero.image} alt={content.hero.imageAlt} sizes="100vw" fetchpriority="high" class="service-page-hero__image" />
+    <div class="service-page-hero__shade" aria-hidden="true"></div>
+    <div class="service-page-hero__inner page-shell">
+      <Breadcrumbs variant="dark" items={[{ label: "Etusivu", href: "/" }, { label: "Palvelumme", href: "/tietoa-meista/" }, { label }]} />
+      <div class="service-page-hero__copy">
+        <h1 id="audience-heading">{content.hero.title}</h1>
+        <p>{content.hero.intro}</p>
+        <div class="service-page-hero__actions"><ContactAction id="audience-hero-contact" label={content.contact.cta} hero /></div>
+      </div>
+    </div>
+  </section>
+  <div class="service-content-page">
+    <ServiceContentSection id="palvelu" title={content.introSection.title}>
+      <div class="service-prose">{content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}</div>
+    </ServiceContentSection>
+    <ServiceContentSection id="lvi-ratkaisut" title={content.services.title} intro={content.services.intro}>
+      <div class="service-detail-grid">
+        {content.services.items.map((item) => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
+      </div>
+    </ServiceContentSection>
+    <ServiceContentSection id="toimintatapa" title={content.working.title}>
+      <div class="service-prose">{content.working.body.map((paragraph) => <p>{paragraph}</p>)}</div>
+      <div class="audience-page__service-links"><a class="text-link" href="/lvi-tyot/">LVI-työt <span aria-hidden="true">→</span></a><a class="text-link" href="/lvi-urakointi/">LVI-urakointi <span aria-hidden="true">→</span></a></div>
+    </ServiceContentSection>
+  </div>
+  <section class="audience-page__contact-section" aria-labelledby="audience-contact-heading">
+    <div class="page-shell audience-page__contact-inner">
+      <div><h2 id="audience-contact-heading">{content.contact.title}</h2><p>{content.contact.text}</p></div>
+      <div class="audience-page__contact-actions"><ContactAction id="audience-final-contact" label={content.contact.cta} /><a class="text-link" href="/yhteystiedot/#contact-heading">Jätä yhteydenottopyyntö <span aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+</BaseLayout>

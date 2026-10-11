@@ -1,5 +1,6 @@
 ---
 import contactContent from "../content/cms/yhteystiedot.json";
+import { audiencePages } from "../data/audience-pages";
 const groups = contactContent.detailsSection.groups;
 ---
 <footer class="site-footer">
@@ -8,7 +9,7 @@ const groups = contactContent.detailsSection.groups;
       <a class="site-footer__brand" href="/" aria-label="LVI-Loisto Oy etusivulle"><img src="/lvi-loisto-logo.svg" alt="LVI-Loisto Oy" width="200" height="28" loading="lazy" /></a>
       {groups.filter((group) => group.kind === "company").map((group) => <address>{group.items.map((item) => <span>{item.text}</span>)}</address>)}
     </div>
-    <nav aria-label="Palvelut"><h2>Palvelut</h2><a href="/tietoa-meista/">Palvelumme</a><a href="/lvi-tyot/">LVI-työt</a><a href="/lvi-urakointi/">LVI-urakointi</a></nav>
+    <nav aria-label="Palvelut"><h2>Palvelut</h2><a href="/tietoa-meista/">Palvelumme</a>{audiencePages.map((page) => <a href={page.href}>{page.label}</a>)}<a href="/lvi-tyot/">LVI-työt</a><a href="/lvi-urakointi/">LVI-urakointi</a></nav>
     <nav aria-label="Yritys"><h2>Yritys</h2><a href="/yrityksemme/">Yrityksemme</a><a href="/yhteystiedot/">Yhteystiedot</a></nav>
     <div class="site-footer__contacts"><h2>Ota yhteyttä</h2>{groups.filter((group) => group.kind === "person").map((group) => <div><p>{group.label}</p>{group.items.filter((item) => item.href).map((item) => <a href={item.href}>{item.text}</a>)}</div>)}</div>
   </div>

@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CmsImage from "../components/CmsImage.astro";
 import ContactForm from "../components/ContactForm.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import content from "../content/cms/yhteystiedot.json";
 
 const title = content.seo.title;
@@ -16,7 +17,7 @@ const formLinkWord = "lomakkeen";
 const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
 ---
 
-<BaseLayout title={title} description={description} headerTheme="dark">
+<BaseLayout title={title} description={description} headerTheme="dark" pageClass="contact-content-page">
   <section class="contact-details-section contact-details-section--hero" aria-labelledby="page-heading">
     <CmsImage
       sizes="100vw"
@@ -27,6 +28,7 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
     />
     <div class="contact-details-section__shade" aria-hidden="true"></div>
     <div class="contact-details-section__inner page-shell">
+      <Breadcrumbs variant="dark" items={[{ label: "Etusivu", href: "/" }, { label: "Yhteystiedot" }]} />
       <div class="contact-details-section__header">
         <h1 id="page-heading">{content.detailsSection.title}</h1>
         <p>
@@ -63,7 +65,6 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
         <CmsImage src={contactPage.image} alt={contactPage.imageAlt} loading="lazy" />
       </figure>
       <div class="contact-panel">
-        <p class="section-label">{contactPage.label}</p>
         <h2 id="contact-heading">{contactPage.title}</h2>
         <p class="contact-panel__intro">{contactPage.intro}</p>
         <ContactForm submitLabel={contactPage.submitLabel} />
@@ -83,7 +84,7 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
         </div>
       </div>
 
-      <div class="map-section__frame">
+      <div class="map-section__frame" data-reveal="media">
         <iframe
           src={mapSection.iframeSrc}
           width="100%"

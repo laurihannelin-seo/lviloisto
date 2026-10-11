@@ -14,6 +14,47 @@ settings:
       update: "Sisältöpäivitys: {name} ({userName})"
 
 components:
+  audience_hero:
+    type: object
+    label: Hero / intro
+    fields:
+      - { name: title, label: Pääotsikko, type: string, required: true }
+      - { name: intro, label: Lyhyt ingressi, type: text, required: true }
+      - { name: image, label: Oma kuva, type: image, required: true }
+      - { name: imageAlt, label: Kuvan alt-teksti, type: string, required: true }
+
+  audience_prose:
+    type: object
+    label: Tekstiosio
+    fields:
+      - { name: title, label: Otsikko, type: string, required: true }
+      - name: body
+        label: Tekstikappaleet
+        type: text
+        list: { min: 1, max: 4 }
+
+  audience_services:
+    type: object
+    label: Palvelut kohderyhmälle
+    fields:
+      - { name: title, label: Otsikko, type: string, required: true }
+      - { name: intro, label: Lyhyt esittely, type: text }
+      - name: items
+        label: Palvelunostot
+        component: text_item
+        list:
+          min: 1
+          max: 6
+          collapsible: { collapsed: true, summary: "{title}" }
+
+  audience_contact:
+    type: object
+    label: Yhteydenotto
+    fields:
+      - { name: title, label: Otsikko, type: string, required: true }
+      - { name: text, label: Lyhyt teksti, type: text, required: true }
+      - { name: cta, label: Painikkeen teksti, type: string, required: true }
+
   seo:
     type: object
     label: Hakukonenäkyvyys
@@ -131,6 +172,78 @@ components:
             hidden: true
 
 content:
+  - name: arvoasunnot
+    label: Arvoasunnot
+    type: file
+    path: src/content/cms/arvoasunnot.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - name: noindex
+        label: Estä hakukoneindeksointi
+        type: boolean
+        description: Pidä päällä, kun sivulla on paikkamerkkitekstejä. Poista esto vasta, kun asiakas on viimeistellyt sisällön.
+      - { name: seo, component: seo }
+      - { name: hero, component: audience_hero }
+      - { name: introSection, label: Palvelun esittely, component: audience_prose }
+      - { name: services, component: audience_services }
+      - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: contact, component: audience_contact }
+
+  - name: omakotitalot
+    label: Omakotitalot
+    type: file
+    path: src/content/cms/omakotitalot.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - name: noindex
+        label: Estä hakukoneindeksointi
+        type: boolean
+        description: Poista esto vasta, kun paikkamerkkitekstit on korvattu valmiilla sisällöllä.
+      - { name: seo, component: seo }
+      - { name: hero, component: audience_hero }
+      - { name: introSection, label: Palvelun esittely, component: audience_prose }
+      - { name: services, component: audience_services }
+      - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: contact, component: audience_contact }
+
+  - name: taloyhtiot
+    label: Taloyhtiöt
+    type: file
+    path: src/content/cms/taloyhtiot.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - name: noindex
+        label: Estä hakukoneindeksointi
+        type: boolean
+        description: Poista esto vasta, kun paikkamerkkitekstit on korvattu valmiilla sisällöllä.
+      - { name: seo, component: seo }
+      - { name: hero, component: audience_hero }
+      - { name: introSection, label: Palvelun esittely, component: audience_prose }
+      - { name: services, component: audience_services }
+      - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: contact, component: audience_contact }
+
+  - name: rakennusliikkeet
+    label: Rakennusliikkeet
+    type: file
+    path: src/content/cms/rakennusliikkeet.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - name: noindex
+        label: Estä hakukoneindeksointi
+        type: boolean
+        description: Poista esto vasta, kun paikkamerkkitekstit on korvattu valmiilla sisällöllä.
+      - { name: seo, component: seo }
+      - { name: hero, component: audience_hero }
+      - { name: introSection, label: Palvelun esittely, component: audience_prose }
+      - { name: services, component: audience_services }
+      - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: contact, component: audience_contact }
+
   - name: home
     label: Etusivu
     type: file
@@ -191,6 +304,9 @@ content:
                 collapsed: true
                 summary: "{title}"
             fields:
+              - name: href
+                type: string
+                hidden: true
               - name: title
                 label: Otsikko
                 type: string

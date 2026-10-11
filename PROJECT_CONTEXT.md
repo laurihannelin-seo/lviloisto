@@ -164,8 +164,8 @@ tarjouspyyntölomaketta kuin etusivulla.
   teksti on linjassa etusivun heron kanssa. Hero ei näytä Arvomme-pikkuotsikkoa.
 - `/yhteystiedot/`-sivun hero käyttää CMS-kuvaa. Herossa ovat yrityksen,
   Matiaksen ja Miron yhteystiedot; henkilöiden otsikkoina ovat koko nimet,
-  ja heti alla ovat puhelinnumero ja sähköposti. Toimistomme-kartta on heron
-  jälkeen, tarjouspyyntölomake viimeisenä. Heron ingressin lomake-linkki
+  ja heti alla ovat puhelinnumero ja sähköposti. Tarjouspyyntölomake on heron
+  jälkeen, Toimistomme-kartta viimeisenä. Heron ingressin lomake-linkki
   vie lomakkeelle. Kartan vieressä on Google Maps- ja Apple Kartat -linkit.
 - Jaettu `ContactForm.astro` sisältää nimen, sähköpostin, puhelimen,
   kohteen sijainnin ja viestin. Lähetyksen vastaanottaja valitaan lopuksi:
@@ -212,7 +212,8 @@ ja kuuluvat Git-repositorioon.
   Node.js- tai Astro-asennusta ei tarvita pelkkään sisältöjen muokkaamiseen.
 - CMS:n sivuvalikossa ovat tällä hetkellä Etusivu, Tietoa meistä -nosto,
   Yhteystiedot-sivu, Tietoa meistä -sivu, LVI-työt-sivu,
-  LVI-urakointi-sivu ja Yrityksemme-sivu.
+  LVI-urakointi-sivu, Yrityksemme-sivu sekä Arvoasunnot, Omakotitalot,
+  Taloyhtiöt ja Rakennusliikkeet.
 - CMS:n tallennus tekee Git-commitin suoraan `main`-haaraan. Cloudflare Pages
   julkaisee commitin automaattisesti.
 - Jos sisältöä on muutettu CMS:ssä, aja paikallisessa projektissa aina
@@ -230,6 +231,10 @@ src/content/cms/tietoa-meista.json
 src/content/cms/lvi-tyot.json
 src/content/cms/lvi-urakointi.json
 src/content/cms/yrityksemme.json
+src/content/cms/arvoasunnot.json
+src/content/cms/omakotitalot.json
+src/content/cms/taloyhtiot.json
+src/content/cms/rakennusliikkeet.json
 ```
 
 ## Työskentely Codexin kanssa
@@ -311,3 +316,43 @@ commiteista jälkeen.
   lomake ja viereinen kuva saman korkuiset. `npm run build` menee läpi.
   `node --test tests/scroll-reveal.test.mjs` suorittaa 5 sisääntulon,
   näppäimistöfokuksen ja reduced-motionin regressiotestiä.
+
+## Kohderyhmäsivut ja sisältösivujen viimeistely 11.10.2026
+
+- Palvelumme säilyy linkkinä yleissivulle `/tietoa-meista/`. Viereinen
+  nuolipainike avaa alavalikon: Arvoasunnot, Omakotitalot, Taloyhtiöt,
+  Rakennusliikkeet. Desktopilla myös linkin hover avaa alavalikon.
+  Valikko toimii kosketuksella ja näppäimistöllä; Escape palauttaa fokuksen,
+  ulkopuolinen klikkaus ja linkin valinta sulkevat valikon. Mobiilivalikko
+  scrollaa tarvittaessa, jotta kaikki kohteet ovat käytettävissä.
+- Uudet URL:t: `/arvoasunnot/`, `/omakotitalot/`, `/taloyhtiot/`,
+  `/rakennusliikkeet/`. Reitit tulevat `src/pages/[audience].astro`:sta ja
+  jakavat `AudiencePage.astro`-pohjan. Navigaatiotiedot ovat
+  `src/data/audience-pages.ts`:ssä.
+- Sivupohja on lyhyt: oma kuvallinen hero, palvelun esittely, palvelunostot,
+  toimintatapa ja yhteydenotto. Lyhyet hakasulkeissa olevat tekstit ovat
+  asiakkaan täytettäviä paikkamerkkejä, eivät lopullisia palvelulupauksia.
+  Kuvat ovat projektin omia; uusia ulkopuolisia kuvia ei lisätty.
+- Kaikki neljä sivua ovat Pages CMS:n tiedostosisältöjä. Jaetut kenttämallit
+  ovat `.pages.yml`:ssä. `noindex: true` estää paikkamerkkisivujen indeksoinnin.
+  Asiakas poistaa CMS:n "Estä hakukoneindeksointi" -valinnan vasta, kun
+  sivun tekstit ja SEO-tiedot on viimeistelty.
+- Etusivun neljän palveluosion Katso lisää -linkit sekä footer vievät uusiin
+  sivuihin. Etusivun JSON:n palvelun `href` säilyy osion mukana myös CMS:ssä
+  uudelleenjärjestettäessä; kenttä on CMS:ssä piilotettu. Älä sido näitä
+  sivulinkkejä pelkkään listan järjestysnumeroon.
+- `ContactAction.astro` käyttää yhteistä `ContactPopover.astro`:a. Uusien
+  sivujen hero- ja loppu-CTA avaavat yhteystietokuplan. Desktopin loppukupla
+  avautuu painikkeen oikeaan reunaan sidottuna, mobiilissa sisällön joukossa.
+- LVI-urakoinnin introkuva on nyt otsikon ja koko tekstipalstan vieressä,
+  prosessivaiheet desktopilla 2 x 2 ja mobiilissa allekkain. LVI-työt käyttää
+  samoja rajattuja kuvakokoja ja yhtenäistä CTA-gridiä. Yhteystietosivulle
+  lisättiin murupolku, henkilöotsikot ovat normaalikokoisia ja lomake/kartta
+  noudattavat yhteistä kuvallisten osioiden rytmiä. Nykyiset sisällöt säilyivät.
+- Tarkistukset: seitsemän muutettua/uuden pohjan sivua 320/390/768/1440/2560 px,
+  muiden kolmen sivun valikko/leveys 320/768/1440/4096 px. Ei vaakaylivuotoa.
+  Näppäimistö, mobiilialavalikko, uusien sivujen puhekuplat 320–1440 px ja
+  vanhat palvelusivujen mobiilikuplat tarkistettu selaimessa.
+- `npm.cmd run build` tuottaa 10 sivua. `node --test
+  tests/scroll-reveal.test.mjs tests/audience-pages.test.mjs` suorittaa
+  8 testiä: sisääntulot, CMS-kentät, omat kuvat, SEO ja uudet sivulinkit.

@@ -1,0 +1,9 @@
+{
+  "noindex": true,
+  "seo": { "title": "LVI-kumppani rakennusliikkeille | LVI-Loisto", "description": "LVI-Loiston palvelut rakennusliikkeille. Tutustu palveluihin ja keskustele kohteestasi." },
+  "hero": { "title": "Rakennusliikkeet", "intro": "[Kirjoita lyhyt esittely LVI-Loiston palveluista rakennusliikkeille.]", "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp", "imageAlt": "Putkiasennuksia ja jakotukki rakenteilla olevassa kohteessa" },
+  "introSection": { "title": "LVI-kumppani rakennusliikkeille", "body": ["[Kuvaa asiakkaan tarpeet, kohteen erityispiirteet ja se, miten LVI-Loisto auttaa.]", "[Täydennä lyhyesti toteutuksen laajuutta ja asiakkaalle olennaisia asioita.]"] },
+  "services": { "title": "Mitä tarjoamme", "intro": "[Esittele tähän kohderyhmään sopivat palvelut lyhyesti.]", "items": [{ "title": "[Palvelu 1]", "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]" }, { "title": "[Palvelu 2]", "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]" }, { "title": "[Palvelu 3]", "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]" }, { "title": "[Palvelu 4]", "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]" }] },
+  "working": { "title": "Näin työskentelemme kohteessasi", "body": ["[Kerro yhteydenotosta, kartoituksesta ja toteutuksen suunnittelusta.]", "[Kuvaa, miten työ sovitetaan kohteen arkeen ja muihin työvaiheisiin.]"] },
+  "contact": { "title": "Keskustele kohteestasi", "text": "Kerro meille kohteesta ja tarvitsemistasi LVI-töistä.", "cta": "Keskustele kohteestasi" }
+}

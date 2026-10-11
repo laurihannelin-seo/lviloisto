@@ -1,4 +1,5 @@
 ---
+import { audiencePages } from "../data/audience-pages";
 interface Props {
   initialTheme?: "dark" | "light";
 }
@@ -6,7 +7,7 @@ interface Props {
 const { initialTheme } = Astro.props;
 const currentPath = Astro.url.pathname;
 const navigation = [
-  { href: "/tietoa-meista/", label: "Palvelumme", active: ["/tietoa-meista/", "/lvi-tyot/", "/lvi-urakointi/"].includes(currentPath) },
+  { href: "/tietoa-meista/", label: "Palvelumme", active: ["/tietoa-meista/", "/lvi-tyot/", "/lvi-urakointi/", ...audiencePages.map((page) => page.href)].includes(currentPath) },
   { href: "/yrityksemme/", label: "Yrityksemme", active: currentPath === "/yrityksemme/" },
   { href: "/yhteystiedot/", label: "Yhteystiedot", active: currentPath === "/yhteystiedot/" },
 ];
@@ -22,7 +23,17 @@ const navigation = [
     </a>
     <button class="site-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">Valikko</button>
     <nav class="site-nav" id="site-navigation" aria-label="Päänavigaatio">
-      {navigation.map((item) => <a href={item.href} aria-current={item.active && currentPath === item.href ? "page" : undefined} class:list={{ "is-current": item.active }}>{item.label}</a>)}
+      {navigation.map((item, index) => index === 0 ? (
+        <div class="site-nav__group" data-service-navigation>
+          <div class="site-nav__parent">
+            <a href={item.href} aria-current={currentPath === item.href ? "page" : undefined} class:list={{ "is-current": item.active }}>{item.label}</a>
+            <button class="site-nav__expand" type="button" aria-label="Avaa palveluvalikko" aria-expanded="false" aria-controls="service-navigation"><span aria-hidden="true"></span></button>
+          </div>
+          <ul class="site-nav__submenu" id="service-navigation" hidden>
+            {audiencePages.map((page) => <li><a href={page.href} aria-current={currentPath === page.href ? "page" : undefined}>{page.label}</a></li>)}
+          </ul>
+        </div>
+      ) : <a href={item.href} aria-current={item.active ? "page" : undefined} class:list={{ "is-current": item.active }}>{item.label}</a>)}
       <div class="site-nav__services">
         <a href="/lvi-tyot/" aria-current={currentPath === "/lvi-tyot/" ? "page" : undefined}>LVI-työt</a>
         <a href="/lvi-urakointi/" aria-current={currentPath === "/lvi-urakointi/" ? "page" : undefined}>LVI-urakointi</a>
@@ -43,21 +54,44 @@ const navigation = [
     const toggle = header.querySelector<HTMLButtonElement>(".site-menu-toggle");
     const nav = header.querySelector<HTMLElement>(".site-nav");
     const mobile = window.matchMedia("(max-width: 760px)");
+    const serviceGroup = header.querySelector<HTMLElement>("[data-service-navigation]");
+    const serviceToggle = serviceGroup?.querySelector<HTMLButtonElement>(".site-nav__expand");
+    const serviceLinks = serviceGroup?.querySelector<HTMLElement>(".site-nav__submenu");
+    const setServicesOpen = (open: boolean, returnFocus = false) => {
+      if (serviceLinks) serviceLinks.hidden = !open;
+      serviceToggle?.setAttribute("aria-expanded", String(open));
+      serviceToggle?.setAttribute("aria-label", open ? "Sulje palveluvalikko" : "Avaa palveluvalikko");
+      if (returnFocus) serviceToggle?.focus();
+    };
     const setMenuOpen = (open: boolean, returnFocus = false) => {
       header.classList.toggle("site-header--menu-open", open);
       toggle?.setAttribute("aria-expanded", String(open));
       if (toggle) toggle.textContent = open ? "Sulje" : "Valikko";
       if (nav) nav.inert = mobile.matches && !open;
+      if (!open) setServicesOpen(false);
       if (returnFocus) toggle?.focus();
     };
     setMenuOpen(false);
     toggle?.addEventListener("click", () => setMenuOpen(toggle.getAttribute("aria-expanded") !== "true"));
+    serviceToggle?.addEventListener("click", () => setServicesOpen(serviceToggle.getAttribute("aria-expanded") !== "true"));
+    serviceGroup?.querySelector("a")?.addEventListener("pointerenter", (event) => {
+      if (!mobile.matches && event.pointerType === "mouse") setServicesOpen(true);
+    });
+    serviceGroup?.addEventListener("pointerleave", (event) => {
+      if (!mobile.matches && event.pointerType === "mouse" && !serviceGroup.contains(document.activeElement)) setServicesOpen(false);
+    });
+    serviceGroup?.addEventListener("focusout", (event) => {
+      if (!serviceGroup.contains(event.relatedTarget as Node | null)) setServicesOpen(false);
+    });
     nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setMenuOpen(false)));
     mobile.addEventListener("change", () => setMenuOpen(false));
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") setMenuOpen(false, true);
+      if (event.key !== "Escape") return;
+      if (serviceToggle?.getAttribute("aria-expanded") === "true") setServicesOpen(false, true);
+      else if (toggle?.getAttribute("aria-expanded") === "true") setMenuOpen(false, true);
     });
     document.addEventListener("pointerdown", (event) => {
+      if (!serviceGroup?.contains(event.target as Node)) setServicesOpen(false);
       if (!header.contains(event.target as Node)) setMenuOpen(false);
     });
 

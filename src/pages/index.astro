@@ -145,7 +145,7 @@ const contactSection = content.contact;
                   <p>{paragraph.trim()}</p>
                 ))
               }
-              <a class="text-link solution-feature__link" href="/tietoa-meista/">Katso lisää</a>
+              <a class="text-link solution-feature__link" href={item.href || "/tietoa-meista/"} aria-label={`Katso lisää: ${item.title}`}>Katso lisää</a>
             </div>
           </article>
         ))

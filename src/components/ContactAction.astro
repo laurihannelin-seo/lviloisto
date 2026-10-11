@@ -1,0 +1,49 @@
+---
+import ContactPopover from "./ContactPopover.astro";
+
+interface Props {
+  id: string;
+  label: string;
+  hero?: boolean;
+}
+
+const { id, label, hero = false } = Astro.props;
+---
+
+<div class:list={["contact-action", { "service-page-hero__contact": hero }]} data-contact-action>
+  <button class={hero ? "service-page-hero__primary" : "contact-action__button"} type="button" aria-controls={id} aria-expanded="false" data-contact-action-trigger>{label}</button>
+  <ContactPopover id={id} className={hero ? "service-page-contact-popover" : "contact-action__popover"} />
+</div>
+
+<script>
+  const actions = Array.from(document.querySelectorAll<HTMLElement>("[data-contact-action]"));
+  const setOpen = (action: HTMLElement, open: boolean, returnFocus = false) => {
+    const trigger = action.querySelector<HTMLButtonElement>("[data-contact-action-trigger]");
+    const popover = action.querySelector<HTMLElement>('[role="region"]');
+    if (!trigger || !popover) return;
+    popover.hidden = !open;
+    trigger.setAttribute("aria-expanded", String(open));
+    if (returnFocus) trigger.focus();
+  };
+  actions.forEach((action) => {
+    const trigger = action.querySelector<HTMLButtonElement>("[data-contact-action-trigger]");
+    trigger?.addEventListener("click", () => {
+      const open = trigger.getAttribute("aria-expanded") !== "true";
+      actions.forEach((other) => setOpen(other, false));
+      setOpen(action, open);
+    });
+    action.querySelector('[aria-label="Sulje yhteystiedot"]')?.addEventListener("click", () => setOpen(action, false, true));
+    action.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(action, false)));
+  });
+  document.addEventListener("pointerdown", (event) => {
+    actions.forEach((action) => {
+      if (!action.contains(event.target as Node)) setOpen(action, false);
+    });
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    actions.forEach((action) => {
+      if (action.querySelector('[data-contact-action-trigger]')?.getAttribute("aria-expanded") === "true") setOpen(action, false, true);
+    });
+  });
+</script>

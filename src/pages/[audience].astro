@@ -1,0 +1,18 @@
+---
+import AudiencePage from "../components/AudiencePage.astro";
+import { audiencePages } from "../data/audience-pages";
+import arvoasunnot from "../content/cms/arvoasunnot.json";
+import omakotitalot from "../content/cms/omakotitalot.json";
+import taloyhtiot from "../content/cms/taloyhtiot.json";
+import rakennusliikkeet from "../content/cms/rakennusliikkeet.json";
+
+export function getStaticPaths() {
+  const contents = { arvoasunnot, omakotitalot, taloyhtiot, rakennusliikkeet };
+  return audiencePages.map((page) => ({
+    params: { audience: page.slug },
+    props: { label: page.label, content: contents[page.slug] },
+  }));
+}
+---
+
+<AudiencePage label={Astro.props.label} content={Astro.props.content} />

@@ -9,9 +9,11 @@ interface Props {
   title: string;
   description: string;
   headerTheme?: "dark" | "light";
+  pageClass?: string;
+  noindex?: boolean;
 }
 
-const { title, description, headerTheme } = Astro.props;
+const { title, description, headerTheme, pageClass, noindex = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -25,6 +27,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fi_FI" />
     <meta property="og:site_name" content="LVI-Loisto Oy" />
@@ -35,7 +38,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   <body>
     <a class="skip-link" href="#main-content">Siirry sisältöön</a>
     <Header initialTheme={headerTheme} />
-    <main id="main-content" tabindex="-1">
+    <main id="main-content" class={pageClass} tabindex="-1">
       <slot />
     </main>
     <Footer />
