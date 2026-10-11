@@ -4421,16 +4421,14 @@ h3 {
 }
 
 @media (min-width: 1081px) {
-  .contact-section--home .contact-section__inner {
-    height: clamp(42rem, 46vw, 50rem);
-    max-height: 50rem;
+  .contact-section--home .contact-section__media {
+    position: relative;
   }
 
-  .contact-section--home .contact-section__media,
   .contact-section--home .contact-section__media img {
+    position: absolute;
+    inset: 0;
     height: 100%;
-    min-height: 0;
-    max-height: 100%;
   }
 }
 
