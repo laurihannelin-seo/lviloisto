@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import PersonIdentity from "../components/PersonIdentity.astro";
+import { findContactPerson } from "../data/contact-people";
 import CmsImage from "../components/CmsImage.astro";
 import AboutOverviewSection from "../components/AboutOverviewSection.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
@@ -68,7 +70,7 @@ const companyDetails = content.region.groups;
         {
           companyDetails.map((group) => (
             <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]}>
-              <h3>{group.title}</h3>
+              {findContactPerson(group) ? <PersonIdentity person={findContactPerson(group)!} name={group.title} /> : <h3>{group.title}</h3>}
               <div class="contact-detail__items">
                 {
                   group.items.map((item) => (

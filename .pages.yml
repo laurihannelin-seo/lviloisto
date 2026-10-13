@@ -14,6 +14,32 @@ settings:
       update: "Sisältöpäivitys: {name} ({userName})"
 
 components:
+  contact_profile:
+    type: object
+    fields:
+      - name: role
+        label: Vastuualueet
+        type: string
+        required: true
+      - name: photo
+        label: Henkilökuva
+        type: image
+        description: Valitse selfie. Kuva näkyy pyöreänä nimen vieressä kaikkialla sivustolla. Ilman kuvaa näytetään nimikirjaimet.
+      - name: photoAlt
+        label: Kuvan alt-teksti
+        type: string
+
+  company_story:
+    type: object
+    fields:
+      - { name: title, label: Otsikko, type: string, required: true }
+      - name: body
+        label: Tekstikappaleet
+        type: text
+        list: { min: 1, max: 3 }
+      - { name: image, label: Kuva, type: image, required: true }
+      - { name: imageAlt, label: Kuvan alt-teksti, type: string, required: true }
+
   audience_hero:
     type: object
     label: Hero / intro
@@ -172,6 +198,16 @@ components:
             hidden: true
 
 content:
+  - name: contact_people
+    label: Yhteyshenkilöt – kuvat ja vastuualueet
+    type: file
+    path: src/content/cms/contact-people.json
+    format: json
+    operations: { create: false, rename: false, delete: false }
+    fields:
+      - { name: matias, label: Matias Ryynänen, component: contact_profile }
+      - { name: miro, label: Miro Sorjonen, component: contact_profile }
+
   - name: arvoasunnot
     label: Arvoasunnot
     type: file
@@ -1452,31 +1488,17 @@ content:
             label: Otsikko
             type: string
             required: true
-          - name: items
-            label: Arvot
-            component: numbered_item
-            list:
-              min: 4
-              max: 4
-              collapsible:
-                collapsed: true
-                summary: "{number} {title}"
-      - name: imageSection
-        component: image
-      - name: workingSection
-        label: Arvot työssä
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
+          - name: text
+            label: Arvoteksti
             type: text
-            list:
-              min: 1
-              max: 3
+            required: true
+            description: Yksi tekstikenttä otsikon alle. Voit erottaa kappaleet tyhjällä rivillä.
+      - name: introductionSection
+        label: Yritysesittely – kuva vasemmalla
+        component: company_story
+      - name: workingSection
+        label: Arvot työssä – kuva oikealla
+        component: company_story
       - name: contactSection
         label: Yhteystiedot
         type: object

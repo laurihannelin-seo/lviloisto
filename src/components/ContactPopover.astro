@@ -1,5 +1,6 @@
 ---
 import EmailContactOptions from "./EmailContactOptions.astro";
+import ContactPhones from "./ContactPhones.astro";
 
 interface Props {
   id: string;
@@ -36,10 +37,7 @@ const titleId = `${id}-title`;
     >×</button>
   </div>
   <p class="process-contact-popover__label">Puhelin</p>
-  <div class="process-contact-popover__phones">
-    <a href="tel:+358469214415">Matias Ryynänen <span>046 921 4415</span></a>
-    <a href="tel:+358504796544">Miro Sorjonen <span>050 479 6544</span></a>
-  </div>
+  <ContactPhones />
   <EmailContactOptions />
   <a class="process-contact-popover__action" href={requestHref}>Jätä yhteydenottopyyntö</a>
 </div>

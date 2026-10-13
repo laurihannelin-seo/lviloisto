@@ -1,4 +1,6 @@
 ---
+import PersonIdentity from "./PersonIdentity.astro";
+import { contactPeople } from "../data/contact-people";
 interface Props {
   submitLabel?: string;
 }
@@ -43,14 +45,11 @@ const { submitLabel = "Lähetä tarjouspyyntö" } = Astro.props;
   <details class="contact-form__send">
     <summary class="contact-form__button">{submitLabel}</summary>
     <div class="contact-form__recipients" aria-label="Valitse vastaanottaja">
-      <button type="submit" name="recipient" value="matias" aria-label="Matias - Arvoasunnot ja rakennusliikkeet">
-        <span>Matias Ryynänen</span>
-        <span>Arvoasunnot ja rakennusliikkeet</span>
-      </button>
-      <button type="submit" name="recipient" value="miro" aria-label="Miro - Omakotitalot &amp; Taloyhtiöt &amp; Muut LVI-Palvelut">
-        <span>Miro Sorjonen</span>
-        <span>Omakotitalot, taloyhtiöt ja muut LVI-palvelut</span>
-      </button>
+      {contactPeople.map((person) => (
+        <button type="submit" name="recipient" value={person.id} aria-label={`${person.name} - ${person.role}`}>
+          <PersonIdentity person={person} tag="span" />
+        </button>
+      ))}
     </div>
   </details>
 

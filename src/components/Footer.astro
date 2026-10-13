@@ -1,6 +1,8 @@
 ---
 import contactContent from "../content/cms/yhteystiedot.json";
 import { audiencePages } from "../data/audience-pages";
+import PersonIdentity from "./PersonIdentity.astro";
+import { findContactPerson } from "../data/contact-people";
 const groups = contactContent.detailsSection.groups;
 ---
 <footer class="site-footer">
@@ -11,7 +13,7 @@ const groups = contactContent.detailsSection.groups;
     </div>
     <nav aria-label="Palvelut"><h2>Palvelut</h2><a href="/tietoa-meista/">Palvelumme</a>{audiencePages.map((page) => <a href={page.href}>{page.label}</a>)}<a href="/lvi-tyot/">LVI-työt</a><a href="/lvi-urakointi/">LVI-urakointi</a></nav>
     <nav aria-label="Yritys"><h2>Yritys</h2><a href="/yrityksemme/">Yrityksemme</a><a href="/yhteystiedot/">Yhteystiedot</a></nav>
-    <div class="site-footer__contacts"><h2>Ota yhteyttä</h2>{groups.filter((group) => group.kind === "person").map((group) => <div><p>{group.label}</p>{group.items.filter((item) => item.href).map((item) => <a href={item.href}>{item.text}</a>)}</div>)}</div>
+    <div class="site-footer__contacts"><h2>Ota yhteyttä</h2>{groups.filter((group) => group.kind === "person").map((group) => <div>{findContactPerson(group) ? <PersonIdentity person={findContactPerson(group)!} name={group.label} tag="p" /> : <p>{group.label}</p>}{group.items.filter((item) => item.href).map((item) => <a href={item.href}>{item.text}</a>)}</div>)}</div>
   </div>
   <div class="page-shell site-footer__bottom">
     <p>&copy; {new Date().getFullYear()} LVI-Loisto Oy</p>

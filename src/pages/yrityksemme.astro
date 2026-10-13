@@ -2,9 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CmsImage from "../components/CmsImage.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PersonIdentity from "../components/PersonIdentity.astro";
+import { findContactPerson } from "../data/contact-people";
 import content from "../content/cms/yrityksemme.json";
 
-const { seo, hero, valuesSection, imageSection, workingSection, contactSection } = content;
+const { seo, hero, valuesSection, introductionSection, workingSection, contactSection } = content;
+const stories = [introductionSection, workingSection];
 ---
 
 <BaseLayout title={seo.title} description={seo.description} headerTheme={hero.image ? "dark" : "light"}>
@@ -32,32 +35,25 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
     <section class="company-values" aria-labelledby="company-values-title">
       <div class="company-shell">
         <h2 id="company-values-title">{valuesSection.title}</h2>
-        <ol class="company-values__grid">
-          {
-            valuesSection.items.map((item) => (
-              <li>
-                <span class="company-values__number">{item.number}</span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-    </section>
-
-    <figure class="company-image company-shell">
-      <CmsImage src={imageSection.image} alt={imageSection.imageAlt} loading="lazy" sizes="(max-width: 1568px) 100vw, 1440px" />
-    </figure>
-
-    <section class="company-working" aria-labelledby="company-working-title">
-      <div class="company-shell company-working__layout">
-        <h2 id="company-working-title">{workingSection.title}</h2>
-        <div class="company-working__copy">
-          {workingSection.body.map((paragraph) => <p>{paragraph}</p>)}
+        <div class="company-values__text">
+          {valuesSection.text.trim().split(/\r?\n\s*\r?\n/).filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
     </section>
+
+    <div class="company-stories">
+      {stories.map((story, index) => (
+        <section class="solution-feature company-story page-shell" aria-labelledby={`company-story-${index}`}>
+          <figure class="solution-feature__media">
+            <CmsImage src={story.image} alt={story.imageAlt} loading="lazy" />
+          </figure>
+          <div class="solution-feature__copy">
+            <h2 id={`company-story-${index}`}>{story.title}</h2>
+            {story.body.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </section>
+      ))}
+    </div>
 
     <section class="company-contact" aria-labelledby="company-contact-title">
       <div class="company-shell">
@@ -75,7 +71,7 @@ const { seo, hero, valuesSection, imageSection, workingSection, contactSection }
           {
             contactSection.groups.map((group) => (
               <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`company-detail-${group.id}`}>
-                <h3 id={`company-detail-${group.id}`}>{group.label}</h3>
+                {findContactPerson(group) ? <PersonIdentity person={findContactPerson(group)!} name={group.label} headingId={`company-detail-${group.id}`} /> : <h3 id={`company-detail-${group.id}`}>{group.label}</h3>}
                 <div class="contact-detail__items">
                   {
                     group.items.map((item) => (

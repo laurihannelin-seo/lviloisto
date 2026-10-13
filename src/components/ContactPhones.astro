@@ -1,0 +1,13 @@
+---
+import PersonIdentity from "./PersonIdentity.astro";
+import { contactPeople } from "../data/contact-people";
+---
+
+<div class="process-contact-popover__phones">
+  {contactPeople.map((person) => (
+    <a class="contact-person-phone" href={person.tel}>
+      <PersonIdentity person={person} tag="span" />
+      <span class="contact-person-phone__number">{person.phone}</span>
+    </a>
+  ))}
+</div>

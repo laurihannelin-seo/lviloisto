@@ -169,7 +169,7 @@ tarjouspyyntölomaketta kuin etusivulla.
   vie lomakkeelle. Kartan vieressä on Google Maps- ja Apple Kartat -linkit.
 - Jaettu `ContactForm.astro` sisältää nimen, sähköpostin, puhelimen,
   kohteen sijainnin ja viestin. Lähetyksen vastaanottaja valitaan lopuksi:
-  Matias (arvoasunnot ja rakennusliikkeet) tai Miro (omakotitalot,
+  Matias (omakotitalot ja rakennusliikkeet) tai Miro (omakotitalot,
   taloyhtiöt ja muut LVI-palvelut). Yhteystietopuhekuplassa ovat molemmat
   puhelinnumerot ja sähköpostit.
 - Lomake lähettää tiedot Cloudflare Pages Functionin kautta Resend-palveluun.
@@ -356,3 +356,40 @@ commiteista jälkeen.
 - `npm.cmd run build` tuottaa 10 sivua. `node --test
   tests/scroll-reveal.test.mjs tests/audience-pages.test.mjs` suorittaa
   8 testiä: sisääntulot, CMS-kentät, omat kuvat, SEO ja uudet sivulinkit.
+
+## Yrityssivu ja yhteyshenkilöt 13.10.2026
+
+- `/yrityksemme/`: hero säilyi. Arvot-otsikon alla on nyt yksi CMS:n
+  tekstikenttä (`valuesSection.text`), ei neljää numeroitua nostoa.
+  Tämän jälkeen `introductionSection` näyttää kuvan vasemmalla ja
+  yritysesittelyn oikealla; `workingSection` näyttää tekstin vasemmalla ja
+  kuvan oikealla. Molemmat käyttävät etusivun `solution-feature`-gridiä,
+  kuvakokoja ja yhteistä scroll reveal -sisääntuloa. Mobiilissa kuvat ja
+  tekstit pinoutuvat. Molempien otsikot, kappaleet ja kuvat ovat CMS:ssä.
+- Aiempi erillinen `imageSection` siirrettiin yritysesittelyn yhteyteen.
+  Toinen kuva on projektin oma valmis kylpyhuone. Esittelyn ja arvojen
+  tekstit jätettiin asiakkaan täytettäviksi, lopullisia arvoja ei keksitty.
+- Yhteiset henkilöprofiilit ovat `src/content/cms/contact-people.json`:ssä.
+  Pages CMS:n kohta on "Yhteyshenkilöt – kuvat ja vastuualueet". Kummallakin
+  henkilöllä on vastuualue, valinnainen henkilökuva ja alt-teksti. Kuvaa ei
+  ole vielä annettu, joten pyöreä 44 px paikka näyttää nimikirjaimet.
+  Puhekuplassa kuva on 36 px. Valittu kuva rajautuu pyöreäksi automaattisesti.
+- Käyttäjän antamat vastuualueet: Matias "Omakotitalot & Rakennusliikkeet",
+  Miro "Omakotitalot & Taloyhtiöt & Muut". Nämä näkyvät nimien alla
+  yritystiedoissa, yhteystiedoissa, footerissa, puhekuplissa ja lomakkeen
+  vastaanottajavalinnassa. Puhelimet, sähköpostit ja palvelinpuolen
+  vastaanottajat eivät muuttuneet.
+- `PersonIdentity.astro`, `ContactPhones.astro` ja `src/data/contact-people.ts`
+  jakavat profiilit eri näkymille. Puhekupliin ei pidä enää kirjoittaa
+  erillisiä henkilöprofiileja. CMS-profiilin muutos päivittyy kaikkialle
+  seuraavassa Cloudflare-buildissa.
+- Heron suurempi yhteystietokupla avautuu desktopilla painikkeen viereen.
+  Matalissa desktop-ikkunoissa se keskitetään ja sen sisältö scrollaa;
+  sulkupainike pysyy näkyvänä. Mobiilissa kupla pysyy sivun normaalissa
+  sisällössä painikkeen alla. Escape ja ulkopuolinen klikkaus säilyivät.
+- Tarkistukset: yritys-, yhteystieto- ja palvelutietosivut 320/390/768/1440/2560 px,
+  heropuhekuplat 320/390/768/1440 px sekä matalat 1024 x 600 ja 1024 x 450
+  näkymät, puhekuplan sähköpostivalinta ja lomakkeen mobiilivastaanottajat.
+  Build läpäisty. `node --test tests/scroll-reveal.test.mjs
+  tests/audience-pages.test.mjs tests/company-contacts.test.mjs` suorittaa
+  11 testiä, mukaan lukien uusi yrityssivun ja yhteisten profiilien kattavuus.

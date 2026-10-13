@@ -298,6 +298,13 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .company-values h2, .company-working h2, .company-contact h2 { font-size: var(--content-heading); }
 .company-image { margin-block: 0; aspect-ratio: 3 / 1; max-height: 28rem; }
 .company-working__layout { padding-top: 0; gap: var(--layout-gap); }
+.company-values__text { max-width: 75ch; margin-top: 1.25rem; color: var(--color-muted); }
+.company-values__text p { margin: 0; font-size: 1.0625rem; }
+.company-values__text p + p { margin-top: 1rem; }
+.company-stories { display: grid; gap: var(--image-section-gap); padding-block: 1.5rem 0; }
+.company-story h2 { margin: 0 0 1.25rem; font-size: var(--content-heading); line-height: 1.12; }
+.company-story .solution-feature__media { margin: 0; }
+.company-stories + .company-contact { padding-top: var(--image-section-gap); }
 .company-contact__grid { margin-top: 2rem; padding-top: 1.5rem; }
 .contact-details-section--hero { min-height: 40rem; padding-block: 8rem 3.5rem; }
 .contact-details-section--hero .contact-details-section__header h1 { font-size: 3.5rem; max-width: 20ch; }
@@ -306,6 +313,48 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .contact-details-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
 .contact-detail { min-width: 0; }
 .contact-detail__items a { overflow-wrap: anywhere; }
+
+/* Shared identities keep workshop profile changes consistent across the site. */
+.person-identity { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); align-items: start; gap: 0.75rem; min-width: 0; text-align: left; }
+.person-identity__avatar { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; overflow: hidden; background: #e8e5df; color: var(--color-accent-dark); flex-shrink: 0; font-size: 0.8125rem; }
+.person-identity__avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person-identity__copy { display: block; min-width: 0; }
+.person-identity .person-identity__name { display: block; margin: 0; font-size: 1.125rem; font-weight: 400; line-height: 1.4; letter-spacing: 0; text-transform: none; color: inherit; }
+.person-identity__role { display: block; margin-top: 0.3rem; color: var(--color-muted); font-size: 0.8125rem; line-height: 1.5; white-space: normal; }
+.contact-details-section--hero .person-identity__role { color: rgba(255, 255, 255, 0.85); }
+.contact-detail .person-identity + .contact-detail__items { margin-top: 1rem; }
+.process-contact-popover__phones { gap: 1rem; }
+.process-contact-popover__phones .contact-person-phone { display: grid; gap: 0.25rem; justify-content: normal; text-decoration: none; }
+.process-contact-popover__phones .person-identity { grid-template-columns: 2.25rem minmax(0, 1fr); gap: 0.65rem; }
+.process-contact-popover__phones .person-identity__avatar { width: 2.25rem; height: 2.25rem; }
+.process-contact-popover__phones .person-identity span { white-space: normal; }
+.process-contact-popover__phones .person-identity__name { font-size: 0.9375rem; }
+.contact-person-phone__number { margin-left: 2.9rem; text-decoration: underline; text-underline-offset: 0.2em; }
+.contact-person-phone:hover .person-identity__name { text-decoration: underline; text-underline-offset: 0.2em; }
+.contact-form__recipients .person-identity__name { font-size: 0.9375rem; }
+.site-footer__contacts .person-identity__name { font-size: 0.9375rem; }
+
+@media (min-width: 761px) {
+  .home-hero__contact { width: fit-content; }
+  .home-hero__contact > .home-hero-contact-popover,
+  .service-page-hero__contact > .service-page-contact-popover {
+    top: auto;
+    bottom: 0;
+    left: calc(100% + 1rem);
+    right: auto;
+    max-height: min(22rem, calc(100dvh - 11rem));
+    overflow-y: auto;
+  }
+  .home-hero__contact > .home-hero-contact-popover::before,
+  .service-page-hero__contact > .service-page-contact-popover::before { content: none; }
+}
+
+@media (min-width: 761px) and (max-height: 760px) {
+  .home-hero__contact > .home-hero-contact-popover,
+  .service-page-hero__contact > .service-page-contact-popover { position: fixed; top: 50dvh; bottom: auto; left: 50vw; transform: translate(-50%, -50%); }
+  .home-hero-contact-popover .process-contact-popover__header,
+  .service-page-contact-popover .process-contact-popover__header { position: sticky; top: -1.2rem; z-index: 1; background: #fff; }
+}
 .map-section { padding-block: 3.5rem; }
 .map-section .map-section__inner { grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: var(--layout-gap); max-width: var(--max-content); margin-inline: auto; }
 .map-section h2 { font-size: 2.25rem; }
@@ -523,6 +572,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
   .company-values, .company-working, .company-contact { padding-block: 2.5rem; }
   .company-image { aspect-ratio: 4 / 3; }
   .company-working__layout { grid-template-columns: minmax(0, 1fr); }
+  .company-values__text p { font-size: 1rem; }
   .company-contact__header { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
   .company-contact__grid { margin-top: 1.5rem; }
   .contact-details-section--hero { min-height: 0; padding-block: 7rem 2.5rem; }

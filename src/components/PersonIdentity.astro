@@ -1,0 +1,26 @@
+---
+import CmsImage from "./CmsImage.astro";
+import type { ContactPerson } from "../data/contact-people";
+
+interface Props {
+  person: ContactPerson;
+  name?: string;
+  tag?: "h2" | "h3" | "p" | "span";
+  headingId?: string;
+}
+
+const { person, name = person.name, tag: Heading = "h3", headingId } = Astro.props;
+const Wrapper = Heading === "span" ? "span" : "div";
+---
+
+<Wrapper class="person-identity" data-contact-person={person.id}>
+  <span class="person-identity__avatar">
+    {person.photo ? (
+      <CmsImage src={person.photo} alt={person.photoAlt} sizes="44px" loading="lazy" />
+    ) : <span aria-hidden="true">{person.initials}</span>}
+  </span>
+  <Wrapper class="person-identity__copy">
+    <Heading class="person-identity__name" id={headingId}>{name}</Heading>
+    <span class="person-identity__role">{person.role}</span>
+  </Wrapper>
+</Wrapper>

@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CmsImage from "../components/CmsImage.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import PersonIdentity from "../components/PersonIdentity.astro";
+import { findContactPerson } from "../data/contact-people";
 import content from "../content/cms/yhteystiedot.json";
 
 const title = content.seo.title;
@@ -44,7 +46,7 @@ const formLinkIndex = intro.toLocaleLowerCase("fi").indexOf(formLinkWord);
         {
           details.map((group) => (
             <section class:list={["contact-detail", { "contact-detail--person": group.kind === "person" }]} aria-labelledby={`detail-${group.id}`}>
-              <h2 id={`detail-${group.id}`}>{group.label}</h2>
+              {findContactPerson(group) ? <PersonIdentity person={findContactPerson(group)!} name={group.label} tag="h2" headingId={`detail-${group.id}`} /> : <h2 id={`detail-${group.id}`}>{group.label}</h2>}
               <div class="contact-detail__items">
                 {
                   group.items.map((item) => (

@@ -12,35 +12,20 @@
   },
   "valuesSection": {
     "title": "Arvot, joiden mukaan toimimme",
-    "items": [
-      {
-        "number": "01",
-        "title": "[Arvo 1]",
-        "text": "[Tähän 2–3 lausetta siitä, mitä arvo tarkoittaa LVI-Loiston toiminnassa ja miten se näkyy käytännössä.]"
-      },
-      {
-        "number": "02",
-        "title": "[Arvo 2]",
-        "text": "[Tähän 2–3 lausetta.]"
-      },
-      {
-        "number": "03",
-        "title": "[Arvo 3]",
-        "text": "[Tähän 2–3 lausetta.]"
-      },
-      {
-        "number": "04",
-        "title": "[Arvo 4]",
-        "text": "[Tähän 2–3 lausetta.]"
-      }
-    ]
+    "text": "[Kirjoita tähän LVI-Loiston arvot ja miten ne näkyvät käytännön työssä.]"
   },
-  "imageSection": {
+  "introductionSection": {
+    "title": "LVI-Loisto",
+    "body": [
+      "[Kirjoita tähän lyhyt yritysesittely: keitä olemme, mitä teemme ja miten palvelemme asiakkaitamme.]"
+    ],
     "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
     "imageAlt": "LVI-putkisto ja jakotukki rakenteilla olevassa kohteessa"
   },
   "workingSection": {
     "title": "Arvot näkyvät tavassamme työskennellä",
+    "image": "/images/home/quality-imgl1757.jpg",
+    "imageAlt": "Viimeistellyn kylpyhuoneen kivipinnat ja kultaiset hanakalusteet",
     "body": [
       "[Tähän asiakas voi workshopissa kuvata omin sanoin, miten arvot näkyvät päivittäisessä työssä, asiakaspalvelussa, projektien toteutuksessa ja yhteistyössä muiden ammattilaisten kanssa.]"
     ]
