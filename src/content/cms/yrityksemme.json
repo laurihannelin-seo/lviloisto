@@ -11,23 +11,11 @@
     "imageAlt": "Viimeistelty marmorikylpyhuone, jossa on kultaiset amme- ja suihkukalusteet"
   },
   "valuesSection": {
-    "title": "Arvot, joiden mukaan toimimme",
-    "text": "[Kirjoita tähän LVI-Loiston arvot ja miten ne näkyvät käytännön työssä.]"
-  },
-  "introductionSection": {
-    "title": "LVI-Loisto",
-    "body": [
-      "[Kirjoita tähän lyhyt yritysesittely: keitä olemme, mitä teemme ja miten palvelemme asiakkaitamme.]"
-    ],
-    "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
-    "imageAlt": "LVI-putkisto ja jakotukki rakenteilla olevassa kohteessa"
-  },
-  "workingSection": {
-    "title": "Arvot näkyvät tavassamme työskennellä",
-    "image": "/images/home/quality-imgl1757.jpg",
-    "imageAlt": "Viimeistellyn kylpyhuoneen kivipinnat ja kultaiset hanakalusteet",
-    "body": [
-      "[Tähän asiakas voi workshopissa kuvata omin sanoin, miten arvot näkyvät päivittäisessä työssä, asiakaspalvelussa, projektien toteutuksessa ja yhteistyössä muiden ammattilaisten kanssa.]"
+    "title": "Arvomme",
+    "text": "[Kirjoita tähän LVI-Loiston arvot ja miten ne näkyvät käytännön työssä.]",
+    "owners": [
+      { "name": "Matias Ryynänen", "image": "", "imageAlt": "", "text": "" },
+      { "name": "Miro Sorjonen", "image": "", "imageAlt": "", "text": "" }
     ]
   },
   "contactSection": {

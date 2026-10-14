@@ -301,6 +301,19 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .company-values__text { max-width: 75ch; margin-top: 1.25rem; color: var(--color-muted); }
 .company-values__text p { margin: 0; font-size: 1.0625rem; }
 .company-values__text p + p { margin-top: 1rem; }
+.company-owners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.company-owner { min-width: 0; }
+.company-owner__image { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.company-owner__image img, .company-owner__placeholder { display: block; width: 100%; height: 100%; }
+.company-owner__image img { object-fit: cover; object-position: center 35%; }
+.company-owner__placeholder { background: #e4e0d9; }
+.company-owner__text { margin-top: 1.25rem; color: var(--color-muted); font-size: 1.0625rem; white-space: pre-line; }
+.company-owner__text p { margin: 0; }
+.company-owner__text p + p { margin-top: 1rem; }
+@media (max-width: 760px) {
+  .company-owners { grid-template-columns: minmax(0, 1fr); gap: 2rem; margin-top: 2rem; }
+  .company-owner__text { font-size: 1rem; }
+}
 .company-stories { display: grid; gap: var(--image-section-gap); padding-block: 1.5rem 0; }
 .company-story h2 { margin: 0 0 1.25rem; font-size: var(--content-heading); line-height: 1.12; }
 .company-story .solution-feature__media { margin: 0; }

@@ -10,21 +10,28 @@ const company = json("src/content/cms/yrityksemme.json");
 const profiles = json("src/content/cms/contact-people.json");
 const routes = ["", "yrityksemme/", "yhteystiedot/", "tietoa-meista/", "lvi-tyot/", "lvi-urakointi/", "arvoasunnot/", "omakotitalot/", "taloyhtiot/", "rakennusliikkeet/"];
 
-test("company page has one values text field and two CMS-editable image/text stories", () => {
+test("company values section has two optional owner photos and editable descriptions", () => {
   assert.equal(typeof company.valuesSection.text, "string");
   assert.equal(company.valuesSection.items, undefined);
   const fields = config.content.find((entry) => entry.name === "company_page").fields;
   assert.equal(fields.find((field) => field.name === "valuesSection").fields.find((field) => field.name === "text").type, "text");
-  for (const name of ["introductionSection", "workingSection"]) {
-    assert.equal(fields.find((field) => field.name === name).component, "company_story");
-    assert.ok(company[name].body.length);
-    assert.ok(company[name].imageAlt);
-    assert.ok(existsSync(new URL(`public${company[name].image}`, root)));
+  const ownersField = fields.find((field) => field.name === "valuesSection").fields.find((field) => field.name === "owners");
+  assert.equal(ownersField.component, "company_owner");
+  assert.equal(ownersField.list.min, 2);
+  assert.equal(ownersField.list.max, 2);
+  assert.equal(company.valuesSection.owners.length, 2);
+  assert.notEqual(config.components.company_owner.fields.find((field) => field.name === "image").required, true);
+  for (const owner of company.valuesSection.owners) {
+    assert.ok(owner.name);
+    assert.equal(typeof owner.text, "string");
+    if (owner.image) assert.ok(existsSync(new URL(`public${owner.image}`, root)));
   }
   const html = readFileSync(new URL("dist/yrityksemme/index.html", root), "utf8");
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
-  assert.equal((html.match(/class="solution-feature company-story page-shell"/g) ?? []).length, 2);
-  assert.doesNotMatch(html, /company-values__grid|company-image company-shell/);
+  assert.equal((html.match(/class="company-owner"/g) ?? []).length, 2);
+  assert.equal((html.match(/class="company-owner__image"/g) ?? []).length, 2);
+  assert.equal((html.match(/class="company-owner__text"/g) ?? []).length, 2);
+  assert.doesNotMatch(html, /company-stories|company-values__grid|<img\b[^>]*\ssrc=""/);
 });
 
 test("shared profile settings expose optional photos and roles in Pages CMS", () => {

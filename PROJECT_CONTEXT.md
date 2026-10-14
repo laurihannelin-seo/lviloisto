@@ -1,5 +1,15 @@
 # LVI-Loisto project context
 
+## Yrityssivun arvot ja omistajat 14.10.2026
+
+Heron jälkeinen osio on nyt Arvomme-otsikko, yksi arvoteksti ja kaksi
+vierekkäistä omistajan kuvapaikkaa, joiden kummankin alla on oma tekstikenttä.
+Mobiilissa omistajat pinoutuvat. CMS-kentät ovat `valuesSection.owners`
+(täsmälleen kaksi omistajaa): nimi, valinnainen kuva, alt-teksti ja kuvaus.
+Kuvat ja kuvaukset ovat aluksi tyhjiä; tyhjä kuvapaikka näkyy neutraalina
+pintana. Aiemmat `introductionSection`- ja `workingSection`-osiot on korvattu
+tällä rakenteella. Niitä koskevat alemmat 13.10. muistiinpanot ovat historiallisia.
+
 Tämä tiedosto antaa uudelle Codex-tehtävälle pysyvän lähtötilanteen. Lue tämä
 ennen sivuston muuttamista ja tarkista sen jälkeen nykyinen koodi sekä viimeisin
 Git-historia. Koodi ja Git-historia ovat aina lopullinen totuus, jos tämä tiedosto

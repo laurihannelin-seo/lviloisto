@@ -6,8 +6,7 @@ import PersonIdentity from "../components/PersonIdentity.astro";
 import { findContactPerson } from "../data/contact-people";
 import content from "../content/cms/yrityksemme.json";
 
-const { seo, hero, valuesSection, introductionSection, workingSection, contactSection } = content;
-const stories = [introductionSection, workingSection];
+const { seo, hero, valuesSection, contactSection } = content;
 ---
 
 <BaseLayout title={seo.title} description={seo.description} headerTheme={hero.image ? "dark" : "light"}>
@@ -38,22 +37,20 @@ const stories = [introductionSection, workingSection];
         <div class="company-values__text">
           {valuesSection.text.trim().split(/\r?\n\s*\r?\n/).filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
         </div>
+        <div class="company-owners">
+          {valuesSection.owners.map((owner) => (
+            <article class="company-owner" aria-label={owner.name}>
+              <figure class="company-owner__image">
+                {owner.image ? <CmsImage src={owner.image} alt={owner.imageAlt || owner.name} sizes="(max-width: 760px) 100vw, (max-width: 1568px) 46vw, 708px" loading="lazy" /> : <div class="company-owner__placeholder" aria-hidden="true"></div>}
+              </figure>
+              <div class="company-owner__text">
+                {owner.text.trim().split(/\r?\n\s*\r?\n/).filter(Boolean).map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
-
-    <div class="company-stories">
-      {stories.map((story, index) => (
-        <section class="solution-feature company-story page-shell" aria-labelledby={`company-story-${index}`}>
-          <figure class="solution-feature__media">
-            <CmsImage src={story.image} alt={story.imageAlt} loading="lazy" />
-          </figure>
-          <div class="solution-feature__copy">
-            <h2 id={`company-story-${index}`}>{story.title}</h2>
-            {story.body.map((paragraph) => <p>{paragraph}</p>)}
-          </div>
-        </section>
-      ))}
-    </div>
 
     <section class="company-contact" aria-labelledby="company-contact-title">
       <div class="company-shell">
