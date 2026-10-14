@@ -14,8 +14,14 @@
     "title": "Arvomme",
     "text": "[Kirjoita tähän LVI-Loiston arvot ja miten ne näkyvät käytännön työssä.]",
     "owners": [
-      { "name": "Matias Ryynänen", "image": "", "imageAlt": "", "text": "" },
-      { "name": "Miro Sorjonen", "image": "", "imageAlt": "", "text": "" }
+      {
+        "name": "Matias Ryynänen",
+        "text": "Iso mies, komea johtaja"
+      },
+      {
+        "name": "Miro Sorjonen",
+        "text": "Kaiken hän tekee, ja mielellään"
+      }
     ]
   },
   "contactSection": {
