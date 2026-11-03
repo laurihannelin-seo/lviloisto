@@ -22,7 +22,7 @@
     "intro": "[Esittele tähän kohderyhmään sopivat palvelut lyhyesti.]",
     "items": [
       {
-        "title": "[Palvelu 1]",
+        "title": "Helsingin kantakaupunki",
         "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]"
       },
       {
@@ -36,6 +36,14 @@
       {
         "title": "[Palvelu 4]",
         "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]"
+      },
+      {
+        "title": "fhdfh",
+        "text": "s<hh"
+      },
+      {
+        "title": "slgjhg",
+        "text": "s<hd<fh"
       }
     ]
   },
