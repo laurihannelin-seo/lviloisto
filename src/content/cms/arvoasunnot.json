@@ -18,12 +18,12 @@
     ]
   },
   "services": {
-    "title": "Mitä tarjoamme",
+    "title": "Referenssi kohteitamme",
     "intro": "[Esittele tähän kohderyhmään sopivat palvelut lyhyesti.]",
     "items": [
       {
-        "title": "Helsingin kantakaupunki",
-        "text": "[Lyhyt kuvaus palvelusta ja sen hyödystä.]"
+        "title": "Pent House - Yrjönkatu ",
+        "text": "Helsingin ydinkeskustassa sijaitsevassa noin 600 m² kattohuoneistossa toteutettiin laaja remontti, jonka yhteydessä uudistettiin merkittävä osa asunnon talotekniikasta.\n\nKaikki lämpöpatterit uusittiin, ja lämmityksen sekä jäähdytyksen ohjaus integroitiin osaksi KNX-taloautomaatiojärjestelmää. Ilmanvaihdon päätelaitteet vaihdettiin viimeisteltyihin Ergovent-malleihin.\n\nKohteen yksityiskohtiin kuuluivat muun muassa kylpyhuoneen GESSI-elämyssuihku, apukeittiön kiehuvan veden hana, keittiön kylmävesi- ja kuplavesihana sekä pesevät WC-istuimet."
       },
       {
         "title": "[Palvelu 2]",
