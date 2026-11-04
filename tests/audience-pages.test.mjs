@@ -23,7 +23,7 @@ test("all audience pages have editable content and valid owned hero images", () 
   }
 });
 
-test("built audience pages have a single H1, SEO, breadcrumbs, and working contact targets", () => {
+test("built audience pages retain SEO and breadcrumbs without discussion CTAs", () => {
   for (const slug of slugs) {
     const html = readFileSync(new URL(`dist/${slug}/index.html`, root), "utf8");
     const content = JSON.parse(readFileSync(new URL(`src/content/cms/${slug}.json`, root), "utf8"));
@@ -32,9 +32,7 @@ test("built audience pages have a single H1, SEO, breadcrumbs, and working conta
     assert.match(html, new RegExp(`rel="canonical" href="https://lviloisto.fi/${slug}/"`));
     assert.match(html, /property="og:title"/);
     assert.match(html, /aria-label="Murupolku"/);
-    assert.match(html, /href="\/yhteystiedot\/#contact-heading"/);
-    assert.match(html, /id="audience-hero-contact"/);
-    assert.match(html, /id="audience-final-contact"/);
+    assert.doesNotMatch(html, /audience-hero-contact|audience-final-contact|audience-contact-heading|Keskustele kohteestasi/);
   }
 });
 

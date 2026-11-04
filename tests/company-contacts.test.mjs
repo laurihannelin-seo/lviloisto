@@ -31,7 +31,9 @@ test("company values section has two optional owner photos and editable descript
   assert.equal((html.match(/class="company-owner"/g) ?? []).length, 2);
   assert.equal((html.match(/class="company-owner__image"/g) ?? []).length, 2);
   assert.equal((html.match(/class="company-owner__text"/g) ?? []).length, 2);
-  assert.doesNotMatch(html, /company-stories|company-values__grid|<img\b[^>]*\ssrc=""/);
+  const ownerNames = Array.from(html.matchAll(/<h3 class="company-owner__name"[^>]*>([^<]+)<\/h3>/g), (match) => match[1]);
+  assert.deepEqual(ownerNames, company.valuesSection.owners.map((owner) => owner.name));
+  assert.doesNotMatch(html, /company-contact-title|company-stories|company-values__grid|<img\b[^>]*\ssrc=""/);
 });
 
 test("shared profile settings expose optional photos and roles in Pages CMS", () => {

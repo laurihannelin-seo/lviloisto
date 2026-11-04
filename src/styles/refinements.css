@@ -303,11 +303,12 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .company-values__text p + p { margin-top: 1rem; }
 .company-owners { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
 .company-owner { min-width: 0; }
-.company-owner__image { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; }
+.company-owner__image { margin: 0; aspect-ratio: 1; overflow: hidden; }
 .company-owner__image img, .company-owner__placeholder { display: block; width: 100%; height: 100%; }
-.company-owner__image img { object-fit: cover; object-position: center 35%; }
+.company-owner__image img { object-fit: cover; object-position: center 22%; }
 .company-owner__placeholder { background: #e4e0d9; }
-.company-owner__text { margin-top: 1.25rem; color: var(--color-muted); font-size: 1.0625rem; white-space: pre-line; }
+.company-values .company-owner__name { margin: 1.125rem 0 0; font-size: 1.375rem; line-height: 1.3; }
+.company-owner__text { margin-top: 0.65rem; color: var(--color-muted); font-size: 1.0625rem; white-space: pre-line; }
 .company-owner__text p { margin: 0; }
 .company-owner__text p + p { margin-top: 1rem; }
 @media (max-width: 760px) {

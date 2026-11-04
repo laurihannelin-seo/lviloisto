@@ -73,14 +73,6 @@ components:
           max: 6
           collapsible: { collapsed: true, summary: "{title}" }
 
-  audience_contact:
-    type: object
-    label: Yhteydenotto
-    fields:
-      - { name: title, label: Otsikko, type: string, required: true }
-      - { name: text, label: Lyhyt teksti, type: text, required: true }
-      - { name: cta, label: Painikkeen teksti, type: string, required: true }
-
   seo:
     type: object
     label: Hakukonenäkyvyys
@@ -224,7 +216,6 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
-      - { name: contact, component: audience_contact }
 
   - name: omakotitalot
     label: Omakotitalot
@@ -242,7 +233,6 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
-      - { name: contact, component: audience_contact }
 
   - name: taloyhtiot
     label: Taloyhtiöt
@@ -260,7 +250,6 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
-      - { name: contact, component: audience_contact }
 
   - name: rakennusliikkeet
     label: Rakennusliikkeet
@@ -278,7 +267,6 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
-      - { name: contact, component: audience_contact }
 
   - name: home
     label: Etusivu
@@ -1502,31 +1490,3 @@ content:
               collapsible:
                 collapsed: false
                 summary: "{name}"
-      - name: contactSection
-        label: Yhteystiedot
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: intro
-            label: Ingressi
-            type: text
-            required: true
-          - name: serviceLinkLabel
-            label: Palvelulinkin teksti
-            type: string
-            required: true
-          - name: serviceLinkHref
-            type: string
-            hidden: true
-          - name: groups
-            label: Yritys ja yhteyshenkilöt
-            component: contact_group
-            list:
-              min: 3
-              max: 3
-              collapsible:
-                collapsed: true
-                summary: "{label}"
