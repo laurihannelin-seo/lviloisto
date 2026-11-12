@@ -46,36 +46,40 @@
         "label": "Lämmitysjärjestelmien asennus    Lämmitysremontti    Lämmitysverkoston saneeraus    Lattialämmityksen asennus    Vesikiertoinen lattialämmitys    Lattialämmityksen säätö    Patteriverkoston asennus    Patteriverkoston saneeraus    Patteriventtiilien vaihto    Patteriverkoston tasapainotus    Lämmitysverkoston tasapainotus    Vesivirtojen mittaus ja säätö    Kaukolämpöasennus    Kaukolämpölaitteiston uusiminen    Kaukolämmönvaihtimen vaihto    Maalämpöasennus    Maalämpöpumppu    Ilma-vesilämpöpumpun asennus    VILP-asennus    Lämmitysjärjestelmän uusiminen"
       },
       {
-        "slot": 8,
-        "label": "Käyttövesiputkien asennus    Käyttövesiputkiston uusiminen    Käyttövesiremontti    Käyttövesisaneeraus    Vesijohtojen uusiminen    Vesijohtosaneeraus    Viemäriasennus    Viemäriremontti    Viemärisaneeraus    Viemäriputkien uusiminen    Viemärikuvaus    Viemärin kuntotutkimus    Pohjaviemärin uusiminen    Vesikalusteiden asennus    Hanan asennus    WC-istuimen asennus    Linjasaneeraus    Putkistosaneeraus"
-      },
-      {
         "slot": 9,
         "label": "Ilmanvaihtotyöt    Ilmanvaihtoasennus    Ilmanvaihtourakointi    IV-urakointi    IV-asennukset    Ilmanvaihtokanavien asennus    Ilmanvaihdon mittaus ja säätö    Ilmavirtojen mittaus    Ilmanvaihdon tasapainotus    Ilmanvaihtojärjestelmän saneeraus    Ilmanvaihtokoneen vaihto    Ilmanvaihdon jäähdytys    Vesikiertoinen viilennys    Jäähdytysverkoston asennus    LVI-järjestelmien käyttöönotto    Kanttikanavien valmistus    Kanttikanavien asennus    Kanttikanavatyöt    Kanttikanavointi    Peltikanavien valmistus    Peltikanavien asennus    Peltikanavointi    Ilmanvaihtokanavien valmistus    IV-kanavien valmistus    IV-kanavien mittatilausvalmistus    Mittatilauskanavat    Ilmanvaihdon peltityöt    IV-peltityöt    Ilmanvaihtokanavien pellitys    Suorakaidekanavien valmistus    Suorakaidekanavien asennus    Kierresaumakanavien asennus    Ilmanvaihtokanavistojen muutostyöt    Ilmanvaihtokanavistojen saneeraus    Ilmanvaihtokanavien eristys    IV-kanavien eristystyöt"
       },
       {
-        "slot": 10
+        "slot": 10,
+        "label": "Käyttövesityöt ja putkistot - Käyttövesityöt - Käyttövesiasennukset - Käyttövesiurakointi - Käyttövesiputkien asennus - Käyttövesiputkiston uusiminen - Käyttövesisaneeraus - Käyttövesiremontti - Vesijohtojen uusiminen - Vesijohtosaneeraus - Käyttövesiverkoston saneeraus - Käyttövesiverkoston painekoe - Käyttövesiverkoston huuhtelu - Käyttövesiverkoston tasapainotus - Käyttöveden kiertojärjestelmän asennus - Lämpimän käyttöveden kiertopumpun vaihto - Käyttövesiputkien korjaus - Vesivuotojen korjaus - Vuotavan vesijohdon korjaus - Paineenalennusventtiilin asennus - Lämminvesivaraajan asennus - Lämminvesivaraajan vaihto - KVV-asennukset"
       },
       {
-        "slot": 11
+        "slot": 11,
+        "label": "Vesimittarit - Vesimittarin asennus - Vesimittarin vaihto - Vesimittarin uusiminen - Huoneistokohtainen vesimittari - Huoneistokohtaisten vesimittareiden asennus - Huoneistokohtaisten vesimittareiden uusiminen - Etäluettavien vesimittareiden asennus - Etäluettavien vesimittareiden uusiminen - Vesimittareiden saneeraus - Vesimittarijärjestelmien uusiminen - Taloyhtiön vesimittareiden uusiminen"
       },
       {
-        "slot": 12
+        "slot": 12,
+        "label": "Viemärityöt ja viemärisaneeraukset - Viemärityöt - Viemäriasennukset - Viemäriurakointi - Viemäriputkien asennus - Viemäriputkien uusiminen - Viemäriremontti - Viemärisaneeraus - Viemäriverkoston saneeraus - Pohjaviemärin uusiminen - Pohjaviemärin saneeraus - Viemärihajotusten uusiminen - Viemärin korjaus - Viemärikuvaus - Viemärin kamerakuvaus - Viemärin kuntotutkimus - Viemärin kaatojen tarkastus - Viemärin toimivuuden tarkastus - Viemärin vesikoe - Valurautaviemärin uusiminen - Muoviviemärin asennus - Sisäpuoliset viemärityöt - Kiinteistön viemärisaneeraus - Taloyhtiön viemäriremontti - Linjasaneeraus - Putkistosaneeraus"
       },
       {
-        "slot": 13
+        "slot": 13,
+        "label": "Vesikalusteet ja hanat - Vesikalusteiden asennus - Vesikalusteiden uusiminen - Hanan asennus - Hanan vaihto - Keittiöhanan asennus - Pesuallashanan asennus - Suihkuhanan asennus - Termostaattihanan asennus - Sadesuihkun asennus - Piiloasennettavan suihkun asennus - Piiloasennettavan hanan asennus - Kuumavesihanan asennus - Kiehuvan veden hanan asennus - Quooker-hanan asennus - Porehanan asennus - Bideesuihkun asennus - WC-istuimen asennus - Seinä-WC:n asennus - Kylpyhuoneen putkityöt - Kylpyhuoneen vesikalusteasennukset"
       },
       {
-        "slot": 14
+        "slot": 14,
+        "label": "Pesevät WC-istuimet ja äly-WC:t - Pesevän WC-istuimen asennus - Pesevä WC - Pesevän WC:n asennus - Suihku-WC:n asennus - Suihkukäymälän asennus - Äly-WC:n asennus - Elektronisen WC-istuimen asennus - Geberit AquaClean -asennus - TOTO Washlet -asennus"
       },
       {
-        "slot": 15
+        "slot": 15,
+        "label": "Elämyssuihkut ja erikoissuihkut - Elämyssuihkun asennus - Elämyssuihkujärjestelmät - Elämyssuihkun putkityöt - Elämyssuihkun vesikytkennät - Monitoimisuihkun asennus - Suihkupaneelin asennus - Sadesuihkujärjestelmän asennus - Hierontasuihkun asennus - Kehosuihkujen asennus - Sivusuihkujen asennus - Piiloasennettavan suihkujärjestelmän asennus - Digitaalisen suihkujärjestelmän asennus - Älysuihkun asennus - Wellness-suihkujärjestelmät"
       },
       {
-        "slot": 16
+        "slot": 16,
+        "label": "Porealtaat, höyrysaunat ja spa-tilat - Poreammeen asennus - Poreammeen putkikytkennät - Porealtaan asennus - Ulkoporealtaan vesikytkennät - Höyrysaunan asennus - Höyrysaunan putkityöt - Höyrysaunan vesikytkennät - Höyrygeneraattorin asennus - Höyrygeneraattorin vesiliitännät - Höyrysuihkun asennus - Höyrysuihkukaapin asennus - Spa-tilojen LVI-asennukset - Kylpylätilojen putkityöt - Höyrysaunojen LVI-asennukset - Wellness-tilojen LVI-urakointi"
       },
       {
-        "slot": 17
+        "slot": 17,
+        "label": "Vedenpuhdistus- ja vedenkäsittelyjärjestelmät - Vedenpuhdistusjärjestelmien asennus - Vedenpuhdistuslaitteiston asennus - Vedenpuhdistusjärjestelmän huolto - Vedenkäsittelyjärjestelmät - Vedenkäsittelylaitteiston asennus - Käyttöveden suodatus - Käyttöveden puhdistus - Vedensuodattimen asennus - Talousveden suodatus - Talousveden puhdistus - Vedenpehmentimen asennus - Vedenpehmennysjärjestelmät - Aktiivihiilisuodattimen asennus - Käänteisosmoosilaitteiston asennus - Käyttöveden suodatusjärjestelmät"
       },
       {
         "slot": 18
