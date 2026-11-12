@@ -42,13 +42,16 @@
         "href": "#toimialue"
       },
       {
-        "slot": 7
+        "slot": 7,
+        "label": "Lämmitysjärjestelmien asennus    Lämmitysremontti    Lämmitysverkoston saneeraus    Lattialämmityksen asennus    Vesikiertoinen lattialämmitys    Lattialämmityksen säätö    Patteriverkoston asennus    Patteriverkoston saneeraus    Patteriventtiilien vaihto    Patteriverkoston tasapainotus    Lämmitysverkoston tasapainotus    Vesivirtojen mittaus ja säätö    Kaukolämpöasennus    Kaukolämpölaitteiston uusiminen    Kaukolämmönvaihtimen vaihto    Maalämpöasennus    Maalämpöpumppu    Ilma-vesilämpöpumpun asennus    VILP-asennus    Lämmitysjärjestelmän uusiminen"
       },
       {
-        "slot": 8
+        "slot": 8,
+        "label": "Käyttövesiputkien asennus    Käyttövesiputkiston uusiminen    Käyttövesiremontti    Käyttövesisaneeraus    Vesijohtojen uusiminen    Vesijohtosaneeraus    Viemäriasennus    Viemäriremontti    Viemärisaneeraus    Viemäriputkien uusiminen    Viemärikuvaus    Viemärin kuntotutkimus    Pohjaviemärin uusiminen    Vesikalusteiden asennus    Hanan asennus    WC-istuimen asennus    Linjasaneeraus    Putkistosaneeraus"
       },
       {
-        "slot": 9
+        "slot": 9,
+        "label": "Ilmanvaihtotyöt    Ilmanvaihtoasennus    Ilmanvaihtourakointi    IV-urakointi    IV-asennukset    Ilmanvaihtokanavien asennus    Ilmanvaihdon mittaus ja säätö    Ilmavirtojen mittaus    Ilmanvaihdon tasapainotus    Ilmanvaihtojärjestelmän saneeraus    Ilmanvaihtokoneen vaihto    Ilmanvaihdon jäähdytys    Vesikiertoinen viilennys    Jäähdytysverkoston asennus    LVI-järjestelmien käyttöönotto    Kanttikanavien valmistus    Kanttikanavien asennus    Kanttikanavatyöt    Kanttikanavointi    Peltikanavien valmistus    Peltikanavien asennus    Peltikanavointi    Ilmanvaihtokanavien valmistus    IV-kanavien valmistus    IV-kanavien mittatilausvalmistus    Mittatilauskanavat    Ilmanvaihdon peltityöt    IV-peltityöt    Ilmanvaihtokanavien pellitys    Suorakaidekanavien valmistus    Suorakaidekanavien asennus    Kierresaumakanavien asennus    Ilmanvaihtokanavistojen muutostyöt    Ilmanvaihtokanavistojen saneeraus    Ilmanvaihtokanavien eristys    IV-kanavien eristystyöt"
       },
       {
         "slot": 10
