@@ -16,8 +16,6 @@ const sectionNavigation = solutionsSection.items.slice(0, solutionIds.length).ma
   href: `#${solutionIds[index]}`,
 }));
 
-const portfolioSection = content.portfolio;
-
 const faqSection = content.faq;
 
 const contactSection = content.contact;
@@ -152,36 +150,6 @@ const contactSection = content.contact;
   </section>
 
   <div class="portfolio-contact-transition">
-    <section class="portfolio-section portfolio-section--text-only" id="kohteet">
-      <div class="portfolio-section__inner page-shell">
-        <div class="portfolio-section__body">
-          <figure class="portfolio-section__image">
-            <CmsImage src={portfolioSection.image} alt={portfolioSection.imageAlt} loading="lazy" />
-          </figure>
-
-          <div class="portfolio-section__content">
-            <div class="portfolio-section__header">
-              <h2>{portfolioSection.title}</h2>
-              {portfolioSection.intro && <div class="portfolio-section__intro"><p>{portfolioSection.intro}</p></div>}
-            </div>
-
-            <div class="portfolio-grid" aria-label="LVI-Loistolle sopivat kohdetyypit">
-              {
-                portfolioSection.items.map((item) => (
-                  <article class="portfolio-card portfolio-card--static portfolio-card--text">
-                    <div class="portfolio-card__content">
-                      <h3>{item.title}</h3>
-                      {item.text.replace(/[•\s]/g, "") && <p class="portfolio-card__placeholder">{item.text}</p>}
-                    </div>
-                  </article>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="contact-section contact-section--home" id="yhteystiedot" aria-labelledby="contact-heading">
       <div class="contact-section__inner">
         <div class="contact-panel">
