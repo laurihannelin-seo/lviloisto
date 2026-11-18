@@ -11,6 +11,8 @@ test("all audience pages have editable content and valid owned hero images", () 
   for (const slug of slugs) {
     const content = JSON.parse(readFileSync(new URL(`src/content/cms/${slug}.json`, root), "utf8"));
     assert.equal(typeof content.noindex, "boolean");
+    assert.equal(content.extraSections.length, 4);
+    assert.ok(content.extraSections.every((section) => typeof section.title === "string" && Array.isArray(section.body)));
     assert.ok(content.hero.title && content.hero.imageAlt);
     assert.ok(existsSync(new URL(`public${content.hero.image}`, root)));
     assert.ok(content.services.items.length >= 1 && content.services.items.length <= 6);
@@ -32,6 +34,10 @@ test("built audience pages retain SEO and breadcrumbs without discussion CTAs", 
     assert.match(html, new RegExp(`rel="canonical" href="https://lviloisto.fi/${slug}/"`));
     assert.match(html, /property="og:title"/);
     assert.match(html, /aria-label="Murupolku"/);
+    content.extraSections.forEach((section, index) => {
+      const visible = Boolean(section.title.trim() && section.body.some((paragraph) => paragraph.trim()));
+      assert.equal(html.includes(`id="lisaosio-${index + 1}"`), visible);
+    });
     assert.doesNotMatch(html, /audience-hero-contact|audience-final-contact|audience-contact-heading|Keskustele kohteestasi/);
   }
 });

@@ -1,4 +1,10 @@
 {
+  "extraSections": [
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] }
+  ],
   "noindex": true,
   "seo": {
     "title": "Arvoasuntojen LVI-palvelut | LVI-Loisto",

@@ -14,6 +14,19 @@ settings:
       update: "Sisältöpäivitys: {name} ({userName})"
 
 components:
+  audience_extra_sections:
+    type: object
+    list:
+      min: 4
+      max: 4
+      collapsible: { collapsed: true, summary: "{title}" }
+    fields:
+      - { name: title, label: Otsikko, type: string }
+      - name: body
+        label: Tekstikappaleet
+        type: text
+        list: { min: 1, max: 4 }
+
   contact_profile:
     type: object
     fields:
@@ -216,6 +229,7 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: extraSections, label: Lisäosiot, component: audience_extra_sections, description: "Neljä otsikko- ja tekstiosiota. Osio näkyy sivulla vasta, kun otsikko ja teksti on täytetty." }
 
   - name: omakotitalot
     label: Omakotitalot
@@ -233,6 +247,7 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: extraSections, label: Lisäosiot, component: audience_extra_sections, description: "Neljä otsikko- ja tekstiosiota. Osio näkyy sivulla vasta, kun otsikko ja teksti on täytetty." }
 
   - name: taloyhtiot
     label: Taloyhtiöt
@@ -250,6 +265,7 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: extraSections, label: Lisäosiot, component: audience_extra_sections, description: "Neljä otsikko- ja tekstiosiota. Osio näkyy sivulla vasta, kun otsikko ja teksti on täytetty." }
 
   - name: rakennusliikkeet
     label: Rakennusliikkeet
@@ -267,6 +283,7 @@ content:
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
       - { name: services, component: audience_services }
       - { name: working, label: Toimintatapa, component: audience_prose }
+      - { name: extraSections, label: Lisäosiot, component: audience_extra_sections, description: "Neljä otsikko- ja tekstiosiota. Osio näkyy sivulla vasta, kun otsikko ja teksti on täytetty." }
 
   - name: home
     label: Etusivu

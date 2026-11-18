@@ -1,4 +1,10 @@
 {
+  "extraSections": [
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] }
+  ],
   "noindex": true,
   "seo": { "title": "Omakotitalojen LVI-palvelut | LVI-Loisto", "description": "LVI-Loiston palvelut omakotitaloihin. Tutustu palveluihin ja keskustele kohteestasi." },
   "hero": { "title": "Omakotitalot", "intro": "[Kirjoita lyhyt esittely LVI-Loiston palveluista omakotitaloihin.]", "image": "/images/home/uudisrakennukset-villat.jpeg", "imageAlt": "Viimeistelty kodinhoito- ja märkätila yksityiskohteessa" },

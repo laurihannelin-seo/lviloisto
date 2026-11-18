@@ -1,4 +1,10 @@
 {
+  "extraSections": [
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] },
+    { "title": "", "body": [""] }
+  ],
   "noindex": true,
   "seo": { "title": "LVI-kumppani rakennusliikkeille | LVI-Loisto", "description": "LVI-Loiston palvelut rakennusliikkeille. Tutustu palveluihin ja keskustele kohteestasi." },
   "hero": { "title": "Rakennusliikkeet", "intro": "[Kirjoita lyhyt esittely LVI-Loiston palveluista rakennusliikkeille.]", "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp", "imageAlt": "Putkiasennuksia ja jakotukki rakenteilla olevassa kohteessa" },

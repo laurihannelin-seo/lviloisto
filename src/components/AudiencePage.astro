@@ -13,6 +13,7 @@ interface Props {
     introSection: { title: string; body: string[] };
     services: { title: string; intro: string; items: { title: string; text: string }[] };
     working: { title: string; body: string[] };
+    extraSections?: { title: string; body: string[] }[];
   };
 }
 
@@ -44,5 +45,10 @@ const { content, label } = Astro.props;
       <div class="service-prose">{content.working.body.map((paragraph) => <p>{paragraph}</p>)}</div>
       <div class="audience-page__service-links"><a class="text-link" href="/lvi-tyot/">LVI-työt <span aria-hidden="true">→</span></a><a class="text-link" href="/lvi-urakointi/">LVI-urakointi <span aria-hidden="true">→</span></a></div>
     </ServiceContentSection>
+    {(content.extraSections ?? []).map((section, index) => section.title.trim() && section.body.some((paragraph) => paragraph.trim()) && (
+      <ServiceContentSection id={`lisaosio-${index + 1}`} title={section.title}>
+        <div class="service-prose">{section.body.filter((paragraph) => paragraph.trim()).map((paragraph) => <p>{paragraph}</p>)}</div>
+      </ServiceContentSection>
+    ))}
   </div>
 </BaseLayout>
