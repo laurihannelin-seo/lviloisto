@@ -1,12 +1,12 @@
 {
   "matias": {
     "role": "Omakotitalot & Rakennusliikkeet",
-    "photo": "",
-    "photoAlt": ""
+    "photo": "/images/people/matias-avatar.webp",
+    "photoAlt": "Matias Ryynänen"
   },
   "miro": {
     "role": "Omakotitalot & Taloyhtiöt & Muut",
-    "photo": "",
-    "photoAlt": ""
+    "photo": "/images/people/miro-avatar.webp",
+    "photoAlt": "Miro Sorjonen"
   }
 }
