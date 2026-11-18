@@ -104,7 +104,7 @@
           "title": "Maalämpö, ilma-vesilämpöpumput ja kaukolämpö",
           "body": [
             "Toteutamme maalämpöjärjestelmien ja ilma-vesilämpöpumppujen asennuksia sekä olemassa olevien lämmitysjärjestelmien uusimisia. Palveluihimme kuuluvat myös kaukolämpölaitteistojen, lämmönjakokeskusten ja lämmönvaihtimien asennus- ja uusimistyöt.",
-            "Kokemuksemme kattaa myös suurempien yksityiskiinteistöjen lämmitysratkaisut. Esimerkiksi noin 1 000 m² Villa Upinniemen saneerauksessa kiinteistön lämmitysjärjestelmä uudistettiin kiinteistökokoluokan maalämpöpumpulla. Kohteessa maalämpöjärjestelmän keruupiiriä hyödynnettiin myös saunaosaston yksilöllisen oluenjäähdytysputkiston toteutuksessa.",
+            "Kokemuksemme kattaa myös suurempien yksityiskiinteistöjen lämmitysratkaisut. [Tutustu Villa Upinniemen toteutukseen](#villa-upinniemi).",
             "Tällaisissa kohteissa talotekniikalta voidaan edellyttää tavanomaisten ratkaisujen lisäksi erikoisosaamista ja kykyä sovittaa yhteen useita erilaisia järjestelmiä."
           ]
         }
@@ -129,7 +129,7 @@
           "title": "Ilmanvaihdon mittaus ja säätö",
           "body": [
             "Teemme ilmanvaihdon ilmavirtojen mittauksia, säätöjä ja tasapainotuksia sekä järjestelmien käyttöönottoon liittyviä töitä.",
-            "Kokemuksemme vaativista saneerauskohteista on opettanut huomioimaan myös ilmanvaihdon ulkonäölliset ja akustiset vaatimukset. Esimerkiksi Yrjönkadun kattohuoneiston saneerauksessa ilmanvaihdon päätelaitteet uusittiin viimeisteltyihin Ergovent-malleihin, jotta ne sopivat osaksi asunnon muuta arkkitehtuuria ja sisustusta."
+            "Kokemuksemme vaativista saneerauskohteista on opettanut huomioimaan myös ilmanvaihdon ulkonäölliset ja akustiset vaatimukset. [Tutustu Yrjönkadun kattohuoneistoon](#yrjonkatu)."
           ]
         }
       ]
@@ -178,7 +178,10 @@
             "Helsingin kantakaupungin historialliset asunnot sekä eri puolilla Suomea sijaitsevat huvilat ja suuremmat yksityiskiinteistöt ovat meille tuttuja työympäristöjä.",
             "Näissä kohteissa talotekniikan toteutuksessa korostuu usein sen huomaamaton sovittaminen osaksi arkkitehtuuria, tarkka suunnittelu ja viimeistely myös pienissä yksityiskohdissa.",
             "**[Tutustu arvoasuntokohteisiimme](/arvoasunnot/)**"
-          ]
+          ],
+          "summary": "Helsingin kantakaupungin historialliset asunnot sekä eri puolilla Suomea sijaitsevat huvilat ja suuremmat yksityiskiinteistöt ovat meille tuttuja työympäristöjä.",
+          "href": "/arvoasunnot/",
+          "linkLabel": "Tutustu palveluihin"
         },
         {
           "title": "Omakotitalot",
@@ -186,7 +189,10 @@
             "Toteutamme omakotitalojen LVI-töitä uudisrakentamisesta saneerauksiin sekä yksittäisiin asennus- ja muutostöihin. Tarkastelemme lämmitys-, käyttövesi-, viemäri- ja ilmanvaihtoratkaisuja osana rakennuksen kokonaisuutta.",
             "Omakotitaloissa toimivat ja pitkäikäiset ratkaisut ovat erityisen tärkeitä, sillä talotekniikan toimivuus vaikuttaa suoraan jokapäiväiseen asumiseen.",
             "**[Tutustu omakotitalojen palveluihimme](/omakotitalot/)**"
-          ]
+          ],
+          "summary": "Toteutamme omakotitalojen LVI-töitä uudisrakentamisesta saneerauksiin sekä yksittäisiin asennus- ja muutostöihin.",
+          "href": "/omakotitalot/",
+          "linkLabel": "Tutustu palveluihin"
         },
         {
           "title": "Taloyhtiöt",
@@ -194,7 +200,10 @@
             "Teemme taloyhtiöiden LVI-saneerauksia, korjaus- ja asennustöitä sekä lämmitys- ja käyttövesiverkostoihin liittyviä töitä. Toteutamme myös vesimittarien uusimisia, verkostojen säätöjä ja lämmönjakokeskusten asennuksia.",
             "Taloyhtiökohteissa pidämme tärkeänä suunnitelmallista työskentelyä ja sujuvaa yhteistyötä, jotta työt voidaan sovittaa yhteen kiinteistön käytön ja muun rakentamisen kanssa.",
             "**[Tutustu taloyhtiöiden palveluihimme](/taloyhtiot/)**"
-          ]
+          ],
+          "summary": "Teemme taloyhtiöiden LVI-saneerauksia, korjaus- ja asennustöitä sekä lämmitys- ja käyttövesiverkostoihin liittyviä töitä.",
+          "href": "/taloyhtiot/",
+          "linkLabel": "Tutustu palveluihin"
         },
         {
           "title": "Rakennusliikkeet",
@@ -202,7 +211,10 @@
             "Toimimme rakennusliikkeiden LVI-kumppanina uudis- ja saneerauskohteissa. Toteutamme sovittuja LVI-urakoita ja yksittäisiä työvaiheita osana suurempia rakennusprojekteja.",
             "Yhteistyössä korostuvat selkeä yhteydenpito, aikataulujen yhteensovittaminen sekä kyky huomioida muiden urakoitsijoiden työvaiheet. Meille on tärkeää, että jokainen projektin osapuoli voi keskittyä omaan työhönsä ja yhteinen kokonaisuus etenee hallitusti.",
             "**[Tutustu rakennusliikkeiden palveluihimme](/rakennusliikkeet/)**"
-          ]
+          ],
+          "summary": "Toimimme rakennusliikkeiden LVI-kumppanina uudis- ja saneerauskohteissa.",
+          "href": "/rakennusliikkeet/",
+          "linkLabel": "Tutustu palveluihin"
         }
       ]
     },
@@ -236,5 +248,60 @@
     ],
     "cta": "Ota yhteyttä",
     "href": "/yhteystiedot/"
-  }
+  },
+  "serviceNavigation": {
+    "title": "Palvelumme lyhyesti",
+    "items": [
+      {
+        "title": "Putkityöt ja LVI-asennukset",
+        "text": "Käyttövesi, viemäröinti ja vesikalusteiden asennukset.",
+        "href": "#korjaukset-ja-asennukset"
+      },
+      {
+        "title": "Lämmitysjärjestelmät",
+        "text": "Lämmitysverkostot, lämpöpumput ja kaukolämpö.",
+        "href": "#lammitys"
+      },
+      {
+        "title": "Ilmanvaihtotyöt",
+        "text": "Kanavistot, ilmanvaihtokoneet sekä mittaus ja säätö.",
+        "href": "#ilmanvaihto"
+      },
+      {
+        "title": "LVI-saneeraukset",
+        "text": "Talotekniikan uudistaminen olemassa olevissa rakennuksissa.",
+        "href": "#saneeraustyot"
+      },
+      {
+        "title": "Erikoisasennukset",
+        "text": "Yksilölliset vesikalusteet sekä spa- ja wellness-järjestelmät.",
+        "href": "#erikoisosaaminen"
+      },
+      {
+        "title": "LVI-urakointi",
+        "text": "Laajemmat uudis- ja saneerauskohteiden LVI-kokonaisuudet.",
+        "href": "/lvi-urakointi/"
+      }
+    ]
+  },
+  "references": [
+    {
+      "id": "villa-upinniemi",
+      "afterSection": "lammitys",
+      "project": "Villa Upinniemi",
+      "title": "Historiallisen huvilan lämmitysjärjestelmän uudistus",
+      "text": "Noin 1 000 m² Villa Upinniemen saneerauksessa kiinteistön lämmitysjärjestelmä uudistettiin kiinteistökokoluokan maalämpöpumpulla. Kohteen erityispiirteisiin kuuluivat laaja spa-alue höyrysaunoineen sekä saunaosaston yksilöllinen oluenjäähdytysputkisto, jonka toteutuksessa hyödynnettiin maalämmön keruupiiriä.",
+      "image": "",
+      "imageAlt": ""
+    },
+    {
+      "id": "yrjonkatu",
+      "afterSection": "erikoisosaaminen",
+      "project": "Yrjönkadun kattohuoneisto",
+      "title": "Yksityiskohdat osana talotekniikkaa",
+      "text": "Helsingin ydinkeskustassa sijaitsevan noin 600 m² kattohuoneiston laajassa remontissa uusittiin merkittävä osa asunnon talotekniikasta. Lämmityksen ja jäähdytyksen ohjaus integroitiin KNX-taloautomaatiojärjestelmään, ilmanvaihdon päätelaitteet uusittiin Ergovent-malleihin ja kylpyhuoneeseen toteutettiin GESSI-elämyssuihku.",
+      "image": "",
+      "imageAlt": ""
+    }
+  ]
 }

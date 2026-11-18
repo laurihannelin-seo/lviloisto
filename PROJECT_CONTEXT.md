@@ -1,5 +1,34 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun käyttöliittymäuudistus 18.11.2026
+
+- Uudempi toteutus korvaa alla kuvatun avoimen H3-gridin neljässä
+  palveluosiossa: putkityöt, lämmitys, ilmanvaihto ja erikoisosaaminen.
+  ServiceAccordion.astro renderöi CMS:n nykyiset H3-otsikot ja kappaleet
+  natiiveina details/summary-haitareina. Kaikki 11 riviä ovat oletuksena
+  kiinni, useampi voi olla auki ja koko teksti on valmiina HTML:ssä.
+- Johdannon jälkeen on Palvelumme lyhyesti -navigaatio: kuusi linkkiä,
+  desktopilla kolme palstaa ja mobiilissa yksi. Heron sisällysluettelo säilyy.
+- ServiceReference.astro näyttää Villa Upinniemen lämmityksen jälkeen ja
+  Yrjönkadun kattohuoneiston erikoisosaamisen jälkeen. Varmennettuja juuri
+  näiden kohteiden kuvia ei löytynyt, joten nostot ovat tekstipohjaiset.
+  CMS:ssä on valinnaiset kuvakentät oikeille kohdekuville.
+- JSON:n uudet pääkentät ovat serviceNavigation ja references. Kohderyhmien
+  alaosioissa summary, href ja linkLabel ohjaavat tiiviitä 2 x 2 linkkinostoja.
+  Niiden aiemmat täydet body-kappaleet säilyvät JSON:ssa ja CMS:ssä.
+- Muut palvelutekstit säilyivät. Vain kaksi pitkää, referenssinostoissa
+  toistuvaa esimerkkikappaletta korvattiin lyhyillä maininnoilla ja linkeillä.
+  Pitkän tekstin lukuleveys on enintään 820 px, sisältörunko 1184 px.
+  Uudisrakentamisen oma asennuskuva on tekstin alla, ei kapeassa splitissä.
+- Build ja 14 Node-testiä läpäisty. tests/lvi-work-browser.mjs tarkisti
+  oikeassa headless Chromessa leveydet 320, 390, 768 ja 1440 px,
+  klikkauksen, Enterin, välilyönnin, useamman avoimen haitarin,
+  ankkurilinkit ja ylivuodon. Ei vaakasuuntaista ylivuotoa tai sivuvirheitä.
+- Selaintesti ei lisää projektin riippuvuuksia. Se käyttää Playwrightia,
+  joka on saatavilla ympäristöstä (tai PLAYWRIGHT_PATH-polusta), sekä
+  valinnaista CHROME_PATH-polkua. UI_BASE_URL oletuksena
+  http://localhost:4322/lvi-tyot/; käynnistä preview ensin.
+
 ## LVI-työt-sivun sisältöpäivitys 18.11.2026
 
 - Asiakkaan toimittama copy korvaa aiemman LVI-työt-sivun tekstin ja pitkät

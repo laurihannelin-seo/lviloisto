@@ -774,6 +774,40 @@ content:
           - { name: imageAlt, label: Kuvan alt-teksti, type: string }
           - { name: primaryCta, label: Tarjouspyyntöpainike, type: string, required: true }
           - { name: secondaryCta, label: Palveluihin vievä painike, type: string, required: true }
+      - name: serviceNavigation
+        label: Palvelumme lyhyesti
+        type: object
+        fields:
+          - { name: title, label: Otsikko, type: string, required: true }
+          - name: items
+            label: Palvelulinkit
+            type: object
+            list:
+              min: 6
+              max: 6
+              collapsible: { collapsed: true, summary: "{title}" }
+            fields:
+              - { name: title, label: Linkin otsikko, type: string, required: true }
+              - { name: text, label: Lyhyt kuvaus, type: text }
+              - { name: href, label: Osoite tai ankkuri, type: string, required: true }
+      - name: references
+        label: Referenssinostot
+        type: object
+        list:
+          min: 2
+          max: 2
+          collapsible: { collapsed: true, summary: "{project}" }
+        fields:
+          - { name: id, type: string, hidden: true }
+          - { name: afterSection, type: string, hidden: true }
+          - { name: project, label: Kohteen nimi, type: string, required: true }
+          - { name: title, label: Otsikko, type: string, required: true }
+          - { name: text, label: Kuvaus, type: text, required: true }
+          - name: image
+            label: Oikea kohdekuva (valinnainen)
+            type: image
+            description: Lisää vain tästä kohteesta otettu kuva. Ilman kuvaa nosto on tekstipohjainen.
+          - { name: imageAlt, label: Kuvan alt-teksti, type: string }
       - name: sections
         label: Sisältöosiot ja sisällysluettelo
         type: object
@@ -799,8 +833,12 @@ content:
               collapsible: { collapsed: true, summary: "{title}" }
             fields:
               - { name: title, label: Väliotsikko (H3), type: string, required: true }
+              - { name: summary, label: Lyhyt kuvaus (vain kohderyhmälinkeille), type: text }
+              - { name: href, label: Kohderyhmäsivun osoite, type: string }
+              - { name: linkLabel, label: Linkin teksti, type: string }
               - name: body
                 label: Tekstikappaleet
+                description: Palvelun koko kuvaus haitarissa. Kohderyhmien pitkät kuvaukset säilyvät tässä, mutta linkkinostossa näkyy lyhyt kuvaus.
                 type: text
                 list: { max: 10 }
       - name: finalCta

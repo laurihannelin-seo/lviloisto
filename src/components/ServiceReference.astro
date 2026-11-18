@@ -1,0 +1,16 @@
+---
+import CmsImage from "./CmsImage.astro";
+interface Props {
+  reference: { id: string; project: string; title: string; text: string; image?: string; imageAlt?: string };
+}
+const { reference } = Astro.props;
+---
+
+<section class:list={["lvi-work-reference", { "lvi-work-reference--image": Boolean(reference.image) }]} id={reference.id} aria-labelledby={`${reference.id}-heading`}>
+  {reference.image && <figure><CmsImage src={reference.image} alt={reference.imageAlt || reference.project} loading="lazy" /></figure>}
+  <p class="lvi-work-reference__project">{reference.project}</p>
+  <div class="lvi-work-reference__copy">
+    <h2 id={`${reference.id}-heading`}>{reference.title}</h2>
+    <p>{reference.text}</p>
+  </div>
+</section>

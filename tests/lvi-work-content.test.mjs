@@ -19,10 +19,36 @@ test("LVI work copy retains all CMS paragraphs and a single H1", () => {
     assert.ok(html.includes(`href="#${section.id}"`));
     assert.ok(html.includes(section.title));
     for (const item of [section, ...section.subsections]) {
+      if (section.id === "kohteet" && item !== section) {
+        assert.ok(html.includes(item.summary));
+        assert.ok(html.includes(`href="${item.href}"`));
+        continue;
+      }
       for (const paragraph of item.body) assert.ok(html.includes(micromark(paragraph)), paragraph);
     }
   }
   for (const paragraph of content.finalCta.body) assert.ok(html.includes(micromark(paragraph)));
+});
+
+test("service disclosures, navigation and reference placement have real HTML structure", () => {
+  assert.equal((html.match(/class="service-accordion"/g) ?? []).length, 4);
+  assert.equal((html.match(/<details class="service-accordion__item">/g) ?? []).length, 11);
+  assert.doesNotMatch(html, /<details class="service-accordion__item"[^>]*\sopen/);
+  assert.equal(content.serviceNavigation.items.length, 6);
+  for (const item of content.serviceNavigation.items) {
+    assert.ok(html.includes(`href="${item.href}"`));
+    if (item.href.startsWith("#")) assert.ok(html.includes(`id="${item.href.slice(1)}"`));
+  }
+  for (const reference of content.references) {
+    const position = html.indexOf(`id="${reference.id}"`);
+    const parent = content.sections.findIndex((section) => section.id === reference.afterSection);
+    assert.ok(position > html.indexOf(`id="${reference.afterSection}"`));
+    assert.ok(position < html.indexOf(`id="${content.sections[parent + 1].id}"`));
+    assert.ok(html.includes(reference.text));
+  }
+  const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields;
+  assert.ok(fields.some((field) => field.name === "serviceNavigation"));
+  assert.ok(fields.some((field) => field.name === "references"));
 });
 
 test("LVI work CMS fields match content, links and safe formatting work", () => {
