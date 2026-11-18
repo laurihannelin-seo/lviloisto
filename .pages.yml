@@ -761,233 +761,59 @@ content:
     type: file
     path: src/content/cms/lvi-tyot.json
     format: json
-    operations:
-      create: false
-      rename: false
-      delete: false
+    operations: { create: false, rename: false, delete: false }
     fields:
-      - name: seo
-        component: seo
+      - { name: seo, component: seo }
       - name: hero
         label: Hero
         type: object
         fields:
-          - name: title
-            label: Pääotsikko
-            type: string
-            required: true
-          - name: intro
-            label: Ingressi
+          - { name: title, label: Pääotsikko, type: string, required: true }
+          - { name: intro, label: Ingressi, type: text, required: true }
+          - { name: image, label: Taustakuva, type: image, required: true }
+          - { name: imageAlt, label: Kuvan alt-teksti, type: string }
+          - { name: primaryCta, label: Tarjouspyyntöpainike, type: string, required: true }
+          - { name: secondaryCta, label: Palveluihin vievä painike, type: string, required: true }
+      - name: sections
+        label: Sisältöosiot ja sisällysluettelo
+        type: object
+        list:
+          min: 1
+          max: 20
+          collapsible: { collapsed: true, summary: "{title}" }
+        fields:
+          - { name: id, type: string, hidden: true }
+          - { name: title, label: Otsikko (H2), type: string, required: true }
+          - name: body
+            label: Tekstikappaleet
             type: text
-            required: true
-          - name: image
-            label: Taustakuva
-            type: image
-            required: true
-          - name: imageAlt
-            label: Kuvan alt-teksti
-            type: string
-            required: true
-          - name: primaryCta
-            label: Ensisijainen painike
-            type: string
-            required: true
-          - name: secondaryCta
-            label: Toinen painike
-            type: string
-            required: true
-          - name: navigation
-            label: Sisällysluettelon linkit
+            description: "Voit käyttää linkkejä muodossa [teksti](/osoite/) ja korostuksia **näin**."
+            list: { max: 12 }
+          - { name: image, label: Kuva (valinnainen), type: image }
+          - { name: imageAlt, label: Kuvan alt-teksti, type: string }
+          - name: subsections
+            label: Alaosiot
             type: object
             list:
-              max: 20
-              collapsible:
-                collapsed: true
-                summary: "Linkki {slot}: {label}"
+              max: 8
+              collapsible: { collapsed: true, summary: "{title}" }
             fields:
-              - name: slot
-                type: number
-                hidden: true
-              - name: label
-                label: Linkin teksti
-                type: string
-              - name: href
-                label: Linkin osoite
-                type: string
-                description: Paikoissa 1-6 nykyisen osion ankkuri. Paikoissa 7-20 osoite muodostuu automaattisesti, joten jätä tämä tyhjäksi.
+              - { name: title, label: Väliotsikko (H3), type: string, required: true }
               - name: body
-                label: Uuden osion tekstikappaleet (paikat 7-20)
+                label: Tekstikappaleet
                 type: text
-                description: Täytä linkin nimike ja lisää haluamasi tekstikappaleet. Paikoissa 1-6 sisältöä muokataan alempana.
-                list:
-                  max: 12
-
-      - name: introSection
-        label: Monipuoliset LVI-työt
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list:
-              min: 1
-              max: 6
-      - name: newBuild
-        label: Uudisrakentaminen
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: bodyBeforeList
-            label: Tekstikappaleet ennen listaa
-            type: text
-            list:
-              min: 1
-              max: 5
-          - name: items
-            label: Kohdetyypit
-            type: string
-            list:
-              min: 1
-              max: 8
-          - name: bodyAfterList
-            label: Lopputeksti
-            type: text
-            required: true
-          - name: image
-            label: Kuva
-            type: image
-            required: true
-          - name: imageAlt
-            label: Kuvan alt-teksti
-            type: string
-            required: true
-      - name: renovation
-        label: Saneeraustyöt
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list:
-              min: 1
-              max: 6
-          - name: listHeading
-            label: Listan otsikko
-            type: string
-            required: true
-          - name: items
-            label: Kohdetyypit
-            type: string
-            list:
-              min: 1
-              max: 8
-      - name: repairs
-        label: Korjaukset ja asennustyöt
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list:
-              min: 1
-              max: 5
-          - name: items
-            label: Palvelut
-            component: numbered_item
-            list:
-              min: 1
-              max: 8
-              collapsible:
-                collapsed: true
-                summary: "{number} {title}"
-      - name: audiences
-        label: Kohderyhmät
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: intro
-            label: Ingressi
-            type: text
-            required: true
-          - name: items
-            label: Kohderyhmät
-            component: text_item
-            list:
-              min: 1
-              max: 6
-              collapsible:
-                collapsed: true
-                summary: "{title}"
-      - name: scale
-        label: Pienet ja suuret työt
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list:
-              min: 1
-              max: 5
-          - name: linkLabel
-            label: Linkin teksti
-            type: string
-            required: true
-      - name: region
-        label: Toimialue
-        type: object
-        fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list:
-              min: 1
-              max: 5
+                list: { max: 10 }
       - name: finalCta
-        label: Loppunosto
+        label: Loppuyhteydenotto
         type: object
         fields:
-          - name: title
-            label: Otsikko
-            type: string
-            required: true
-          - name: text
-            label: Teksti
+          - { name: title, label: Otsikko, type: string, required: true }
+          - name: body
+            label: Tekstikappaleet
             type: text
-            required: true
-          - name: primaryCta
-            label: Ensisijainen painike
-            type: string
-            required: true
-          - name: secondaryCta
-            label: Toinen painike
-            type: string
-            required: true
+            list: { min: 1, max: 4 }
+          - { name: cta, label: Linkin teksti, type: string, required: true }
+          - { name: href, type: string, hidden: true }
 
   - name: lvi_contracting_page
     label: LVI-urakointi-sivu

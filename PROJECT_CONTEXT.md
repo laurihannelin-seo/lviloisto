@@ -1,5 +1,22 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun sisältöpäivitys 18.11.2026
+
+- Asiakkaan toimittama copy korvaa aiemman LVI-työt-sivun tekstin ja pitkät
+  avainsanalistat. SEO, hero, 10 H2-osiota, 15 H3-alaosiota ja loppuyhteydenotto
+  ovat src/content/cms/lvi-tyot.json-tiedostossa.
+- JSON:n pääkentät ovat nyt seo, hero, sections ja finalCta. Vanhat erilliset
+  newBuild-, renovation- ja muut kentät korvaa CMS:n Sisältöosiot-lista.
+  Sisällysluettelo syntyy listan otsikoista eikä erillisistä linkkipaikoista.
+- Hero-CTA Pyydä tarjous avaa edelleen yhteystietopuhekuplan. Toinen CTA
+  siirtyy palveluihin. Loppuyhteydenotto vie /yhteystiedot/-sivulle.
+- Kappaleet tukevat turvallista Markdownia (micromark): korostukset ja linkit
+  toimivat; raakaa HTML:ää tai skriptejä ei suoriteta.
+- Nykyiset hero- ja uudisrakentamiskuvat säilyivät. H3-alaosiot käyttävät
+  palvelusivujen kaksipalstaista, mobiilissa yksipalstaista gridiä.
+- Build ja 13 testiä läpäisty, mukana tests/lvi-work-content.test.mjs.
+  Selaimen visuaalinen tarkistus ei ollut käytettävissä tässä päivityksessä.
+
 ## Yrityssivun arvot ja omistajat 14.10.2026
 
 Heron jälkeinen osio on nyt Arvomme-otsikko, yksi arvoteksti ja kaksi

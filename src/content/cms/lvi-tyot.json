@@ -1,198 +1,240 @@
 {
   "seo": {
-    "title": "LVI-työt Helsinki ja Uusimaa | LVI-Loisto",
-    "description": "LVI-Loisto toteuttaa LVI-työt uudis- ja saneerauskohteisiin Helsingissä ja Uudellamaalla. Palvelemme taloyhtiöitä, yrityksiä ja kotitalouksia."
+    "title": "LVI-työt Helsinki ja Uusimaa | LVI-Loisto Oy",
+    "description": "Toteutamme LVI-työt Helsingissä ja Uudellamaalla uudisrakennuksista vaativiin saneerauksiin. Tutustu putki-, lämmitys- ja ilmanvaihtotöihimme."
   },
   "hero": {
     "title": "LVI-työt Helsingissä ja Uudellamaalla",
-    "intro": "LVI-Loisto toteuttaa LVI-uudisrakentamisen, saneeraustyöt ja korjaustyöt taloyhtiöille, rakennusalan yrityksille ja kotitalouksille. Palvelemme joustavasti niin pienissä kuin suuremmissakin LVI-töissä.",
+    "intro": "Toteutamme LVI-töitä uudisrakennuksiin, saneerattaviin koteihin, taloyhtiöihin ja suurempiin kiinteistöihin. Meille ovat tuttuja niin Helsingin kantakaupungin vanhat asunnot kuin uudisrakennukset ja yksilölliset huvilat eri puolilla Suomea.",
     "image": "/images/lvi-tyot/tekninen-tila-hero.webp",
     "imageAlt": "Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita",
     "primaryCta": "Pyydä tarjous",
-    "secondaryCta": "Ota yhteyttä",
-    "navigation": [
-      {
-        "slot": 1,
-        "label": "Monipuoliset LVI-työt",
-        "href": "#monipuoliset-lvi-tyot"
-      },
-      {
-        "slot": 2,
-        "label": "Uudisrakentaminen",
-        "href": "#uudisrakentaminen"
-      },
-      {
-        "slot": 3,
-        "label": "LVI-saneeraustyöt",
-        "href": "#saneeraustyot"
-      },
-      {
-        "slot": 4,
-        "label": "Korjaukset ja asennustyöt",
-        "href": "#korjaukset-ja-asennukset"
-      },
-      {
-        "slot": 5,
-        "label": "Kohteet",
-        "href": "#kohteet"
-      },
-      {
-        "slot": 6,
-        "label": "Toimialue",
-        "href": "#toimialue"
-      },
-      {
-        "slot": 7,
-        "label": "Lämmitysjärjestelmien asennus    Lämmitysremontti    Lämmitysverkoston saneeraus    Lattialämmityksen asennus    Vesikiertoinen lattialämmitys    Lattialämmityksen säätö    Patteriverkoston asennus    Patteriverkoston saneeraus    Patteriventtiilien vaihto    Patteriverkoston tasapainotus    Lämmitysverkoston tasapainotus    Vesivirtojen mittaus ja säätö    Kaukolämpöasennus    Kaukolämpölaitteiston uusiminen    Kaukolämmönvaihtimen vaihto    Maalämpöasennus    Maalämpöpumppu    Ilma-vesilämpöpumpun asennus    VILP-asennus    Lämmitysjärjestelmän uusiminen"
-      },
-      {
-        "slot": 9,
-        "label": "Ilmanvaihtotyöt    Ilmanvaihtoasennus    Ilmanvaihtourakointi    IV-urakointi    IV-asennukset    Ilmanvaihtokanavien asennus    Ilmanvaihdon mittaus ja säätö    Ilmavirtojen mittaus    Ilmanvaihdon tasapainotus    Ilmanvaihtojärjestelmän saneeraus    Ilmanvaihtokoneen vaihto    Ilmanvaihdon jäähdytys    Vesikiertoinen viilennys    Jäähdytysverkoston asennus    LVI-järjestelmien käyttöönotto    Kanttikanavien valmistus    Kanttikanavien asennus    Kanttikanavatyöt    Kanttikanavointi    Peltikanavien valmistus    Peltikanavien asennus    Peltikanavointi    Ilmanvaihtokanavien valmistus    IV-kanavien valmistus    IV-kanavien mittatilausvalmistus    Mittatilauskanavat    Ilmanvaihdon peltityöt    IV-peltityöt    Ilmanvaihtokanavien pellitys    Suorakaidekanavien valmistus    Suorakaidekanavien asennus    Kierresaumakanavien asennus    Ilmanvaihtokanavistojen muutostyöt    Ilmanvaihtokanavistojen saneeraus    Ilmanvaihtokanavien eristys    IV-kanavien eristystyöt"
-      },
-      {
-        "slot": 10,
-        "label": "Käyttövesityöt ja putkistot - Käyttövesityöt - Käyttövesiasennukset - Käyttövesiurakointi - Käyttövesiputkien asennus - Käyttövesiputkiston uusiminen - Käyttövesisaneeraus - Käyttövesiremontti - Vesijohtojen uusiminen - Vesijohtosaneeraus - Käyttövesiverkoston saneeraus - Käyttövesiverkoston painekoe - Käyttövesiverkoston huuhtelu - Käyttövesiverkoston tasapainotus - Käyttöveden kiertojärjestelmän asennus - Lämpimän käyttöveden kiertopumpun vaihto - Käyttövesiputkien korjaus - Vesivuotojen korjaus - Vuotavan vesijohdon korjaus - Paineenalennusventtiilin asennus - Lämminvesivaraajan asennus - Lämminvesivaraajan vaihto - KVV-asennukset"
-      },
-      {
-        "slot": 11,
-        "label": "Vesimittarit - Vesimittarin asennus - Vesimittarin vaihto - Vesimittarin uusiminen - Huoneistokohtainen vesimittari - Huoneistokohtaisten vesimittareiden asennus - Huoneistokohtaisten vesimittareiden uusiminen - Etäluettavien vesimittareiden asennus - Etäluettavien vesimittareiden uusiminen - Vesimittareiden saneeraus - Vesimittarijärjestelmien uusiminen - Taloyhtiön vesimittareiden uusiminen"
-      },
-      {
-        "slot": 12,
-        "label": "Viemärityöt ja viemärisaneeraukset - Viemärityöt - Viemäriasennukset - Viemäriurakointi - Viemäriputkien asennus - Viemäriputkien uusiminen - Viemäriremontti - Viemärisaneeraus - Viemäriverkoston saneeraus - Pohjaviemärin uusiminen - Pohjaviemärin saneeraus - Viemärihajotusten uusiminen - Viemärin korjaus - Viemärikuvaus - Viemärin kamerakuvaus - Viemärin kuntotutkimus - Viemärin kaatojen tarkastus - Viemärin toimivuuden tarkastus - Viemärin vesikoe - Valurautaviemärin uusiminen - Muoviviemärin asennus - Sisäpuoliset viemärityöt - Kiinteistön viemärisaneeraus - Taloyhtiön viemäriremontti - Linjasaneeraus - Putkistosaneeraus"
-      },
-      {
-        "slot": 13,
-        "label": "Vesikalusteet ja hanat - Vesikalusteiden asennus - Vesikalusteiden uusiminen - Hanan asennus - Hanan vaihto - Keittiöhanan asennus - Pesuallashanan asennus - Suihkuhanan asennus - Termostaattihanan asennus - Sadesuihkun asennus - Piiloasennettavan suihkun asennus - Piiloasennettavan hanan asennus - Kuumavesihanan asennus - Kiehuvan veden hanan asennus - Quooker-hanan asennus - Porehanan asennus - Bideesuihkun asennus - WC-istuimen asennus - Seinä-WC:n asennus - Kylpyhuoneen putkityöt - Kylpyhuoneen vesikalusteasennukset"
-      },
-      {
-        "slot": 14,
-        "label": "Pesevät WC-istuimet ja äly-WC:t - Pesevän WC-istuimen asennus - Pesevä WC - Pesevän WC:n asennus - Suihku-WC:n asennus - Suihkukäymälän asennus - Äly-WC:n asennus - Elektronisen WC-istuimen asennus - Geberit AquaClean -asennus - TOTO Washlet -asennus"
-      },
-      {
-        "slot": 15,
-        "label": "Elämyssuihkut ja erikoissuihkut - Elämyssuihkun asennus - Elämyssuihkujärjestelmät - Elämyssuihkun putkityöt - Elämyssuihkun vesikytkennät - Monitoimisuihkun asennus - Suihkupaneelin asennus - Sadesuihkujärjestelmän asennus - Hierontasuihkun asennus - Kehosuihkujen asennus - Sivusuihkujen asennus - Piiloasennettavan suihkujärjestelmän asennus - Digitaalisen suihkujärjestelmän asennus - Älysuihkun asennus - Wellness-suihkujärjestelmät"
-      },
-      {
-        "slot": 16,
-        "label": "Porealtaat, höyrysaunat ja spa-tilat - Poreammeen asennus - Poreammeen putkikytkennät - Porealtaan asennus - Ulkoporealtaan vesikytkennät - Höyrysaunan asennus - Höyrysaunan putkityöt - Höyrysaunan vesikytkennät - Höyrygeneraattorin asennus - Höyrygeneraattorin vesiliitännät - Höyrysuihkun asennus - Höyrysuihkukaapin asennus - Spa-tilojen LVI-asennukset - Kylpylätilojen putkityöt - Höyrysaunojen LVI-asennukset - Wellness-tilojen LVI-urakointi"
-      },
-      {
-        "slot": 17,
-        "label": "Vedenpuhdistus- ja vedenkäsittelyjärjestelmät - Vedenpuhdistusjärjestelmien asennus - Vedenpuhdistuslaitteiston asennus - Vedenpuhdistusjärjestelmän huolto - Vedenkäsittelyjärjestelmät - Vedenkäsittelylaitteiston asennus - Käyttöveden suodatus - Käyttöveden puhdistus - Vedensuodattimen asennus - Talousveden suodatus - Talousveden puhdistus - Vedenpehmentimen asennus - Vedenpehmennysjärjestelmät - Aktiivihiilisuodattimen asennus - Käänteisosmoosilaitteiston asennus - Käyttöveden suodatusjärjestelmät"
-      },
-      {
-        "slot": 18
-      },
-      {
-        "slot": 19
-      },
-      {
-        "slot": 20
-      }
-    ]
+    "secondaryCta": "Tutustu palveluihimme"
   },
-  "introSection": {
-    "title": "Monipuoliset LVI-työt uudis- ja saneerauskohteisiin",
-    "body": [
-      "LVI-Loisto tarjoaa LVI-palveluita uudisrakentamiseen, saneerauksiin ja erilaisiin korjaustöihin Helsingissä ja muualla Uudellamaalla. Palvelemme taloyhtiöitä, rakennusalan yrityksiä ja kotitalouksia kohteen ja työn laajuuden mukaan.",
-      "Toteutamme sekä kokonaisia LVI-töitä uudis- ja saneerauskohteisiin että yksittäisiä asennus- ja korjaustöitä. Työn sisältö suunnitellaan aina kohteen tarpeiden, olemassa olevien järjestelmien ja mahdollisten LVI-suunnitelmien perusteella."
-    ]
-  },
-  "newBuild": {
-    "title": "LVI-työt uudisrakentamiseen",
-    "bodyBeforeList": [
-      "Toteutamme LVI-töitä uusiin asuinrakennuksiin ja toimimme tarvittaessa osana laajempaa rakennusprojektia. LVI-asennukset sovitetaan rakennuksen suunnitelmiin ja muiden työvaiheiden etenemiseen.",
-      "Uudisrakentamisen LVI-kohteitamme ovat esimerkiksi:"
-    ],
-    "items": [
-      "omakotitalot",
-      "rivitalot",
-      "kerrostalot"
-    ],
-    "bodyAfterList": "Työn laajuus voi vaihdella yksittäisistä asennuksista laajempaan LVI-kokonaisuuteen kohteen ja tilaajan tarpeiden mukaan.",
-    "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
-    "imageAlt": "Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
-  },
-  "renovation": {
-    "title": "LVI-saneeraustyöt",
-    "body": [
-      "LVI-saneerauksessa olemassa olevia järjestelmiä uusitaan, muutetaan tai täydennetään rakennuksen tarpeiden mukaan. Toteutamme saneeraustöitä niin yksittäisiin asuntoihin kuin laajempiin asuin- ja kiinteistökohteisiin.",
-      "Saneerauskohteissa huomioimme rakennuksen nykyiset järjestelmät ja rakenteet sekä sen, miten uudet asennukset voidaan toteuttaa osana muuta remonttia."
-    ],
-    "listHeading": "Teemme LVI-saneerauksia:",
-    "items": [
-      "omakotitaloissa",
-      "rivitaloissa",
-      "kerrostaloissa"
-    ]
-  },
-  "repairs": {
-    "title": "LVI-korjaukset ja asennustyöt",
-    "body": [
-      "Laajempien uudis- ja saneeraustöiden lisäksi toteutamme LVI-korjauksia ja asennuksia esimerkiksi pientaloihin ja taloyhtiöihin.",
-      "Palveluihimme kuuluvat muun muassa:"
-    ],
-    "items": [
-      {
-        "number": "01",
-        "title": "Vesimittarivaihdot",
-        "text": "Vesimittareiden vaihdot taloyhtiöihin ja muihin soveltuviin kohteisiin."
-      },
-      {
-        "number": "02",
-        "title": "Verkostojen tasapainotus ja säätö",
-        "text": "Lämmitysverkostojen tasapainotukset, pakkaskauden säädöt ja vesivirtojen mittaustyöt."
-      },
-      {
-        "number": "03",
-        "title": "Käyttövesiverkostot",
-        "text": "Käyttövesiputkistojen asennukset ja muut LVI-työt osana uudis- ja saneerauskohteita."
-      },
-      {
-        "number": "04",
-        "title": "Patteriverkostot",
-        "text": "Patteriverkostojen asennukset ja niihin liittyvät muutostyöt."
-      }
-    ]
-  },
-  "audiences": {
-    "title": "LVI-työt erilaisiin kohteisiin",
-    "intro": "Palvelemme yksityisasiakkaita, taloyhtiöitä ja rakennusalan yrityksiä. Työn laajuus määritellään aina kohteen ja tarpeen mukaan.",
-    "items": [
-      {
-        "title": "Kotitaloudet",
-        "text": "LVI-uudisrakentamista, saneerauksia ja korjaustöitä omakotitaloihin, asuntoihin ja muihin yksityisiin kohteisiin."
-      },
-      {
-        "title": "Taloyhtiöt",
-        "text": "LVI-saneerauksia, korjaustöitä, verkostojen säätöjä, vesimittaritöitä sekä käyttövesi- ja patteriverkostojen asennuksia."
-      },
-      {
-        "title": "Rakennusalan yritykset",
-        "text": "LVI-töitä uudis- ja saneerauskohteisiin osana rakennusprojektin muuta toteutusta."
-      }
-    ]
-  },
-  "scale": {
-    "title": "Pienet ja suuret LVI-työt",
-    "body": [
-      "LVI-Loisto ottaa vastaan sekä pienempiä LVI-töitä että suurempia uudis- ja saneerauskokonaisuuksia. Työn sisältö ja toteutustapa sovitaan aina kohteen tarpeiden perusteella.",
-      "Jos kyseessä on laajempi LVI-urakka, tutustu myös urakointipalveluumme."
-    ],
-    "linkLabel": "Tutustu LVI-urakointiin"
-  },
-  "region": {
-    "title": "LVI-työt Helsingissä ja Uudellamaalla",
-    "body": [
-      "LVI-Loisto palvelee asiakkaita Helsingissä ja muualla Uudenmaan alueella. Toimipisteemme sijaitsee Helsingissä, ja toteutamme LVI-töitä eri puolilla pääkaupunkiseutua sekä soveltuvissa kohteissa muualla Uudellamaalla.",
-      "Kun tarvitset tekijän uudisrakentamisen LVI-töihin, saneeraukseen tai yksittäiseen LVI-korjaukseen, ota yhteyttä ja kerro kohteesta sekä työn tarpeesta."
-    ]
-  },
+  "sections": [
+    {
+      "id": "monipuoliset-lvi-tyot",
+      "title": "LVI-työt uudisrakentamiseen ja saneerauksiin",
+      "body": [
+        "Jokainen rakennus on omanlaisensa, ja erilaiset kohteet asettavat omat vaatimuksensa myös talotekniikan toteutukselle. Vanhan kantakaupunkiasunnon saneeraaminen edellyttää erilaista lähestymistapaa kuin uuden omakotitalon rakentaminen tai laajan huvilakiinteistön teknisten järjestelmien suunnittelu.",
+        "Meille on muodostunut kokemuksen kautta hyvä ymmärrys erilaisten rakennusten LVI-töistä ja niiden yhteensovittamisesta muun rakentamisen kanssa. Toteutamme niin yksittäisiä asennus- ja muutostöitä kuin laajempia LVI-kokonaisuuksia, joissa useat tekniset järjestelmät ja työvaiheet liittyvät toisiinsa.",
+        "Työssämme pidämme tärkeänä huolellista valmistelua, toimivaa yhteistyötä ja sitä, että tekniset ratkaisut palvelevat rakennuksen käyttötarkoitusta mahdollisimman hyvin. Onnistunut lopputulos syntyy kokonaisuudesta, jossa käytännön toimivuus ja yksityiskohtien viimeistely kulkevat käsi kädessä."
+      ],
+      "subsections": []
+    },
+    {
+      "id": "uudisrakentaminen",
+      "title": "LVI-työt uudisrakentamiseen",
+      "body": [
+        "Uudisrakentamisessa talotekniikka on olennainen osa rakennuksen toimivuutta ja asumismukavuutta. LVI-järjestelmien suunnittelussa ja toteutuksessa on huomioitava rakennuksen käyttötarkoitus, rakenteelliset ratkaisut ja muiden urakoitsijoiden työvaiheet.",
+        "Toteutamme uudisrakentamisen LVI-töitä omakotitaloihin, rivitaloihin, kerrostaloihin ja suurempiin yksityiskiinteistöihin. Työn laajuus voi vaihdella yksittäisistä asennuksista laajoihin kokonaisuuksiin, joissa vastaamme useiden taloteknisten järjestelmien toteutuksesta.",
+        "Uudisrakennuksen LVI-töihin voivat kuulua esimerkiksi käyttövesi- ja viemäriverkostojen asennukset, vesikiertoiset lämmitysjärjestelmät, ilmanvaihtotyöt sekä rakennuksen lämmönjakoon ja jäähdytykseen liittyvät ratkaisut.",
+        "Erityisesti yksilöllisesti suunnitelluissa rakennuksissa tekniset ratkaisut on sovitettava tarkasti osaksi arkkitehtuuria ja muuta rakentamista. Teemme yhteistyötä suunnittelijoiden ja projektin muiden ammattilaisten kanssa, jotta asennukset voidaan toteuttaa teknisesti toimivalla ja rakennuksen kokonaisuuteen sopivalla tavalla."
+      ],
+      "subsections": [],
+      "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
+      "imageAlt": "Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
+    },
+    {
+      "id": "saneeraustyot",
+      "title": "LVI-saneeraukset ja putkiremontit",
+      "body": [
+        "Vanhan rakennuksen saneeraamisessa uutta tekniikkaa ei aina voida toteuttaa samalla tavalla kuin uudisrakennuksessa. Olemassa olevat rakenteet, aiemmat asennukset ja rakennuksen historia vaikuttavat siihen, millaisia ratkaisuja kohteeseen voidaan suunnitella.",
+        "Meillä on pitkä kokemus erityisesti Helsingin kantakaupungin asuntojen saneerauksista. Näissä kohteissa vanhat rakenteet ja rakennusten yksilölliset ominaisuudet edellyttävät usein tarkkaa yhteensovitusta sekä huolellista suunnittelua yhdessä muiden projektin osapuolten kanssa.",
+        "Toteutamme LVI-saneerauksia ja putkiremontteihin liittyviä töitä yksittäisistä asunnoista kokonaisiin kiinteistöihin. Saneerauksen yhteydessä voidaan uusia esimerkiksi käyttövesi- ja viemäriputkistoja, lämmitysverkostoja, vesikalusteita ja muita rakennuksen teknisiä järjestelmiä.",
+        "Kaikkea vanhaa ei kuitenkaan aina tarvitse korvata uudella. Olemme esimerkiksi kunnostaneet historiallisten asuntojen alkuperäisiä valurautapattereita osaksi uudistettua lämmitysjärjestelmää. Toisissa kohteissa taas olemme sijoittaneet uudet tekniset järjestelmät ja niiden huoltoluukut mahdollisimman huomaamattomasti osaksi sisustusta.",
+        "Tärkeintä on löytää kohteeseen ratkaisu, jossa rakennuksen ominaispiirteet, nykyaikaisen talotekniikan vaatimukset ja asiakkaan toiveet voidaan sovittaa yhteen."
+      ],
+      "subsections": []
+    },
+    {
+      "id": "korjaukset-ja-asennukset",
+      "title": "Putkityöt ja LVI-asennukset",
+      "body": [
+        "Putkityöt muodostavat merkittävän osan rakennusten talotekniikasta. Toimivat käyttövesi- ja viemäriverkostot sekä oikein toteutetut asennukset ovat välttämättömiä niin asumismukavuuden kuin rakennuksen päivittäisen käytön kannalta.",
+        "Toteutamme putkitöitä uudisrakennuksiin, saneerauskohteisiin ja olemassa oleviin kiinteistöihin. Laajempien urakoiden lisäksi teemme myös yksittäisiä asennus-, korjaus- ja muutostöitä."
+      ],
+      "subsections": [
+        {
+          "title": "Käyttövesiputkien asennus ja käyttövesisaneeraukset",
+          "body": [
+            "Teemme käyttövesiverkostojen asennuksia, uusimisia ja muutostöitä erilaisiin kiinteistöihin. Töihin kuuluvat muun muassa käyttövesiputkistojen saneeraukset, vesijohtojen uusiminen, lämpimän käyttöveden kiertojärjestelmiin liittyvät asennukset sekä putkistojen korjaukset.",
+            "Olemassa olevissa rakennuksissa käyttövesitöiden toteutukseen vaikuttavat muun muassa nykyisten putkistojen sijainti, rakenteet ja mahdollisen muun remontin laajuus."
+          ]
+        },
+        {
+          "title": "Viemärityöt ja viemärisaneeraukset",
+          "body": [
+            "Toteutamme viemäriputkistojen asennuksia, korjauksia ja uusimisia uudis- ja saneerauskohteissa. Palveluihimme kuuluvat esimerkiksi sisäpuoliset viemärityöt, pohjaviemärien asennukset ja saneeraukset sekä erilaisten viemäriverkostojen muutostyöt.",
+            "Viemäritöissä kiinnitämme huomiota järjestelmän toimivuuteen, asennusten yhteensopivuuteen olemassa olevien rakenteiden kanssa sekä tarvittaviin tarkastuksiin ja kokeisiin."
+          ]
+        },
+        {
+          "title": "Vesimittarien asennus ja vaihto",
+          "body": [
+            "Teemme vesimittarien asennuksia ja uusimisia taloyhtiöihin sekä muihin kiinteistöihin. Toteutamme myös huoneistokohtaisten ja etäluettavien vesimittarien asennuksia sekä laajempia vesimittarijärjestelmien uusimisia.",
+            "Erityisesti taloyhtiöissä vesimittarien vaihtotyöt edellyttävät huolellista aikataulutusta ja töiden yhteensovittamista kiinteistön muun käytön kanssa."
+          ]
+        },
+        {
+          "title": "Vesikalusteiden asennukset",
+          "body": [
+            "Asennamme ja uusimme hanoja, WC-istuimia, suihkujärjestelmiä ja muita vesikalusteita. Tavallisten vesikalusteiden lisäksi meille ovat tuttuja myös vaativampien kylpyhuoneiden ja keittiöiden erikoisratkaisut, kuten piiloasennettavat hanat, kiehuvan veden hanat sekä pesevät WC-istuimet.",
+            "Yksilöllisesti suunnitelluissa kohteissa vesikalusteiden asennuksiin liittyy usein tavallista enemmän yksityiskohtia. Siksi niiden tekninen toteutus on tärkeää huomioida jo muun suunnittelun yhteydessä."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lammitys",
+      "title": "Lämmitysjärjestelmien asennus ja uusiminen",
+      "body": [
+        "Lämmitysjärjestelmällä on keskeinen merkitys rakennuksen asumismukavuuteen, energiatehokkuuteen ja käyttökustannuksiin. Erilaiset rakennukset tarvitsevat erilaisia ratkaisuja, ja järjestelmän valintaan vaikuttavat muun muassa kiinteistön koko, käyttötarkoitus ja olemassa oleva talotekniikka.",
+        "Toteutamme lämmitysjärjestelmien asennuksia, saneerauksia ja muutostöitä omakotitaloista suurempiin asuin- ja kiinteistökohteisiin."
+      ],
+      "subsections": [
+        {
+          "title": "Lämmitysverkostot ja lattialämmitys",
+          "body": [
+            "Palveluihimme kuuluvat vesikiertoisten lattialämmitysjärjestelmien sekä patteri- ja lämmitysverkostojen asennukset ja saneeraukset. Teemme myös patteriventtiilien vaihtoja, verkostojen tasapainotuksia sekä vesivirtojen mittaus- ja säätötöitä.",
+            "Oikein toimiva lämmitysverkosto jakaa lämpöä rakennuksen eri tiloihin suunnitellulla tavalla. Erityisesti vanhemmissa kiinteistöissä verkostojen säätämisellä ja tarvittavilla muutostöillä voidaan vaikuttaa siihen, miten tasaisesti eri tilat lämpenevät."
+          ]
+        },
+        {
+          "title": "Maalämpö, ilma-vesilämpöpumput ja kaukolämpö",
+          "body": [
+            "Toteutamme maalämpöjärjestelmien ja ilma-vesilämpöpumppujen asennuksia sekä olemassa olevien lämmitysjärjestelmien uusimisia. Palveluihimme kuuluvat myös kaukolämpölaitteistojen, lämmönjakokeskusten ja lämmönvaihtimien asennus- ja uusimistyöt.",
+            "Kokemuksemme kattaa myös suurempien yksityiskiinteistöjen lämmitysratkaisut. Esimerkiksi noin 1 000 m² Villa Upinniemen saneerauksessa kiinteistön lämmitysjärjestelmä uudistettiin kiinteistökokoluokan maalämpöpumpulla. Kohteessa maalämpöjärjestelmän keruupiiriä hyödynnettiin myös saunaosaston yksilöllisen oluenjäähdytysputkiston toteutuksessa.",
+            "Tällaisissa kohteissa talotekniikalta voidaan edellyttää tavanomaisten ratkaisujen lisäksi erikoisosaamista ja kykyä sovittaa yhteen useita erilaisia järjestelmiä."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ilmanvaihto",
+      "title": "Ilmanvaihtotyöt ja IV-asennukset",
+      "body": [
+        "Toimiva ilmanvaihto on olennainen osa rakennuksen sisäolosuhteita. Ilmanvaihtojärjestelmän toteutuksessa on huomioitava rakennuksen käyttötarkoitus, tilojen olosuhdevaatimukset sekä järjestelmien yhteensovittaminen muihin rakenteisiin ja talotekniikkaan.",
+        "Toteutamme ilmanvaihtotöitä uudisrakentamisen ja saneerausten yhteydessä. Palveluihimme kuuluvat muun muassa ilmanvaihtokanavien asennukset, ilmanvaihtokoneiden vaihdot, kanavistojen muutostyöt sekä ilmanvaihdon mittaus- ja säätötyöt."
+      ],
+      "subsections": [
+        {
+          "title": "Ilmanvaihtokanavat ja mittatilausratkaisut",
+          "body": [
+            "Teemme ilmanvaihtokanavistojen asennuksia ja muutostöitä sekä valmistamme myös kantti- ja peltikanavia kohteiden tarpeiden mukaan. Mittatilausvalmistuksessa kanavien mitoitus ja muoto voidaan sovittaa rakennuksen teknisiin vaatimuksiin sekä käytettävissä olevaan tilaan.",
+            "Erityisesti saneerauskohteissa ja arkkitehtonisesti vaativissa rakennuksissa ilmanvaihtotekniikan sijoittaminen voi vaatia yksilöllisiä ratkaisuja."
+          ]
+        },
+        {
+          "title": "Ilmanvaihdon mittaus ja säätö",
+          "body": [
+            "Teemme ilmanvaihdon ilmavirtojen mittauksia, säätöjä ja tasapainotuksia sekä järjestelmien käyttöönottoon liittyviä töitä.",
+            "Kokemuksemme vaativista saneerauskohteista on opettanut huomioimaan myös ilmanvaihdon ulkonäölliset ja akustiset vaatimukset. Esimerkiksi Yrjönkadun kattohuoneiston saneerauksessa ilmanvaihdon päätelaitteet uusittiin viimeisteltyihin Ergovent-malleihin, jotta ne sopivat osaksi asunnon muuta arkkitehtuuria ja sisustusta."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erikoisosaaminen",
+      "title": "Erikoisosaamista vaativiin LVI-kohteisiin",
+      "body": [
+        "Tavallisten putki-, lämmitys- ja ilmanvaihtotöiden lisäksi olemme vuosien varrella päässeet toteuttamaan monia yksilöllisiä taloteknisiä ratkaisuja. Erityisesti arvoasunnoissa, huviloissa ja suuremmissa yksityiskiinteistöissä vastaan tulee järjestelmiä, joiden toteutuksessa korostuvat tekninen osaaminen ja yksityiskohtiin perehtyminen."
+      ],
+      "subsections": [
+        {
+          "title": "Erikoisvesikalusteet ja elämyssuihkut",
+          "body": [
+            "Toteutamme vaativien kylpyhuoneiden ja hyvinvointitilojen vesikalusteasennuksia. Näihin kuuluvat esimerkiksi pesevät WC-istuimet, piiloasennettavat hanat, digitaaliset suihkujärjestelmät, sadesuihkut sekä erilaiset elämyssuihkut.",
+            "Olemme toteuttaneet muun muassa GESSI-elämyssuihkujen ja laadukkaiden erikoisvesikalusteiden asennuksia Helsingin kantakaupungin arvoasuntoihin."
+          ]
+        },
+        {
+          "title": "Höyrysaunat, porealtaat ja spa-tilat",
+          "body": [
+            "Yksityisiin spa- ja hyvinvointitiloihin liittyy usein tavallista kylpyhuonetta monipuolisempaa talotekniikkaa. Toteutamme esimerkiksi höyrysaunojen, höyrygeneraattorien, porealtaiden ja muiden wellness-järjestelmien LVI-asennuksia ja vesikytkentöjä.",
+            "Näissä projekteissa eri järjestelmien toimivuus ja niiden sijoittaminen osaksi rakennuksen kokonaisuutta vaativat huolellista yhteensovittamista."
+          ]
+        },
+        {
+          "title": "Vedenkäsittelyjärjestelmät",
+          "body": [
+            "Palveluihimme kuuluvat myös erilaiset vedenpuhdistus- ja vedenkäsittelyjärjestelmien asennukset. Kohteen tarpeiden mukaan toteutuksiin voivat sisältyä esimerkiksi veden suodatus- ja pehmennysjärjestelmät.",
+            "Järjestelmän soveltuvuuteen vaikuttavat veden ominaisuudet, rakennuksen käyttötarkoitus sekä muu vesitekniikka.",
+            "**Tutustu myös arvoasuntokohteisiimme ja referensseihimme.**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kohteet",
+      "title": "LVI-työt erilaisiin kohteisiin",
+      "body": [
+        "Palvelemme kotitalouksia, taloyhtiöitä ja rakennusalan yrityksiä. Asiakaskuntamme ja toteuttamamme kohteet ovat monipuolisia, mutta yhteistä kaikille projekteille on tarve toimivalle talotekniikalle ja huolellisesti tehdylle työlle."
+      ],
+      "subsections": [
+        {
+          "title": "Arvoasunnot ja huvilat",
+          "body": [
+            "Helsingin kantakaupungin historialliset asunnot sekä eri puolilla Suomea sijaitsevat huvilat ja suuremmat yksityiskiinteistöt ovat meille tuttuja työympäristöjä.",
+            "Näissä kohteissa talotekniikan toteutuksessa korostuu usein sen huomaamaton sovittaminen osaksi arkkitehtuuria, tarkka suunnittelu ja viimeistely myös pienissä yksityiskohdissa.",
+            "**[Tutustu arvoasuntokohteisiimme](/arvoasunnot/)**"
+          ]
+        },
+        {
+          "title": "Omakotitalot",
+          "body": [
+            "Toteutamme omakotitalojen LVI-töitä uudisrakentamisesta saneerauksiin sekä yksittäisiin asennus- ja muutostöihin. Tarkastelemme lämmitys-, käyttövesi-, viemäri- ja ilmanvaihtoratkaisuja osana rakennuksen kokonaisuutta.",
+            "Omakotitaloissa toimivat ja pitkäikäiset ratkaisut ovat erityisen tärkeitä, sillä talotekniikan toimivuus vaikuttaa suoraan jokapäiväiseen asumiseen.",
+            "**[Tutustu omakotitalojen palveluihimme](/omakotitalot/)**"
+          ]
+        },
+        {
+          "title": "Taloyhtiöt",
+          "body": [
+            "Teemme taloyhtiöiden LVI-saneerauksia, korjaus- ja asennustöitä sekä lämmitys- ja käyttövesiverkostoihin liittyviä töitä. Toteutamme myös vesimittarien uusimisia, verkostojen säätöjä ja lämmönjakokeskusten asennuksia.",
+            "Taloyhtiökohteissa pidämme tärkeänä suunnitelmallista työskentelyä ja sujuvaa yhteistyötä, jotta työt voidaan sovittaa yhteen kiinteistön käytön ja muun rakentamisen kanssa.",
+            "**[Tutustu taloyhtiöiden palveluihimme](/taloyhtiot/)**"
+          ]
+        },
+        {
+          "title": "Rakennusliikkeet",
+          "body": [
+            "Toimimme rakennusliikkeiden LVI-kumppanina uudis- ja saneerauskohteissa. Toteutamme sovittuja LVI-urakoita ja yksittäisiä työvaiheita osana suurempia rakennusprojekteja.",
+            "Yhteistyössä korostuvat selkeä yhteydenpito, aikataulujen yhteensovittaminen sekä kyky huomioida muiden urakoitsijoiden työvaiheet. Meille on tärkeää, että jokainen projektin osapuoli voi keskittyä omaan työhönsä ja yhteinen kokonaisuus etenee hallitusti.",
+            "**[Tutustu rakennusliikkeiden palveluihimme](/rakennusliikkeet/)**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yhteistyo",
+      "title": "Huolellinen toteutus syntyy yhteistyöstä",
+      "body": [
+        "LVI-työt ovat usein vain yksi osa suurempaa rakennus- tai saneerausprojektia. Sen vuoksi pidämme tärkeänä, että työskentely sujuu yhteistyössä tilaajan, suunnittelijoiden ja muiden urakoitsijoiden kanssa.",
+        "Vaativissa kohteissa myös pienillä yksityiskohdilla voi olla suuri merkitys. Jos esimerkiksi ilmanvaihdon päätelaite, tarkastusluukku tai vesikaluste halutaan sijoittaa mahdollisimman huomaamattomasti, asia on tärkeää huomioida jo ennen varsinaista asennustyötä.",
+        "Teemme tiivistä yhteistyötä luotettavien yhteistyökumppaneidemme kanssa, joiden osaaminen kattaa LVI-töiden lisäksi suunnittelun, rakentamisen ja sähköalan työt. Yhteistyöverkostomme ansiosta pystymme osallistumaan myös laajempiin kokonaisuuksiin, joissa eri alojen osaamista tarvitaan saman lopputuloksen saavuttamiseksi.",
+        "Meille toimiva yhteistyö tarkoittaa avointa keskustelua, toisten työn kunnioittamista ja ratkaisujen etsimistä yhdessä. Uskomme, että parhaat lopputulokset syntyvät ympäristössä, jossa asioista voidaan keskustella suoraan ja jokainen voi tuoda oman osaamisensa osaksi projektia."
+      ],
+      "subsections": []
+    },
+    {
+      "id": "toimialue",
+      "title": "LVI-työt Helsingissä ja Uudellamaalla",
+      "body": [
+        "Toteutamme LVI-töitä Helsingissä, Espoossa, Vantaalla ja muualla Uudellamaalla. Erityisesti Helsingin kantakaupungin asuntojen saneeraukset ovat meille tuttuja, mutta palvelemme asiakkaitamme monipuolisesti myös uudisrakentamisessa ja muissa kiinteistökohteissa.",
+        "Pääkaupunkiseudun lisäksi olemme toteuttaneet vaativia huvila- ja yksityiskiinteistökohteita eri puolilla Suomea. Suuremmissa projekteissa toimialuetta tarkastellaan kohteen laajuuden, sijainnin ja toteutuksen vaatimusten mukaan.",
+        "Olipa kyse yksittäisestä LVI-asennuksesta, taloyhtiön saneerauksesta tai laajemmasta uudisrakennushankkeesta, voit olla meihin yhteydessä ja kertoa tarkemmin kohteestasi."
+      ],
+      "subsections": []
+    }
+  ],
   "finalCta": {
-    "title": "Tarvitsetko tekijän LVI-töihin?",
-    "text": "Kerro meille kohteesta ja tarvitsemastasi LVI-työstä. Voit olla yhteydessä puhelimitse, sähköpostilla tai lähettää tarjouspyynnön yhteydenottolomakkeella.",
-    "primaryCta": "Pyydä tarjous",
-    "secondaryCta": "Yhteystiedot"
+    "title": "Kerro meille kohteestasi",
+    "body": [
+      "Suunnitteletko uudisrakennusta, saneerausta tai yksittäistä LVI-työtä?",
+      "Kerro meille kohteesta, suunnitelluista töistä ja mahdollisesta aikataulusta. Käymme mielellämme kanssasi läpi projektin tarpeita ja sitä, miten voisimme olla avuksi toteutuksessa."
+    ],
+    "cta": "Ota yhteyttä",
+    "href": "/yhteystiedot/"
   }
 }

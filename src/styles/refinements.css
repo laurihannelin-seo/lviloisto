@@ -256,6 +256,9 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-article h2 { font-size: var(--content-heading); margin-bottom: 1.25rem; max-width: 52rem; }
 .lvi-work-article h3 { font-size: 1.5rem; }
 .lvi-work-article p { max-width: 75ch; font-size: 1.0625rem; }
+.lvi-work-subsections { margin-top: 1.5rem; }
+.lvi-work-subsections article > p + p { margin-top: 1rem; }
+.lvi-work-article a { text-underline-offset: 0.2em; }
 .lvi-work-article .lvi-work-bullet-list + p { margin-top: 1rem; }
 .lvi-work-article__section + .lvi-work-article__section { margin-top: 3.5rem; padding-top: 0; }
 .lvi-work-article__section--split {
@@ -282,6 +285,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-audience-list p { margin-top: 0.75rem; }
 .lvi-work-final-cta__inner { padding-block: 3.5rem; gap: 3rem; align-items: center; }
 .lvi-work-final-cta h2 { font-size: 3rem; }
+.lvi-work-final-cta__actions > .lvi-work-final-cta__primary { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.75rem 1.5rem; background: #e7d16b; color: #171717; text-decoration: none; }
 .lvi-work-final-cta__inner > div:first-child { border-top: 1px solid var(--color-line); padding-top: 1.5rem; }
 
 /* Company and contact information follow the same rhythm as the service pages. */
