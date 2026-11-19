@@ -1,5 +1,12 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun loppuosion poisto 19.11.2026
+
+- Kerro meille kohteestasi -loppu-CTA poistettiin /lvi-tyot/-sivulta.
+  Heron tarjouspyyntöpuhekupla ja yhteinen footer säilyvät ennallaan.
+  Vanhat finalCta-tekstit säilyvät JSON:ssa, mutta kenttä on piilotettu
+  CMS:stä eikä osiota renderöidä sivulle.
+
 ## LVI-työt-sivun oma kuvitus 19.11.2026
 
 - Heron tekninen tilakuva ja uudisrakentamisen putkiasennuskuva poistettiin

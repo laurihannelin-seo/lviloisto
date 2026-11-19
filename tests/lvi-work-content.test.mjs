@@ -48,7 +48,9 @@ test("LVI work copy retains all CMS paragraphs and a single H1", () => {
       for (const paragraph of item.body) assert.ok(html.includes(micromark(paragraph)), paragraph);
     }
   }
-  for (const paragraph of content.finalCta.body) assert.ok(html.includes(micromark(paragraph)));
+  assert.doesNotMatch(html, /lvi-work-final-cta|id="lvi-work-cta-heading"/);
+  assert.ok(!html.includes(content.finalCta.title));
+  assert.equal(config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "finalCta").hidden, true);
 });
 
 test("service disclosures, navigation and reference placement have real HTML structure", () => {

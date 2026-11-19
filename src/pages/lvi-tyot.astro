@@ -128,18 +128,6 @@ const accordionIds = new Set(["korjaukset-ja-asennukset", "lammitys", "ilmanvaih
     </div>
   </div>
 
-  <section class="lvi-work-final-cta" aria-labelledby="lvi-work-cta-heading">
-    <div class="lvi-work-final-cta__inner page-shell">
-      <div>
-        <h2 id="lvi-work-cta-heading">{content.finalCta.title}</h2>
-        {content.finalCta.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
-      </div>
-      <div class="lvi-work-final-cta__actions">
-        <a class="lvi-work-final-cta__primary" href={content.finalCta.href}>{content.finalCta.cta}</a>
-      </div>
-    </div>
-  </section>
-
   <script>
     const initLviWorkInteractions = () => {
       const contacts = Array.from(document.querySelectorAll("[data-lvi-work-contact]"));

@@ -847,6 +847,7 @@ content:
       - name: finalCta
         label: Loppuyhteydenotto
         type: object
+        hidden: true
         fields:
           - { name: title, label: Otsikko, type: string, required: true }
           - name: body
