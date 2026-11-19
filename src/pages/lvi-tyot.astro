@@ -81,7 +81,15 @@ const accordionIds = new Set(["korjaukset-ja-asennukset", "lammitys", "ilmanvaih
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
                 {section.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
               </div>
-              {section.image && <figure class="lvi-work-article__media lvi-work-article__wide-media"><CmsImage src={section.image} alt={section.imageAlt || ""} loading="lazy" /></figure>}
+            {section.image && (
+              <figure class="lvi-work-photo">
+                <div class:list={["lvi-work-photo__frames", { "lvi-work-photo__frames--pair": Boolean("supportingImage" in section && section.supportingImage) }]}>
+                  <CmsImage src={section.image} alt={section.imageAlt || ""} sizes={"supportingImage" in section && section.supportingImage ? "(max-width: 760px) 100vw, 720px" : "(max-width: 1568px) 100vw, 1440px"} loading="lazy" />
+                  {"supportingImage" in section && section.supportingImage && <CmsImage src={section.supportingImage} alt={section.supportingImageAlt || ""} sizes="(max-width: 760px) 100vw, 720px" loading="lazy" />}
+                </div>
+                {"imageCaption" in section && section.imageCaption && <figcaption>{section.imageCaption}</figcaption>}
+              </figure>
+            )}
             {accordionIds.has(section.id) ? <ServiceAccordion items={section.subsections} /> : section.id === "kohteet" ? (
               <div class="lvi-work-audience-links">
                 {section.subsections.map((subsection) => (

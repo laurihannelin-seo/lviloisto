@@ -6,8 +6,8 @@
   "hero": {
     "title": "LVI-työt Helsingissä ja Uudellamaalla",
     "intro": "Toteutamme LVI-töitä uudisrakennuksiin, saneerattaviin koteihin, taloyhtiöihin ja suurempiin kiinteistöihin. Meille ovat tuttuja niin Helsingin kantakaupungin vanhat asunnot kuin uudisrakennukset ja yksilölliset huvilat eri puolilla Suomea.",
-    "image": "/images/lvi-tyot/tekninen-tila-hero.webp",
-    "imageAlt": "Siisti tekninen tila, jossa on näkyviä LVI-putkistoja ja lämmönjakolaitteita",
+    "image": "/images/home/hero-imgl1743.jpg",
+    "imageAlt": "LVI-Loiston toteuttaman spa-tilan kylpyamme ja suihkuratkaisut",
     "primaryCta": "Pyydä tarjous",
     "secondaryCta": "Tutustu palveluihimme"
   },
@@ -31,9 +31,7 @@
         "Uudisrakennuksen LVI-töihin voivat kuulua esimerkiksi käyttövesi- ja viemäriverkostojen asennukset, vesikiertoiset lämmitysjärjestelmät, ilmanvaihtotyöt sekä rakennuksen lämmönjakoon ja jäähdytykseen liittyvät ratkaisut.",
         "Erityisesti yksilöllisesti suunnitelluissa rakennuksissa tekniset ratkaisut on sovitettava tarkasti osaksi arkkitehtuuria ja muuta rakentamista. Teemme yhteistyötä suunnittelijoiden ja projektin muiden ammattilaisten kanssa, jotta asennukset voidaan toteuttaa teknisesti toimivalla ja rakennuksen kokonaisuuteen sopivalla tavalla."
       ],
-      "subsections": [],
-      "image": "/images/lvi-tyot/uudisrakentamisen-putkiasennukset.webp",
-      "imageAlt": "Uudisrakennuksen siististi toteutettuja putkiasennuksia ja jakotukki"
+      "subsections": []
     },
     {
       "id": "saneeraustyot",
@@ -45,7 +43,12 @@
         "Kaikkea vanhaa ei kuitenkaan aina tarvitse korvata uudella. Olemme esimerkiksi kunnostaneet historiallisten asuntojen alkuperäisiä valurautapattereita osaksi uudistettua lämmitysjärjestelmää. Toisissa kohteissa taas olemme sijoittaneet uudet tekniset järjestelmät ja niiden huoltoluukut mahdollisimman huomaamattomasti osaksi sisustusta.",
         "Tärkeintä on löytää kohteeseen ratkaisu, jossa rakennuksen ominaispiirteet, nykyaikaisen talotekniikan vaatimukset ja asiakkaan toiveet voidaan sovittaa yhteen."
       ],
-      "subsections": []
+      "subsections": [],
+      "image": "/images/image00143.jpeg",
+      "imageAlt": "Viimeistellyn kylpyhuoneen allas, hana ja WC-istuin",
+      "supportingImage": "/images/lvi-tyot/vesikaluste-asennus.webp",
+      "supportingImageAlt": "Lähikuva kultasävyisen hanan ja pesualtaan asennuksesta",
+      "imageCaption": "Valmis kylpyhuone ja vesikalusteasennuksen yksityiskohtia LVI-Loiston kohteista."
     },
     {
       "id": "korjaukset-ja-asennukset",
@@ -137,6 +140,9 @@
     {
       "id": "erikoisosaaminen",
       "title": "Erikoisosaamista vaativiin LVI-kohteisiin",
+      "image": "/images/lvi-tyot/spa-suihkuratkaisut.webp",
+      "imageAlt": "LVI-Loiston toteuttaman spa-tilan suihkut, kylpyamme ja saunan lasiseinä",
+      "imageCaption": "Suihku- ja kylpyratkaisut osana viimeisteltyä spa-tilaa.",
       "body": [
         "Tavallisten putki-, lämmitys- ja ilmanvaihtotöiden lisäksi olemme vuosien varrella päässeet toteuttamaan monia yksilöllisiä taloteknisiä ratkaisuja. Erityisesti arvoasunnoissa, huviloissa ja suuremmissa yksityiskiinteistöissä vastaan tulee järjestelmiä, joiden toteutuksessa korostuvat tekninen osaaminen ja yksityiskohtiin perehtyminen."
       ],

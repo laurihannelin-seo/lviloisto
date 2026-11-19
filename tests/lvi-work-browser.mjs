@@ -59,7 +59,24 @@ try {
     if (width === 390 || width === 1440) {
       await page.screenshot({ path: join(output, `lvi-tyot-haitarit-${width}.png`) });
     }
-    console.log(JSON.stringify({ width, accordion: "click, Enter, Space and multi-open passed", ...layout }));
+    assert.equal(await page.locator(".lvi-work-photo img").count(), 3);
+    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 3);
+    for (const [index, photo] of (await page.locator(".lvi-work-photo").all()).entries()) {
+      await photo.scrollIntoViewIfNeeded();
+      await photo.locator("img").evaluateAll((images) => Promise.all(images.map((image) => image.decode())));
+      assert.equal(await photo.locator("img").evaluateAll((images) => images.every((image) => image.naturalWidth > 0)), true);
+      if (width === 390 || width === 1440) {
+        await photo.evaluate((element) => window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 100));
+        await page.screenshot({ path: join(output, `lvi-tyot-photo-${index + 1}-${width}.png`) });
+      }
+    }
+    const imageShare = await page.evaluate(() => {
+      const height = document.querySelector("main").getBoundingClientRect().height;
+      const mediaHeight = [...document.querySelectorAll(".lvi-work-hero, .lvi-work-photo__frames")].reduce((sum, element) => sum + element.getBoundingClientRect().height, 0);
+      return Math.round(mediaHeight / height * 100);
+    });
+    if (width >= 1280) assert.ok(imageShare >= 15 && imageShare <= 30, "Photographic sections should occupy roughly one fifth of the page height");
+    console.log(JSON.stringify({ width, imageShare, accordion: "click, Enter, Space and multi-open passed", ...layout }));
   }
   await page.locator("#villa-upinniemi").scrollIntoViewIfNeeded();
   await page.screenshot({ path: join(output, "lvi-tyot-referenssi.png") });

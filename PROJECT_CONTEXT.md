@@ -1,5 +1,26 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun oma kuvitus 19.11.2026
+
+- Heron tekninen tilakuva ja uudisrakentamisen putkiasennuskuva poistettiin
+  tältä sivulta. Hero käyttää asiakkaan omaa IMGL1743-kuvaa
+  (/images/home/hero-imgl1743.jpg). Muiden sivujen kuvia ei muutettu.
+- Saneerausosion kuvapari näyttää asiakkaan image00143.jpeg-kuvan ja
+  image00018.jpeg-kuvasta optimoidun vesikaluste-asennus.webp-kuvan.
+  Erikoisosaamisen kuva spa-suihkuratkaisut.webp on asiakkaan IMGL1744.jpg.
+  Uudet WebP:t on vain käännetty metatiedon mukaan ja pienennetty, ei luotu
+  tai muokattu tekoälyllä. Kuvarajaus tehdään CSS:llä responsiivisesti.
+- Kolme sisältökuvaa kahdessa kuvatauossa; desktopilla kuvarivit ja hero
+  yhteensä noin 19 % sivun korkeudesta. Mobiilissa kuvapari pinoutuu.
+  Rungon hero-linjaus ja 820 px lukuleveys säilyvät, tekstejä ei muutettu.
+- Osioiden image/supportingImage, alt-tekstit ja imageCaption ovat CMS:ssä
+  muokattavia. Sisältökuvat ovat lazy-loaded ja Astro optimoi srcset-versiot.
+- Referenssien kuvakentät jätettiin tyhjiksi: kuvia ei nimetty todistamatta
+  Villa Upinniemen tai Yrjönkadun kohteiksi. Erikoisosaamisen kuva on oman
+  yleisen osionsa johdannossa, erillään nimetystä referenssinostosta.
+- Build, 15 Node-testiä ja selaintestit 320–2560 px: kuvien lataus,
+  linjaus, ylivuoto, haitarit sekä desktopin kuvakorkeuden osuus.
+
 ## LVI-työt-sivun kohdistuskorjaus 19.11.2026
 
 - Sisältörungon erillinen 1184 px maksimileveys poistettiin. Se käyttää nyt

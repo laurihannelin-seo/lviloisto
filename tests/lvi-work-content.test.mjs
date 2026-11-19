@@ -9,6 +9,27 @@ const content = JSON.parse(readFileSync(new URL("src/content/cms/lvi-tyot.json",
 const html = readFileSync(new URL("dist/lvi-tyot/index.html", root), "utf8");
 const config = yaml.load(readFileSync(new URL(".pages.yml", root), "utf8"));
 
+test("LVI work uses owned photographs with editable, lazy-loaded content imagery", () => {
+  assert.equal(content.hero.image, "/images/home/hero-imgl1743.jpg");
+  assert.doesNotMatch(html, /tekninen-tila-hero|uudisrakentamisen-putkiasennukset/);
+  assert.equal((html.match(/class="lvi-work-photo"/g) ?? []).length, 2);
+  const photos = content.sections.filter((section) => section.image);
+  assert.deepEqual(photos.map((section) => section.id), ["saneeraustyot", "erikoisosaaminen"]);
+  for (const section of photos) {
+    assert.ok(readFileSync(new URL(`public${section.image}`, root)).length > 0);
+    assert.ok(html.includes(section.imageAlt));
+    assert.ok(html.includes(section.imageCaption));
+    if (section.supportingImage) {
+      assert.ok(readFileSync(new URL(`public${section.supportingImage}`, root)).length > 0);
+      assert.ok(html.includes(section.supportingImageAlt));
+    }
+  }
+  const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "sections").fields;
+  for (const name of ["image", "imageAlt", "supportingImage", "supportingImageAlt", "imageCaption"]) {
+    assert.ok(fields.some((field) => field.name === name));
+  }
+});
+
 test("LVI work copy retains all CMS paragraphs and a single H1", () => {
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
   assert.ok(html.includes(content.seo.title));

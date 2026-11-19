@@ -264,8 +264,13 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-content--structured .lvi-work-article__copy { max-width: 51.25rem; }
 .lvi-work-content--structured .lvi-work-article h2 { max-width: 51.25rem; }
 .lvi-work-content--structured .lvi-work-article__copy p { max-width: none; }
-.lvi-work-article .lvi-work-article__wide-media { margin: 1.75rem 0 0; width: 100%; aspect-ratio: 16 / 6; max-height: 23rem; overflow: hidden; }
-.lvi-work-article__wide-media img { width: 100%; height: 100%; object-fit: cover; }
+.lvi-work-photo { margin: 2rem 0 0; }
+.lvi-work-photo__frames { display: grid; grid-template-columns: minmax(0, 1fr); height: min(32vw, 28rem); overflow: hidden; }
+.lvi-work-photo__frames--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.lvi-work-photo__frames img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 55%; }
+.lvi-work-photo__frames--pair img:first-child { object-position: 50% 42%; }
+.lvi-work-photo__frames--pair img + img { object-position: 50% 35%; }
+.lvi-work-photo figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-muted); max-width: 51.25rem; }
 .lvi-work-service-nav { margin-block: 3.5rem; }
 .lvi-work-service-nav__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; }
 .lvi-work-service-nav__links a { display: block; padding: 1.25rem 0; border-top: 1px solid var(--color-line); color: inherit; text-decoration: none; }
@@ -304,7 +309,9 @@ body :is(a, button, summary, input, textarea):focus-visible {
   .service-detail-page .service-accordion h3 { grid-template-columns: 1.5rem minmax(0, 1fr) 1rem; gap: 0.75rem; font-size: 1.125rem; }
   .service-accordion__body { padding: 0 0 1.25rem; }
   .lvi-work-reference { gap: 1rem; padding-block: 1.75rem; margin-block: 2.5rem; }
-  .lvi-work-article .lvi-work-article__wide-media { aspect-ratio: 4 / 3; }
+  .lvi-work-photo__frames { height: auto; }
+  .lvi-work-photo__frames--pair { grid-template-columns: minmax(0, 1fr); }
+  .lvi-work-photo__frames img { aspect-ratio: 4 / 3; height: auto; }
 }
 .lvi-work-article .lvi-work-bullet-list + p { margin-top: 1rem; }
 .lvi-work-article__section + .lvi-work-article__section { margin-top: 3.5rem; padding-top: 0; }

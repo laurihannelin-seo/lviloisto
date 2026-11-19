@@ -825,6 +825,9 @@ content:
             list: { max: 12 }
           - { name: image, label: Kuva (valinnainen), type: image }
           - { name: imageAlt, label: Kuvan alt-teksti, type: string }
+          - { name: supportingImage, label: Rinnakkainen yksityiskohtakuva (valinnainen), type: image }
+          - { name: supportingImageAlt, label: Rinnakkaisen kuvan alt-teksti, type: string }
+          - { name: imageCaption, label: Kuvateksti (valinnainen), type: text }
           - name: subsections
             label: Alaosiot
             type: object
