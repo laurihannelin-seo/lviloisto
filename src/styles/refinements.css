@@ -261,7 +261,6 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-article a { text-underline-offset: 0.2em; }
 
 /* LVI work: compact service navigation, readable prose and native disclosures. */
-.lvi-work-content--structured .lvi-work-content__layout { max-width: 74rem; }
 .lvi-work-content--structured .lvi-work-article__copy { max-width: 51.25rem; }
 .lvi-work-content--structured .lvi-work-article h2 { max-width: 51.25rem; }
 .lvi-work-content--structured .lvi-work-article__copy p { max-width: none; }

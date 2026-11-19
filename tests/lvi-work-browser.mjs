@@ -12,10 +12,14 @@ try {
   const page = await browser.newPage({ reducedMotion: "reduce" });
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  for (const width of [320, 390, 768, 1440]) {
+  for (const width of [320, 390, 768, 1280, 1440, 1920, 2560]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(process.env.UI_BASE_URL || "http://127.0.0.1:4322/lvi-tyot/");
     await page.evaluate(() => document.fonts.ready);
+    if (width === 1440) {
+      await page.evaluate(() => window.scrollTo(0, document.querySelector(".lvi-work-hero").getBoundingClientRect().bottom + window.scrollY - 400));
+      await page.screenshot({ path: join(output, "lvi-tyot-hero-content-alignment.png") });
+    }
     assert.equal(await page.locator(".service-accordion").count(), 4);
     assert.equal(await page.locator(".service-accordion__item").count(), 11);
     assert.equal(await page.locator(".service-accordion__item[open]").count(), 0);
@@ -42,10 +46,16 @@ try {
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       audienceColumns: getComputedStyle(document.querySelector(".lvi-work-audience-links")).gridTemplateColumns.split(" ").length,
       proseWidths: [...document.querySelectorAll(".lvi-work-article__copy")].map((element) => element.getBoundingClientRect().width),
+      heroLeft: document.querySelector(".lvi-work-hero h1").getBoundingClientRect().left,
+      heroRight: document.querySelector(".service-page-hero__inner").getBoundingClientRect().right,
+      contentRight: document.querySelector(".lvi-work-content__layout").getBoundingClientRect().right,
+      sectionLefts: [...document.querySelectorAll(".lvi-work-article__copy, .lvi-work-service-nav, .service-accordion, .lvi-work-reference")].map((element) => element.getBoundingClientRect().left),
     }));
     assert.equal(layout.overflow, 0);
     assert.equal(layout.audienceColumns, width <= 760 ? 1 : 2);
     assert.ok(layout.proseWidths.every((value) => value <= 820));
+    assert.ok(layout.sectionLefts.every((value) => Math.abs(value - layout.heroLeft) < 1), "Content sections must align with the hero text");
+    assert.ok(Math.abs(layout.contentRight - layout.heroRight) < 1, "Content and hero must share the same outer width");
     if (width === 390 || width === 1440) {
       await page.screenshot({ path: join(output, `lvi-tyot-haitarit-${width}.png`) });
     }

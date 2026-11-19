@@ -1,5 +1,14 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun kohdistuskorjaus 19.11.2026
+
+- Sisältörungon erillinen 1184 px maksimileveys poistettiin. Se käyttää nyt
+  samaa yhteistä sisältöleveyttä ja sivumarginaaleja kuin hero, joten osioiden
+  vasen reuna ei siirry desktopilla sisemmäksi. Leipätekstin enintään 820 px
+  lukuleveys säilyy. Sisältöjä tai muita sivuja ei muutettu.
+- tests/lvi-work-browser.mjs tarkistaa myös heron ja sisältöosioiden reunan
+  kohdistuksen sekä yhteisen ulkoleveyden 320–2560 px näyttöleveyksillä.
+
 ## LVI-työt-sivun käyttöliittymäuudistus 18.11.2026
 
 - Uudempi toteutus korvaa alla kuvatun avoimen H3-gridin neljässä
