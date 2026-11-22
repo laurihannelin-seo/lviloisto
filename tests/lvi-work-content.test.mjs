@@ -12,13 +12,13 @@ const config = yaml.load(readFileSync(new URL(".pages.yml", root), "utf8"));
 test("LVI work uses owned photographs with editable, lazy-loaded content imagery", () => {
   assert.equal(content.hero.image, "/images/home/hero-imgl1743.jpg");
   assert.doesNotMatch(html, /tekninen-tila-hero|uudisrakentamisen-putkiasennukset/);
-  assert.equal((html.match(/class="lvi-work-photo"/g) ?? []).length, 2);
+  assert.equal((html.match(/class="lvi-work-photo(?:\s[^"]*)?"/g) ?? []).length, 3);
   const photos = content.sections.filter((section) => section.image);
-  assert.deepEqual(photos.map((section) => section.id), ["saneeraustyot", "erikoisosaaminen"]);
+  assert.deepEqual(photos.map((section) => section.id), ["monipuoliset-lvi-tyot", "saneeraustyot", "erikoisosaaminen"]);
   for (const section of photos) {
     assert.ok(readFileSync(new URL(`public${section.image}`, root)).length > 0);
     assert.ok(html.includes(section.imageAlt));
-    assert.ok(html.includes(section.imageCaption));
+    if (section.imageCaption) assert.ok(html.includes(section.imageCaption));
     if (section.supportingImage) {
       assert.ok(readFileSync(new URL(`public${section.supportingImage}`, root)).length > 0);
       assert.ok(html.includes(section.supportingImageAlt));
@@ -49,8 +49,36 @@ test("LVI work copy retains all CMS paragraphs and a single H1", () => {
     }
   }
   assert.doesNotMatch(html, /lvi-work-final-cta|id="lvi-work-cta-heading"/);
-  assert.ok(!html.includes(content.finalCta.title));
-  assert.equal(config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "finalCta").hidden, true);
+  assert.ok(html.includes('id="yhteydenotto"'));
+  assert.ok(html.includes(content.finalCta.title));
+  for (const paragraph of content.finalCta.body) assert.ok(html.includes(micromark(paragraph)));
+  assert.notEqual(config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "finalCta").hidden, true);
+});
+
+test("introduction, service-first order and condensed copy match the new structure", () => {
+  const expected = ["monipuoliset-lvi-tyot", "korjaukset-ja-asennukset", "lammitys", "ilmanvaihto", "uudisrakentaminen", "saneeraustyot", "erikoisosaaminen", "kohteet", "yhteistyo", "toimialue"];
+  assert.deepEqual(content.sections.map((section) => section.id), expected);
+  const introduction = content.sections[0];
+  assert.equal(introduction.title, "LVI-työt koteihin ja kiinteistöihin");
+  assert.equal(introduction.body.length, 2);
+  assert.equal(introduction.image, "/images/lvi-tyot/kylpyhuone-image00058.webp");
+  assert.ok(html.includes(introduction.quote.text));
+  assert.ok(html.includes(introduction.quote.author));
+  assert.ok(html.includes('class="lvi-work-quote"'));
+  const order = [expected[0], "palvelut", ...expected.slice(1), "yhteydenotto"];
+  let previous = -1;
+  for (const id of order) {
+    const position = html.indexOf(`id="${id}"`);
+    assert.ok(position > previous, `${id} must appear after the preceding section`);
+    previous = position;
+  }
+  for (const id of ["uudisrakentaminen", "saneeraustyot"]) {
+    const section = content.sections.find((item) => item.id === id);
+    assert.equal(section.body.length, 2);
+    assert.equal(section.subsections.length, 0);
+  }
+  const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "sections").fields;
+  assert.deepEqual(fields.find((field) => field.name === "quote").fields.map((field) => field.name), ["text", "author"]);
 });
 
 test("service disclosures, navigation and reference placement have real HTML structure", () => {

@@ -1,5 +1,34 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun aloitus ja palvelujärjestys 22.11.2026
+
+- Aloitusosion otsikko on LVI-työt koteihin ja kiinteistöihin. Kaksi
+  tekstikappaletta sekä uudisrakentamis- ja saneeraustekstit korvattiin
+  asiakkaan uusilla copyteksteillä; kumpikin jälkimmäinen sisältää nyt
+  kaksi aina näkyvää kappaletta. Kaikki H3-haitaritekstit säilyivät.
+- Aloitus on desktopilla 55/45-tekstikuva-layout, jonka oikealla puolella
+  on asiakkaan image00058.jpeg-kuvasta pienennetty ja EXIF-käännetty
+  /images/lvi-tyot/kylpyhuone-image00058.webp. Alle 1101 px leveydellä
+  kuva pinoutuu tekstin ja sitaatin jälkeen. Tekstin alla on hillitty
+  sitaatti sekä nykyinen yhteinen Matias-profiilikuva. Sitaatin teksti
+  ja allekirjoitus ovat CMS:n sisältöosion quote-kentässä.
+- Sisältöjärjestys JSON:ssa: esittely, putkityöt, lämmitys, ilmanvaihto,
+  uudisrakentaminen, saneeraus, erikoisosaaminen, kohderyhmät, yhteistyö,
+  toimialue. Kuuden linkin palvelunavigaatio renderöidään esittelyn
+  jälkeen. Hero-TOC sisältää saman järjestyksen, palvelunavigaation ja
+  lopun yhteydenottolinkin. Olemassa olevat ankkuri-ID:t säilytettiin.
+- Villa Upinniemi seuraa lämmitystä, Yrjönkatu erikoisosaamista kuten ennen.
+  Aiemmin vääränä poistettua uudisrakentamisen asennuskuvaa ei palautettu:
+  sille ei löytynyt varmistettua oikeaa korvaavaa työmaakuvaa.
+- Uuden ohjeen mukainen Yhteydenotto-lopetus on tavallinen H2 + teksti
+  ja yhteystietolinkki samalla sisältöpohjalla, ei vanha suuri CTA-bändi.
+  finalCta-kenttä on taas CMS:ssä muokattava. Vanhempi poistomuistio
+  alapuolella koskee aiempaa Kerro meille kohteestasi -osiota.
+- Build, 16 Node-testiä sekä selaintesti: 320, 390, 768, 1024, 1100,
+  1101, 1280, 1440, 1920 ja 2560 px. Testit tarkistavat 55/45-suhteen,
+  mobiilin sisältöjärjestyksen, H2- ja TOC-järjestyksen, kuvat, linjauksen,
+  ylivuodon ja kaikkien 11 haitarin säilymisen/toiminnan.
+
 ## LVI-työt-sivun loppuosion poisto 19.11.2026
 
 - Kerro meille kohteestasi -loppu-CTA poistettiin /lvi-tyot/-sivulta.

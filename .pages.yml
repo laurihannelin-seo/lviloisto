@@ -828,6 +828,12 @@ content:
           - { name: supportingImage, label: Rinnakkainen yksityiskohtakuva (valinnainen), type: image }
           - { name: supportingImageAlt, label: Rinnakkaisen kuvan alt-teksti, type: string }
           - { name: imageCaption, label: Kuvateksti (valinnainen), type: text }
+          - name: quote
+            label: Aloitusosion sitaatti (valinnainen)
+            type: object
+            fields:
+              - { name: text, label: Sitaatti, type: text }
+              - { name: author, label: Nimi ja yritys, type: string }
           - name: subsections
             label: Alaosiot
             type: object
@@ -847,7 +853,6 @@ content:
       - name: finalCta
         label: Loppuyhteydenotto
         type: object
-        hidden: true
         fields:
           - { name: title, label: Otsikko, type: string, required: true }
           - name: body

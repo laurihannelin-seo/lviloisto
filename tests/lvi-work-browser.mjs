@@ -12,10 +12,32 @@ try {
   const page = await browser.newPage({ reducedMotion: "reduce" });
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  for (const width of [320, 390, 768, 1280, 1440, 1920, 2560]) {
+  for (const width of [320, 390, 768, 1024, 1100, 1101, 1280, 1440, 1920, 2560]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(process.env.UI_BASE_URL || "http://127.0.0.1:4322/lvi-tyot/");
     await page.evaluate(() => document.fonts.ready);
+    const expectedOrder = ["monipuoliset-lvi-tyot", "palvelut", "korjaukset-ja-asennukset", "lammitys", "ilmanvaihto", "uudisrakentaminen", "saneeraustyot", "erikoisosaaminen", "kohteet", "yhteistyo", "toimialue", "yhteydenotto"];
+    assert.deepEqual(await page.locator(".lvi-work-article > .lvi-work-article__section, .lvi-work-article > .lvi-work-service-nav").evaluateAll((items) => items.map((item) => item.id)), expectedOrder);
+    assert.deepEqual(await page.locator(".lvi-work-hero__toc-list a").evaluateAll((items) => items.map((item) => item.hash.slice(1))), expectedOrder);
+    const intro = page.locator(".lvi-work-intro");
+    await intro.locator(".lvi-work-photo img").evaluate((image) => image.decode());
+    const introLayout = await intro.evaluate((element) => {
+      const copy = element.querySelector(".lvi-work-article__copy").getBoundingClientRect();
+      const media = element.querySelector(".lvi-work-intro__media").getBoundingClientRect();
+      const quote = element.querySelector(".lvi-work-quote").getBoundingClientRect();
+      return { columns: getComputedStyle(element).gridTemplateColumns.split(" ").length, copyLeft: copy.left, copyBottom: copy.bottom, mediaLeft: media.left, mediaTop: media.top, mediaBottom: media.bottom, quoteBottom: quote.bottom, copyShare: copy.width / (copy.width + media.width) };
+    });
+    assert.equal(introLayout.columns, width <= 1100 ? 1 : 2);
+    if (width <= 1100) assert.ok(introLayout.mediaTop >= introLayout.quoteBottom, "The image must follow the text and quotation on mobile/tablet");
+    else {
+      assert.ok(Math.abs(introLayout.copyShare - 0.55) < 0.01);
+      assert.ok(Math.abs(introLayout.copyBottom - introLayout.mediaBottom) < 1);
+      assert.ok(introLayout.mediaLeft > introLayout.copyLeft);
+    }
+    if (width === 390 || width === 1440) {
+      await intro.evaluate((element) => window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 100));
+      await page.screenshot({ path: join(output, `lvi-tyot-intro-${width}.png`) });
+    }
     if (width === 1440) {
       await page.evaluate(() => window.scrollTo(0, document.querySelector(".lvi-work-hero").getBoundingClientRect().bottom + window.scrollY - 400));
       await page.screenshot({ path: join(output, "lvi-tyot-hero-content-alignment.png") });
@@ -59,8 +81,9 @@ try {
     if (width === 390 || width === 1440) {
       await page.screenshot({ path: join(output, `lvi-tyot-haitarit-${width}.png`) });
     }
-    assert.equal(await page.locator(".lvi-work-photo img").count(), 3);
-    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 3);
+    assert.equal(await page.locator(".lvi-work-photo img").count(), 4);
+    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 4);
+    assert.equal(await page.locator(".lvi-work-quote .person-identity__avatar img").count(), 1);
     for (const [index, photo] of (await page.locator(".lvi-work-photo").all()).entries()) {
       await photo.scrollIntoViewIfNeeded();
       await photo.locator("img").evaluateAll((images) => Promise.all(images.map((image) => image.decode())));

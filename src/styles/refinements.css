@@ -271,6 +271,26 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-photo__frames--pair img:first-child { object-position: 50% 42%; }
 .lvi-work-photo__frames--pair img + img { object-position: 50% 35%; }
 .lvi-work-photo figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-muted); max-width: 51.25rem; }
+.lvi-work-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--layout-gap); align-items: stretch; }
+.lvi-work-intro .lvi-work-intro__media { position: relative; margin: 0; min-height: 30rem; }
+.lvi-work-intro__media .lvi-work-photo__frames { position: absolute; inset: 0; height: 100%; }
+.lvi-work-intro__media img { object-position: 50% 40%; }
+.lvi-work-quote { margin: 1.75rem 0 0; padding-left: 1.25rem; border-left: 2px solid var(--color-accent); }
+.lvi-work-quote blockquote { margin: 0; }
+.lvi-work-article .lvi-work-quote blockquote p { font-size: 1.1875rem; line-height: 1.55; }
+.lvi-work-quote figcaption { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.875rem; }
+.lvi-work-quote cite { font-style: normal; font-weight: 600; }
+.lvi-work-content--structured .lvi-work-article .lvi-work-contact { padding-top: 2rem; border-top: 1px solid var(--color-line); }
+.lvi-work-contact .text-link { display: inline-block; margin-top: 1.25rem; }
+@media (max-width: 1100px) {
+  .lvi-work-intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  .lvi-work-intro .lvi-work-intro__media { min-height: 0; }
+  .lvi-work-intro__media .lvi-work-photo__frames { position: static; height: min(60vw, 36rem); }
+}
+@media (max-width: 760px) {
+  .lvi-work-intro__media .lvi-work-photo__frames { height: auto; }
+  .lvi-work-intro__media .lvi-work-photo__frames img { aspect-ratio: 4 / 5; height: auto; }
+}
 .lvi-work-service-nav { margin-block: 3.5rem; }
 .lvi-work-service-nav__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; }
 .lvi-work-service-nav__links a { display: block; padding: 1.25rem 0; border-top: 1px solid var(--color-line); color: inherit; text-decoration: none; }

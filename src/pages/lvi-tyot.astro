@@ -7,6 +7,7 @@ import { micromark } from "micromark";
 import ServiceAccordion from "../components/ServiceAccordion.astro";
 import ServiceReference from "../components/ServiceReference.astro";
 import content from "../content/cms/lvi-tyot.json";
+import { contactPeople } from "../data/contact-people";
 
 const title = content.seo.title;
 const description = content.seo.description;
@@ -16,8 +17,13 @@ const sections = content.sections.map((section, index) => ({
   body: section.body ?? [],
   subsections: (section.subsections ?? []).map((subsection) => ({ ...subsection, body: subsection.body ?? [] })),
 }));
-const sectionNavigation = sections.map((section) => ({ label: section.title, href: `#${section.id}` }));
+const sectionNavigation = sections.flatMap((section, index) => [
+  { label: section.title, href: `#${section.id}` },
+  ...(index === 0 ? [{ label: content.serviceNavigation.title, href: "#palvelut" }] : []),
+]);
+sectionNavigation.push({ label: content.finalCta.title, href: "#yhteydenotto" });
 const accordionIds = new Set(["korjaukset-ja-asennukset", "lammitys", "ilmanvaihto", "erikoisosaaminen"]);
+const matias = contactPeople.find((person) => person.id === "matias")!;
 ---
 
 <BaseLayout title={title} description={description} headerTheme="dark" pageClass="service-detail-page">
@@ -76,13 +82,24 @@ const accordionIds = new Set(["korjaukset-ja-asennukset", "lammitys", "ilmanvaih
       <article class="lvi-work-article">
         {sections.map((section, index) => (
           <>
-          <section class="lvi-work-article__section" id={section.id} aria-labelledby={`${section.id}-heading`}>
+          <section class:list={["lvi-work-article__section", { "lvi-work-intro": index === 0 }]} id={section.id} aria-labelledby={`${section.id}-heading`}>
               <div class="lvi-work-article__copy">
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
                 {section.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
+                {"quote" in section && section.quote?.text && (
+                  <figure class="lvi-work-quote">
+                    <blockquote><p>”{section.quote.text}”</p></blockquote>
+                    <figcaption>
+                      <span class="person-identity__avatar">
+                        {matias.photo ? <CmsImage src={matias.photo} alt={matias.photoAlt} sizes="44px" loading="lazy" /> : <span aria-hidden="true">{matias.initials}</span>}
+                      </span>
+                      <cite>{section.quote.author}</cite>
+                    </figcaption>
+                  </figure>
+                )}
               </div>
             {section.image && (
-              <figure class="lvi-work-photo">
+              <figure class:list={["lvi-work-photo", { "lvi-work-intro__media": index === 0 }]}>
                 <div class:list={["lvi-work-photo__frames", { "lvi-work-photo__frames--pair": Boolean("supportingImage" in section && section.supportingImage) }]}>
                   <CmsImage src={section.image} alt={section.imageAlt || ""} sizes={"supportingImage" in section && section.supportingImage ? "(max-width: 760px) 100vw, 720px" : "(max-width: 1568px) 100vw, 1440px"} loading="lazy" />
                   {"supportingImage" in section && section.supportingImage && <CmsImage src={section.supportingImage} alt={section.supportingImageAlt || ""} sizes="(max-width: 760px) 100vw, 720px" loading="lazy" />}
@@ -124,6 +141,13 @@ const accordionIds = new Set(["korjaukset-ja-asennukset", "lammitys", "ilmanvaih
           {content.references.filter((reference) => reference.afterSection === section.id).map((reference) => <ServiceReference reference={reference} />)}
           </>
         ))}
+        <section class="lvi-work-article__section lvi-work-contact" id="yhteydenotto" aria-labelledby="lvi-work-contact-heading">
+          <div class="lvi-work-article__copy">
+            <h2 id="lvi-work-contact-heading">{content.finalCta.title}</h2>
+            {content.finalCta.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
+            <a class="text-link" href={content.finalCta.href}>{content.finalCta.cta}</a>
+          </div>
+        </section>
       </article>
     </div>
   </div>
