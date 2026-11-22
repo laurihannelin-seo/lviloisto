@@ -81,7 +81,7 @@ test("introduction, service-first order and condensed copy match the new structu
   assert.deepEqual(fields.find((field) => field.name === "quote").fields.map((field) => field.name), ["text", "author"]);
 });
 
-test("service disclosures, navigation and reference placement have real HTML structure", () => {
+test("service disclosures and navigation remain intact without removed reference callouts", () => {
   assert.equal((html.match(/class="service-accordion"/g) ?? []).length, 4);
   assert.equal((html.match(/<details class="service-accordion__item">/g) ?? []).length, 11);
   assert.doesNotMatch(html, /<details class="service-accordion__item"[^>]*\sopen/);
@@ -90,16 +90,10 @@ test("service disclosures, navigation and reference placement have real HTML str
     assert.ok(html.includes(`href="${item.href}"`));
     if (item.href.startsWith("#")) assert.ok(html.includes(`id="${item.href.slice(1)}"`));
   }
-  for (const reference of content.references) {
-    const position = html.indexOf(`id="${reference.id}"`);
-    const parent = content.sections.findIndex((section) => section.id === reference.afterSection);
-    assert.ok(position > html.indexOf(`id="${reference.afterSection}"`));
-    assert.ok(position < html.indexOf(`id="${content.sections[parent + 1].id}"`));
-    assert.ok(html.includes(reference.text));
-  }
+  assert.doesNotMatch(html, /lvi-work-reference|villa-upinniemi|yrjonkatu|Villa Upinniemi|Yrjönkadun kattohuoneisto/);
   const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields;
   assert.ok(fields.some((field) => field.name === "serviceNavigation"));
-  assert.ok(fields.some((field) => field.name === "references"));
+  assert.ok(!fields.some((field) => field.name === "references"));
 });
 
 test("LVI work CMS fields match content, links and safe formatting work", () => {

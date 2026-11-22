@@ -84,7 +84,7 @@
           "title": "Maalämpö, ilma-vesilämpöpumput ja kaukolämpö",
           "body": [
             "Toteutamme maalämpöjärjestelmien ja ilma-vesilämpöpumppujen asennuksia sekä olemassa olevien lämmitysjärjestelmien uusimisia. Palveluihimme kuuluvat myös kaukolämpölaitteistojen, lämmönjakokeskusten ja lämmönvaihtimien asennus- ja uusimistyöt.",
-            "Kokemuksemme kattaa myös suurempien yksityiskiinteistöjen lämmitysratkaisut. [Tutustu Villa Upinniemen toteutukseen](#villa-upinniemi).",
+            "Kokemuksemme kattaa myös suurempien yksityiskiinteistöjen lämmitysratkaisut.",
             "Tällaisissa kohteissa talotekniikalta voidaan edellyttää tavanomaisten ratkaisujen lisäksi erikoisosaamista ja kykyä sovittaa yhteen useita erilaisia järjestelmiä."
           ]
         }
@@ -109,7 +109,7 @@
           "title": "Ilmanvaihdon mittaus ja säätö",
           "body": [
             "Teemme ilmanvaihdon ilmavirtojen mittauksia, säätöjä ja tasapainotuksia sekä järjestelmien käyttöönottoon liittyviä töitä.",
-            "Kokemuksemme vaativista saneerauskohteista on opettanut huomioimaan myös ilmanvaihdon ulkonäölliset ja akustiset vaatimukset. [Tutustu Yrjönkadun kattohuoneistoon](#yrjonkatu)."
+            "Kokemuksemme vaativista saneerauskohteista on opettanut huomioimaan myös ilmanvaihdon ulkonäölliset ja akustiset vaatimukset."
           ]
         }
       ]
@@ -289,25 +289,5 @@
         "href": "/lvi-urakointi/"
       }
     ]
-  },
-  "references": [
-    {
-      "id": "villa-upinniemi",
-      "afterSection": "lammitys",
-      "project": "Villa Upinniemi",
-      "title": "Historiallisen huvilan lämmitysjärjestelmän uudistus",
-      "text": "Noin 1 000 m² Villa Upinniemen saneerauksessa kiinteistön lämmitysjärjestelmä uudistettiin kiinteistökokoluokan maalämpöpumpulla. Kohteen erityispiirteisiin kuuluivat laaja spa-alue höyrysaunoineen sekä saunaosaston yksilöllinen oluenjäähdytysputkisto, jonka toteutuksessa hyödynnettiin maalämmön keruupiiriä.",
-      "image": "",
-      "imageAlt": ""
-    },
-    {
-      "id": "yrjonkatu",
-      "afterSection": "erikoisosaaminen",
-      "project": "Yrjönkadun kattohuoneisto",
-      "title": "Yksityiskohdat osana talotekniikkaa",
-      "text": "Helsingin ydinkeskustassa sijaitsevan noin 600 m² kattohuoneiston laajassa remontissa uusittiin merkittävä osa asunnon talotekniikasta. Lämmityksen ja jäähdytyksen ohjaus integroitiin KNX-taloautomaatiojärjestelmään, ilmanvaihdon päätelaitteet uusittiin Ergovent-malleihin ja kylpyhuoneeseen toteutettiin GESSI-elämyssuihku.",
-      "image": "",
-      "imageAlt": ""
-    }
-  ]
+  }
 }

@@ -5,7 +5,6 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactPopover from "../components/ContactPopover.astro";
 import { micromark } from "micromark";
 import ServiceAccordion from "../components/ServiceAccordion.astro";
-import ServiceReference from "../components/ServiceReference.astro";
 import content from "../content/cms/lvi-tyot.json";
 import { contactPeople } from "../data/contact-people";
 
@@ -138,7 +137,6 @@ const matias = contactPeople.find((person) => person.id === "matias")!;
               </nav>
             </section>
           )}
-          {content.references.filter((reference) => reference.afterSection === section.id).map((reference) => <ServiceReference reference={reference} />)}
           </>
         ))}
         <section class="lvi-work-article__section lvi-work-contact" id="yhteydenotto" aria-labelledby="lvi-work-contact-heading">

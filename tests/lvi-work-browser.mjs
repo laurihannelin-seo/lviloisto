@@ -101,8 +101,7 @@ try {
     if (width >= 1280) assert.ok(imageShare >= 15 && imageShare <= 30, "Photographic sections should occupy roughly one fifth of the page height");
     console.log(JSON.stringify({ width, imageShare, accordion: "click, Enter, Space and multi-open passed", ...layout }));
   }
-  await page.locator("#villa-upinniemi").scrollIntoViewIfNeeded();
-  await page.screenshot({ path: join(output, "lvi-tyot-referenssi.png") });
+  assert.equal(await page.locator('.lvi-work-reference, a[href="#villa-upinniemi"], a[href="#yrjonkatu"]').count(), 0);
   await page.locator("#palvelut").scrollIntoViewIfNeeded();
   await page.screenshot({ path: join(output, "lvi-tyot-palvelunavigaatio.png") });
   assert.deepEqual(errors, []);

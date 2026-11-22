@@ -1,5 +1,14 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun referenssinostojen poisto 22.11.2026
+
+- Villa Upinniemi- ja Yrjönkadun kattohuoneisto -nostot poistettiin
+  /lvi-tyot/-sivulta, JSON-sisällöstä ja sivun CMS-kentistä.
+  Myös näihin nostoihin johtavat ankkurilinkit poistettiin lämmityksen
+  ja ilmanvaihdon haitariteksteistä; muu teksti ja kaikki kuvat säilyvät.
+- Vanhemmat referenssien sijoittelua koskevat muistiinpanot alla ovat
+  historiallisia. Nykyiset testit varmistavat nostojen ja linkkien poiston.
+
 ## LVI-työt-sivun aloitus ja palvelujärjestys 22.11.2026
 
 - Aloitusosion otsikko on LVI-työt koteihin ja kiinteistöihin. Kaksi

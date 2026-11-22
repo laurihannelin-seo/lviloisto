@@ -790,24 +790,6 @@ content:
               - { name: title, label: Linkin otsikko, type: string, required: true }
               - { name: text, label: Lyhyt kuvaus, type: text }
               - { name: href, label: Osoite tai ankkuri, type: string, required: true }
-      - name: references
-        label: Referenssinostot
-        type: object
-        list:
-          min: 2
-          max: 2
-          collapsible: { collapsed: true, summary: "{project}" }
-        fields:
-          - { name: id, type: string, hidden: true }
-          - { name: afterSection, type: string, hidden: true }
-          - { name: project, label: Kohteen nimi, type: string, required: true }
-          - { name: title, label: Otsikko, type: string, required: true }
-          - { name: text, label: Kuvaus, type: text, required: true }
-          - name: image
-            label: Oikea kohdekuva (valinnainen)
-            type: image
-            description: Lisää vain tästä kohteesta otettu kuva. Ilman kuvaa nosto on tekstipohjainen.
-          - { name: imageAlt, label: Kuvan alt-teksti, type: string }
       - name: sections
         label: Sisältöosiot ja sisällysluettelo
         type: object
