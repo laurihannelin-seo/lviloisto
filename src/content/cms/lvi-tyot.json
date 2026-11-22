@@ -68,6 +68,10 @@
     {
       "id": "lammitys",
       "title": "Lämmitysjärjestelmien asennus ja uusiminen",
+      "image": "/images/lvi-tyot/lammityksen-jakotukki-kuvitus.webp",
+      "imageAlt": "Kuvituskuva vesikiertoisen lattialämmityksen jakotukista ja virtausmittareista",
+      "imageCaption": "Kuvituskuva: vesikiertoisen lattialämmityksen jakotukki.",
+      "imageLayout": "right",
       "body": [
         "Lämmitysjärjestelmällä on keskeinen merkitys rakennuksen asumismukavuuteen, energiatehokkuuteen ja käyttökustannuksiin. Erilaiset rakennukset tarvitsevat erilaisia ratkaisuja, ja järjestelmän valintaan vaikuttavat muun muassa kiinteistön koko, käyttötarkoitus ja olemassa oleva talotekniikka.",
         "Toteutamme lämmitysjärjestelmien asennuksia, saneerauksia ja muutostöitä omakotitaloista suurempiin asuin- ja kiinteistökohteisiin."
@@ -93,6 +97,10 @@
     {
       "id": "ilmanvaihto",
       "title": "Ilmanvaihtotyöt ja IV-asennukset",
+      "image": "/images/lvi-tyot/ilmanvaihtokone-kuvitus.webp",
+      "imageAlt": "Kuvituskuva ilmanvaihtokoneesta ja siihen liittyvästä kanavistosta teknisessä tilassa",
+      "imageCaption": "Kuvituskuva: ilmanvaihtokone ja kanavisto.",
+      "imageLayout": "left",
       "body": [
         "Toimiva ilmanvaihto on olennainen osa rakennuksen sisäolosuhteita. Ilmanvaihtojärjestelmän toteutuksessa on huomioitava rakennuksen käyttötarkoitus, tilojen olosuhdevaatimukset sekä järjestelmien yhteensovittaminen muihin rakenteisiin ja talotekniikkaan.",
         "Toteutamme ilmanvaihtotöitä uudisrakentamisen ja saneerausten yhteydessä. Palveluihimme kuuluvat muun muassa ilmanvaihtokanavien asennukset, ilmanvaihtokoneiden vaihdot, kanavistojen muutostyöt sekä ilmanvaihdon mittaus- ja säätötyöt."

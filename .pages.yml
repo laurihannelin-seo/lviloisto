@@ -810,6 +810,15 @@ content:
           - { name: supportingImage, label: Rinnakkainen yksityiskohtakuva (valinnainen), type: image }
           - { name: supportingImageAlt, label: Rinnakkaisen kuvan alt-teksti, type: string }
           - { name: imageCaption, label: Kuvateksti (valinnainen), type: text }
+          - name: imageLayout
+            label: Palveluosion kuvan sijoittelu
+            type: select
+            description: Aloitusosion oma asettelu säilyy. Ilman kuvaa osio on tekstipohjainen. Haitarit ovat aina johdannon alla täysleveinä.
+            options:
+              values:
+                - { name: below, label: Kuva tekstin alla }
+                - { name: right, label: Kuva oikealla }
+                - { name: left, label: Kuva vasemmalla }
           - name: quote
             label: Aloitusosion sitaatti (valinnainen)
             type: object

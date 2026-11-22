@@ -9,12 +9,12 @@ const content = JSON.parse(readFileSync(new URL("src/content/cms/lvi-tyot.json",
 const html = readFileSync(new URL("dist/lvi-tyot/index.html", root), "utf8");
 const config = yaml.load(readFileSync(new URL(".pages.yml", root), "utf8"));
 
-test("LVI work uses owned photographs with editable, lazy-loaded content imagery", () => {
+test("LVI work retains owned photographs and labels the two approved generic service images", () => {
   assert.equal(content.hero.image, "/images/home/hero-imgl1743.jpg");
   assert.doesNotMatch(html, /tekninen-tila-hero|uudisrakentamisen-putkiasennukset/);
-  assert.equal((html.match(/class="lvi-work-photo(?:\s[^"]*)?"/g) ?? []).length, 3);
+  assert.equal((html.match(/class="lvi-work-photo(?:\s[^"]*)?"/g) ?? []).length, 5);
   const photos = content.sections.filter((section) => section.image);
-  assert.deepEqual(photos.map((section) => section.id), ["monipuoliset-lvi-tyot", "saneeraustyot", "erikoisosaaminen"]);
+  assert.deepEqual(photos.map((section) => section.id), ["monipuoliset-lvi-tyot", "lammitys", "ilmanvaihto", "saneeraustyot", "erikoisosaaminen"]);
   for (const section of photos) {
     assert.ok(readFileSync(new URL(`public${section.image}`, root)).length > 0);
     assert.ok(html.includes(section.imageAlt));
@@ -25,9 +25,18 @@ test("LVI work uses owned photographs with editable, lazy-loaded content imagery
     }
   }
   const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "sections").fields;
-  for (const name of ["image", "imageAlt", "supportingImage", "supportingImageAlt", "imageCaption"]) {
+  for (const name of ["image", "imageAlt", "supportingImage", "supportingImageAlt", "imageCaption", "imageLayout"]) {
     assert.ok(fields.some((field) => field.name === name));
   }
+  assert.deepEqual(fields.find((field) => field.name === "imageLayout").options.values.map((option) => option.name), ["below", "right", "left"]);
+  const sources = JSON.parse(readFileSync(new URL("public/images/lvi-tyot/image-sources.json", root)));
+  for (const [id, layout] of [["lammitys", "right"], ["ilmanvaihto", "left"]]) {
+    const section = content.sections.find((item) => item.id === id);
+    assert.equal(section.imageLayout, layout);
+    assert.ok(section.imageCaption.startsWith("Kuvituskuva:"));
+    assert.ok(sources.images.some((image) => section.image.endsWith(image.file) && image.license === "CC0 1.0"));
+  }
+  assert.ok(!content.sections.find((section) => section.id === "korjaukset-ja-asennukset").image);
 });
 
 test("LVI work copy retains all CMS paragraphs and a single H1", () => {

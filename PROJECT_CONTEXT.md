@@ -1,5 +1,34 @@
 # LVI-Loisto project context
 
+## LVI-työt-sivun vuorottelevat palvelujohdannot 22.11.2026
+
+- Lämmityksen johdannossa teksti on vasemmalla ja kuva oikealla,
+  ilmanvaihdossa kuva vasemmalla ja teksti oikealla. H3-haitarit ovat
+  aina lead-wrapperin ulkopuolella koko sisältörungon leveydellä.
+  Alle 1101 px leveydellä teksti tulee DOM-järjestyksen mukaisesti
+  ennen kuvaa kummassakin osiossa.
+- Asiakas hyväksyi yleiskuvat erikseen tässä tehtävässä, koska omista
+  projektikuvista ei löytynyt sopivia teknisiä otoksia. Kuvat ovat
+  lammityksen-jakotukki-kuvitus.webp ja ilmanvaihtokone-kuvitus.webp,
+  molemmat CC0-kuvia Wikimedia Commonsista. Ne on merkitty näkyvästi
+  kuvituskuviksi, ei LVI-Loiston projekteiksi. Tekijät, lähdesivut,
+  lisenssit ja muutokset löytyvät public/images/lvi-tyot/image-sources.json.
+- CMS:n imageLayout-valinta (below/right/left) ohjaa palvelujohdannon
+  asettelua. Sivupalsta syntyy vain, jos osiossa on oikeasti kuva.
+  Aloitusosion aiempi 55/45-rakenne säilyy erillisenä. Kuvakehys on
+  desktopilla 400–460 px leveä ja noin 267–307 px korkea.
+- Pääosioiden välit ovat gridin avulla tasaiset: desktop/tablet 80 px,
+  alle 761 px mobiilissa 48 px. Yksipalstaisen tekstin lukuleveys on
+  enintään 750 px. Johdantojen fontti 17 px (mobiili 16 px), riviväli
+  1.6 ja H2 desktopilla 38 px, mobiilissa 30 px.
+- Putkityöt säilyvät ilman kuvaa. Erikoisosaamisen ja saneerauksen
+  aiemmat omat kuvat säilyvät. Uudisrakentamisessa ei ollut kuvaa
+  edellisen väärän kuvan poiston jälkeen, eikä sitä palautettu tässä.
+  Kaikki palvelutekstit, H3-kuvaukset, osiojärjestys ja SEO säilyivät.
+- Build ja 16 Node-testiä sekä selaintesti 320–2560 px, myös 1100/1101 px
+  vaihtokohdan molemmin puolin: kuvakoot, palstajärjestys, haitarien
+  täysleveä sijainti, tasaiset osiovälit, typografia ja ylivuoto.
+
 ## LVI-työt-sivun referenssinostojen poisto 22.11.2026
 
 - Villa Upinniemi- ja Yrjönkadun kattohuoneisto -nostot poistettiin

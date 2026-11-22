@@ -14,6 +14,8 @@ const sections = content.sections.map((section, index) => ({
   ...section,
   id: section.id || `lvi-osio-${index + 1}`,
   body: section.body ?? [],
+  imageLayout: "imageLayout" in section ? section.imageLayout : "below",
+  hasSideImage: Boolean(section.image && "imageLayout" in section && ["left", "right"].includes(section.imageLayout)),
   subsections: (section.subsections ?? []).map((subsection) => ({ ...subsection, body: subsection.body ?? [] })),
 }));
 const sectionNavigation = sections.flatMap((section, index) => [
@@ -81,7 +83,8 @@ const matias = contactPeople.find((person) => person.id === "matias")!;
       <article class="lvi-work-article">
         {sections.map((section, index) => (
           <>
-          <section class:list={["lvi-work-article__section", { "lvi-work-intro": index === 0 }]} id={section.id} aria-labelledby={`${section.id}-heading`}>
+          <section class="lvi-work-article__section" id={section.id} aria-labelledby={`${section.id}-heading`}>
+            <div class:list={["lvi-work-section-lead", { "lvi-work-intro": index === 0, "lvi-work-section-lead--split": index !== 0 && section.hasSideImage, "lvi-work-section-lead--image-left": index !== 0 && section.hasSideImage && section.imageLayout === "left" }]}>
               <div class="lvi-work-article__copy">
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
                 {section.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
@@ -100,12 +103,13 @@ const matias = contactPeople.find((person) => person.id === "matias")!;
             {section.image && (
               <figure class:list={["lvi-work-photo", { "lvi-work-intro__media": index === 0 }]}>
                 <div class:list={["lvi-work-photo__frames", { "lvi-work-photo__frames--pair": Boolean("supportingImage" in section && section.supportingImage) }]}>
-                  <CmsImage src={section.image} alt={section.imageAlt || ""} sizes={"supportingImage" in section && section.supportingImage ? "(max-width: 760px) 100vw, 720px" : "(max-width: 1568px) 100vw, 1440px"} loading="lazy" />
+                  <CmsImage src={section.image} alt={section.imageAlt || ""} sizes={section.hasSideImage ? "(max-width: 500px) 100vw, 460px" : "supportingImage" in section && section.supportingImage ? "(max-width: 760px) 100vw, 720px" : "(max-width: 1568px) 100vw, 1440px"} loading="lazy" />
                   {"supportingImage" in section && section.supportingImage && <CmsImage src={section.supportingImage} alt={section.supportingImageAlt || ""} sizes="(max-width: 760px) 100vw, 720px" loading="lazy" />}
                 </div>
                 {"imageCaption" in section && section.imageCaption && <figcaption>{section.imageCaption}</figcaption>}
               </figure>
             )}
+            </div>
             {accordionIds.has(section.id) ? <ServiceAccordion items={section.subsections} /> : section.id === "kohteet" ? (
               <div class="lvi-work-audience-links">
                 {section.subsections.map((subsection) => (
