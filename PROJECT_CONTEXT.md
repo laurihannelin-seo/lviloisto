@@ -1,5 +1,15 @@
 # LVI-Loisto project context
 
+## Yleiskuvien poisto 22.11.2026
+
+- Asiakas ei pitänyt lisättyjä lämmitys- ja ilmanvaihtokuvia sopivina.
+  Molemmat yleiskuvat ja kuvatekstit poistettiin sivun JSON:sta sekä
+  kuvatiedostot ja niiden lähdemetatieto repositoriosta. Lämmitys ja
+  ilmanvaihto palautuvat tekstipohjaisiksi ilman tyhjää kuvapalstaa.
+- Aiemmat LVI-Loiston omat kuvat, typografian ja spacingin korjaukset
+  sekä täysleveät haitarit säilyvät. imageLayout-valinnat ovat tallessa
+  myöhempiä oikeita kuvia varten, mutta eivät tee sivupalstaa ilman kuvaa.
+
 ## LVI-työt-sivun vuorottelevat palvelujohdannot 22.11.2026
 
 - Lämmityksen johdannossa teksti on vasemmalla ja kuva oikealla,

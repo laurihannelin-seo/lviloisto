@@ -45,33 +45,23 @@ try {
     assert.equal(await page.locator(".service-accordion").count(), 4);
     assert.equal(await page.locator(".service-accordion__item").count(), 11);
     assert.equal(await page.locator(".service-accordion__item[open]").count(), 0);
-    for (const [id, side] of [["lammitys", "right"], ["ilmanvaihto", "left"]]) {
+    for (const id of ["lammitys", "ilmanvaihto"]) {
       const section = page.locator(`#${id}`);
-      const split = await section.evaluate((element) => {
+      assert.equal(await section.locator(".lvi-work-photo, .lvi-work-section-lead--split").count(), 0);
+      const fallback = await section.evaluate((element) => {
         const lead = element.querySelector(".lvi-work-section-lead");
         const copy = lead.querySelector(".lvi-work-article__copy").getBoundingClientRect();
-        const media = lead.querySelector(".lvi-work-photo").getBoundingClientRect();
-        const frame = lead.querySelector(".lvi-work-photo__frames").getBoundingClientRect();
         const accordion = element.querySelector(".service-accordion").getBoundingClientRect();
-        const heading = lead.querySelector("h2");
         const paragraph = lead.querySelector(".lvi-work-article__copy > p");
-        return { columns: getComputedStyle(lead).gridTemplateColumns.split(" ").length, copyLeft: copy.left, copyRight: copy.right, copyBottom: copy.bottom, mediaLeft: media.left, mediaRight: media.right, mediaTop: media.top, frameWidth: frame.width, frameHeight: frame.height, leadBottom: lead.getBoundingClientRect().bottom, accordionTop: accordion.top, accordionWidth: accordion.width, sectionWidth: element.getBoundingClientRect().width, paragraphSize: parseFloat(getComputedStyle(paragraph).fontSize), paragraphLineHeight: parseFloat(getComputedStyle(paragraph).lineHeight), headingSize: parseFloat(getComputedStyle(heading).fontSize), copyFirst: lead.firstElementChild.classList.contains("lvi-work-article__copy") };
+        return { display: getComputedStyle(lead).display, copyWidth: copy.width, leadBottom: lead.getBoundingClientRect().bottom, accordionTop: accordion.top, accordionWidth: accordion.width, sectionWidth: element.getBoundingClientRect().width, paragraphSize: parseFloat(getComputedStyle(paragraph).fontSize), paragraphLineHeight: parseFloat(getComputedStyle(paragraph).lineHeight) };
       });
-      assert.equal(split.copyFirst, true, "Source order must always put text before the image");
-      assert.equal(split.columns, width <= 1100 ? 1 : 2);
-      assert.ok(Math.abs(split.accordionWidth - split.sectionWidth) < 1, "Accordions must remain full-width outside the split introduction");
-      assert.ok(split.accordionTop > split.leadBottom);
-      assert.ok(split.paragraphSize >= 16 && split.paragraphSize <= 17);
-      assert.ok(Math.abs(split.paragraphLineHeight / split.paragraphSize - 1.6) < 0.01);
-      if (width <= 1100) assert.ok(split.mediaTop >= split.copyBottom, "Text must precede the image on mobile and tablet");
-      else {
-        assert.ok(split.frameWidth >= 400 && split.frameWidth <= 460);
-        assert.ok(split.frameHeight >= 260 && split.frameHeight <= 320);
-        assert.ok(split.headingSize >= 34 && split.headingSize <= 40);
-        assert.ok(side === "right" ? split.mediaLeft > split.copyRight : split.mediaRight < split.copyLeft);
-      }
+      assert.equal(fallback.display, "block", "Missing images must not leave an empty image column");
+      assert.ok(fallback.copyWidth <= 750);
+      assert.ok(Math.abs(fallback.accordionWidth - fallback.sectionWidth) < 1);
+      assert.ok(fallback.accordionTop > fallback.leadBottom);
+      assert.ok(fallback.paragraphSize >= 16 && fallback.paragraphSize <= 17);
+      assert.ok(Math.abs(fallback.paragraphLineHeight / fallback.paragraphSize - 1.6) < 0.01);
       if (width === 390 || width === 1440) {
-        await section.locator(".lvi-work-photo img").evaluate((image) => image.decode());
         await section.evaluate((element) => window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 100));
         await page.screenshot({ path: join(output, `lvi-tyot-${id}-${width}.png`) });
       }
@@ -114,8 +104,8 @@ try {
     if (width === 390 || width === 1440) {
       await page.screenshot({ path: join(output, `lvi-tyot-haitarit-${width}.png`) });
     }
-    assert.equal(await page.locator(".lvi-work-photo img").count(), 6);
-    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 6);
+    assert.equal(await page.locator(".lvi-work-photo img").count(), 4);
+    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 4);
     assert.equal(await page.locator(".lvi-work-quote .person-identity__avatar img").count(), 1);
     for (const [index, photo] of (await page.locator(".lvi-work-photo").all()).entries()) {
       await photo.scrollIntoViewIfNeeded();
