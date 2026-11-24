@@ -20,11 +20,11 @@ test("each LVI work section has one distinct project photograph after its conten
     assert.equal(photos.length, 1, section.id);
     assert.equal((photos[0][0].match(/<img\b/g) ?? []).length, 1, section.id);
     assert.ok(photos[0][0].includes(section.imageAlt));
-    if (section.imageCaption) assert.ok(photos[0][0].includes(section.imageCaption));
+    assert.doesNotMatch(photos[0][0], /<figcaption\b/);
     assert.ok(sectionHtml.trimEnd().endsWith(photos[0][0]), section.id);
   }
   const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "sections").fields;
-  for (const name of ["image", "imageAlt", "imageCaption"]) {
+  for (const name of ["image", "imageAlt"]) {
     assert.ok(fields.some((field) => field.name === name));
   }
   assert.doesNotMatch(html, /lammityksen-jakotukki-kuvitus|ilmanvaihtokone-kuvitus|Kuvituskuva:/);

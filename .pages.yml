@@ -807,7 +807,6 @@ content:
             list: { max: 12 }
           - { name: image, label: Kuva, type: image, description: "Palveluosioissa kuva sijoittuu osion loppuun." }
           - { name: imageAlt, label: Kuvan alt-teksti, type: string }
-          - { name: imageCaption, label: Kuvateksti (valinnainen), type: text }
           - name: quote
             label: Aloitusosion sitaatti (valinnainen)
             type: object
