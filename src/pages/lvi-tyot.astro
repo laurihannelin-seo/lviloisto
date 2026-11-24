@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CmsImage from "../components/CmsImage.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactPopover from "../components/ContactPopover.astro";
+import PersonQuote from "../components/PersonQuote.astro";
 import { micromark } from "micromark";
 import ServiceAccordion from "../components/ServiceAccordion.astro";
 import ServiceOverviewNav from "../components/ServiceOverviewNav.astro";
@@ -86,15 +87,7 @@ const matias = contactPeople.find((person) => person.id === "matias")!;
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
                 {section.body.map((paragraph) => <Fragment set:html={micromark(paragraph)} />)}
                 {"quote" in section && section.quote?.text && (
-                  <figure class="lvi-work-quote">
-                    <blockquote><p>”{section.quote.text}”</p></blockquote>
-                    <figcaption>
-                      <span class="person-identity__avatar">
-                        {matias.photo ? <CmsImage src={matias.photo} alt={matias.photoAlt} sizes="44px" loading="lazy" /> : <span aria-hidden="true">{matias.initials}</span>}
-                      </span>
-                      <cite>{section.quote.author}</cite>
-                    </figcaption>
-                  </figure>
+                  <PersonQuote person={matias} text={section.quote.text} author={section.quote.author} />
                 )}
               </div>
               {accordionIds.has(section.id) ? <ServiceAccordion items={section.subsections} /> : section.id === "kohteet" ? (

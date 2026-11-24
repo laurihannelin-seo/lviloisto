@@ -277,7 +277,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-intro__media img { object-position: 50% 40%; }
 .lvi-work-quote { margin: 1.75rem 0 0; padding-left: 1.25rem; border-left: 2px solid var(--color-accent); }
 .lvi-work-quote blockquote { margin: 0; }
-.lvi-work-article .lvi-work-quote blockquote p { font-size: 1.1875rem; line-height: 1.55; }
+:is(.lvi-work-article, .service-contracting-page) .lvi-work-quote blockquote p { font-size: 1.1875rem; line-height: 1.55; }
 .lvi-work-quote figcaption { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.875rem; }
 .lvi-work-quote cite { font-style: normal; font-weight: 600; }
 @media (min-width: 1101px) {
@@ -493,6 +493,8 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .service-contracting-page .service-accordion__body p + p { margin-top: 0.75rem; }
 .service-contracting-audiences { margin-top: 1.75rem; }
 .service-contracting-audiences .text-link { display: inline-block; margin-top: 1rem; }
+.service-contracting-page .lvi-work-quote { max-width: 54rem; margin-block: 0.5rem; }
+.service-contracting-page .faq-list { max-width: none; }
 #uudisrakentaminen-ja-saneeraus .service-section-photo { object-position: 50% 73%; }
 .service-contracting-process .numbered-content-list {
   padding: clamp(1rem, 3vw, 2.5rem);

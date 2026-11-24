@@ -4,18 +4,20 @@ import CmsImage from "../components/CmsImage.astro";
 import EmailContactOptions from "../components/EmailContactOptions.astro";
 import ContactPhones from "../components/ContactPhones.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
-import ContactForm from "../components/ContactForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
+import PersonQuote from "../components/PersonQuote.astro";
 import ServiceAccordion from "../components/ServiceAccordion.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
 import ServiceOverviewNav from "../components/ServiceOverviewNav.astro";
 import content from "../content/cms/lvi-urakointi.json";
+import { contactPeople } from "../data/contact-people";
 
 const buildingSections = [
   { id: "uudisrakentaminen-ja-saneeraus", ...content.newBuild },
   { id: "saneerauskohteet", ...content.renovation },
 ];
+const matias = contactPeople.find((person) => person.id === "matias")!;
 ---
 
 <BaseLayout title={content.seo.title} description={content.seo.description} headerTheme="dark" pageClass="service-detail-page service-contracting-page">
@@ -66,7 +68,7 @@ const buildingSections = [
               <p class="process-contact-popover__label">Puhelin</p>
               <ContactPhones />
               <EmailContactOptions />
-              <a class="process-contact-popover__action" href="#keskustele-urakasta">Jätä yhteydenottopyyntö</a>
+              <a class="process-contact-popover__action" href="/yhteystiedot/#contact-heading">Jätä yhteydenottopyyntö</a>
             </div>
           </div>
           <a class="service-page-hero__secondary" href="#palvelut">{content.hero.secondaryCta}</a>
@@ -146,6 +148,8 @@ const buildingSections = [
 
     <ServiceContentSection id="miksi-lvi-loisto" title={content.trust.title}>
       <div class="service-prose">
+        <p>{content.trust.intro}</p>
+        {content.trust.quote && <PersonQuote person={matias} text={content.trust.quote} />}
         {content.trust.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </ServiceContentSection>
@@ -162,26 +166,6 @@ const buildingSections = [
       items={content.faq.items}
     />
   </div>
-
-  <section class="contact-section" id="keskustele-urakasta" aria-labelledby="service-contact-heading">
-    <div class="contact-section__inner">
-      <figure class="contact-section__media">
-        <CmsImage
-          src={content.contact.image}
-          alt={content.contact.imageAlt}
-          loading="lazy"
-        />
-      </figure>
-
-      <div class="contact-panel">
-        <p class="section-label">{content.contact.label}</p>
-        <h2 id="service-contact-heading">{content.contact.title}</h2>
-        <p class="contact-panel__intro">{content.contact.intro}</p>
-
-        <ContactForm submitLabel={content.contact.submitLabel} />
-      </div>
-    </div>
-  </section>
 
   <script>
     const initServiceContactPopover = () => {

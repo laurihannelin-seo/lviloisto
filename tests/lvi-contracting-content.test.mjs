@@ -14,6 +14,10 @@ test("contracting copy, SEO and client photos render from Pages CMS", () => {
   assert.ok(html.includes(`<title>${content.seo.title}</title>`));
   assert.ok(html.includes(`content="${content.seo.description}"`));
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+  assert.ok(html.includes(`<p>${content.trust.intro}</p>`));
+  const quote = html.match(/<figure class="lvi-work-quote">[\s\S]*?<\/figure>/)?.[0];
+  assert.ok(quote?.includes(`<blockquote><p>”${content.trust.quote}”</p></blockquote>`));
+  assert.match(quote, /<figcaption>[\s\S]*?class="person-identity__avatar"[\s\S]*?<cite>Matias Ryynänen<\/cite>/);
   const sections = [
     content.introSection, content.services, ...content.services.items,
     content.newBuild, content.renovation, content.audiences, ...content.audiences.items,
@@ -27,7 +31,7 @@ test("contracting copy, SEO and client photos render from Pages CMS", () => {
     assert.ok(html.includes(question), question);
     for (const paragraph of answer) assert.ok(html.includes(paragraph), paragraph);
   }
-  for (const photo of [content.hero, content.introSection, content.newBuild, content.renovation, content.contact]) {
+  for (const photo of [content.hero, content.introSection, content.newBuild, content.renovation]) {
     assert.ok(existsSync(new URL(`../public${photo.image}`, import.meta.url)));
     assert.ok(html.includes(`alt="${photo.imageAlt}"`), photo.image);
   }
@@ -45,6 +49,7 @@ test("contracting navigation links to real sections and audience pages", () => {
     assert.ok(html.includes(`href="${href}">${linkLabel}</a>`));
     assert.ok(existsSync(new URL(`../dist${href}index.html`, import.meta.url)));
   }
-  assert.ok(html.includes('href="#keskustele-urakasta"'));
-  assert.ok(html.includes('id="keskustele-urakasta"'));
+  assert.doesNotMatch(html, /keskustele-urakasta|Keskustele LVI-urakastasi/);
+  assert.ok(html.includes('href="/yhteystiedot/#contact-heading"'));
+  assert.ok(read("dist/yhteystiedot/index.html").includes('id="contact-heading"'));
 });

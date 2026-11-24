@@ -215,9 +215,9 @@
   },
   "trust": {
     "title": "LVI-Loisto LVI-urakoitsijana",
+    "intro": "Meille LVI-urakointi on ennen kaikkea yhteistyötä. Suuremmissa rakennusprojekteissa onnistunut lopputulos syntyy eri alojen ammattilaisten osaamisesta ja siitä, miten hyvin yhteiset tavoitteet, suunnitelmat ja työvaiheet saadaan sovitettua yhteen.",
+    "quote": "LVI-Loiston toimintatapaan kuuluu positiivinen ja ratkaisukeskeinen suhtautuminen työhön. Pidämme tärkeänä, että projektin osapuolten välillä voidaan keskustella avoimesti ja että mahdolliset ongelmat nostetaan esiin ajoissa.",
     "body": [
-      "Meille LVI-urakointi on ennen kaikkea yhteistyötä. Suuremmissa rakennusprojekteissa onnistunut lopputulos syntyy eri alojen ammattilaisten osaamisesta ja siitä, miten hyvin yhteiset tavoitteet, suunnitelmat ja työvaiheet saadaan sovitettua yhteen.",
-      "LVI-Loiston toimintatapaan kuuluu positiivinen ja ratkaisukeskeinen suhtautuminen työhön. Pidämme tärkeänä, että projektin osapuolten välillä voidaan keskustella avoimesti ja että mahdolliset ongelmat nostetaan esiin ajoissa.",
       "Teknisen osaamisen lisäksi arvostamme huolellista työnjälkeä ja yksityiskohtiin perehtymistä. Erityisesti historiallisissa asunnoissa ja yksilöllisissä rakennuskohteissa olemme oppineet, kuinka tärkeää on ymmärtää myös rakennuksen arkkitehtuuria ja muuta suunnittelua.",
       "Teemme yhteistyötä luotettavien ja kokeneiden yhteistyökumppaneiden kanssa, joiden osaaminen kattaa LVI-töiden lisäksi suunnittelun, rakentamisen ja sähköalan työt."
     ]
@@ -261,13 +261,5 @@
         ]
       }
     ]
-  },
-  "contact": {
-    "label": "Yhteydenotto",
-    "title": "Keskustele LVI-urakastasi",
-    "intro": "Kerro meille kohteesta, sen sijainnista ja tarvitsemastasi LVI-kokonaisuudesta. Käymme lähtötiedot läpi ja arvioimme, miten projekti kannattaa toteuttaa.",
-    "image": "/images/home/contact-shower-cropped.jpg",
-    "imageAlt": "Kultainen sadesuihku viimeistellyssä tummassa märkätilassa",
-    "submitLabel": "Lähetä tarjouspyyntö"
   }
 }

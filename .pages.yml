@@ -924,7 +924,14 @@ content:
               - { name: number, label: Numero, type: string, required: true }
               - { name: title, label: Otsikko, type: string, required: true }
               - { name: body, label: Tekstikappaleet, type: text, list: true }
-      - { name: trust, label: LVI-Loisto urakoitsijana, component: contracting_prose }
+      - name: trust
+        label: LVI-Loisto urakoitsijana
+        type: object
+        fields:
+          - { name: title, label: Otsikko, type: string, required: true }
+          - { name: intro, label: Johdantokappale, type: text, required: true }
+          - { name: quote, label: Matiaksen sitaatti, type: text }
+          - { name: body, label: Sitaatin jälkeiset tekstikappaleet, type: text, list: true }
       - { name: cities, label: Toimialue, component: contracting_prose }
       - name: faq
         label: Usein kysyttyä
@@ -939,16 +946,6 @@ content:
             fields:
               - { name: question, label: Kysymys, type: string, required: true }
               - { name: answer, label: Vastauksen kappaleet, type: text, list: true }
-      - name: contact
-        label: Yhteydenotto
-        type: object
-        fields:
-          - { name: label, label: Pieni otsikko, type: string }
-          - { name: title, label: Otsikko, type: string, required: true }
-          - { name: intro, label: Ingressi, type: text, required: true }
-          - { name: image, label: Kuva, type: image, required: true }
-          - { name: imageAlt, label: Kuvan alt-teksti, type: string, required: true }
-          - { name: submitLabel, label: Lähetyspainikkeen teksti, type: string, required: true }
 
   - name: company_page
     label: Yrityksemme-sivu

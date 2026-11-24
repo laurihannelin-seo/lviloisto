@@ -1,0 +1,24 @@
+---
+import CmsImage from "./CmsImage.astro";
+import type { ContactPerson } from "../data/contact-people";
+
+interface Props {
+  text: string;
+  person: ContactPerson;
+  author?: string;
+}
+
+const { text, person, author = person.name } = Astro.props;
+---
+
+<figure class="lvi-work-quote">
+  <blockquote><p>”{text}”</p></blockquote>
+  <figcaption>
+    <span class="person-identity__avatar">
+      {person.photo ? (
+        <CmsImage src={person.photo} alt={person.photoAlt} sizes="44px" loading="lazy" />
+      ) : <span aria-hidden="true">{person.initials}</span>}
+    </span>
+    <cite>{author}</cite>
+  </figcaption>
+</figure>
