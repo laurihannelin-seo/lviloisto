@@ -1,0 +1,25 @@
+---
+import contactContent from "../content/cms/yhteystiedot.json";
+import { findContactPerson } from "../data/contact-people";
+import PersonIdentity from "./PersonIdentity.astro";
+
+interface Props {
+  layout: "mobile" | "desktop";
+}
+
+const { layout } = Astro.props;
+const groups = contactContent.detailsSection.groups.filter((group) => group.kind === "person");
+---
+
+<div class:list={["site-footer__contacts", `site-footer__contacts--${layout}`]}>
+  <h2>Ota yhteyttä</h2>
+  {groups.map((group) => {
+    const person = findContactPerson(group);
+    return (
+      <div>
+        {person ? <PersonIdentity person={person} name={group.label} tag="p" /> : <p>{group.label}</p>}
+        {group.items.filter((item) => item.href).map((item) => <a href={item.href}>{item.text}</a>)}
+      </div>
+    );
+  })}
+</div>

@@ -547,6 +547,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .site-footer__brand img { width: 11rem; height: auto; }
 .site-footer address { display: grid; gap: 0.2rem; font-style: normal; color: var(--color-muted); font-size: 0.875rem; }
 .site-footer nav, .site-footer__contacts { display: flex; flex-direction: column; align-items: start; }
+.site-footer__contacts--mobile { display: none; }
 .site-footer nav a, .site-footer__contacts a { display: block; min-height: 2.75rem; padding-block: 0.55rem; font-size: 0.875rem; overflow-wrap: anywhere; }
 .site-footer nav a { text-decoration: none; }
 .site-footer nav a:hover { text-decoration: underline; text-underline-offset: 0.3rem; }
@@ -711,7 +712,9 @@ body :is(a, button, summary, input, textarea):focus-visible {
   .faq-item summary { gap: 0.75rem; }
   .site-footer { padding-top: 2.5rem; }
   .site-footer__main { gap: 2rem 1rem; }
-  .site-footer__company, .site-footer__contacts { grid-column: 1 / -1; }
+  .site-footer__company { grid-column: 1 / -1; }
+  .site-footer__contacts--mobile { display: flex; margin-bottom: 2rem; }
+  .site-footer__contacts--desktop { display: none; }
   [data-reveal] { transition-duration: 600ms; }
   [data-reveal="media"].is-reveal-pending { transform: translate3d(0, 0.75rem, 0); }
   [data-reveal="copy"] { transition-delay: 0ms; }
