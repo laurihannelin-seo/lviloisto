@@ -269,6 +269,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-photo { margin: 2rem 0 0; }
 .lvi-work-photo__frames { display: grid; grid-template-columns: minmax(0, 1fr); height: min(32vw, 28rem); overflow: hidden; }
 .lvi-work-photo__frames img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 55%; }
+#lammitys .lvi-work-photo__frames img { object-position: 50% 84%; }
 .lvi-work-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--layout-gap); align-items: stretch; }
 .lvi-work-intro > :is(.lvi-work-subsections, .service-accordion, .lvi-work-audience-links) { grid-column: 1 / -1; }
 .lvi-work-intro .lvi-work-intro__media { position: relative; margin: 0; min-height: 30rem; }
@@ -507,6 +508,15 @@ body :is(a, button, summary, input, textarea):focus-visible {
 /* Short, CMS-editable audience pages use the same content system. */
 .audience-page .audience-page__hero { min-height: 32rem; }
 .audience-page .service-page-hero h1 { line-height: 1.05; }
+.audience-page .service-prose--wide { max-width: none; }
+.audience-page__photo {
+  display: block;
+  width: 100%;
+  height: min(32vw, 28rem);
+  margin-top: 2rem;
+  object-fit: cover;
+  object-position: 50% 55%;
+}
 .audience-page__service-links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.5rem; }
 .audience-page__contact-section { padding-block: 3.5rem; background: var(--color-section); }
 .audience-page__contact-inner { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--layout-gap); align-items: center; }
@@ -694,6 +704,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
   .audience-page__contact-inner { grid-template-columns: minmax(0, 1fr); }
   .contact-content-page .contact-details-section--hero { padding-top: 6.5rem; }
   .audience-page .audience-page__hero { min-height: 0; }
+  .audience-page__photo { height: auto; aspect-ratio: 4 / 3; }
   .audience-page__contact-section { padding-block: 2.5rem; }
   .contact-action .process-contact-popover { position: relative; inset: auto; width: min(23rem, calc(100vw - 2 * var(--space-page))); margin-top: 1rem; }
   .contact-action .process-contact-popover::before { top: -0.4rem; bottom: auto; left: 1.5rem; right: auto; transform: rotate(45deg); }

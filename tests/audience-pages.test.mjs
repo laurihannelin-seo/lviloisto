@@ -42,6 +42,19 @@ test("built audience pages retain SEO and breadcrumbs without discussion CTAs", 
   }
 });
 
+test("Arvoasunnot shows one project photo after the body of each illustrated section", () => {
+  const content = JSON.parse(readFileSync(new URL("src/content/cms/arvoasunnot.json", root), "utf8"));
+  const html = readFileSync(new URL("dist/arvoasunnot/index.html", root), "utf8");
+  for (const [id, photo] of [["palvelu", content.introPhoto], ["lvi-ratkaisut", content.referencePhoto]]) {
+    assert.ok(existsSync(new URL(`public${photo.image}`, root)));
+    const section = html.split(`id="${id}"`)[1].split("</section>")[0];
+    const images = [...section.matchAll(/<img\b[^>]*class="audience-page__photo"[^>]*>/g)];
+    assert.equal(images.length, 1, id);
+    assert.ok(images[0][0].includes(`alt="${photo.imageAlt}"`));
+    assert.match(section.slice(images[0].index + images[0][0].length), /^\s*<\/div>\s*$/);
+  }
+});
+
 test("homepage links and every header expose the four real audience routes", () => {
   const home = JSON.parse(readFileSync(new URL("src/content/cms/home.json", root), "utf8"));
   assert.deepEqual(home.services.items.map((item) => item.href).filter(Boolean).sort(), slugs.map((slug) => `/${slug}/`).sort());

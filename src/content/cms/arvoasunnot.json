@@ -23,6 +23,10 @@
       "Suomen upeilta rannikkoalueilta ja saaristosta aina sisämaan rauhallisiin maisemiin löytyy yksilöllisiä koteja, arkkitehtonisesti näyttäviä villoja, huviloita ja vapaa-ajan asuntoja, jotka ovat myös meille tuttuja työympäristöjä. Näissä kohteissa ympäristö, rakennuksen käyttötarkoitus ja arkkitehtuuri asettavat omat vaatimuksensa talotekniikan toteutukselle."
     ]
   },
+  "introPhoto": {
+    "image": "/images/lvi-tyot/kylpyhuone-kohde.webp",
+    "imageAlt": "Vaalea marmorikylpyhuone, jossa on kylpyamme, puinen allaskaappi ja kullanvärisiä vesikalusteita"
+  },
   "services": {
     "title": "Referenssi kohteitamme",
     "items": [
@@ -51,6 +55,10 @@
         "text": "Näyttävien huviloiden ja laajojen arvohuoneistojen ohella olemme vuosien varrella olleet mukana toteuttamassa myös pienempiä, mutta yhtä lailla yksilöllisiä remonttikokonaisuuksia Helsingin historiallisissa ja arvostetuissa kaupunginosissa.\n\nMuutamia poimintoja vuosien varrelta:\n\nOikokatu, Kruununhaka – Kylpyhuoneremontti \nSnellmaninkatu, Kruununhaka – Kokonaisvaltainen huoneistoremontti\nUllankatu, Ullanlinna – Huoneistoremontti\nHernesaarenkatu, Punavuori – Huoneistoremontti\nSatamakatu, Katajanokka – Kokonaisvaltainen huoneistoremontti"
       }
     ]
+  },
+  "referencePhoto": {
+    "image": "/images/lvi-tyot/spa-suihkuratkaisut.webp",
+    "imageAlt": "LVI-Loiston toteuttaman spa-tilan kullanväriset suihkut ja kylpyamme saunan vieressä"
   },
   "working": {
     "title": "Yhteistyöllä yksityiskohtia myöten",

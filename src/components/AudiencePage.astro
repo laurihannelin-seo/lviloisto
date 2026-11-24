@@ -4,20 +4,26 @@ import Breadcrumbs from "./Breadcrumbs.astro";
 import CmsImage from "./CmsImage.astro";
 import ServiceContentSection from "./ServiceContentSection.astro";
 
+type SectionPhoto = { image: string; imageAlt: string };
+
 interface Props {
   label: string;
+  wideIntro?: boolean;
   content: {
     noindex: boolean;
     seo: { title: string; description: string };
     hero: { title: string; intro: string; image: string; imageAlt: string };
     introSection: { title: string; body: string[] };
+    introPhoto?: SectionPhoto;
     services: { title: string; intro: string; items: { title: string; text: string }[] };
+    referencePhoto?: SectionPhoto;
     working: { title: string; body: string[] };
     extraSections?: { title: string; body: string[] }[];
   };
 }
 
-const { content, label } = Astro.props;
+const { content, label, wideIntro } = Astro.props;
+const sectionPhotoSizes = "(max-width: 1568px) 100vw, 1440px";
 ---
 
 <BaseLayout title={content.seo.title} description={content.seo.description} headerTheme="dark" pageClass="audience-page" noindex={content.noindex}>
@@ -34,12 +40,20 @@ const { content, label } = Astro.props;
   </section>
   <div class="service-content-page">
     <ServiceContentSection id="palvelu" title={content.introSection.title}>
-      <div class="service-prose">{content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}</div>
+      <div class:list={["service-prose", { "service-prose--wide": wideIntro }]}>
+        {content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      {content.introPhoto?.image && (
+        <CmsImage slot="media" class="audience-page__photo" src={content.introPhoto.image} alt={content.introPhoto.imageAlt} sizes={sectionPhotoSizes} />
+      )}
     </ServiceContentSection>
     <ServiceContentSection id="lvi-ratkaisut" title={content.services.title} intro={content.services.intro}>
       <div class="service-detail-grid">
         {content.services.items.map((item) => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
       </div>
+      {content.referencePhoto?.image && (
+        <CmsImage slot="media" class="audience-page__photo" src={content.referencePhoto.image} alt={content.referencePhoto.imageAlt} sizes={sectionPhotoSizes} />
+      )}
     </ServiceContentSection>
     <ServiceContentSection id="toimintatapa" title={content.working.title}>
       <div class="service-prose">{content.working.body.map((paragraph) => <p>{paragraph}</p>)}</div>

@@ -15,4 +15,4 @@ export function getStaticPaths() {
 }
 ---
 
-<AudiencePage label={Astro.props.label} content={Astro.props.content} />
+<AudiencePage label={Astro.props.label} content={Astro.props.content} wideIntro={Astro.params.audience === "arvoasunnot"} />

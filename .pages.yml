@@ -227,7 +227,9 @@ content:
       - { name: seo, component: seo }
       - { name: hero, component: audience_hero }
       - { name: introSection, label: Palvelun esittely, component: audience_prose }
+      - { name: introPhoto, label: Esittelyn kohdekuva, component: image }
       - { name: services, component: audience_services }
+      - { name: referencePhoto, label: Referenssien kohdekuva, component: image }
       - { name: working, label: Toimintatapa, component: audience_prose }
       - { name: extraSections, label: Lisäosiot, component: audience_extra_sections, description: "Neljä otsikko- ja tekstiosiota. Osio näkyy sivulla vasta, kun otsikko ja teksti on täytetty." }
 
