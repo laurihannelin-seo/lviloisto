@@ -30,6 +30,8 @@
     {
       "id": "korjaukset-ja-asennukset",
       "title": "Putkityöt ja LVI-asennukset",
+      "image": "/images/lvi-tyot/vesikalusteet-kohde.webp",
+      "imageAlt": "Kullanvärinen hana ja valkoinen pesuallas marmoritasolla",
       "body": [
         "Putkityöt muodostavat merkittävän osan rakennusten talotekniikasta. Toimivat käyttövesi- ja viemäriverkostot sekä oikein toteutetut asennukset ovat välttämättömiä niin asumismukavuuden kuin rakennuksen päivittäisen käytön kannalta.",
         "Toteutamme putkitöitä uudisrakennuksiin, saneerauskohteisiin ja olemassa oleviin kiinteistöihin. Laajempien urakoiden lisäksi teemme myös yksittäisiä asennus-, korjaus- ja muutostöitä."
@@ -68,7 +70,8 @@
     {
       "id": "lammitys",
       "title": "Lämmitysjärjestelmien asennus ja uusiminen",
-      "imageLayout": "right",
+      "image": "/images/home/lammitysratkaisut.jpeg",
+      "imageAlt": "Asunnon valkoinen kaakeliuuni ja puulattia",
       "body": [
         "Lämmitysjärjestelmällä on keskeinen merkitys rakennuksen asumismukavuuteen, energiatehokkuuteen ja käyttökustannuksiin. Erilaiset rakennukset tarvitsevat erilaisia ratkaisuja, ja järjestelmän valintaan vaikuttavat muun muassa kiinteistön koko, käyttötarkoitus ja olemassa oleva talotekniikka.",
         "Toteutamme lämmitysjärjestelmien asennuksia, saneerauksia ja muutostöitä omakotitaloista suurempiin asuin- ja kiinteistökohteisiin."
@@ -94,7 +97,8 @@
     {
       "id": "ilmanvaihto",
       "title": "Ilmanvaihtotyöt ja IV-asennukset",
-      "imageLayout": "left",
+      "image": "/images/lvi-tyot/puurimakatto-kohde.webp",
+      "imageAlt": "Valaistu puurimakatto ja tumma kivipinta spa-tilassa",
       "body": [
         "Toimiva ilmanvaihto on olennainen osa rakennuksen sisäolosuhteita. Ilmanvaihtojärjestelmän toteutuksessa on huomioitava rakennuksen käyttötarkoitus, tilojen olosuhdevaatimukset sekä järjestelmien yhteensovittaminen muihin rakenteisiin ja talotekniikkaan.",
         "Toteutamme ilmanvaihtotöitä uudisrakentamisen ja saneerausten yhteydessä. Palveluihimme kuuluvat muun muassa ilmanvaihtokanavien asennukset, ilmanvaihtokoneiden vaihdot, kanavistojen muutostyöt sekä ilmanvaihdon mittaus- ja säätötyöt."
@@ -119,6 +123,8 @@
     {
       "id": "uudisrakentaminen",
       "title": "LVI-työt uudisrakentamiseen",
+      "image": "/images/home/uudisrakennukset-villat.jpeg",
+      "imageAlt": "Kullanvärinen hana, allas ja puiset hyllyt kodinhoitotilassa",
       "body": [
         "Toteutamme uudisrakentamisen LVI-töitä omakotitaloihin, rivitaloihin, kerrostaloihin ja suurempiin yksityiskiinteistöihin. Työn laajuus voi vaihdella yksittäisistä asennuksista laajoihin taloteknisiin kokonaisuuksiin, joissa käyttövesi-, viemäri-, lämmitys- ja ilmanvaihtojärjestelmät muodostavat toimivan kokonaisuuden.",
         "Yksilöllisesti suunnitelluissa rakennuksissa talotekniikan toteuttaminen edellyttää usein erityistä huolellisuutta. Rakennuksen arkkitehtuuri, teknisille järjestelmille varatut tilat ja muiden urakoitsijoiden työvaiheet vaikuttavat siihen, miten asennukset voidaan toteuttaa. Teemme tiivistä yhteistyötä suunnittelijoiden ja projektin muiden ammattilaisten kanssa, jotta LVI-tekniikka voidaan sovittaa luontevasti osaksi rakennuksen kokonaisuutta."
@@ -134,10 +140,8 @@
       ],
       "subsections": [],
       "image": "/images/image00143.jpeg",
-      "imageAlt": "Viimeistellyn kylpyhuoneen allas, hana ja WC-istuin",
-      "supportingImage": "/images/lvi-tyot/vesikaluste-asennus.webp",
-      "supportingImageAlt": "Lähikuva kultasävyisen hanan ja pesualtaan asennuksesta",
-      "imageCaption": "Valmis kylpyhuone ja vesikalusteasennuksen yksityiskohtia LVI-Loiston kohteista."
+      "imageAlt": "Kylpyhuoneen puinen allaskaappi, kuvioitu laattalattia ja oviaukko suihkutilaan",
+      "imageCaption": "Valmis kylpyhuone LVI-Loiston kohteessa."
     },
     {
       "id": "erikoisosaaminen",
@@ -176,6 +180,8 @@
     {
       "id": "kohteet",
       "title": "LVI-työt erilaisiin kohteisiin",
+      "image": "/images/home/about-imgl1779.jpg",
+      "imageAlt": "Vaalea kylpyhuone, jossa on tumma allastaso ja puurimakatto",
       "body": [
         "Palvelemme kotitalouksia, taloyhtiöitä ja rakennusalan yrityksiä. Asiakaskuntamme ja toteuttamamme kohteet ovat monipuolisia, mutta yhteistä kaikille projekteille on tarve toimivalle talotekniikalle ja huolellisesti tehdylle työlle."
       ],
@@ -229,6 +235,8 @@
     {
       "id": "yhteistyo",
       "title": "Huolellinen toteutus syntyy yhteistyöstä",
+      "image": "/images/home/quality-imgl1757.jpg",
+      "imageAlt": "Kullanväriset hanat ja tummaan kivitasoon upotetut pesualtaat",
       "body": [
         "LVI-työt ovat usein vain yksi osa suurempaa rakennus- tai saneerausprojektia. Sen vuoksi pidämme tärkeänä, että työskentely sujuu yhteistyössä tilaajan, suunnittelijoiden ja muiden urakoitsijoiden kanssa.",
         "Vaativissa kohteissa myös pienillä yksityiskohdilla voi olla suuri merkitys. Jos esimerkiksi ilmanvaihdon päätelaite, tarkastusluukku tai vesikaluste halutaan sijoittaa mahdollisimman huomaamattomasti, asia on tärkeää huomioida jo ennen varsinaista asennustyötä.",
@@ -240,6 +248,8 @@
     {
       "id": "toimialue",
       "title": "LVI-työt Helsingissä ja Uudellamaalla",
+      "image": "/images/lvi-tyot/kylpyhuone-kohde.webp",
+      "imageAlt": "Kylpyhuone, jossa on puinen allaskaappi, marmoripintoja ja kylpyamme",
       "body": [
         "Toteutamme LVI-töitä Helsingissä, Espoossa, Vantaalla ja muualla Uudellamaalla. Erityisesti Helsingin kantakaupungin asuntojen saneeraukset ovat meille tuttuja, mutta palvelemme asiakkaitamme monipuolisesti myös uudisrakentamisessa ja muissa kiinteistökohteissa.",
         "Pääkaupunkiseudun lisäksi olemme toteuttaneet vaativia huvila- ja yksityiskiinteistökohteita eri puolilla Suomea. Suuremmissa projekteissa toimialuetta tarkastellaan kohteen laajuuden, sijainnin ja toteutuksen vaatimusten mukaan.",
@@ -248,15 +258,6 @@
       "subsections": []
     }
   ],
-  "finalCta": {
-    "title": "Yhteydenotto",
-    "body": [
-      "Suunnitteletko uudisrakennusta, saneerausta tai yksittäistä LVI-työtä?",
-      "Kerro meille kohteesta, suunnitelluista töistä ja mahdollisesta aikataulusta. Käymme mielellämme kanssasi läpi projektin tarpeita ja sitä, miten voisimme olla avuksi toteutuksessa."
-    ],
-    "cta": "Ota yhteyttä",
-    "href": "/yhteystiedot/"
-  },
   "serviceNavigation": {
     "title": "Palvelumme lyhyesti",
     "items": [

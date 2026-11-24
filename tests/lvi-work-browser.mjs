@@ -16,7 +16,7 @@ try {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(process.env.UI_BASE_URL || "http://127.0.0.1:4322/lvi-tyot/");
     await page.evaluate(() => document.fonts.ready);
-    const expectedOrder = ["monipuoliset-lvi-tyot", "palvelut", "korjaukset-ja-asennukset", "lammitys", "ilmanvaihto", "uudisrakentaminen", "saneeraustyot", "erikoisosaaminen", "kohteet", "yhteistyo", "toimialue", "yhteydenotto"];
+    const expectedOrder = ["monipuoliset-lvi-tyot", "palvelut", "korjaukset-ja-asennukset", "lammitys", "ilmanvaihto", "uudisrakentaminen", "saneeraustyot", "erikoisosaaminen", "kohteet", "yhteistyo", "toimialue"];
     assert.deepEqual(await page.locator(".lvi-work-article > .lvi-work-article__section, .lvi-work-article > .lvi-work-service-nav").evaluateAll((items) => items.map((item) => item.id)), expectedOrder);
     assert.deepEqual(await page.locator(".lvi-work-hero__toc-list a").evaluateAll((items) => items.map((item) => item.hash.slice(1))), expectedOrder);
     const intro = page.locator(".lvi-work-intro");
@@ -45,23 +45,34 @@ try {
     assert.equal(await page.locator(".service-accordion").count(), 4);
     assert.equal(await page.locator(".service-accordion__item").count(), 11);
     assert.equal(await page.locator(".service-accordion__item[open]").count(), 0);
-    for (const id of ["lammitys", "ilmanvaihto"]) {
+    for (const id of expectedOrder.slice(2)) {
       const section = page.locator(`#${id}`);
-      assert.equal(await section.locator(".lvi-work-photo, .lvi-work-section-lead--split").count(), 0);
-      const fallback = await section.evaluate((element) => {
-        const lead = element.querySelector(".lvi-work-section-lead");
-        const copy = lead.querySelector(".lvi-work-article__copy").getBoundingClientRect();
-        const accordion = element.querySelector(".service-accordion").getBoundingClientRect();
-        const paragraph = lead.querySelector(".lvi-work-article__copy > p");
-        return { display: getComputedStyle(lead).display, copyWidth: copy.width, leadBottom: lead.getBoundingClientRect().bottom, accordionTop: accordion.top, accordionWidth: accordion.width, sectionWidth: element.getBoundingClientRect().width, paragraphSize: parseFloat(getComputedStyle(paragraph).fontSize), paragraphLineHeight: parseFloat(getComputedStyle(paragraph).lineHeight) };
+      const sectionLayout = await section.evaluate((element) => {
+        const paragraph = element.querySelector(".lvi-work-article__copy > p").getBoundingClientRect();
+        const copy = element.querySelector(".lvi-work-article__copy").getBoundingClientRect();
+        const accordion = element.querySelector(".service-accordion")?.getBoundingClientRect();
+        const photo = element.lastElementChild.getBoundingClientRect();
+        return {
+          sectionWidth: element.getBoundingClientRect().width,
+          paragraphWidth: paragraph.width,
+          copyBottom: copy.bottom,
+          accordionWidth: accordion?.width,
+          accordionTop: accordion?.top,
+          accordionBottom: accordion?.bottom,
+          photoWidth: photo.width,
+          photoTop: photo.top,
+          photoLast: element.lastElementChild.matches(".lvi-work-photo"),
+        };
       });
-      assert.equal(fallback.display, "block", "Missing images must not leave an empty image column");
-      assert.ok(fallback.copyWidth <= 750);
-      assert.ok(Math.abs(fallback.accordionWidth - fallback.sectionWidth) < 1);
-      assert.ok(fallback.accordionTop > fallback.leadBottom);
-      assert.ok(fallback.paragraphSize >= 16 && fallback.paragraphSize <= 17);
-      assert.ok(Math.abs(fallback.paragraphLineHeight / fallback.paragraphSize - 1.6) < 0.01);
-      if (width === 390 || width === 1440) {
+      assert.ok(Math.abs(sectionLayout.paragraphWidth - sectionLayout.sectionWidth) < 1, id);
+      assert.ok(sectionLayout.photoLast, id);
+      assert.ok(Math.abs(sectionLayout.photoWidth - sectionLayout.sectionWidth) < 1, id);
+      assert.ok(sectionLayout.photoTop > (sectionLayout.accordionBottom ?? sectionLayout.copyBottom), id);
+      if (sectionLayout.accordionWidth !== undefined) {
+        assert.ok(Math.abs(sectionLayout.accordionWidth - sectionLayout.sectionWidth) < 1, id);
+        assert.ok(sectionLayout.accordionTop > sectionLayout.copyBottom, id);
+      }
+      if ((width === 390 || width === 1440) && ["lammitys", "ilmanvaihto"].includes(id)) {
         await section.evaluate((element) => window.scrollTo(0, element.getBoundingClientRect().top + window.scrollY - 100));
         await page.screenshot({ path: join(output, `lvi-tyot-${id}-${width}.png`) });
       }
@@ -88,7 +99,6 @@ try {
     const layout = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
       audienceColumns: getComputedStyle(document.querySelector(".lvi-work-audience-links")).gridTemplateColumns.split(" ").length,
-      proseWidths: [...document.querySelectorAll(".lvi-work-article__copy")].map((element) => element.getBoundingClientRect().width),
       heroLeft: document.querySelector(".lvi-work-hero h1").getBoundingClientRect().left,
       heroRight: document.querySelector(".service-page-hero__inner").getBoundingClientRect().right,
       contentRight: document.querySelector(".lvi-work-content__layout").getBoundingClientRect().right,
@@ -97,15 +107,14 @@ try {
     }));
     assert.equal(layout.overflow, 0);
     assert.equal(layout.audienceColumns, width <= 760 ? 1 : 2);
-    assert.ok(layout.proseWidths.every((value) => value <= 750));
     assert.ok(layout.sectionGaps.every((value) => Math.abs(value - (width <= 760 ? 48 : 80)) < 1), "Sections must use a consistent vertical rhythm");
     assert.ok(layout.sectionLefts.every((value) => Math.abs(value - layout.heroLeft) < 1), "Content sections must align with the hero text");
     assert.ok(Math.abs(layout.contentRight - layout.heroRight) < 1, "Content and hero must share the same outer width");
     if (width === 390 || width === 1440) {
       await page.screenshot({ path: join(output, `lvi-tyot-haitarit-${width}.png`) });
     }
-    assert.equal(await page.locator(".lvi-work-photo img").count(), 4);
-    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 4);
+    assert.equal(await page.locator(".lvi-work-photo img").count(), 10);
+    assert.equal(await page.locator('.lvi-work-photo img[loading="lazy"]').count(), 10);
     assert.equal(await page.locator(".lvi-work-quote .person-identity__avatar img").count(), 1);
     for (const [index, photo] of (await page.locator(".lvi-work-photo").all()).entries()) {
       await photo.scrollIntoViewIfNeeded();
@@ -116,13 +125,7 @@ try {
         await page.screenshot({ path: join(output, `lvi-tyot-photo-${index + 1}-${width}.png`) });
       }
     }
-    const imageShare = await page.evaluate(() => {
-      const main = document.querySelector("main").getBoundingClientRect();
-      const mediaArea = [...document.querySelectorAll(".lvi-work-hero, .lvi-work-photo__frames")].reduce((sum, element) => { const box = element.getBoundingClientRect(); return sum + box.width * box.height; }, 0);
-      return Math.round(mediaArea / (main.width * main.height) * 100);
-    });
-    assert.ok(imageShare > 0 && imageShare <= 35, "Photography must stay secondary to service content");
-    console.log(JSON.stringify({ width, imageShare, accordion: "click, Enter, Space and multi-open passed", ...layout }));
+    console.log(JSON.stringify({ width, accordion: "click, Enter, Space and multi-open passed", ...layout }));
   }
   assert.equal(await page.locator('.lvi-work-reference, a[href="#villa-upinniemi"], a[href="#yrjonkatu"]').count(), 0);
   await page.locator("#palvelut").scrollIntoViewIfNeeded();

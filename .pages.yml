@@ -805,20 +805,9 @@ content:
             type: text
             description: "Voit käyttää linkkejä muodossa [teksti](/osoite/) ja korostuksia **näin**."
             list: { max: 12 }
-          - { name: image, label: Kuva (valinnainen), type: image }
+          - { name: image, label: Kuva, type: image, description: "Palveluosioissa kuva sijoittuu osion loppuun." }
           - { name: imageAlt, label: Kuvan alt-teksti, type: string }
-          - { name: supportingImage, label: Rinnakkainen yksityiskohtakuva (valinnainen), type: image }
-          - { name: supportingImageAlt, label: Rinnakkaisen kuvan alt-teksti, type: string }
           - { name: imageCaption, label: Kuvateksti (valinnainen), type: text }
-          - name: imageLayout
-            label: Palveluosion kuvan sijoittelu
-            type: select
-            description: Aloitusosion oma asettelu säilyy. Ilman kuvaa osio on tekstipohjainen. Haitarit ovat aina johdannon alla täysleveinä.
-            options:
-              values:
-                - { name: below, label: Kuva tekstin alla }
-                - { name: right, label: Kuva oikealla }
-                - { name: left, label: Kuva vasemmalla }
           - name: quote
             label: Aloitusosion sitaatti (valinnainen)
             type: object
@@ -841,18 +830,6 @@ content:
                 description: Palvelun koko kuvaus haitarissa. Kohderyhmien pitkät kuvaukset säilyvät tässä, mutta linkkinostossa näkyy lyhyt kuvaus.
                 type: text
                 list: { max: 10 }
-      - name: finalCta
-        label: Loppuyhteydenotto
-        type: object
-        fields:
-          - { name: title, label: Otsikko, type: string, required: true }
-          - name: body
-            label: Tekstikappaleet
-            type: text
-            list: { min: 1, max: 4 }
-          - { name: cta, label: Linkin teksti, type: string, required: true }
-          - { name: href, type: string, hidden: true }
-
   - name: lvi_contracting_page
     label: LVI-urakointi-sivu
     type: file

@@ -9,33 +9,25 @@ const content = JSON.parse(readFileSync(new URL("src/content/cms/lvi-tyot.json",
 const html = readFileSync(new URL("dist/lvi-tyot/index.html", root), "utf8");
 const config = yaml.load(readFileSync(new URL(".pages.yml", root), "utf8"));
 
-test("LVI work retains owned photographs without the rejected generic service images", () => {
+test("each LVI work section has one distinct project photograph after its content", () => {
   assert.equal(content.hero.image, "/images/home/hero-imgl1743.jpg");
   assert.doesNotMatch(html, /tekninen-tila-hero|uudisrakentamisen-putkiasennukset/);
-  assert.equal((html.match(/class="lvi-work-photo(?:\s[^"]*)?"/g) ?? []).length, 3);
-  const photos = content.sections.filter((section) => section.image);
-  assert.deepEqual(photos.map((section) => section.id), ["monipuoliset-lvi-tyot", "saneeraustyot", "erikoisosaaminen"]);
-  for (const section of photos) {
+  assert.equal(new Set(content.sections.map((section) => section.image)).size, content.sections.length);
+  for (const section of content.sections) {
     assert.ok(readFileSync(new URL(`public${section.image}`, root)).length > 0);
-    assert.ok(html.includes(section.imageAlt));
-    if (section.imageCaption) assert.ok(html.includes(section.imageCaption));
-    if (section.supportingImage) {
-      assert.ok(readFileSync(new URL(`public${section.supportingImage}`, root)).length > 0);
-      assert.ok(html.includes(section.supportingImageAlt));
-    }
+    const sectionHtml = html.split(`id="${section.id}"`)[1].split("</section>")[0];
+    const photos = [...sectionHtml.matchAll(/<figure class="lvi-work-photo(?:\s[^"]*)?"[\s\S]*?<\/figure>/g)];
+    assert.equal(photos.length, 1, section.id);
+    assert.equal((photos[0][0].match(/<img\b/g) ?? []).length, 1, section.id);
+    assert.ok(photos[0][0].includes(section.imageAlt));
+    if (section.imageCaption) assert.ok(photos[0][0].includes(section.imageCaption));
+    assert.ok(sectionHtml.trimEnd().endsWith(photos[0][0]), section.id);
   }
   const fields = config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "sections").fields;
-  for (const name of ["image", "imageAlt", "supportingImage", "supportingImageAlt", "imageCaption", "imageLayout"]) {
+  for (const name of ["image", "imageAlt", "imageCaption"]) {
     assert.ok(fields.some((field) => field.name === name));
   }
-  assert.deepEqual(fields.find((field) => field.name === "imageLayout").options.values.map((option) => option.name), ["below", "right", "left"]);
   assert.doesNotMatch(html, /lammityksen-jakotukki-kuvitus|ilmanvaihtokone-kuvitus|Kuvituskuva:/);
-  for (const id of ["lammitys", "ilmanvaihto"]) {
-    const section = content.sections.find((item) => item.id === id);
-    assert.ok(!section.image);
-    assert.ok(!section.imageCaption);
-  }
-  assert.ok(!content.sections.find((section) => section.id === "korjaukset-ja-asennukset").image);
 });
 
 test("LVI work copy retains all CMS paragraphs and a single H1", () => {
@@ -56,11 +48,7 @@ test("LVI work copy retains all CMS paragraphs and a single H1", () => {
       for (const paragraph of item.body) assert.ok(html.includes(micromark(paragraph)), paragraph);
     }
   }
-  assert.doesNotMatch(html, /lvi-work-final-cta|id="lvi-work-cta-heading"/);
-  assert.ok(html.includes('id="yhteydenotto"'));
-  assert.ok(html.includes(content.finalCta.title));
-  for (const paragraph of content.finalCta.body) assert.ok(html.includes(micromark(paragraph)));
-  assert.notEqual(config.content.find((entry) => entry.name === "lvi_work_page").fields.find((field) => field.name === "finalCta").hidden, true);
+  assert.doesNotMatch(html, /lvi-work-final-cta|id="yhteydenotto"|href="#yhteydenotto"/);
 });
 
 test("introduction, service-first order and condensed copy match the new structure", () => {
@@ -73,7 +61,7 @@ test("introduction, service-first order and condensed copy match the new structu
   assert.ok(html.includes(introduction.quote.text));
   assert.ok(html.includes(introduction.quote.author));
   assert.ok(html.includes('class="lvi-work-quote"'));
-  const order = [expected[0], "palvelut", ...expected.slice(1), "yhteydenotto"];
+  const order = [expected[0], "palvelut", ...expected.slice(1)];
   let previous = -1;
   for (const id of order) {
     const position = html.indexOf(`id="${id}"`);

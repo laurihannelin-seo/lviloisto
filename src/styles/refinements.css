@@ -261,26 +261,17 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-article a { text-underline-offset: 0.2em; }
 
 /* LVI work: compact service navigation, readable prose and native disclosures. */
-.lvi-work-content--structured .lvi-work-article__copy { max-width: 46.875rem; }
+.lvi-work-content--structured .lvi-work-intro > .lvi-work-article__copy { max-width: 46.875rem; }
 .lvi-work-content--structured .lvi-work-article h2 { max-width: 46.875rem; font-size: 2.375rem; }
 .lvi-work-content--structured .lvi-work-article__copy p { max-width: none; line-height: 1.6; }
 .lvi-work-content--structured .lvi-work-article > :is(.lvi-work-article__section, .lvi-work-service-nav) { margin-block: 0; }
-.lvi-work-section-lead--split { display: grid; grid-template-columns: minmax(0, 1fr) clamp(25rem, 32vw, 28.75rem); gap: var(--layout-gap); align-items: center; }
-.lvi-work-section-lead--split > .lvi-work-photo { margin: 0; }
-.lvi-work-section-lead--split .lvi-work-photo__frames { height: auto; aspect-ratio: 3 / 2; }
-.lvi-work-section-lead--split .lvi-work-photo__frames img { height: 100%; aspect-ratio: auto; }
-.lvi-work-section-lead--image-left { grid-template-columns: clamp(25rem, 32vw, 28.75rem) minmax(0, 1fr); }
-.lvi-work-section-lead--image-left > .lvi-work-article__copy { grid-column: 2; grid-row: 1; }
-.lvi-work-section-lead--image-left > .lvi-work-photo { grid-column: 1; grid-row: 1; }
 .lvi-work-content--structured .service-accordion__body p { max-width: 46.875rem; }
 .lvi-work-photo { margin: 2rem 0 0; }
 .lvi-work-photo__frames { display: grid; grid-template-columns: minmax(0, 1fr); height: min(32vw, 28rem); overflow: hidden; }
-.lvi-work-photo__frames--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .lvi-work-photo__frames img { width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: 50% 55%; }
-.lvi-work-photo__frames--pair img:first-child { object-position: 50% 42%; }
-.lvi-work-photo__frames--pair img + img { object-position: 50% 35%; }
 .lvi-work-photo figcaption { margin-top: 0.75rem; font-size: 0.875rem; color: var(--color-muted); max-width: 51.25rem; }
 .lvi-work-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: var(--layout-gap); align-items: stretch; }
+.lvi-work-intro > :is(.lvi-work-subsections, .service-accordion, .lvi-work-audience-links) { grid-column: 1 / -1; }
 .lvi-work-intro .lvi-work-intro__media { position: relative; margin: 0; min-height: 30rem; }
 .lvi-work-intro__media .lvi-work-photo__frames { position: absolute; inset: 0; height: 100%; }
 .lvi-work-intro__media img { object-position: 50% 40%; }
@@ -289,12 +280,10 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .lvi-work-article .lvi-work-quote blockquote p { font-size: 1.1875rem; line-height: 1.55; }
 .lvi-work-quote figcaption { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; font-size: 0.875rem; }
 .lvi-work-quote cite { font-style: normal; font-weight: 600; }
-.lvi-work-content--structured .lvi-work-article .lvi-work-contact { padding-top: 2rem; border-top: 1px solid var(--color-line); }
-.lvi-work-contact .text-link { display: inline-block; margin-top: 1.25rem; }
+@media (min-width: 1101px) {
+  .lvi-work-intro__media { grid-column: 2; grid-row: 1; }
+}
 @media (max-width: 1100px) {
-  .lvi-work-section-lead--split { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
-  .lvi-work-section-lead--split > :is(.lvi-work-article__copy, .lvi-work-photo) { grid-column: auto; grid-row: auto; }
-  .lvi-work-section-lead--split > .lvi-work-photo { width: min(100%, 28.75rem); }
   .lvi-work-intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
   .lvi-work-intro .lvi-work-intro__media { min-height: 0; }
   .lvi-work-intro__media .lvi-work-photo__frames { position: static; height: min(60vw, 36rem); }
@@ -344,7 +333,6 @@ body :is(a, button, summary, input, textarea):focus-visible {
   .service-accordion__body { padding: 0 0 1.25rem; }
   .lvi-work-reference { gap: 1rem; padding-block: 1.75rem; margin-block: 2.5rem; }
   .lvi-work-photo__frames { height: auto; }
-  .lvi-work-photo__frames--pair { grid-template-columns: minmax(0, 1fr); }
   .lvi-work-photo__frames img { aspect-ratio: 4 / 3; height: auto; }
 }
 .lvi-work-article .lvi-work-bullet-list + p { margin-top: 1rem; }
