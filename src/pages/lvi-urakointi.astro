@@ -7,27 +7,18 @@ import Breadcrumbs from "../components/Breadcrumbs.astro";
 import ContactForm from "../components/ContactForm.astro";
 import FaqSection from "../components/FaqSection.astro";
 import NumberedContentList from "../components/NumberedContentList.astro";
+import ServiceAccordion from "../components/ServiceAccordion.astro";
 import ServiceContentSection from "../components/ServiceContentSection.astro";
+import ServiceOverviewNav from "../components/ServiceOverviewNav.astro";
 import content from "../content/cms/lvi-urakointi.json";
 
-const title = content.seo.title;
-const description = content.seo.description;
-const serviceItems = content.services.items;
-
-const projectTypes = content.audiences.items;
-
-const processSteps = content.process.items;
-
-const trustItems = content.trust.items;
-
-const portfolioItems = content.portfolio.items;
-
-const cityPages = content.cities.items;
-
-const faqItems = content.faq.items;
+const buildingSections = [
+  { id: "uudisrakentaminen-ja-saneeraus", ...content.newBuild },
+  { id: "saneerauskohteet", ...content.renovation },
+];
 ---
 
-<BaseLayout title={title} description={description} headerTheme="dark" pageClass="service-detail-page">
+<BaseLayout title={content.seo.title} description={content.seo.description} headerTheme="dark" pageClass="service-detail-page service-contracting-page">
   <section class="service-page-hero" aria-labelledby="service-page-heading">
     <CmsImage
       sizes="100vw"
@@ -78,7 +69,7 @@ const faqItems = content.faq.items;
               <a class="process-contact-popover__action" href="#keskustele-urakasta">Jätä yhteydenottopyyntö</a>
             </div>
           </div>
-          <a class="service-page-hero__secondary" href="#valitut-kohteet">{content.hero.secondaryCta}</a>
+          <a class="service-page-hero__secondary" href="#palvelut">{content.hero.secondaryCta}</a>
         </div>
       </div>
     </div>
@@ -92,7 +83,6 @@ const faqItems = content.faq.items;
     >
       <div class="service-prose" data-reveal="copy">
         {content.introSection.body.map((paragraph) => <p>{paragraph}</p>)}
-        <a class="text-link" href="#urakan-sisalto">{content.introSection.linkLabel}</a>
       </div>
       <figure class="service-intro-layout__media" slot="media">
         <CmsImage
@@ -103,43 +93,43 @@ const faqItems = content.faq.items;
       </figure>
     </ServiceContentSection>
 
-    <ServiceContentSection
-      id="urakan-sisalto"
-      title={content.services.title}
-      intro={content.services.intro}
-    >
-      <div class="service-detail-grid">
-        {serviceItems.map((item) => (
+    <div class="service-page-shell service-contracting-nav">
+      <ServiceOverviewNav id="palvelut" {...content.serviceNavigation} />
+    </div>
+
+    <ServiceContentSection id="urakan-sisalto" title={content.services.title}>
+      <div class="service-prose">
+        {content.services.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <ServiceAccordion items={content.services.items} />
+    </ServiceContentSection>
+
+    {buildingSections.map((section) => (
+      <ServiceContentSection id={section.id} title={section.title}>
+        <div class="service-prose">
+          {section.body.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <CmsImage
+          slot="media"
+          class="service-section-photo"
+          src={section.image}
+          alt={section.imageAlt}
+          sizes="(max-width: 1568px) 100vw, 1440px"
+          loading="lazy"
+        />
+      </ServiceContentSection>
+    ))}
+
+    <ServiceContentSection id="kohdetyypit" title={content.audiences.title}>
+      <div class="service-prose">
+        {content.audiences.body.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="service-detail-grid service-contracting-audiences">
+        {content.audiences.items.map((item) => (
           <article>
             <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-      <aside class="service-content-note" aria-labelledby="tyypilliset-tyot-heading">
-        <h3 id="tyypilliset-tyot-heading">{content.services.noteTitle}</h3>
-        <p>{content.services.noteText}</p>
-      </aside>
-    </ServiceContentSection>
-
-    <ServiceContentSection
-      id="kohdetyypit"
-      title={content.audiences.title}
-      intro={content.audiences.intro}
-    >
-      <NumberedContentList items={projectTypes} columns={3} ariaLabel="LVI-urakoinnin kohderyhmät" />
-    </ServiceContentSection>
-
-    <ServiceContentSection
-      id="uudisrakentaminen-ja-saneeraus"
-      title={content.comparison.title}
-      intro={content.comparison.intro}
-    >
-      <div class="service-text-columns">
-        {content.comparison.columns.map((column) => (
-          <article>
-            <h3>{column.title}</h3>
-            {column.body.map((paragraph) => <p>{paragraph}</p>)}
+            {item.body.map((paragraph) => <p>{paragraph}</p>)}
+            <a class="text-link" href={item.href}>{item.linkLabel}</a>
           </article>
         ))}
       </div>
@@ -149,61 +139,27 @@ const faqItems = content.faq.items;
       id="urakan-eteneminen"
       title={content.process.title}
       intro={content.process.intro}
+      className="service-contracting-process"
     >
-      <NumberedContentList items={processSteps} columns={4} ariaLabel="LVI-urakan vaiheet" />
+      <NumberedContentList items={content.process.items} columns={4} ariaLabel="LVI-urakan vaiheet" />
     </ServiceContentSection>
 
     <ServiceContentSection id="miksi-lvi-loisto" title={content.trust.title}>
-      <div class="service-trust-layout">
-        <div class="service-prose">
-          {content.trust.body.map((paragraph) => <p>{paragraph}</p>)}
-        </div>
-        <div class="service-highlight-list">
-          {trustItems.map((item) => (
-            <article>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
+      <div class="service-prose">
+        {content.trust.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </ServiceContentSection>
 
-    <ServiceContentSection
-      id="valitut-kohteet"
-      title={content.portfolio.title}
-      intro={content.portfolio.intro}
-    >
-      <div class="service-reference-grid">
-        {portfolioItems.map((item) => (
-          <article class="service-reference service-reference--image-only">
-            <figure><CmsImage src={item.image} alt={item.imageAlt} loading="lazy" sizes="(max-width: 760px) 100vw, 33vw" /></figure>
-          </article>
-        ))}
-      </div>
-    </ServiceContentSection>
-
-    <ServiceContentSection
-      id="toimialueet"
-      title={content.cities.title}
-      intro={content.cities.intro}
-    >
-      <div class="service-city-links" aria-label="Tulevat kaupunkikohtaiset LVI-urakointisivut">
-        {
-          cityPages.map((city) => (
-            <span class="service-city-link" data-future-href={city.href}>
-              <span>{city.title}</span>
-              <span aria-hidden="true">→</span>
-            </span>
-          ))
-        }
+    <ServiceContentSection id="toimialueet" title={content.cities.title}>
+      <div class="service-prose">
+        {content.cities.body.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </ServiceContentSection>
 
     <FaqSection
       id="lvi-urakointi-ukk"
       title={content.faq.title}
-      items={faqItems}
+      items={content.faq.items}
     />
   </div>
 

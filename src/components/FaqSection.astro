@@ -1,7 +1,7 @@
 ---
 interface FaqItem {
   question: string;
-  answer: string;
+  answer: string | string[];
 }
 
 interface Props {
@@ -27,7 +27,7 @@ const headingId = id ? `${id}-heading` : "faq-heading";
         items.map((item) => (
           <details class="faq-item">
             <summary><span>{item.question}</span></summary>
-            <p>{item.answer}</p>
+            {(Array.isArray(item.answer) ? item.answer : [item.answer]).map((paragraph) => <p>{paragraph}</p>)}
           </details>
         ))
       }

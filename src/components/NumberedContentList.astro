@@ -1,9 +1,8 @@
 ---
-interface ListItem {
+type ListItem = {
   number?: string;
   title: string;
-  text: string;
-}
+} & ({ text: string } | { body: string[] });
 
 interface Props {
   items: ListItem[];
@@ -22,7 +21,7 @@ const { items, columns = 3, ariaLabel } = Astro.props;
           {item.number ?? String(index + 1).padStart(2, "0")}
         </span>
         <h3>{item.title}</h3>
-        <p>{item.text}</p>
+        {("body" in item ? item.body : [item.text]).map((paragraph) => <p>{paragraph}</p>)}
       </li>
     ))
   }

@@ -1,0 +1,16 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  items: { title: string; text: string; href: string }[];
+}
+
+const { id, title, items } = Astro.props;
+---
+
+<section class="lvi-work-service-nav" id={id} aria-labelledby={`${id}-heading`}>
+  <h2 id={`${id}-heading`}>{title}</h2>
+  <nav class="lvi-work-service-nav__links" aria-label={title}>
+    {items.map((item) => <a href={item.href}><span>{item.title}</span><p>{item.text}</p></a>)}
+  </nav>
+</section>
