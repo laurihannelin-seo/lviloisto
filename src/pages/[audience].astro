@@ -13,6 +13,8 @@ export function getStaticPaths() {
     props: { label: page.label, content: contents[page.slug] },
   }));
 }
+
+const isPremiumHomes = Astro.params.audience === "arvoasunnot";
 ---
 
-<AudiencePage label={Astro.props.label} content={Astro.props.content} wideIntro={Astro.params.audience === "arvoasunnot"} />
+<AudiencePage label={Astro.props.label} content={Astro.props.content} wideIntro={isPremiumHomes} showServiceLinks={!isPremiumHomes} />

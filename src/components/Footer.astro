@@ -11,7 +11,7 @@ const groups = contactContent.detailsSection.groups;
       <FooterContacts layout="mobile" />
       {groups.filter((group) => group.kind === "company").map((group) => <address>{group.items.map((item) => <span>{item.text}</span>)}</address>)}
     </div>
-    <nav aria-label="Palvelut"><h2>Palvelut</h2><a href="/tietoa-meista/">Palvelumme</a>{audiencePages.map((page) => <a href={page.href}>{page.label}</a>)}<a href="/lvi-tyot/">LVI-työt</a><a href="/lvi-urakointi/">LVI-urakointi</a></nav>
+    <nav aria-label="Palvelut"><h2>Palvelut</h2>{audiencePages.map((page) => <a href={page.href}>{page.label}</a>)}<a href="/lvi-tyot/">LVI-työt</a><a href="/lvi-urakointi/">LVI-urakointi</a></nav>
     <nav aria-label="Yritys"><h2>Yritys</h2><a href="/yrityksemme/">Yrityksemme</a><a href="/yhteystiedot/">Yhteystiedot</a></nav>
     <FooterContacts layout="desktop" />
   </div>

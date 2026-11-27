@@ -9,6 +9,7 @@ type SectionPhoto = { image: string; imageAlt: string };
 interface Props {
   label: string;
   wideIntro?: boolean;
+  showServiceLinks?: boolean;
   content: {
     noindex: boolean;
     seo: { title: string; description: string };
@@ -22,7 +23,7 @@ interface Props {
   };
 }
 
-const { content, label, wideIntro } = Astro.props;
+const { content, label, wideIntro, showServiceLinks = true } = Astro.props;
 const sectionPhotoSizes = "(max-width: 1568px) 100vw, 1440px";
 ---
 
@@ -57,7 +58,12 @@ const sectionPhotoSizes = "(max-width: 1568px) 100vw, 1440px";
     </ServiceContentSection>
     <ServiceContentSection id="toimintatapa" title={content.working.title}>
       <div class="service-prose">{content.working.body.map((paragraph) => <p>{paragraph}</p>)}</div>
-      <div class="audience-page__service-links"><a class="text-link" href="/lvi-tyot/">LVI-työt <span aria-hidden="true">→</span></a><a class="text-link" href="/lvi-urakointi/">LVI-urakointi <span aria-hidden="true">→</span></a></div>
+      {showServiceLinks && (
+        <div class="audience-page__service-links">
+          <a class="text-link" href="/lvi-tyot/">LVI-työt <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="/lvi-urakointi/">LVI-urakointi <span aria-hidden="true">→</span></a>
+        </div>
+      )}
     </ServiceContentSection>
     {(content.extraSections ?? []).map((section, index) => section.title.trim() && section.body.some((paragraph) => paragraph.trim()) && (
       <ServiceContentSection id={`lisaosio-${index + 1}`} title={section.title}>

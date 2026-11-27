@@ -34,6 +34,10 @@ test("built audience pages retain SEO and breadcrumbs without discussion CTAs", 
     assert.match(html, new RegExp(`rel="canonical" href="https://lviloisto.fi/${slug}/"`));
     assert.match(html, /property="og:title"/);
     assert.match(html, /aria-label="Murupolku"/);
+    const working = html.split('id="toimintatapa"')[1].split("</section>")[0];
+    for (const href of ["/lvi-tyot/", "/lvi-urakointi/"]) {
+      assert.equal(working.includes(`href="${href}"`), slug !== "arvoasunnot");
+    }
     content.extraSections.forEach((section, index) => {
       const visible = Boolean(section.title.trim() && section.body.some((paragraph) => paragraph.trim()));
       assert.equal(html.includes(`id="lisaosio-${index + 1}"`), visible);
@@ -62,11 +66,14 @@ test("homepage links and every header expose the four real audience routes", () 
   assert.ok(services.fields[0].fields.some((field) => field.name === "href" && field.hidden));
   const homepage = readFileSync(new URL("dist/index.html", root), "utf8");
   for (const slug of slugs) assert.match(homepage, new RegExp(`class="text-link solution-feature__link" href="/${slug}/"`));
-  for (const route of ["", "lvi-tyot/", "lvi-urakointi/", "yhteystiedot/", ...slugs.map((slug) => `${slug}/`)]) {
+  for (const route of ["", "lvi-tyot/", "lvi-urakointi/", "tietoa-meista/", "yhteystiedot/", ...slugs.map((slug) => `${slug}/`)]) {
     const html = readFileSync(new URL(`dist/${route}index.html`, root), "utf8");
     const header = html.match(/<header\b[\s\S]*?<\/header>/)?.[0];
     assert.ok(header);
-    assert.match(header, /aria-controls="service-navigation"/);
+    assert.match(header, /<button\b[^>]*aria-controls="service-navigation"[^>]*>\s*Palvelumme/);
+    const footer = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0];
+    assert.ok(footer);
+    assert.doesNotMatch(header + footer, /href="\/tietoa-meista\//);
     for (const slug of slugs) assert.match(header, new RegExp(`href="/${slug}/"`));
   }
 });

@@ -81,10 +81,8 @@ body :is(a, button, summary, input, textarea):focus-visible {
 .site-menu-toggle, .site-nav__services { display: none; }
 
 .site-nav__group { position: relative; }
-.site-nav__parent { display: flex; align-items: center; }
-.site-header .site-nav__parent > a { display: flex; align-items: center; min-height: 2.75rem; padding: 0; }
-.site-nav__parent > a.is-current { text-decoration: underline; text-underline-offset: 0.5rem; }
-.site-nav__expand { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.site-nav__expand { display: flex; align-items: center; gap: 1rem; min-height: 2.75rem; padding: 0 0.5rem 0 0; border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer; }
+.site-nav__expand:is(.is-current, :hover) { text-decoration: underline; text-underline-offset: 0.5rem; }
 .site-nav__expand > span { width: 0.45rem; height: 0.45rem; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 180ms ease; }
 .site-nav__expand[aria-expanded="true"] > span { transform: translateY(2px) rotate(225deg); }
 .site-nav__submenu { position: absolute; top: 100%; left: -1.25rem; width: 15rem; margin: 0; padding: 0.5rem 1.25rem; list-style: none; background: var(--color-page); color: var(--color-text); border: 1px solid var(--color-line); }
@@ -642,9 +640,7 @@ body :is(a, button, summary, input, textarea):focus-visible {
   }
   .site-header--menu-open .site-nav { display: block; }
   .site-header .site-nav { max-height: calc(100dvh - 4.6rem); overflow-y: auto; }
-  .site-header .site-nav__parent { justify-content: space-between; }
-  .site-header .site-nav__parent > a { min-height: 3.25rem; font-size: 1.125rem; }
-  .site-header--menu-open.site-header--over-dark .site-nav__parent { color: var(--color-text); }
+  .site-header .site-nav__expand { width: 100%; min-height: 3.25rem; justify-content: space-between; }
   .site-header .site-nav__submenu { position: static; width: 100%; border: 0; border-left: 1px solid var(--color-line); margin-bottom: 0.5rem; padding: 0 0 0 1.25rem; }
   .site-nav__submenu li + li { border: 0; }
   .site-header .site-nav > a { min-height: 3.25rem; padding: 0.65rem 0; }
